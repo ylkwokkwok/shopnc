@@ -1,0 +1,306 @@
+/**index.wxss**/
+.container{
+  width: 750rpx;
+  background: #f6f6f6;
+  overflow:hidden;
+}
+.top_search{
+  width:100%;
+  background: #568fdc;
+  height: 90rpx;
+  margin:0;
+  position: relative;
+}
+.top_search input{
+  position: absolute;
+  width: 650rpx;
+  margin:0 auto;
+  height: 70rpx;
+  top: 10rpx;
+  left: 0;
+  right: 0;
+  background: #5c8bcd;
+  border-radius: 10rpx;
+  color:white;
+  padding-left: 15rpx;
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+}
+.top_search image{
+  position: absolute;
+  right: 70rpx;
+  width:40rpx;
+  height: 40rpx;
+  z-index: 100; 
+  top:25rpx;
+}
+.swiper{
+  position: relative;
+}
+.tab-h{
+  height: 100rpx;
+  width: 100%; 
+  overflow: hidden;
+  line-height: 100rpx;
+  font-size: 16px; 
+  white-space: nowrap;
+  z-index: 99;
+  background: white;
+  border-bottom: 1px solid #ccc;  
+}
+.tab-item{margin:0 36rpx;display: inline-block;height: 98rpx;}
+.tab-item.active{color: #568fdc;border-bottom: 2px solid #568fdc;}
+.tab-item.active:after{ content: "";display: block;height: 8rpx;width: 52rpx;background: #4675F9;position: absolute; bottom: 0;left: 5rpx;border-radius: 16rpx;}
+.entry{
+  flex-direction:row;
+  display: flex;
+  height: 130rpx;
+  width: 710rpx;
+  margin:0 auto;
+  background: white;
+  position:absolute;
+  bottom:-120rpx;
+  left:0;
+  right:0;
+}
+.entry>view{
+  width: 25%;
+  height: 100%;
+}
+.entry>view>navigator{
+  width: 100%;
+  height: 100%;
+  display: inline;
+}
+.entry view image{
+  width: 43rpx;
+  height: 43rpx;
+  display: block;
+  margin:auto;
+  margin-top: 27rpx;
+}
+.entry view .entry_text{
+  text-align: center;
+  padding-top: 17rpx;
+  font-size: 30rpx;
+}
+.same{
+  margin-top: 150rpx;
+}
+.same>view{
+  width:145rpx;
+  margin:auto;
+  display: flex;
+  flex-direction: row;
+}
+.same .choicetext{
+  font-size: 24rpx;
+  color: #8a8a8a;
+  width: 135rpx;
+  text-align: center;
+}
+.same .arc{
+  width: 10rpx;
+  height: 10rpx;
+  background: #8a8a8a;
+  border-radius: 50%;
+  margin-top: 12rpx;
+}
+ .hotshow{
+  width:710rpx;
+  margin:auto;
+  margin-top:20rpx;
+  display: flex;
+  flex-direction: row;
+}
+.hotshow .left{
+  width:270rpx;
+  background: white;
+  height:230rpx;
+  position: relative;
+}
+.hotshow view .tit{
+  font-size: 30rpx;
+  padding-left: 20rpx;
+  padding-top: 15rpx;
+}
+.hotshow view .jie{
+  font-size: 24rpx;
+  padding-left: 20rpx;
+  color:#999999;
+  width:215rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hotshow view .sign{
+  width: 35rpx;
+  height: 35rpx;
+  position:absolute;
+  top:10rpx;
+  right: 10rpx;
+  background: red;
+  color: white;
+  text-align: center;
+  line-height: 35rpx;
+  font-size: 22rpx;
+  border-radius: 12rpx;
+}
+.hotshow .left .price{
+  float: left;
+  font-size: 30rpx;
+  padding-left: 20rpx;
+}
+.hotshow .left .price .newprice{
+  color: red;
+  padding-top: 50rpx;
+}
+.hotshow .left .price .oldprice{
+  color: #999999;
+  text-decoration: line-through;
+}
+.hotshow .left .proimg{
+  float: left;
+  width:100rpx;
+  margin-left: 30rpx;
+  margin-top:15rpx;
+}
+.hotshow .left .proimg image{
+  width:100%;
+}
+.hotshow .right{
+  width: 420rpx;
+  background: white;
+  height: 230rpx;
+  margin-left: 20rpx;
+}
+.hotshow .right .proimg{
+  margin-top: 15rpx;
+}
+.hotshow .right .proimg image{
+  width:100rpx;
+  margin-left: 20rpx;
+} 
+/**
+  今日上新
+*/
+.todaynew{
+  width: 750rpx;
+  padding:20rpx 0;
+  background: white;
+  margin-top: 140rpx;
+}
+.todaynew .center{
+  width:710rpx;
+  margin:auto;
+  padding-top:20rpx;
+}
+.todaynew .center .top{
+  overflow: hidden;
+  margin-bottom:20rpx;
+}
+.todaynew .center .tit{
+  font-size: 34rpx;
+  float: left;
+}
+.todaynew .center .top navigator{
+  float: right;
+  color: #999;
+  font-size: 24rpx;
+}
+.todaynew .center .prolist{
+  display: flex;
+  flex-direction: row;
+}
+.todaynew .center .prolist .pro{
+  width:25%;
+}
+.todaynew .center .prolist .pro image{
+  width: 100rpx;
+  display: block;
+  margin:auto;
+}
+/*
+  精彩快报
+*/
+.advert{
+  width: 750rpx;
+  height: 100rpx;
+  background: white;
+  margin-top:20rpx;
+  display: flex;
+  flex-direction: row;
+}
+.advert>image{
+  width: 80rpx;
+  margin-left: 20rpx;
+  margin-top:13rpx;
+}
+.advert>swiper{
+  width: 600rpx;
+  height: 100rpx;
+  margin-left: 30rpx;
+}
+.advert swiper-item{
+   height: 100%;
+    line-height: 100rpx;
+}
+.advert swiper-item view{
+  font-size: 28rpx;
+}
+.advert swiper-item view text{
+  font-size: 24rpx;
+  color: red;
+  margin-left: 20rpx;
+}
+.newprice,.oldprice{
+  font-size: 30rpx;
+  text-align: center;
+}
+.newprice{
+  color: red;
+}
+.oldprice{
+  color: #999999;
+  text-decoration: line-through;
+}
+.choicepro .left{
+  width:345rpx;
+}
+.choicepro .right{
+  width: 345rpx;
+  position: relative;
+}
+.choicepro .proimgs,.bigbrand .proimgs{
+  width: 178rpx;
+  position: absolute;
+  top:10rpx;
+  right:20rpx;
+}
+.choicepro .proimgs image,.bigbrand .proimgs image{
+  width: 178rpx;
+}
+.bigbrand{
+  display: block;
+}
+.bigbrand>view{
+  width: 345rpx;
+  position: relative;
+  height: 230rpx;
+  background: white;
+  float: left;
+  margin-right: 20rpx;
+  margin-bottom: 25rpx;
+}
+.bigbrand>view:nth-child(even){
+  margin-right: 0;
+}
+.sign2{
+  width: 100rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  color: white;
+  background: red;
+  text-align: center;
+  font-size: 24rpx;
+}

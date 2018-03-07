@@ -1,0 +1,120 @@
+.container{
+  background: #f6f6f6;
+  min-height: 1056rpx;
+}
+.top_search{
+  width:100%;
+  height: 90rpx;
+  margin:0;
+  position: relative;
+}
+.top_search input{
+  position: absolute;
+  width: 650rpx;
+  margin:0 auto;
+  height: 70rpx;
+  top: 10rpx;
+  left: 0;
+  right: 0;
+  background: #dfdede;
+  border-radius: 10rpx;
+  color:#666;
+  padding-left: 15rpx;
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+}
+.top_search image{
+  position: absolute;
+  right: 70rpx;
+  width:40rpx;
+  height: 40rpx;
+  z-index: 100; 
+  top:25rpx;
+}
+.shoplist{
+  margin:auto;
+  margin-top: 20rpx;
+  width: 710rpx;
+  display: flex;
+  flex-direction: row;
+}
+.shoplist .elme{
+  width: 345rpx;
+  margin-right: 20rpx;
+  background: white;
+  height: 480rpx;
+}
+.shoplist .elme:nth-child(even){
+  margin-right: 0;
+}
+.shoplist .elme .tit{
+  font-size: 20rpx;
+  color: red;
+  text-align: right;
+  padding-right: 20rpx;
+  padding-top:10rpx;
+}
+.shoplist .elme .pro_img{
+  width: 218rpx;
+  display: block;
+  margin:auto;
+}
+.shoplist .elme .jie{
+  font-size: 28rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  padding:0rpx 12rpx;
+  margin-top:20rpx;
+}
+.shoplist .elme .price{
+  font-size: 30rpx;
+  color: red;
+  float: left;
+  padding-left: 12rpx;
+}
+.shoplist .elme .tuan{
+  width: 110rpx;
+  float: left;
+  position: relative;
+  margin-left: 20rpx;
+  margin-top:-5rpx;
+}
+.shoplist .elme .tuan image{
+  width: 100%;
+}
+.shoplist .elme .tuan view{
+  position: absolute;
+  width:100%;
+  text-align: center;
+  color: white;
+  top:15rpx;
+  left: 0;
+  right: 0;
+  font-size: 20rpx;
+}
+.shoplist .elme .left{
+  float: left;
+}
+.shoplist .elme .oldprice,.shoplist .elme .pinglun{
+  font-size: 24rpx;
+  color: #afafaf;
+  padding-left: 12rpx;
+}
+.shoplist .elme .oldprice text{
+  text-decoration: line-through;
+}
+.shoplist .elme .gotuan{
+  float: right;
+  width: 100rpx;
+  height: 40rpx;
+  border:1px solid red;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  color: red;
+  margin-top:10rpx;
+  margin-right: 20rpx;
+  border-radius: 10rpx;
+}

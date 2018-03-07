@@ -1,0 +1,75 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="tab-list">
+    <view class="item {{currentTab==0?'on':''}}" bindtap='swichNav' data-current="0">分店店铺</view>
+    <view class="item {{currentTab==1?'on':''}}" bindtap='swichNav' data-current="1">总店店铺</view>
+    <view class="item {{currentTab==2?'on':''}}" bindtap='swichNav' data-current="2">商品</view>
+  </view>
+  <view class="tabshow">
+    <!--分店-->
+    <view style="{{currentTab==0?'display:block':'display:none'}}">
+      <block wx:if="{{bransh.length==0}}">
+        <view class="nocollect">
+          <image src="/images/infocenter/nocollect.jpg" mode='widthFix'></image>
+          <text>您暂时没有收藏任何分店</text>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="prompt">共{{bransh.length}}条收藏记录 <text>【最多收藏30条】</text></view>
+        <view wx:for="{{bransh}}" wx:for-item="bransh" id="{{bransh.id}}" class="item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{bransh.right}}px" data-group="{{bransh.groupname}}">
+          <image class="img" src="{{bransh.img}}" mode="widthFix"></image>
+          <view class="number-wrapper">
+            <text class="name">{{bransh.name}}</text>
+            <text class="detail">{{bransh.detail}}</text>
+          </view> 
+          <view class="remove" data-id="{{bransh.id}}" bindtap="delItem" data-group="{{bransh.groupname}}"><view>删除</view></view>
+        </view>
+      </block>
+    </view>
+    <!--总店-->
+    <view style="{{currentTab==1?'display:block':'display:none'}}">
+      <block wx:if="{{mainStore.length==0}}">
+        <view class="nocollect">
+          <image src="/images/infocenter/nocollect.jpg" mode='widthFix'></image>
+          <text>您暂时没有收藏任何总店</text>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="prompt">共{{bransh.length}}条收藏记录 <text>【最多收藏30条】</text></view>
+        <view wx:for="{{mainStore}}" wx:for-item="bransh" id="{{bransh.id}}" class="item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{bransh.right}}px" data-group="{{bransh.groupname}}">
+          <image class="img" src="{{bransh.img}}" mode="widthFix"></image>
+          <view class="number-wrapper">
+            <text class="name">{{bransh.name}}</text>
+            <text class="detail">{{bransh.detail}}</text>
+          </view> 
+          <view class="remove" data-id="{{bransh.id}}" bindtap="delItem" data-group="{{bransh.groupname}}"><view>删除</view></view>
+        </view>
+      </block>
+    </view>
+    <!--商品-->
+    <view style="{{currentTab==2?'display:block':'display:none'}}"> 
+      <block wx:if="{{shops.length==0}}">
+        <view class="nocollect">
+          <image src="/images/infocenter/nocollect.jpg" mode='widthFix'></image>
+          <text>您暂时没有收藏任何商品</text>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="prompt">共{{bransh.length}}条收藏记录 <text>【最多收藏30条】</text></view>
+        <view wx:for="{{shops}}" wx:key="index" wx:for-item="bransh" id="{{bransh.id}}" class="item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{bransh.right}}px" data-group="{{bransh.groupname}}">
+          <image class="sel" bindtap="selBtn" src="{{bransh.isSelected?'/images/comment_select.png':'/images/comment_normal.png'}}" mode="widthFix" data-current="{{index}}" data-id="{{index}}"></image>
+          <image class="img" src="{{bransh.img}}" mode="widthFix"></image>
+          <view class="number-wrapper">
+            <text class="name">{{bransh.name}}</text>
+            <text class="detail">{{bransh.detail}}</text>
+          </view> 
+          <view class="remove" data-id="{{bransh.id}}" bindtap="delItem" data-group="{{bransh.groupname}}"><view>删除</view></view>
+        </view>
+        <view class="foot">
+          <image class="sel" src="{{isAllSelected?'/images/comment_select.png':'/images/comment_normal.png'}}" mode='widthFix' bindtap='allSelect'></image>
+          <text>全选</text>
+          <view class="del" bindtap="delSelected">删除</view>
+        </view>
+      </block>
+    </view> 
+  </view>
+</view>

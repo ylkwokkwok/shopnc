@@ -1,0 +1,70 @@
+{
+  "pages":[
+    "page/infocenter/infocenter",
+    "page/index/index",
+
+    "page/index/pages/pingtuan/pingtuan",
+    "page/index/pages/pintuan_detail/pintuan_detail",
+    
+    "page/assindex/assindex",
+    "page/assindex/pages/shoplist/shoplist",
+    "page/assindex/pages/shopdetail/shopdetail",
+    "page/assindex/pages/evaluate/evaluate",
+    "page/assindex/pages/confirmorder/confirmorder",
+    "page/city/city",
+    "page/gwc/gwc",
+    "page/infocenter/pages/addAddress/addAddress",
+    "page/infocenter/pages/openvip/openvip",
+    "page/infocenter/pages/novip/novip",
+    "page/infocenter/pages/entry/entry",
+    "page/infocenter/pages/addressManage/addressManage",
+    "page/infocenter/pages/bindPhone/bindPhone",
+    "page/infocenter/pages/alreadyBindPhone/alreadyBindPhone",
+    "page/infocenter/pages/changPhone/changePhone",
+    "page/infocenter/pages/myCollect/myCollect"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#568fdc",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#568fdc",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "page/index/index",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_sel.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "page/assindex/assindex",
+        "iconPath": "images/fenlei.png",
+        "selectedIconPath": "images/fenlei_sel.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "page/city/city",
+        "iconPath": "images/samecity.png",
+        "selectedIconPath": "images/samecity_sel.png",
+        "text": "同城"
+      },
+      {
+        "pagePath": "page/gwc/gwc",
+        "iconPath": "images/gwc.png",
+        "selectedIconPath": "images/gwc_sel.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "page/infocenter/infocenter",
+        "iconPath": "images/info.png",
+        "selectedIconPath": "images/info_sel.png",
+        "text": "个人中心"
+      }
+    ]
+  }
+}

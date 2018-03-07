@@ -1,0 +1,118 @@
+<view class="container">
+<!--商品图片轮播-->
+  <view class="swiper">
+    <swiper duration="1000" circular="true" bindchange='changeSwiper'>
+      <block wx:for="{{imgs}}" wx:key="*this">
+        <swiper-item>
+          <image src="{{item}}" mode='widthFix'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view>
+        {{current}}/{{imgs.length}}
+    </view>
+  </view>
+  <!--商品信息-->
+  <view class="shops">
+    <view class="top">
+      <view class="tit">{{info.tit}}</view>
+      <view class="collect {{collect}}">
+        <image src="{{collectImg}}" mode='widthFix' bindtap='changeCollect'></image>
+        <text>{{collectText}}</text>      
+      </view>
+    </view>
+    <view class="middle">
+      <view class="price">￥{{info.price}}</view>
+      <view class="tuan">
+        <image src="/images/bg.png" mode='widthFix'></image>
+        <view>2人参团</view>
+      </view>
+    </view>
+    <view class="bottom">
+      <view class="oldprice">原价：<text>￥{{info.oldprice}}</text></view>
+      <view class="right">
+        <view class="salesvolumn">销量：{{info.salesvolumn}}件</view>
+        <view class="stock">库存{{info.stock}}件</view>
+      </view>
+    </view>
+  </view>
+  <!--拼团玩法介绍-->
+  <navigator class="introduce" url="">
+    <view class="left">拼团玩法介绍</view>
+    <image src="/images/jt.png" mode='widthFix'></image>
+  </navigator>
+  <!--正在拼团-->
+  <view class="collaging">
+    <view class="top">
+      <view>正在拼团</view>
+      <navigator url="">
+        <text>查看更多</text>
+        <image src="/images/jt.png" mode='widthFix'></image>
+      </navigator>
+    </view>
+    <view class="collage_list">
+      <block wx:for="{{collage_list}}" wx:key="*this">
+        <view class="collage_one">
+          <image src="{{item.tx}}" mode='widthFix'></image>
+          <view class="username">{{item.username}}</view>
+          <view class="gray_bg">
+            <view class="first">差一人成团</view>
+            <view class="time">{{countDownHour}}:{{countDownMinute}}:{{countDownSecond}}</view>
+          </view>
+          <navigator url="">立即参与</navigator>
+        </view>
+      </block>
+    </view>
+  </view>
+  <!--评价-->
+  <view class="evaluate">
+    <view class="top">评价</view>
+     <block wx:for="{{evalutes}}" wx:key="*this">
+        <view class="evaluate_one">
+          <view class="up">
+            <view class="username">{{item.username}}</view>
+            <view class="date">{{item.date}}</view>
+            <view class="star">
+              <block wx:for="{{item.star}}" wx:for-item="itemName">
+                <image src="{{item.starimg}}" mode='widthFix'></image>
+              </block>
+            </view>
+          </view>
+          <view class="bottom">
+            <view class="content">{{item.content}}</view>
+            <view class="shopsimg">
+              <block wx:for="{{item.shopimgs}}" wx:for-item="itemName">
+                <image src="{{itemName}}"></image>
+              </block>
+            </view>
+          </view>
+        </view>
+      </block>
+      <navigator url="/pages/evaluate/evaluate">查看全部</navigator>
+  </view>
+  <!--产品参数-->
+  <view class="swiper-tab">  
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">产品详情</view>  
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">产品参数</view>  
+  </view>  
+  <swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange">  
+    <swiper-item>  
+      <view>产品详情</view>  
+    </swiper-item>  
+    <swiper-item>  
+      <view>产品参数</view>  
+    </swiper-item>  
+  </swiper> 
+  <view class="foot">
+    <navigator class="first">
+      <image src="/images/mypintuan.png" mode='widthFix'></image>
+      <view>我的拼团</view>
+    </navigator>
+    <navigator class="second" url="">
+      <view class="money">￥{{money}}<text>单独购买</text></view>
+    </navigator>
+    <navigator class="thrid" url="pages/pay/pay">
+      <view class="money">￥{{money2}}<text>2人团</text></view>
+    </navigator>
+  </view>
+</view>

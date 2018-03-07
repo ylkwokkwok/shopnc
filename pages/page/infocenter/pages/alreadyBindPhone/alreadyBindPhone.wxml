@@ -1,0 +1,10 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="alreadybindphone">
+    <view class="same">
+      <label>手机号</label>
+      <text>{{phone}}</text>
+    </view>
+    <navigator url="../changPhone/changePhone">更换手机号</navigator>
+  </view>
+  <navigator open-type='switchTab' class="returnInfo" url="/page/infocenter/infocenter">返回个人中心</navigator>
+</view>

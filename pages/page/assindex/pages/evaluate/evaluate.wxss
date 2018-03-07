@@ -1,0 +1,68 @@
+.evaluate-tab{
+  display: flex;
+  flex-direction: row;
+  width: 750rpx;
+  padding:20rpx;
+}
+.evaluate-tab .evaluate-tab-list{
+  font-size: 20rpx;
+  background: #eef4fb;
+  color: #8c8d8f;
+  padding:10rpx;
+  margin-right: 20rpx;
+  border-radius: 20rpx;
+}
+.evaluate-tab .on{
+  background: #568fdc;
+  color: white;
+}
+.evaluate .evaluate_one{
+  border-bottom:1px solid  #ccc;
+  width:710rpx;
+  margin:auto;
+  padding:20rpx 0;
+}
+.evaluate .evaluate_one .up{
+  overflow: hidden;
+  line-height: 25rpx;
+}
+.evaluate .evaluate_one .up .username,.evaluate .evaluate_one .up .date{
+  color: #666666;
+  font-size: 26rpx;
+  float: left;
+}
+.evaluate .evaluate_one .up .star{
+  float: right;
+}
+.evaluate .evaluate_one .up .star image{
+  width:30rpx;
+  margin-right: 5rpx;
+}
+.evaluate .evaluate_one .up .date{
+  padding-left: 20rpx;
+}
+.evaluate .evaluate_one .bottom{
+  padding-top:20rpx;
+}
+.evaluate .evaluate_one .bottom .content{
+  font-size: 28rpx;
+}
+.evaluate .evaluate_one .bottom .shopsimg{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+}
+.evaluate .evaluate_one .bottom .shopsimg image{
+  width: 120rpx;
+  height: 120rpx;
+  border:1px solid #ccc;
+  margin-right: 20rpx;
+}
+.evaluate>navigator{
+  height: 90rpx;
+  width: 100%;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 26rpx;
+  letter-spacing: 3rpx;
+}

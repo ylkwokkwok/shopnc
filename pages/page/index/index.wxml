@@ -1,0 +1,135 @@
+<!--index.wxml-->
+<view class="container">
+  <!--搜索-->
+  <view class="top_search">
+    <input confirm-type="search" type="text" placeholder='请输入您要搜索的内容' placeholder-style="color:#fff"/>
+    <image src='../../images/search.png' mode='widthFix'></image>
+  </view>
+  <!--筛选-->
+  <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+    <view class="tab-item {{currentTab==0?'active':''}}"  data-current="0" bindtap="swichNav">首页</view>
+    <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">休闲零食</view>
+    <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">特色生鲜</view>
+    <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">地方特产</view>
+    <view class="tab-item {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">粮油米面</view>
+    <view class="tab-item {{currentTab==5?'active':''}}" data-current="5" bindtap="swichNav">生活用品</view>
+    <view class="tab-item {{currentTab==6?'active':''}}" data-current="6" bindtap="swichNav">其他</view>
+  </scroll-view>
+  <!--轮播-->
+  <view class="swiper">
+    <swiper indicator-dots="true"
+      autoplay="true" interval="5000" duration="1000">
+      <block wx:for="{{imgs}}" wx:key="*this">
+        <swiper-item>
+          <navigator url="{{item.link}}" open-type='switchTab'><image src="{{item.img_url}}" style="width:100%;"></image></navigator>
+        </swiper-item>
+      </block>
+    </swiper>
+     <!--选择入口-->
+    <view class="entry">
+      <block wx:for="{{entrys}}" wx:key="*this">
+        <view>
+          <navigator url="{{item.link}}" open-type='navigate'>
+            <image class="entry_img" src="{{item.img_url}}"></image>
+            <view class="entry_text">{{item.text}}</view>
+          </navigator>
+        </view>
+      </block>
+    </view>
+  </view>
+  <!--今日上新-->
+  <view class="todaynew">
+    <view class="center">
+      <view class="top">
+        <view class="tit">今日上新</view>
+        <navigator url="">更多新品 ></navigator>
+      </view>
+      <view class="prolist">
+        <block wx:for="{{pros}}" wx:key="*this">
+          <view class="pro">
+            <navigator url="{{item.link}}">
+              <image class="entry_img" src="{{item.img_url}}" mode='widthFix'></image>
+              <view class="newprice">￥{{item.newprice}}</view>
+              <view class="oldprice">￥{{item.oldprice}}</view>
+            </navigator>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <!--精彩快报-->
+  <view class="advert">
+    <image src="../../images/kuaibao.png" mode='widthFix'></image>
+    <swiper autoplay="true" interval="8000" duration="500">
+      <block wx:for="{{ads}}" wx:key='*this'>
+        <swiper-item>
+           <view>{{item.shopname}}<text>店铺今日收益{{item.profit}}元</text></view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="same" style="margin-top:20rpx;">
+    <view>
+      <view class="leftarc arc"></view>
+      <view class="choicetext">精选产品</view>
+      <view class="rightarc arc"></view>
+    </view>
+  </view>
+  <view class='choicepro hotshow'>
+    <view class="left">
+        <view class="tit">炫彩小推车</view>
+        <view class='jie'>当沙发客就大幅拉升</view>
+        <view class="proimgs">
+          <image src="../../images/shop2.png" mode='widthFix'></image>
+        </view>
+    </view>
+    <view class='right'>
+       <view class="tit">炫彩小推车</view>
+        <view class='jie'>当沙发客就大幅拉升</view>
+        <view class="proimgs">
+          <image src="../../images/shop2.png" mode='widthFix' stylle="width:180rpx;"></image>
+        </view>
+    </view>
+  </view>
+  <view class="same" style="margin-top:20rpx;">
+    <view>
+      <view class="leftarc arc"></view>
+      <view class="choicetext">大品牌</view>
+      <view class="rightarc arc"></view>
+    </view>
+  </view>
+  <view class='bigbrand hotshow'>
+      <view>
+          <view class="sign2">大品牌</view>
+          <view class="tit">炫彩小推车</view>
+          <view class='jie'>当沙发客就大幅拉升</view>
+          <view class="proimgs">
+            <image src="../../images/shop2.png" mode='widthFix'></image>
+          </view>
+      </view>
+      <view>
+        <view class="sign2">大品牌</view>
+        <view class="tit">炫彩小推车</view>
+          <view class='jie'>当沙发客就大幅拉升</view>
+          <view class="proimgs">
+            <image src="../../images/shop2.png" mode='widthFix' stylle="width:180rpx;"></image>
+          </view>
+      </view>
+      <view>
+         <view class="sign2">大品牌</view>
+          <view class="tit">炫彩小推车</view>
+          <view class='jie'>当沙发客就大幅拉升</view>
+          <view class="proimgs">
+            <image src="../../images/shop2.png" mode='widthFix'></image>
+          </view>
+      </view>
+      <view>
+       <view class="sign2">大品牌</view>
+        <view class="tit">炫彩小推车</view>
+          <view class='jie'>当沙发客就大幅拉升</view>
+          <view class="proimgs">
+            <image src="../../images/shop2.png" mode='widthFix' stylle="width:180rpx;"></image>
+          </view>
+      </view>
+    </view>
+</view>

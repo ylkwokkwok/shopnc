@@ -1,0 +1,47 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="address">
+    <image src="../../images/pos.png" mode='widthFix'></image>
+    <text>{{address}}</text>
+  </view>
+  <!--产品列表-->
+  <view wx:for="{{cardTeams}}" id="{{item.id}}" class="item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{item.right}}px">
+      <view class="cart_container">
+        <image class="item-select" bindtap="switchSelect" data-index="{{index}}" data-id="{{index}}" src="{{item.isSelect?'../../images/comment_select.png':'../../images/comment_normal.png'}}" />
+        <navigator url="">
+          <image class="item-image" src="{{item.pic}}"></image>
+        </navigator>
+
+        <view class="column">
+          <text class="title">{{item.name}}</text>
+          <view class="row">
+            <text class="sku-price">￥</text>
+            <text class="sku-price">{{item.price}}</text>
+            <view class="sku">
+              <template is="quantity" data="{{ ...item.count, componentId: index }}" />
+            </view>
+          </view>
+        </view>
+      </view> 
+    <view class="remove" data-id="{{item.id}}" bindtap="delItem">删除</view>
+  </view>
+  <view class="bottom_total">
+    <view class="left">
+      <view class="allsel">
+        <image class="item-allselect" bindtap="allSelect" src="{{isAllSelect?'../../images/comment_select.png':'../../images/comment_normal.png'}}" />
+        <text class="small_text">全选</text>
+      </view>
+      <view class="count">
+        合计:<text class="price">￥{{totalMoney}}</text>
+      </view>
+    </view>
+    <view class="right">
+      <view class="collect">加入收藏</view>
+      <view class="pay"><navigator url=''>前往支付</navigator></view>
+    </view>
+  </view>
+  <!--弹出层-->
+  <view class="bg"></view>
+  <view>
+
+  </view>
+</view>

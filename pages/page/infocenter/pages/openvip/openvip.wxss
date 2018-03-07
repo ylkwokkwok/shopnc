@@ -1,0 +1,182 @@
+.container{
+  background: #f6f6f6;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+.infotop{
+  width: 750rpx;
+  height: 250rpx;
+  margin:auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10rpx;
+  background: white;
+}
+.infotop .txbg{
+  width: 710rpx;
+  position: absolute;
+  top: 20rpx;
+  filter:blur(15rpx);
+	-webkit-filter:blur(15rpx);
+	-moz-filter:blur(15rpx);
+	-ms-filter:blur(15rpx);
+	-o-filter:blur(15rpx);
+  border-radius: 10rpx;
+  margin:auto;
+  left: 0;
+  right: 0;
+}
+.content{
+  position: absolute;
+  top: 20rpx;
+  left:0;
+  right: 0;
+  width:620rpx;
+  margin:auto;
+  height: 100%;
+}
+.content .tx{
+  width:120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-top:50rpx;
+  float: left;
+}
+.content .right{
+  float: left;
+  margin-left: 20rpx;
+  width: 480rpx;
+  margin-top:60rpx;
+}
+.content .right .username{
+  font-size: 36rpx;
+  display: block;
+  color: white;
+  text-shadow: 3rpx 3rpx 3rpx gray;
+}
+.content .right .normal{
+  font-size: 24rpx;
+  color: #f4f5f6;
+  text-shadow: 3rpx 3rpx 3rpx gray;
+  float: left;
+  margin-top:10rpx;
+}
+.content .right .novip{
+  float: left;
+  background:-webkit-gradient(linear, 0% 0%, 100% 0%,from(#a3a3a3), to(#e2e2e2));
+  margin-left: 20rpx;
+  border-radius: 20rpx;
+  color: white;
+  font-size: 24rpx;
+  padding:5rpx 10rpx;
+  margin-top: 8rpx;
+}
+.content .right .jifen{
+  font-size: 24rpx;
+  color: black;
+  text-align: right;
+  margin-top:30rpx;
+}
+.openvip{
+  width: 750rpx;
+  background: white;
+  padding-top:20rpx;
+  padding-bottom: 20rpx;
+}
+.openvip .tit{
+  padding:0 20rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.openvip .paytab{
+  display: flex;
+  flex: row;
+  width: 710rpx;
+  margin:auto;
+  margin-top:20rpx;
+}
+.openvip .paytab>view{
+  width: 190rpx;
+  height: 140rpx;
+  border-radius: 10rpx;
+  margin-right: 30rpx;
+  position: relative;
+}
+.openvip .paytab>view>text{
+  text-align: center;
+  display: block;
+}
+.openvip .paytab>view .typename{
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-top: 10rpx;
+}
+.openvip .paytab>view .name{
+  font-size: 36rpx;
+  color: red;
+  font-weight: 800;
+  margin-top: 20rpx;
+}
+.openvip .paytab>view image{
+  position: absolute;
+  right: -5rpx;
+  bottom: -5rpx;
+  width: 30rpx;
+}
+.openvip .ljkt{
+  width: 650rpx;
+  margin: auto;
+  margin-top:50rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  background: #568fdc;
+  color: white;
+  font-size: 30rpx;
+}
+.prompt{
+  width:750rpx;
+  background: white;
+  height: 570rpx;
+  margin-top: 20rpx;
+}
+.prompt .tit{
+  width: 710rpx;
+  margin:auto;
+  padding:20rpx 0;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.prompt .privilege{
+  width: 100%;
+  margin-top:20rpx;
+  display: flex;
+  flex-direction: row;
+}
+.prompt .privilege>view{
+  width: 33.33%;
+}
+.prompt .privilege image{
+  width: 91rpx;
+  display: block;
+  margin:auto;
+}
+.prompt .privilege text{
+  text-align: center;
+  display: block;
+  font-size: 24rpx;
+  color: #4d4d4d;
+  margin-top:10rpx;
+}
+.prompt .promptbegin{
+  margin:auto;
+  margin-top: 40rpx;
+  width:710rpx;
+
+}
+.prompt .promptbegin>text{
+  display: block;
+  width: 100%;
+  font-size: 24rpx;
+  color: #a1a1a1;
+  margin-bottom: 20rpx;
+}

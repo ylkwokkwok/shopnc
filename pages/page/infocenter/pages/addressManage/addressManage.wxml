@@ -1,0 +1,46 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <block wx:if="{{addressList.length==0}}">
+    <view class="center">
+      <image src="/images/infocenter/house.jpg" mode='widthFix'></image>
+      <text class="one">您还没有添加地址</text>
+      <text class="two">请在下方点击【添加地址】进行添加</text>
+    </view>
+  </block>
+  <block wx:else>
+    <block wx:for="{{addressList}}" wx:key="index">
+      <view class="blockEle" id="{{item.id}}">
+        <view class="top">
+          <view class="name">{{item.name}}</view>
+          <view class='phone'>{{item.phone}}</view>
+        </view>
+        <view class="content">
+          <text>{{item.address}}</text>
+        </view>
+        <view class="bottom">
+          <view class="left">
+             <image src="{{currentTab==index?'/images/comment_select.png':'/images/comment_normal.png'}}" data-current='{{index}}' bindtap="swichNav" mode='widthFix'></image> 
+             <block wx:if="{{currentTab==index}}">
+              <text>默认地址</text>
+             </block>
+             <block wx:else>
+              <text>设为默认</text>
+             </block>
+          </view>
+          <view class="right">
+            <view>
+              <image src="/images/assortment/edit.png" mode='widthFix'></image>
+              <text>编辑</text>
+            </view>
+            <view>
+              <image src="/images/infocenter/delete.png" mode='widthFix'></image>
+              <text data-id="{{item.id}}" bindtap="deleteAddress">删除</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </block>
+  <view class="foot">
+    <navigator url="../addAddress/addAddress">添加新地址</navigator>
+  </view>
+</view>

@@ -1,0 +1,168 @@
+.container{
+  background: #f6f6f6;
+}
+.top_search{
+  width:100%;
+  height: 90rpx;
+  margin:0;
+  position: relative;
+  background: white;
+}
+.top_search input{
+  position: absolute;
+  width: 590rpx;
+  margin:0 auto;
+  height: 70rpx;
+  top: 10rpx;
+  left: 0;
+  right: 0;
+  background: #eeeeee;
+  border-radius: 30rpx;
+  color:white;
+  padding-left: 15rpx;
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+}
+.top_search image{
+  position: absolute;
+  right: 100rpx;
+  width:40rpx;
+  height: 40rpx;
+  z-index: 100; 
+  top:25rpx;
+}
+.shai{
+  padding:30rpx 0;
+  background-color: white;
+  width: 750rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-direction: row;
+}
+.shai>view{
+  width: 25%;
+  text-align: center;
+  font-size: 28rpx;
+}
+.shai>view.active{
+  color: #568fdc;
+}
+.shai>view image{
+  width: 30rpx;
+  margin-left: 10rpx;
+  margin-top:10rpx;
+}
+.selectBar{
+  width: 100%;
+  background: white;
+  position: absolute;
+  top: 230rpx;
+  z-index: 1000;
+  border-top:2rpx solid black;
+  height:285rpx;
+}
+.selectBar.show{
+  display: block;
+}
+.selectBar.hide{
+  display: none;
+}
+.selectBar>navigator{
+  height: 70rpx;
+  width: 100%;
+  line-height: 70rpx;
+  border-bottom: 2rpx solid #ccc;
+  padding-left: 20rpx;
+  font-size: 28rpx;
+  color: black;
+}
+.selectBar navigator.on{
+  color: #568fdc;
+}
+.selectBar navigator image{
+  width: 30rpx;
+  float: right;
+  padding-right: 20rpx;
+  margin-top:20rpx;
+}
+.shoplist{
+  margin:auto;
+  margin-top: 20rpx;
+  width: 710rpx;
+  overflow: hidden;
+}
+.shoplist .elme{
+  width: 345rpx;
+  margin-right: 20rpx;
+  background: white;
+  height: 480rpx;
+  float: left;
+  margin-bottom: 20rpx;
+}
+.shoplist .elme:nth-child(even){
+  margin-right: 0;
+}
+.shoplist .elme .tit{
+  font-size: 20rpx;
+  color: red;
+  text-align: right;
+  padding-right: 20rpx;
+  padding-top:10rpx;
+}
+.shoplist .elme .pro_img{
+  width: 218rpx;
+  display: block;
+  margin:auto;
+}
+.shoplist .elme .jie{
+  font-size: 28rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  padding:0rpx 12rpx;
+  margin-top:20rpx;
+}
+.shoplist .elme .price{
+  font-size: 30rpx;
+  color: red;
+  float: left;
+  padding-left: 12rpx;
+}
+.shoplist .elme .tuan{
+  width: 110rpx;
+  float: left;
+  position: relative;
+  margin-left: 20rpx;
+  margin-top:-5rpx;
+}
+.shoplist .elme .tuan image{
+  width: 100%;
+}
+.shoplist .elme .tuan view{
+  position: absolute;
+  width:100%;
+  text-align: center;
+  color: white;
+  top:15rpx;
+  left: 0;
+  right: 0;
+  font-size: 20rpx;
+}
+.shoplist .elme .left{
+  display: flex;
+  flex-direction: row;
+}
+.shoplist .elme .oldprice,.shoplist .elme .pinglun{
+  font-size: 24rpx;
+  color: #afafaf;
+  padding-left: 12rpx;
+  width:50%;
+}
+.shoplist .elme .pinglun{
+  text-align: right;
+  padding-right:20rpx;
+}
+.shoplist .elme .oldprice text{
+  text-decoration: line-through;
+}

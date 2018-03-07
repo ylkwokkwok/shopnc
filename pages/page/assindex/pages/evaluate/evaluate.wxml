@@ -1,0 +1,32 @@
+<view class="container">
+  <view class="evaluate-tab">
+    <navigator url="" class="evaluate-tab-list {{curtab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">全部{{alleva}}</navigator>  
+    <navigator url="" class="evaluate-tab-list {{curtab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">好评{{goodeva}}</navigator>  
+    <navigator url="" class="evaluate-tab-list {{curtab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">中评{{mideva}}</navigator>  
+    <navigator url="" class="evaluate-tab-list {{curtab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">差评{{badeva}}</navigator>  
+    <navigator url="" class="evaluate-tab-list {{curtab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">有图{{imgeva}}</navigator>   
+  </view>
+  <view class="evaluate">
+     <block wx:for="{{evalutes}}" wx:key="*this">
+        <view class="evaluate_one">
+          <view class="up">
+            <view class="username">{{item.username}}</view>
+            <view class="date">{{item.date}}</view>
+            <view class="star">
+              <block wx:for="{{item.star}}" wx:for-item="itemName">
+                <image src="{{item.starimg}}" mode='widthFix'></image>
+              </block>
+            </view>
+          </view>
+          <view class="bottom">
+            <view class="content">{{item.content}}</view>
+            <view class="shopsimg">
+              <block wx:for="{{item.shopimgs}}" wx:for-item="itemName">
+                <image src="{{itemName}}"></image>
+              </block>
+            </view>
+          </view>
+        </view>
+      </block>
+  </view>
+</view>

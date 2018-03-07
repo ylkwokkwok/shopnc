@@ -1,0 +1,154 @@
+.container{
+  background: #f6f6f6;
+}
+.address{
+  width: 750rpx;
+  background: white;
+  height: 100rpx;
+  padding-left: 20rpx;
+}
+.address>image{
+  width: 21rpx;
+  margin-top: 39.5rpx;
+  margin-right: 20rpx;
+}
+.address text{
+  font-size: 30rpx;
+  color: #999;
+}
+.cart_container {
+  display: flex;
+  flex-direction: row;
+}
+.scroll {
+  margin-bottom: 120rpx;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.sku {
+  margin-top: 60rpx;
+  margin-left: 100rpx;
+}
+.sku-price {
+  color: red;
+  position: relative;
+  margin-top: 70rpx;
+}
+.price {
+  color: red;
+  position: relative;
+}
+.title {
+  font-size: 38rpx;
+  margin-top: 40rpx;
+}
+.small_text {
+  font-size: 28rpx;
+  margin-right: 40rpx;
+  margin-left: 10rpx;
+}
+.item-select {
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 90rpx;
+  margin-left: 20rpx;
+}
+.item-allselect {
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+}
+.item-image {
+  width: 180rpx;
+  height: 180rpx;
+  margin: 20rpx;
+}
+.bottom_line {
+  width: 100%;
+  height: 2rpx;
+  background: lightgray;
+}
+.bottom_total {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: white;
+}
+.bottom_total .left{
+  width: 390rpx;
+  display: flex;
+  flex-direction: row;
+}
+.bottom_total .left .allsel{
+  display: flex;
+  flex-direction: row;
+}
+.bottom_total .left .item-allselect{
+  margin-top:30rpx;
+}
+.bottom_total .left .count{
+  font-size: 30rpx;
+}
+.button-red {
+  background-color: #f44336; /* 红色 */
+}
+.bottom_total .right{
+  display: flex;
+  flex-direction: row;
+  width: 360rpx;
+}
+.bottom_total .right>view{
+  width: 50%;
+  line-height: 100rpx;
+  text-align: center;
+  color: white;
+  font-size: 30rpx;
+}
+.bottom_total .right .collect{
+  background: #e8b223;
+}
+.bottom_total .right .pay{
+  background: #568fdc;
+}
+button {
+  position: fixed;
+  right: 0;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 30rpx;
+  border-radius: 0rpx;
+  width: 30%;
+  height: 120rpx;
+  line-height: 120rpx;
+} 
+.item{
+    width: 100%;
+    position: relative; 
+    height: 274rpx;
+    display: flex;
+    margin-top: 10rpx;
+}
+.item .remove{
+    width: 60px;
+    height: 100%;
+    background-color: red;
+    position: absolute;
+    top: 0;
+    right: -60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}

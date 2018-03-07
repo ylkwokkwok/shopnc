@@ -1,0 +1,27 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="top_search">
+    <input confirm-type="search" type="text" placeholder='请输入您要搜索的内容' placeholder-style="color:#666666"/>
+    <image src='../../images/search1.png' mode='widthFix'></image>
+  </view>
+  <view class="shoplist">
+    <block wx:for="{{pros}}" wx:key="*this">
+      <view class="elme">
+        <view class="tit">{{item.title}}</view>
+        <image class="pro_img" src="{{item.img_url}}" mode='widthFix'></image>
+        <view class="jie">{{item.jie}}</view>
+        <view style="overflow:hidden;margin-top:10rpx;">
+          <view class="price">￥{{item.price}}</view>
+          <view class="tuan">
+            <image src="/images/bg.png" mode='widthFix'></image>
+            <view>{{item.tuan}}人参团</view>
+          </view>
+        </view>
+        <view class="left">
+          <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
+          <view class="pinglun">评论:{{item.pinglun}}</view>
+        </view>
+        <navigator class="gotuan" url="{{item.link}}">去拼团</navigator>
+      </view>
+    </block>
+  </view>
+</view>
