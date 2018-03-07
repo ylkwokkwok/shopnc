@@ -21,7 +21,8 @@
     "page/infocenter/pages/bindPhone/bindPhone",
     "page/infocenter/pages/alreadyBindPhone/alreadyBindPhone",
     "page/infocenter/pages/changPhone/changePhone",
-    "page/infocenter/pages/myCollect/myCollect"
+    "page/infocenter/pages/myCollect/myCollect",
+    "page/infocenter/pages/myMainShop/myMainShop"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -23,9 +23,10 @@ Page({
       { "id": 1, name: "收费低啊沙发上", img: "/images/shop2.png", detail: "少部分设计大赛", right: 0, startRight: 0, groupname: "mainStore" }, { "id": 2, name: "但发生的", img: "/images/shop2.png", detail: "但是空间发生大幅上课的发生地", right: 0, startRight: 0, groupname: "mainStore" }
     ],
     shops:[
-      { "id": 1, name: "收费低啊沙发上", img: "/images/shop2.png", detail: "少部分设计大赛", right: 0, startRight: 0, groupname: "shops",isSelectd:false }, { "id": 2, name: "但发生的", img: "/images/shop2.png", detail: "但是空间发生大幅上课的发生地", right: 0, startRight: 0, groupname: "shops",isSelected:false}
+      { "id": 1, name: "收费低啊沙发上", img: "/images/shop2.png", detail: "少部分设计大赛", right: 0, startRight: 0, groupname: "shops",isSelectd:false,count:1}, { "id": 2, name: "但发生的", img: "/images/shop2.png", detail: "但是空间发生大幅上课的发生地", right: 0, startRight: 0, groupname: "shops",isSelected:false,count:1}
     ],
-    isAllSelected:false
+    isAllSelected:false,
+    totalsel:0
   },
   swichNav: function (e) {
     var cur = e.currentTarget.dataset.current;
@@ -267,40 +268,61 @@ Page({
 
     index = parseInt(e.currentTarget.dataset.index);
     this.data.shops[index].isSelected = !this.data.shops[index].isSelected;
+    if (this.data.shops[index].isSelected) {
+      this.data.totalsel = this.data.totalsel + this.data.shops[index].count;
+    }
+    else {
+      this.data.totalsel = this.data.totalsel - this.data.shops[index].count;
+    }
     //是否全选判断
-    // for (i = 0; i < this.data.shops.length; i++) {
-    //   Allprice = Allprice + this.data.shops[i].price;
-    // }
-    // if (Allprice == this.data.totalMoney) {
-    //   this.data.isAllSelected = true;
-    // }
-    // else {
-    //   this.data.isAllSelected = false;
-    // }
+    for (i = 0; i < this.data.shops.length; i++) {
+      Allprice = Allprice + this.data.shops[i].count;
+    }
+    if (Allprice == this.data.totalsel) {
+      this.data.isAllSelected = true;
+    }
+    else {
+      this.data.isAllSelected = false;
+    }
     this.setData({
       shops: this.data.shops,
+      totalsel:this.data.totalsel,
       isAllSelected: this.data.isAllSelected,
     })
   },
+  //全选
   allSelect: function (e) {
     //处理全选逻辑
     let i = 0;
     if (!this.data.isAllSelected) {
       for (i = 0; i < this.data.shops.length; i++) {
         this.data.shops[i].isSelected = true;
-        // this.data.totalMoney = this.data.totalMoney + this.data.shops[i].price;
+        this.data.totalsel = this.data.totalsel + this.data.shops[i].count;
       }
     }
     else {
       for (i = 0; i < this.data.shops.length; i++) {
         this.data.shops[i].isSelected = false;
       }
-      // this.data.totalMoney = 0;
+      this.data.totalsel = 0;
     }
     this.setData({
       shops: this.data.shops,
-      isAllSelected: !this.data.isAllSelected,
+      totalsel:this.data.totalsel,
+      isAllSelected: !this.data.isAllSelected
     })
+  },
+  //多个删除
+  delSelected:function(e){
+    var newShops=[];
+    for(var i=0;i<this.data.shops.length;i++){
+      if(!this.data.shops[i].isSelected){
+        newShops.push(this.data.shops[i]);
+      }
+    }
+    this.setData({
+      shops:newShops
+    });
   },
   /**
    * 生命周期函数--监听页面加载
