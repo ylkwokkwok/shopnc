@@ -1,0 +1,238 @@
+.container{
+  background: #f6f6f6;
+}
+.address{
+  width: 750rpx;
+  background: white;
+  height: 100rpx;
+  padding-left: 20rpx;
+}
+.address>image{
+  width: 21rpx;
+  margin-top: 39.5rpx;
+  margin-right: 20rpx;
+}
+.address text{
+  font-size: 30rpx;
+  color: #999;
+}
+/* 购物车 s */
+.store-cart{
+  border-top:1px solid #eeeeee;
+  border-bottom:1px solid #eeeeee;
+  margin-bottom:20px;
+  background:#ffffff;
+}
+.store-info {
+  line-height:45px;
+  border-bottom:1px solid #eeeeee;
+  padding:0 10px;
+}
+.store-info .store-icon {
+  width:16px;
+  height:16px;
+  vertical-align:middle;
+  margin-right:5px;
+}
+.store-info .store-name {
+  display:inline-block;
+  font-size:16px;
+  color:#666666;
+  vertical-align:middle;
+}
+.goods-list {
+  padding-left:10px;
+  padding-right:10px;
+}
+.goods-list .goods:last-child {
+  border-bottom:none;
+}
+.goods-list .goods {
+  padding-top:15px;
+  padding-bottom:15px;
+  display:flex;
+  flex-direction:row;
+  border-bottom:1px solid #eeeeee;
+}
+.goods-list .goods .goods-image-wrapper {
+  display:flex;
+  margin-right:5px;
+}
+.goods-list .goods .goods-image {
+  display:inline-block;
+  padding:5px;
+  border:1px solid #eeeeee;
+  border-radius:5px;
+  vertical-align:middle;
+}
+.goods-list .goods .goods-image image{
+  width: 70px;
+  height: 70px;
+  border-radius: 5px;
+  vertical-align: middle;
+}
+.goods-list .goods .goods-infos-wrapper{
+  flex: 1;
+  flex-grow: 1;
+  overflow: hidden;
+}
+.goods-list .goods .goods-infos-wrapper .goods-name-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.goods-list .goods .goods-infos-wrapper .goods-name-wrapper .goods-name{
+  display: flex;
+  flex-grow: 1;
+  flex: 1;
+  height: 30px;
+  font-size: 14px;
+  color: #333333;
+  padding-right: 5px;
+  line-height: 15px;
+  overflow: hidden;
+}
+.goods-list .goods .goods-infos-wrapper .goods-name-wrapper .goods-del{
+  width: 16px;
+  height: 16px;
+}
+.goods-list .goods .goods-infos-wrapper .goods-jingle{
+  font-size: 12px;
+  line-height: 20px;
+  color: #666666;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.goods-list .goods .goods-infos-wrapper .goods-price{
+  display: inline-block;
+  font-size: 16px;
+  padding-top: 9px;
+  color: #DB4453;
+}
+.goods-list .goods .goods-infos-wrapper .inc-num-dec-group{
+  display: inline-block;
+  float: right;
+}
+.goods-list .goods .goods-infos-wrapper .goods-amount{
+  float: right;
+  display: inline-block;
+  padding-right: 10px;
+  padding-top: 12px;
+  color: #333;
+}
+/* 购物车 e */
+
+/* 自增+数字+自减组 */
+/*
+<view class='inc-num-dec-group'>
+  <view class='dec'>-</view>
+  <view class='num'>20</view>
+  <view class='inc'>+</view>
+</view>
+*/
+.inc-num-dec-group{
+  line-height: 30px;
+  font-size: 14px;
+}
+
+.inc-num-dec-group .dec{
+  display: inline-block;
+  padding: 0 12px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: 1px solid #cccccc;
+  border-right: none;
+  color: #666666;
+}
+
+.inc-num-dec-group .num{
+  display: inline-block;
+  padding: 0px 12px;
+  border: 1px solid #cccccc;
+  color: #333333;
+  min-width: 20px;
+  text-align: center;
+}
+
+.inc-num-dec-group .inc{
+  display: inline-block;
+  padding: 0px 12px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 1px solid #cccccc;
+  border-left: none;
+  color: #666666;
+}
+
+.bottom_line {
+  width: 100%;
+  height: 2rpx;
+  background: lightgray;
+}
+.bottom_total {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: white;
+}
+.bottom_total .left{
+  width: 390rpx;
+  display: flex;
+  flex-direction: row;
+}
+.bottom_total .left .allsel{
+  display: flex;
+  flex-direction: row;
+}
+.bottom_total .left .item-allselect{
+  margin-top:30rpx;
+}
+.bottom_total .left .count{
+  font-size: 30rpx;
+}
+.button-red {
+  background-color: #f44336; /* 红色 */
+}
+.bottom_total .right{
+  display: flex;
+  flex-direction: row;
+  width: 360rpx;
+}
+.bottom_total .right>view{
+  width: 50%;
+  line-height: 100rpx;
+  text-align: center;
+  color: white;
+  font-size: 30rpx;
+}
+.bottom_total .right .collect{
+  background: #e8b223;
+}
+.bottom_total .right .pay{
+  background: #568fdc;
+}
+button {
+  position: fixed;
+  right: 0;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 30rpx;
+  border-radius: 0rpx;
+  width: 30%;
+  height: 120rpx;
+  line-height: 120rpx;
+}
+.price{
+  color: red;
+}
+
+
+
+
+

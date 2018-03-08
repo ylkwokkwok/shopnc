@@ -1,11 +1,9 @@
 {
-  "pages":[
+  "pages": [
     "page/infocenter/infocenter",
     "page/index/index",
-
     "page/index/pages/pingtuan/pingtuan",
     "page/index/pages/pintuan_detail/pintuan_detail",
-    
     "page/assindex/assindex",
     "page/assindex/pages/shoplist/shoplist",
     "page/assindex/pages/shopdetail/shopdetail",
@@ -22,13 +20,14 @@
     "page/infocenter/pages/alreadyBindPhone/alreadyBindPhone",
     "page/infocenter/pages/changPhone/changePhone",
     "page/infocenter/pages/myCollect/myCollect",
-    "page/infocenter/pages/myMainShop/myMainShop"
+    "page/infocenter/pages/myMainShop/myMainShop",
+    "page/shopcart/shopcart"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#568fdc",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#999",
@@ -55,7 +54,7 @@
         "text": "同城"
       },
       {
-        "pagePath": "page/gwc/gwc",
+        "pagePath": "page/shopcart/shopcart",
         "iconPath": "images/gwc.png",
         "selectedIconPath": "images/gwc_sel.png",
         "text": "购物车"

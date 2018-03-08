@@ -1,6 +1,6 @@
 // 请求服务器地址
-const serverPath = 'http://shop.xunshi.com'
-const apiBase = 'http://shop.xunshi.com/mobile/index.php'
+const serverPath = 'http://demo.it9g.com'
+const apiBase = serverPath + '/mobile/index.php'
 
 String.prototype.startWith = function (str) {
   var reg = new RegExp('^' + str)

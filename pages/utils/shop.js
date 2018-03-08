@@ -108,5 +108,22 @@ export default {
   },
   getUserInfo: function () {
     return wx.getStorageSync(USER_INFO)
+  },
+  getCartList: function () {
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=member_cart&op=cart_list', { key: wx.getStorageSync(TOKEN_NAME) }))
+  },
+  cartEditQuantity: function (data) {
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=member_cart&op=cart_edit_quantity', {
+        key: wx.getStorageSync(TOKEN_NAME),
+        cart_id: data.cart_id,
+        quantity: data.quantity
+      }))
+  },
+  isEmptyObject: function (e) {
+    for (var i in e)
+      return false
+    return true
   }
 }
