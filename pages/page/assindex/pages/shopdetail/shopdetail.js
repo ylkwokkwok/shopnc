@@ -23,7 +23,8 @@ Page({
     currentTab: 0,  
     collect:false,
     collectImg:"/images/collect.png",
-    collectText:"收藏"
+    collectText:"收藏",
+    isCollect:false
   },
   changeSwiper: function (e) {
     this.setData({
@@ -48,6 +49,11 @@ Page({
     }
     this.setData({
       collect:!(this.data.collect)
+    });
+  },
+  collectSel:function(){
+    this.setData({
+      isCollect:!this.data.isCollect
     });
   },
   /** 

@@ -89,7 +89,7 @@
     </view>
     <view class="bottom">
       <block wx:if="{{info[0].isVip}}">
-        <navigator>
+        <navigator url="">
           <image src="/images/infocenter/wdfd.png" style="width:48rpx;"></image>
           <text>我的分销店</text>
         </navigator>
@@ -100,7 +100,7 @@
           <text>我的分销店</text>
         </navigator>
       </block>
-      <navigator url="pages/myMainShop/myMainShop">
+      <navigator url="pages/login/login">
         <image src="/images/infocenter/wddp.png" style="width:41.14rpx;"></image>
         <text>我的店铺</text>
       </navigator>
@@ -111,10 +111,18 @@
     </view>
   </view>
   <view class="bindphone">
-    <navigator url="pages/entry/entry">
-      <text>商家入驻</text>
-      <image src="/images/jt.png" mode='widthFix'></image>
-    </navigator>
+    <block wx:if="{{info[0].entry}}">
+      <navigator url="pages/hasentry/hasentry">
+        <text>商家入驻</text>
+        <image src="/images/jt.png" mode='widthFix'></image>
+      </navigator>
+    </block>
+    <block wx:else>
+      <navigator url="pages/entry/entry">
+        <text>商家入驻</text>
+        <image src="/images/jt.png" mode='widthFix'></image>
+      </navigator>
+    </block>
   </view>
   <view class="bindphone">
     <block wx:if="{{info[0].phone==''}}">

@@ -1,0 +1,7 @@
+<view class="container" style="height:{{winHeight}}px">
+  <view class="center">
+    <image src="/images/infocenter/house.jpg" mode='widthFix'></image>
+    <text class="one">你已入驻本平台</text>
+    <navigator url="../login/login">请前往 <text>【我的店铺】</text>管理店铺</navigator>
+  </view>
+</view>

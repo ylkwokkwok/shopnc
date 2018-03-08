@@ -1,0 +1,29 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="userlist">
+    <view>
+      <view>
+        <label>账号</label>
+        <text>sdfkjasd</text>
+      </view>
+      <view>
+        <label>密码</label>
+        <text>都是卡夫卡的历史</text>
+      </view>
+      <navigator url="../addUser/addUser">编辑</navigator>
+    </view>
+    <view>
+      <view>
+        <label>账号</label>
+        <text>sdfkjasd</text>
+      </view>
+      <view>
+        <label>密码</label>
+        <text>都是卡夫卡的历史</text>
+      </view>
+      <navigator url="../addUser/addUser">编辑</navigator>
+    </view>
+  </view>
+  <view class="foot">
+    <navigator url="../addUser/addUser">添加账号</navigator>
+  </view>
+</view>

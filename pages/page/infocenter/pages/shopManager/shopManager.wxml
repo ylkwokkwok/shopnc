@@ -1,0 +1,36 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="search">
+    <view class="top_search">
+      <input confirm-type="search" type="text" placeholder='请输入您要搜索的内容' placeholder-style="color:#000"/>
+      <image src='/images/search1.png' mode='widthFix'></image>
+    </view>
+  </view>
+  <view class="tabSwitch">
+    <navigator class="{{currentTab==0?'on':''}}" data-current="0" bindtap='switchNav'>出售中({{shoplist.length}})</navigator>
+    <navigator class="{{currentTab==1?'on':''}}" data-current="1" bindtap='switchNav'>仓库</navigator>
+  </view>
+  <view class="tabshow">
+    <!--出售中-->
+    <view style="{{currentTab==0?'display:block':'display:none'}}">
+      <view class="top">
+        <navigator class="{{curTab==0?'on':''}}" data-current="0" bindtap='shaiTab'>全部</navigator>
+        <navigator class="{{curTab==1?'on':''}}" data-current="1" bindtap='shaiTab'>促销</navigator>
+      </view>
+      <view class="bottom">
+        <view style="{{curTab==0?'display:block':'display:none'}}"></view>
+        <view style="{{curTab==1?'display:block':'display:none'}}"></view>
+      </view>
+    </view>
+    <!--仓库-->
+    <view style="{{currentTab==1?'display:block':'display:none'}}">
+      <view class="top">
+        <navigator class="{{curTab==0?'on':''}}" data-current="0" bindtap='shaiTab'>全部</navigator>
+        <navigator class="{{curTab==1?'on':''}}" data-current="1" bindtap='shaiTab'>促销</navigator>
+      </view>
+      <view class="bottom">
+        <view style="{{curTab==0?'display:block':'display:none'}}"></view>
+        <view style="{{curTab==1?'display:block':'display:none'}}"></view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -6,7 +6,7 @@ Page({
   data: {
     winHeight:0,
     info:[
-      { username: '圣诞节', jifen: 0, isVip: false, tx: "/images/tx.jpg", erweima: ["/images/infocenter/erweima.jpg"],phone:"4545646455"}
+      { username: '圣诞节', jifen: 0, isVip: true, tx: "/images/tx.jpg", erweima: ["/images/infocenter/erweima.jpg"],phone:"4545646455",entry:false}
     ],
   },
   imgyu:function(e){

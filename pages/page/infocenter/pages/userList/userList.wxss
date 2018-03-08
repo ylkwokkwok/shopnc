@@ -1,0 +1,52 @@
+.container{
+  background: #f6f6f6;
+}
+.userlist{
+  width: 750rpx;
+}
+.userlist>view{
+  width: 100%;
+  background: white;
+  margin-bottom: 20rpx;
+  padding:20rpx;
+  position: relative;
+}
+.userlist navigator{
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  border-radius: 20rpx;
+  padding:5rpx 20rpx;
+  border:1px solid #ccc;
+  font-size: 24rpx;
+}
+.userlist>view>view{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20rpx;
+}
+.userlist>view>view>label{
+  width: 100rpx;
+  font-size: 30rpx;
+  color: #999;
+  display: block;
+}
+.userlist>view>view>text{
+  width: 500rpx;
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+.foot{
+  position: fixed;
+  bottom: 0;
+  width: 750rpx;
+  background: #568fdc;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.foot navigator{
+  font-size: 30rpx;
+  color: white;
+  text-align: center;
+}

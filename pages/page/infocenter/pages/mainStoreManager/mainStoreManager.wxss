@@ -1,0 +1,148 @@
+.container{
+  background: #f6f6f6;
+}
+.infotop{
+  width: 710rpx;
+  margin:auto;
+  position: relative;
+  top:0; 
+  padding:20rpx 0;
+  left: 0;
+  right: 0;
+}
+.infotop>.content{
+  width: 100%;
+  border-radius: 10rpx;
+  margin:auto;
+  overflow: hidden;
+  background: #568fdc;
+  padding:0 10rpx;
+}
+.infotop .addUser{
+  display: block;
+  color: white;
+  text-align: right;
+  margin-right: 20rpx;
+  padding-top: 10rpx;
+  font-size: 24rpx;
+}
+.infotop .tx{
+  width:120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-top:20rpx;
+  float: left;
+}
+.infotop .right{
+  float: left;
+  margin-left: 20rpx;
+  width: 480rpx;
+  margin-top:30rpx;
+  padding-bottom: 20rpx;
+}
+ .infotop .right .shopname{
+   font-size: 36rpx;
+   color: white;
+   float: left;
+ } 
+ .infotop .right .editshop>image{
+   width: 30rpx;
+   float: left;
+   margin-left: 10rpx;
+ }
+ .infotop .right .jie{
+   font-size: 24rpx;
+   color: white;
+   line-height: 20rpx;
+ }
+ .shopdata,.order,.shopdetail{
+   width: 750rpx;
+   background: white;
+   overflow: hidden;
+  margin-top: 20rpx;
+ }
+ .shopdata .top,.order .top{
+   height: 90rpx;
+   line-height: 90rpx;
+   width: 100%;
+   border-bottom: 1px solid #ccc;
+   padding:0 20rpx;
+   font-size: 30rpx;
+ }
+ .shopdata .bottom,.order .bottom{
+   padding:20rpx;
+   width: 710rpx;
+   margin:auto;
+ }
+ .shopdata .bottom>view{
+   display: flex;
+   flex-direction: row;
+   margin-bottom: 30rpx;
+ }
+ .shopdata .bottom>view>view>text:last-child{
+   padding-top: 10rpx;
+ }
+ .shopdata .bottom .down{
+   margin-bottom: 0;
+ }
+ .shopdata .bottom>view .one,.shopdata .bottom>view .thrid{
+   width: 25%;
+ }
+ .shopdata .bottom>view .two{
+   width:50%;
+ }
+ .shopdata .bottom>view>view>text{
+   text-align: center;
+   display: block;
+   color: #333;
+   font-size: 24rpx;
+ }
+ .order .bottom{
+   display: flex;
+   flex-direction: row;
+ }
+ .order .bottom>navigator{
+   width: 25%;
+ }
+ .order .bottom>navigator>text{
+   display: block;
+   text-align: center;
+   font-size: 24rpx;
+   color: #333;
+ }
+ .order .bottom>navigator>text:last-child{
+   padding-top: 20rpx;
+ }
+ .shopdetail>view{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 30rpx;
+ }
+ .shopdetail>view>navigator{
+   width: 25%;
+   display: block;
+   position: relative;
+ }
+ .shopdetail>view>navigator>image{
+   height: 42rpx;
+   display: block;
+   margin:auto;
+   margin-top: 20rpx;
+ }
+ .shopdetail>view>navigator>text{
+   text-align: center;
+   display: block;
+   font-size: 24rpx;
+   padding-top:20rpx;
+   color: #333;
+ }
+ .shopdetail>view .con{
+   padding:0rpx 8rpx;
+  background: red;
+  color: white;
+  font-size: 24rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 30%;
+ }

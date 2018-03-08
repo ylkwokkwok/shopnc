@@ -238,6 +238,8 @@
 .addList .addList-tab .tab-item view{
   width: 600rpx;
   margin-left: 20rpx;
+  font-size:30rpx;
+  margin-top:10rpx;
 }
 .addList .addList-tab .tab-item navigator{
   width: 50rpx;

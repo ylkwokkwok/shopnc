@@ -1,0 +1,45 @@
+form{
+  width: 750rpx;
+  display: block;
+  margin-top:20rpx;
+}
+form .same{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #ccc;
+  padding:0 20rpx;
+}
+form .same>label{
+  color: #999;
+  font-size: 30rpx;
+  width: 130rpx;
+  display: block;
+  float: left;
+}
+form .same>input{
+  width: 380rpx;
+  float: left;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: black;
+  font-size: 30rpx;
+}
+form .same>text{
+  color: red;
+  font-size: 20rpx;
+  float: right;
+  text-align: right;
+  width:200rpx;
+}
+form .sureBtn{
+  width: 710rpx;
+  margin:auto;
+  margin-top:50rpx;
+  background: #568fdc;
+  text-align: center;
+  line-height: 90rpx;
+  height: 90rpx;
+  color: white;
+  border-radius: 20rpx;
+}
