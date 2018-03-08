@@ -63,7 +63,9 @@
     <swiper autoplay="true" interval="8000" duration="500">
       <block wx:for="{{ads}}" wx:key='*this'>
         <swiper-item>
-           <view>{{item.shopname}}<text>店铺今日收益{{item.profit}}元</text></view>
+           <navigator>
+              <view>{{item.shopname}}<text>店铺今日收益{{item.profit}}元</text></view>
+           </navigator>
         </swiper-item>
       </block>
     </swiper>

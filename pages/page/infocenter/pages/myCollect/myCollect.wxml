@@ -56,7 +56,7 @@
       <block wx:else>
         <view class="prompt">共{{bransh.length}}条收藏记录 <text>【最多收藏30条】</text></view>
         <view wx:for="{{shops}}" wx:key="index" wx:for-item="bransh" id="{{bransh.id}}" class="item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{bransh.right}}px" data-group="{{bransh.groupname}}">
-          <image class="sel" bindtap="selBtn" src="{{bransh.isSelected?'/images/comment_select.png':'/images/comment_normal.png'}}" mode="widthFix" data-current="{{index}}" data-id="{{index}}"></image>
+          <image class="sel" bindtap="selBtn" src="{{bransh.isSelected?'/images/comment_select.png':'/images/comment_normal.png'}}" mode="widthFix" data-index="{{index}}" data-id="{{index}}"></image>
           <image class="img" src="{{bransh.img}}" mode="widthFix"></image>
           <view class="number-wrapper">
             <text class="name">{{bransh.name}}</text>

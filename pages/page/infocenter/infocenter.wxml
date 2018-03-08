@@ -100,7 +100,7 @@
           <text>我的分销店</text>
         </navigator>
       </block>
-      <navigator>
+      <navigator url="pages/myMainShop/myMainShop">
         <image src="/images/infocenter/wddp.png" style="width:41.14rpx;"></image>
         <text>我的店铺</text>
       </navigator>

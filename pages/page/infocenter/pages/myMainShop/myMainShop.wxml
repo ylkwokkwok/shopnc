@@ -1,0 +1,185 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="adtop">
+    <image src="/images/banner1.jpg" mode="widthFix" class="banner"></image>
+    <view class="top_search">
+      <input confirm-type="search" type="text" placeholder='请输入您要搜索的内容' placeholder-style="color:#000"/>
+      <image src='/images/search1.png' mode='widthFix'></image>
+    </view>
+  </view>
+  <view class="shopdetail">
+    <view class="left">
+      <image src="/images/tx.jpg" mode='widthFix'></image>
+      <text>双卡双待尽快把圣诞节</text>
+    </view>
+    <view class="right">
+      <view class="wel">
+        <text>8000</text>
+        <text>粉丝量</text>
+      </view>
+      <view class="collect" bindtap='collectClick'>
+        <image src="{{flag?'/images/collect_sel.png':'/images/collect.png'}}" mode='widthFix'></image>
+        <block wx:if="{{flag}}">
+          <text>已收藏</text>
+        </block>
+        <block wx:else>
+          <text>收藏</text>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class="tab-list">
+    <view class="center">
+      <view bindtap='switchNav' data-current="0" class="{{currentTab==0?'on':''}}">
+        <image src="{{currentTab==0?'/images/infocenter/shopindex_sel.png':'/images/infocenter/shopindex.png'}}" style="width:37.07rpx;"></image>
+        <text>店铺首页</text>
+      </view>
+      <view bindtap='switchNav' data-current="1" class="{{currentTab==1?'on':''}}">
+        <image src="{{currentTab==1?'/images/infocenter/allshop_sel.png':'/images/infocenter/allshop.png'}}" style="width:38rpx;"></image>
+        <text>全部商品</text>
+      </view>
+      <view bindtap='switchNav' data-current="2" class="{{currentTab==2?'on':''}}">
+        <image src="{{currentTab==2?'/images/infocenter/shopnews_sel.png':'/images/infocenter/shopnews.png'}}" style="width:44.33rpx;"></image>
+        <text>店铺上新</text>
+      </view>
+      <view bindtap='switchNav' data-current="3" class="{{currentTab==3?'on':''}}">
+        <image src="{{currentTab==3?'/images/infocenter/promotion_sel.png':'/images/infocenter/promotion.png'}}" style="width:39rpx"></image>
+        <text>店铺促销</text>
+      </view> 
+    </view>
+  </view>
+  <view class="tabshow">
+  <!--店铺首页-->
+    <view style="{{currentTab==0?'display:block':'display:none'}}">
+      <swiper autoplay="true" interval="8000" duration="500" class="swpier">
+        <block wx:for="{{ads}}" wx:key='*this'>
+          <swiper-item>
+            <navigator>
+                <view class="text">{{item}}</view>
+            </navigator>
+          </swiper-item>
+        </block>
+      </swiper>
+      <navigator><image src="/images/infocenter/dianpuintro.png" mode='widthFix' class="dianpudetail"></image></navigator>
+      <view class="shoplist">
+        <view class="top">
+          <view class="xian"></view>
+          <text>店家推荐</text>
+        </view>
+        <view class="bottom">
+          <block wx:for="{{pros}}" wx:key="*this">
+            <navigator class="elme" url="{{item.link}}">
+              <view class="tit">{{item.title}}</view>
+              <image class="pro_img" src="{{item.img_url}}" mode='widthFix'></image>
+              <view class="jie">{{item.jie}}</view>
+              <view style="overflow:hidden;margin-top:10rpx;">
+                <view class="price">￥{{item.price}}</view>
+                <view class="tuan">
+                  <image src="/images/bg.png" mode='widthFix'></image>
+                  <view>{{item.tuan}}</view>
+                </view>
+              </view>
+              <view class="left">
+                <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
+                <view class="pinglun">评论:{{item.pinglun}}</view>
+              </view>
+            </navigator>
+          </block>
+        </view>
+      </view>
+    </view>
+    <!--全部商品-->
+    <view style="{{currentTab==1?'display:block':'display:none'}}">
+      <view class="shai">
+        <navigator bindtap="shaiSel" data-current="0" class="{{curTab==0?'on':''}}"><text>默认</text></navigator>
+        <navigator bindtap="shaiSel" data-current="1" class="{{curTab==1?'on':''}}"><text>销量</text></navigator>
+        <navigator bindtap="shaiSel" data-current="2" class="{{curTab==2?'on':''}}"><text>价格</text></navigator>
+        <navigator bindtap="shaiSel" data-current="3" class="{{curTab==3?'on':''}}"><text>上新</text></navigator>
+      </view>
+      <view class="shoplist">
+        <view class="bottom">
+          <block wx:for="{{allpros}}" wx:key="*this">
+            <navigator class="elme" url="{{item.link}}">
+              <view class="tit">{{item.title}}</view>
+              <image class="pro_img" src="{{item.img_url}}" mode='widthFix'></image>
+              <view class="jie">{{item.jie}}</view>
+              <view style="overflow:hidden;margin-top:10rpx;">
+                <view class="price">￥{{item.price}}</view>
+                <view class="tuan">
+                  <image src="/images/bg.png" mode='widthFix'></image>
+                  <view>{{item.tuan}}</view>
+                </view>
+              </view>
+              <view class="left">
+                <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
+                <view class="pinglun">评论:{{item.pinglun}}</view>
+              </view>
+            </navigator>
+          </block>
+        </view>
+      </view>
+    </view>
+    <!--店铺上新-->
+    <view style="{{currentTab==2?'display:block':'display:none'}}">
+      <view class="shoplist">
+        <view class="top">
+          <view class="xian"></view>
+          <text style="width:150rpx;">3月2日上新</text>
+        </view>
+        <view class="bottom">
+          <block wx:for="{{newpros}}" wx:key="*this">
+            <navigator class="elme" url="{{item.link}}">
+              <view class="tit">{{item.title}}</view>
+              <image class="pro_img" src="{{item.img_url}}" mode='widthFix'></image>
+              <view class="jie">{{item.jie}}</view>
+              <view style="overflow:hidden;margin-top:10rpx;">
+                <view class="price">￥{{item.price}}</view>
+                <view class="tuan">
+                  <image src="/images/bg.png" mode='widthFix'></image>
+                  <view>{{item.tuan}}</view>
+                </view>
+              </view>
+              <view class="left">
+                <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
+                <view class="pinglun">评论:{{item.pinglun}}</view>
+              </view>
+            </navigator>
+          </block>
+        </view>
+      </view>
+    </view>
+    <!--店铺促销-->
+    <view style="{{currentTab==3?'display:block':'display:none'}}">
+      <view class="shoplist">
+        <view class="top">
+          <view class="xian"></view>
+          <text>促销商品</text>
+        </view>
+        <view class="bottom">
+          <block wx:for="{{cuxiaopros}}" wx:key="*this">
+            <navigator class="elme" url="{{item.link}}">
+              <view class="tit">{{item.title}}</view>
+              <image class="pro_img" src="{{item.img_url}}" mode='widthFix'></image>
+              <view class="jie">{{item.jie}}</view>
+              <view style="overflow:hidden;margin-top:10rpx;">
+                <view class="price">￥{{item.price}}</view>
+                <view class="tuan">
+                  <image src="/images/bg.png" mode='widthFix'></image>
+                  <view>{{item.tuan}}</view>
+                </view>
+              </view>
+              <view class="left">
+                <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
+                <view class="pinglun">评论:{{item.pinglun}}</view>
+              </view>
+            </navigator>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="kf">
+    <navigator>
+      <image src="/images/infocenter/kf.png" mode='widthFix'></image>
+    </navigator>
+  </view>
+</view>
