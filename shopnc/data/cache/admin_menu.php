@@ -9,10 +9,8 @@
         'name' => '设置',
         'child' => 
         array (
-          'setting' => '站点设置',
           'upload' => '上传设置',
           'message' => '邮件设置',
-          'taobao_api' => '淘宝接口',
           'admin' => '权限设置',
           'admin_log' => '操作日志',
           'area' => '地区设置',
@@ -25,7 +23,6 @@
         'child' => 
         array (
           'member' => '会员管理',
-          'account' => '账号同步',
         ),
       ),
       2 => 
