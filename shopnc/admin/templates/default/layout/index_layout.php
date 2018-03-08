@@ -115,7 +115,7 @@ function call_back(picname){
   <div class="bgSelector"></div>
   <div id="foldSidebar"><i class="fa fa-outdent " title="展开/收起侧边导航"></i></div>
   <div class="admincp-name">
-    <h2>好商城V5.2<br>平台系统管理中心</h2>
+    <h2>云派易购商城<br>平台系统管理中心</h2>
   </div>
   <div class="nc-module-menu">
     <ul class="nc-row">

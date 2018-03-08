@@ -22,7 +22,9 @@ class indexControl extends SystemControl{
         Tpl::output('admin_info',$this->getAdminInfo());
         //输出菜单
         $result = $this->getNav();
+
         list($top_nav, $left_nav, $map_nav, $quicklink) = $result;
+        //var_dump($top_nav);exit;
         Tpl::output('top_nav',$top_nav);
         Tpl::output('left_nav',$left_nav);
         Tpl::output('map_nav',$map_nav);
