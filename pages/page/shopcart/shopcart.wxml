@@ -10,6 +10,7 @@
         <radio value="1" color='#568FDC' bindtap='selectStore' checked='{{cartStore.selected}}' data-store-id="{{StoreIndex}}"/>
         <image src="/images/house.png" class="store-icon"/>
         <view class="store-name">{{cartStore.storeName}}</view>
+        <image src="/images/jt.png" class="store-icon store-jt"></image>
       </view>
       <view class='goods-list' wx:for="{{cartStore.storeGoods}}" wx:for-index="CartIndex" wx:for-item="CartGoods" wx:key="key2">
         <view class='goods'>
@@ -24,12 +25,14 @@
               <view class='goods-name'>{{CartGoods.goods_name}}</view>
               <image class='goods-del' src='/images/infocenter/delete.png' bindtap="bindDelCart" data-cart-id="{{CartIndex}}"/>
             </view>
-            <view class='goods-jingle'>{{CartGoods.goods_spec}}</view>
-            <view class='goods-price'>￥ {{CartGoods.goods_price}}</view>
-            <view class='inc-num-dec-group'>
-              <view class='dec' bindtap="bindBuyNumberReduce" data-cart-id="{{CartIndex}}" data-store-id="{{StoreIndex}}">-</view>
-              <view class='num'>{{CartGoods.goods_num}}</view>
-              <view class='inc' bindtap="bindBuyNumberAdd" data-cart-id="{{CartIndex}}" data-store-id="{{StoreIndex}}">+</view>
+            <view class='goods-jingle'>{{CartGoods.goods_spec}}颜色: 红, 款式: 270mm, 颜色: 红, 款式: 270mm</view>
+            <view class="goods-work">
+              <view class='goods-price'>￥ {{CartGoods.goods_price}}</view>
+              <view class='inc-num-dec-group'>
+                <view class='dec' bindtap="bindBuyNumberReduce" data-cart-id="{{CartIndex}}" data-store-id="{{StoreIndex}}">-</view>
+                <view class='num'>{{CartGoods.goods_num}}</view>
+                <view class='inc' bindtap="bindBuyNumberAdd" data-cart-id="{{CartIndex}}" data-store-id="{{StoreIndex}}">+</view>
+              </view>
             </view>
           </view>
         </view>
@@ -40,10 +43,7 @@
     <view class="no-data">
       <!--<image src="/images/empty.svg" class="no-data-image-icon"></image>-->
       <view class="no-data-text">您的购物车是空的</view>
-      <navigator
-        style="width: 100px; position: absolute; top: 50%;margin-top: 20px;left: 50%;margin-left: -100px;width: 200px; font-size: 16px;text-align: center; padding-top: 10px; padding-bottom: 10px;"
-        url="/page/index/index">前去购物
-      </navigator>
+      <navigator url="/page/index/index">前去购物</navigator>
     </view>
   </view>
   <view class="bottom_total" wx:if="{{!cartListIsEmpty}}">

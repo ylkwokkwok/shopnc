@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    address: '四川省成都市武侯区xxxx道xx号',
     selectAll: false,
     cartList: [],
     apiRootPath: null,
