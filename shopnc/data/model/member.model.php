@@ -370,7 +370,8 @@ class memberModel extends Model {
         $member_info['member_name']     = $register_info['username'];
         $member_info['member_passwd']   = $register_info['password'];
         $member_info['member_email']        = $register_info['email'];
-		//添加邀请人(推荐人)会员积分 by 33h ao.com v  5 
+        $member_info['weixin_xcx_openid']        = $register_info['weixin_xcx_openid'];
+		//添加邀请人(推荐人)会员积分 by 33h ao.com v  5
 		$member_info['inviter_id']	= $register_info['inviter_id'];
         $insert_id  = $this->addMember($member_info);
         if($insert_id) {
@@ -425,6 +426,9 @@ class memberModel extends Model {
             if ($param['weixin_unionid']) {
                 $member_info['weixin_unionid'] = $param['weixin_unionid'];
                 $member_info['weixin_info'] = $param['weixin_info'];
+            }
+            if ($param['weixin_xcx_openid']) {
+                $member_info['weixin_xcx_openid'] = $param['weixin_xcx_openid'];
             }
             $insert_id  = $this->table('member')->insert($member_info);
             if (!$insert_id) {

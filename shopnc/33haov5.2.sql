@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_activity`
+-- 表的结构 `xunshi_activity`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_activity` (
+CREATE TABLE IF NOT EXISTS `xunshi_activity` (
   `activity_id` mediumint(9) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `activity_title` varchar(255) NOT NULL COMMENT '标题',
   `activity_type` enum('1','2') DEFAULT NULL COMMENT '活动类型 1:商品 2:抢购',
@@ -43,10 +43,10 @@ CREATE TABLE IF NOT EXISTS `33hao_activity` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_activity_detail`
+-- 表的结构 `xunshi_activity_detail`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_activity_detail` (
+CREATE TABLE IF NOT EXISTS `xunshi_activity_detail` (
   `activity_detail_id` mediumint(9) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `activity_id` mediumint(8) unsigned NOT NULL DEFAULT '0' COMMENT '活动编号',
   `item_id` int(11) NOT NULL COMMENT '商品或抢购的编号',
@@ -62,10 +62,10 @@ CREATE TABLE IF NOT EXISTS `33hao_activity_detail` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_address`
+-- 表的结构 `xunshi_address`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_address` (
+CREATE TABLE IF NOT EXISTS `xunshi_address` (
   `address_id` mediumint(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '地址ID',
   `member_id` mediumint(10) unsigned NOT NULL DEFAULT '0' COMMENT '会员ID',
   `true_name` varchar(50) NOT NULL COMMENT '会员姓名',
@@ -84,10 +84,10 @@ CREATE TABLE IF NOT EXISTS `33hao_address` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_admin`
+-- 表的结构 `xunshi_admin`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_admin` (
+CREATE TABLE IF NOT EXISTS `xunshi_admin` (
   `admin_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '管理员ID',
   `admin_name` varchar(20) NOT NULL COMMENT '管理员名称',
   `admin_avatar` varchar(100) DEFAULT NULL COMMENT '管理员头像',
@@ -101,19 +101,19 @@ CREATE TABLE IF NOT EXISTS `33hao_admin` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='管理员表' AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `33hao_admin`
+-- 转存表中的数据 `xunshi_admin`
 --
 
-INSERT INTO `33hao_admin` (`admin_id`, `admin_name`, `admin_avatar`, `admin_password`, `admin_login_time`, `admin_login_num`, `admin_is_super`, `admin_gid`, `admin_quick_link`) VALUES
+INSERT INTO `xunshi_admin` (`admin_id`, `admin_name`, `admin_avatar`, `admin_password`, `admin_login_time`, `admin_login_num`, `admin_is_super`, `admin_gid`, `admin_quick_link`) VALUES
 (1, 'admin', NULL, '7fef6171469e80d32c0559f88b377245', 1481515823, 3, 1, 0, NULL);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_admin_log`
+-- 表的结构 `xunshi_admin_log`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_admin_log` (
+CREATE TABLE IF NOT EXISTS `xunshi_admin_log` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `content` varchar(50) NOT NULL COMMENT '操作内容',
   `createtime` int(10) unsigned DEFAULT NULL COMMENT '发生时间',
@@ -125,10 +125,10 @@ CREATE TABLE IF NOT EXISTS `33hao_admin_log` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='管理员操作日志' AUTO_INCREMENT=14 ;
 
 --
--- 转存表中的数据 `33hao_admin_log`
+-- 转存表中的数据 `xunshi_admin_log`
 --
 
-INSERT INTO `33hao_admin_log` (`id`, `content`, `createtime`, `admin_name`, `admin_id`, `ip`, `url`) VALUES
+INSERT INTO `xunshi_admin_log` (`id`, `content`, `createtime`, `admin_name`, `admin_id`, `ip`, `url`) VALUES
 (1, '登录', 1481027708, 'admin', 1, '127.0.0.1', 'login&login'),
 (2, '清理缓存', 1481027715, 'admin', 1, '127.0.0.1', 'cache&'),
 (3, '登录', 1481027737, 'admin', 1, '127.0.0.1', 'login&login'),
@@ -146,10 +146,10 @@ INSERT INTO `33hao_admin_log` (`id`, `content`, `createtime`, `admin_name`, `adm
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_adv`
+-- 表的结构 `xunshi_adv`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_adv` (
+CREATE TABLE IF NOT EXISTS `xunshi_adv` (
   `adv_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT '广告自增标识编号',
   `ap_id` mediumint(8) unsigned NOT NULL COMMENT '广告位id',
   `adv_title` varchar(255) NOT NULL COMMENT '广告内容描述',
@@ -167,10 +167,10 @@ CREATE TABLE IF NOT EXISTS `33hao_adv` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='广告表' AUTO_INCREMENT=937 ;
 
 --
--- 转存表中的数据 `33hao_adv`
+-- 转存表中的数据 `xunshi_adv`
 --
 
-INSERT INTO `33hao_adv` (`adv_id`, `ap_id`, `adv_title`, `adv_content`, `adv_start_date`, `adv_end_date`, `slide_sort`, `member_id`, `member_name`, `click_num`, `is_allow`, `buy_style`, `goldpay`) VALUES
+INSERT INTO `xunshi_adv` (`adv_id`, `ap_id`, `adv_title`, `adv_content`, `adv_start_date`, `adv_end_date`, `slide_sort`, `member_id`, `member_name`, `click_num`, `is_allow`, `buy_style`, `goldpay`) VALUES
 (15, 9, '首页通栏', 'a:2:{s:7:"adv_pic";s:21:"04716538681718544.png";s:11:"adv_pic_url";s:13:"www.33hao.com";}', 1388505600, 1577721600, 0, 0, '', 0, 1, '', 0),
 (915, 1037, '闲置首页幻灯片1', 'a:2:{s:13:"adv_slide_pic";s:36:"008a76ccc9449d92b529c2d7dd1ddbb4.png";s:13:"adv_slide_url";s:14:"www.33hao.com";}', 1325347200, 1622476800, 1, 0, '', 0, 1, '', 0),
 (916, 1037, '闲置首页幻灯片2', 'a:2:{s:13:"adv_slide_pic";s:36:"fe79d67a363cc0e37ccd65896fea52bd.png";s:13:"adv_slide_url";s:14:"www.33hao.com";}', 1325347200, 1622476800, 2, 0, '', 1, 1, '', 0),
@@ -189,10 +189,10 @@ INSERT INTO `33hao_adv` (`adv_id`, `ap_id`, `adv_title`, `adv_content`, `adv_sta
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_adv_position`
+-- 表的结构 `xunshi_adv_position`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_adv_position` (
+CREATE TABLE IF NOT EXISTS `xunshi_adv_position` (
   `ap_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT '广告位置id',
   `ap_name` varchar(100) NOT NULL COMMENT '广告位置名',
   `ap_class` smallint(1) unsigned NOT NULL COMMENT '广告类别：0图片1文字2幻灯3Flash',
@@ -207,10 +207,10 @@ CREATE TABLE IF NOT EXISTS `33hao_adv_position` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='广告位表' AUTO_INCREMENT=1051 ;
 
 --
--- 转存表中的数据 `33hao_adv_position`
+-- 转存表中的数据 `xunshi_adv_position`
 --
 
-INSERT INTO `33hao_adv_position` (`ap_id`, `ap_name`, `ap_class`, `ap_display`, `is_use`, `ap_width`, `ap_height`, `adv_num`, `click_num`, `default_content`) VALUES
+INSERT INTO `xunshi_adv_position` (`ap_id`, `ap_name`, `ap_class`, `ap_display`, `is_use`, `ap_width`, `ap_height`, `adv_num`, `click_num`, `default_content`) VALUES
 (9, '首页底部通栏图片广告', 0, 2, 1, 1200, 90, 1, 0, '04418235791378401.jpg'),
 (11, '首页中上部banner', 0, 2, 1, 1200, 100, 1, 0, 'banner.gif'),
 (35, '积分列表页中部广告位', 0, 2, 1, 900, 368, 0, 0, 'f448e48ee0deb06707480d46a2a360ae.gif'),
@@ -229,10 +229,10 @@ INSERT INTO `33hao_adv_position` (`ap_id`, `ap_name`, `ap_class`, `ap_display`, 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_album_class`
+-- 表的结构 `xunshi_album_class`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_album_class` (
+CREATE TABLE IF NOT EXISTS `xunshi_album_class` (
   `aclass_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '相册id',
   `aclass_name` varchar(100) NOT NULL COMMENT '相册名称',
   `store_id` int(10) unsigned NOT NULL COMMENT '所属店铺id',
@@ -245,19 +245,19 @@ CREATE TABLE IF NOT EXISTS `33hao_album_class` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='相册表' AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `33hao_album_class`
+-- 转存表中的数据 `xunshi_album_class`
 --
 
-INSERT INTO `33hao_album_class` (`aclass_id`, `aclass_name`, `store_id`, `aclass_des`, `aclass_sort`, `aclass_cover`, `upload_time`, `is_default`) VALUES
+INSERT INTO `xunshi_album_class` (`aclass_id`, `aclass_name`, `store_id`, `aclass_des`, `aclass_sort`, `aclass_cover`, `upload_time`, `is_default`) VALUES
 (1, '默认相册', 1, '', 255, '', 1387942806, 1);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_album_pic`
+-- 表的结构 `xunshi_album_pic`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_album_pic` (
+CREATE TABLE IF NOT EXISTS `xunshi_album_pic` (
   `apic_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '相册图片表id',
   `apic_name` varchar(100) NOT NULL COMMENT '图片名称',
   `apic_tag` varchar(255) DEFAULT '' COMMENT '图片标签',
@@ -271,10 +271,10 @@ CREATE TABLE IF NOT EXISTS `33hao_album_pic` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='相册图片表' AUTO_INCREMENT=20 ;
 
 --
--- 转存表中的数据 `33hao_album_pic`
+-- 转存表中的数据 `xunshi_album_pic`
 --
 
-INSERT INTO `33hao_album_pic` (`apic_id`, `apic_name`, `apic_tag`, `aclass_id`, `apic_cover`, `apic_size`, `apic_spec`, `store_id`, `upload_time`) VALUES
+INSERT INTO `xunshi_album_pic` (`apic_id`, `apic_name`, `apic_tag`, `aclass_id`, `apic_cover`, `apic_size`, `apic_spec`, `store_id`, `upload_time`) VALUES
 (1, '21161DF6BD5E592D3A94A5E3557544FF', '', 1, '1_04752627678636481.jpg', 31775, '355x355', 1, 1421918767),
 (2, '53783C85E1E735D11B50B8E6AADBF93B', '', 1, '1_04752627707766698.png', 119422, '346x346', 1, 1421918770),
 (3, 'C0EF26E1C1A949A552A145320C65DF23', '', 1, '1_04752627711844438.png', 96959, '353x354', 1, 1421918771),
@@ -298,10 +298,10 @@ INSERT INTO `33hao_album_pic` (`apic_id`, `apic_name`, `apic_tag`, `aclass_id`, 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_apiseccode`
+-- 表的结构 `xunshi_apiseccode`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_apiseccode` (
+CREATE TABLE IF NOT EXISTS `xunshi_apiseccode` (
   `sec_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
   `sec_key` varchar(50) NOT NULL COMMENT '验证码标识',
   `sec_val` varchar(100) NOT NULL COMMENT '验证码值',
@@ -312,10 +312,10 @@ CREATE TABLE IF NOT EXISTS `33hao_apiseccode` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_area`
+-- 表的结构 `xunshi_area`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_area` (
+CREATE TABLE IF NOT EXISTS `xunshi_area` (
   `area_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '索引ID',
   `area_name` varchar(50) NOT NULL COMMENT '地区名称',
   `area_parent_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '地区父ID',
@@ -327,10 +327,10 @@ CREATE TABLE IF NOT EXISTS `33hao_area` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='地区表' AUTO_INCREMENT=45056 ;
 
 --
--- 转存表中的数据 `33hao_area`
+-- 转存表中的数据 `xunshi_area`
 --
 
-INSERT INTO `33hao_area` (`area_id`, `area_name`, `area_parent_id`, `area_sort`, `area_deep`, `area_region`) VALUES
+INSERT INTO `xunshi_area` (`area_id`, `area_name`, `area_parent_id`, `area_sort`, `area_deep`, `area_region`) VALUES
 (1, '北京', 0, 0, 1, '华北'),
 (2, '天津', 0, 0, 1, '华北'),
 (3, '河北', 0, 0, 1, '华北'),
@@ -1713,7 +1713,7 @@ INSERT INTO `33hao_area` (`area_id`, `area_name`, `area_parent_id`, `area_sort`,
 (2155, '象山县', 176, 0, 3, NULL),
 (2156, '鄞州区', 176, 0, 3, NULL),
 (2157, '镇海区', 176, 0, 3, NULL);
-INSERT INTO `33hao_area` (`area_id`, `area_name`, `area_parent_id`, `area_sort`, `area_deep`, `area_region`) VALUES
+INSERT INTO `xunshi_area` (`area_id`, `area_name`, `area_parent_id`, `area_sort`, `area_deep`, `area_region`) VALUES
 (2158, '乐清市', 177, 0, 3, NULL),
 (2159, '平阳县', 177, 0, 3, NULL),
 (2160, '文成县', 177, 0, 3, NULL),
@@ -3081,7 +3081,7 @@ INSERT INTO `33hao_area` (`area_id`, `area_name`, `area_parent_id`, `area_sort`,
 (4442, '大方县', 412, 0, 3, NULL),
 (4443, '威宁彝族回族苗族自治县', 412, 0, 3, NULL),
 (4444, '毕节市', 412, 0, 3, NULL);
-INSERT INTO `33hao_area` (`area_id`, `area_name`, `area_parent_id`, `area_sort`, `area_deep`, `area_region`) VALUES
+INSERT INTO `xunshi_area` (`area_id`, `area_name`, `area_parent_id`, `area_sort`, `area_deep`, `area_region`) VALUES
 (4445, '纳雍县', 412, 0, 3, NULL),
 (4446, '织金县', 412, 0, 3, NULL),
 (4447, '赫章县', 412, 0, 3, NULL),
@@ -3667,10 +3667,10 @@ INSERT INTO `33hao_area` (`area_id`, `area_name`, `area_parent_id`, `area_sort`,
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_arrival_notice`
+-- 表的结构 `xunshi_arrival_notice`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_arrival_notice` (
+CREATE TABLE IF NOT EXISTS `xunshi_arrival_notice` (
   `an_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '通知id',
   `goods_id` int(10) unsigned NOT NULL COMMENT '商品id',
   `goods_name` varchar(50) NOT NULL COMMENT '商品名称',
@@ -3686,10 +3686,10 @@ CREATE TABLE IF NOT EXISTS `33hao_arrival_notice` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_article`
+-- 表的结构 `xunshi_article`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_article` (
+CREATE TABLE IF NOT EXISTS `xunshi_article` (
   `article_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '索引id',
   `ac_id` mediumint(8) unsigned NOT NULL DEFAULT '0' COMMENT '分类id',
   `article_url` varchar(100) DEFAULT NULL COMMENT '跳转链接',
@@ -3704,10 +3704,10 @@ CREATE TABLE IF NOT EXISTS `33hao_article` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='文章表' AUTO_INCREMENT=42 ;
 
 --
--- 转存表中的数据 `33hao_article`
+-- 转存表中的数据 `xunshi_article`
 --
 
-INSERT INTO `33hao_article` (`article_id`, `ac_id`, `article_url`, `article_show`, `article_position`, `article_sort`, `article_title`, `article_content`, `article_time`) VALUES
+INSERT INTO `xunshi_article` (`article_id`, `ac_id`, `article_url`, `article_show`, `article_position`, `article_sort`, `article_title`, `article_content`, `article_time`) VALUES
 (6, 2, '', 1, 1, 255, '如何注册成为会员', '如何注册成为会员', 1449242303),
 (7, 2, '', 1, 1, 255, '如何搜索', '如何搜索', 1449242303),
 (8, 2, '', 1, 1, 255, '忘记密码', '忘记密码', 1449242303),
@@ -3747,10 +3747,10 @@ INSERT INTO `33hao_article` (`article_id`, `ac_id`, `article_url`, `article_show
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_article_class`
+-- 表的结构 `xunshi_article_class`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_article_class` (
+CREATE TABLE IF NOT EXISTS `xunshi_article_class` (
   `ac_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '索引ID',
   `ac_code` varchar(20) DEFAULT NULL COMMENT '分类标识码',
   `ac_name` varchar(100) NOT NULL COMMENT '分类名称',
@@ -3761,10 +3761,10 @@ CREATE TABLE IF NOT EXISTS `33hao_article_class` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='文章分类表' AUTO_INCREMENT=8 ;
 
 --
--- 转存表中的数据 `33hao_article_class`
+-- 转存表中的数据 `xunshi_article_class`
 --
 
-INSERT INTO `33hao_article_class` (`ac_id`, `ac_code`, `ac_name`, `ac_parent_id`, `ac_sort`) VALUES
+INSERT INTO `xunshi_article_class` (`ac_id`, `ac_code`, `ac_name`, `ac_parent_id`, `ac_sort`) VALUES
 (1, 'notice', '商城公告', 0, 1),
 (2, 'member', '新手上路', 0, 2),
 (3, 'store', '商家中心', 0, 3),
@@ -3776,10 +3776,10 @@ INSERT INTO `33hao_article_class` (`ac_id`, `ac_code`, `ac_name`, `ac_parent_id`
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_attribute`
+-- 表的结构 `xunshi_attribute`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_attribute` (
+CREATE TABLE IF NOT EXISTS `xunshi_attribute` (
   `attr_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '属性id',
   `attr_name` varchar(100) NOT NULL COMMENT '属性名称',
   `type_id` int(10) unsigned NOT NULL COMMENT '所属类型id',
@@ -3793,10 +3793,10 @@ CREATE TABLE IF NOT EXISTS `33hao_attribute` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_attribute_value`
+-- 表的结构 `xunshi_attribute_value`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_attribute_value` (
+CREATE TABLE IF NOT EXISTS `xunshi_attribute_value` (
   `attr_value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '属性值id',
   `attr_value_name` varchar(100) DEFAULT '' COMMENT '属性值名称',
   `attr_id` int(10) unsigned NOT NULL COMMENT '所属属性id',
@@ -3808,10 +3808,10 @@ CREATE TABLE IF NOT EXISTS `33hao_attribute_value` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_bill_create`
+-- 表的结构 `xunshi_bill_create`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_bill_create` (
+CREATE TABLE IF NOT EXISTS `xunshi_bill_create` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `store_id` int(11) DEFAULT '0',
   `os_month` int(11) DEFAULT '0',
@@ -3822,10 +3822,10 @@ CREATE TABLE IF NOT EXISTS `33hao_bill_create` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_brand`
+-- 表的结构 `xunshi_brand`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_brand` (
+CREATE TABLE IF NOT EXISTS `xunshi_brand` (
   `brand_id` mediumint(11) NOT NULL AUTO_INCREMENT COMMENT '索引ID',
   `brand_name` varchar(100) DEFAULT NULL COMMENT '品牌名称',
   `brand_initial` varchar(1) NOT NULL COMMENT '品牌首字母',
@@ -3846,10 +3846,10 @@ CREATE TABLE IF NOT EXISTS `33hao_brand` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='品牌表' AUTO_INCREMENT=365 ;
 
 --
--- 转存表中的数据 `33hao_brand`
+-- 转存表中的数据 `xunshi_brand`
 --
 
-INSERT INTO `33hao_brand` (`brand_id`, `brand_name`, `brand_initial`, `brand_class`, `brand_pic`, `brand_sort`, `brand_recommend`, `store_id`, `brand_apply`, `class_id`, `show_type`, `brand_bgpic`, `brand_xbgpic`, `brand_tjstore`, `brand_introduction`, `brand_view`) VALUES
+INSERT INTO `xunshi_brand` (`brand_id`, `brand_name`, `brand_initial`, `brand_class`, `brand_pic`, `brand_sort`, `brand_recommend`, `store_id`, `brand_apply`, `class_id`, `show_type`, `brand_bgpic`, `brand_xbgpic`, `brand_tjstore`, `brand_introduction`, `brand_view`) VALUES
 (79, 'justyle', 'J', '服饰鞋帽', '04397468710494742_sm.jpg', 0, 0, 0, 1, 1, 0, 'brand_default_max.jpg', 'brand_default_small.jpg', '请于品牌管理里编辑我', '好商城提醒您：你当前的品牌介绍并没有填写！使用默认的这些会出现在你的眼前，请于后台进行修改', 0),
 (80, '享爱.', 'H', '服饰鞋帽', '04397468934349942_sm.jpg', 0, 0, 0, 1, 1, 0, 'brand_default_max.jpg', 'brand_default_small.jpg', '请于品牌管理里编辑我', '好商城提醒您：你当前的品牌介绍并没有填写！使用默认的这些会出现在你的眼前，请于后台进行修改', 0),
 (81, '派丽蒙', 'P', '女装', '04397469152627878_sm.jpg', 0, 0, 0, 1, 4, 0, 'brand_default_max.jpg', 'brand_default_small.jpg', '请于品牌管理里编辑我', '好商城提醒您：你当前的品牌介绍并没有填写！使用默认的这些会出现在你的眼前，请于后台进行修改', 0),
@@ -4009,7 +4009,7 @@ INSERT INTO `33hao_brand` (`brand_id`, `brand_name`, `brand_initial`, `brand_cla
 (239, 'LG', 'L', '家用电器', '04399838782976323_sm.jpg', 0, 0, 0, 1, 308, 0, 'brand_default_max.jpg', 'brand_default_small.jpg', '请于品牌管理里编辑我', '好商城提醒您：你当前的品牌介绍并没有填写！使用默认的这些会出现在你的眼前，请于后台进行修改', 0),
 (240, '创维', 'C', '家用电器', '04399839110204841_sm.jpg', 0, 0, 0, 1, 308, 0, 'brand_default_max.jpg', 'brand_default_small.jpg', '请于品牌管理里编辑我', '好商城提醒您：你当前的品牌介绍并没有填写！使用默认的这些会出现在你的眼前，请于后台进行修改', 0),
 (241, '松下电器', 'S', '家用电器', '04399839604098052_sm.gif', 0, 0, 0, 1, 308, 0, 'brand_default_max.jpg', 'brand_default_small.jpg', '请于品牌管理里编辑我', '好商城提醒您：你当前的品牌介绍并没有填写！使用默认的这些会出现在你的眼前，请于后台进行修改', 0);
-INSERT INTO `33hao_brand` (`brand_id`, `brand_name`, `brand_initial`, `brand_class`, `brand_pic`, `brand_sort`, `brand_recommend`, `store_id`, `brand_apply`, `class_id`, `show_type`, `brand_bgpic`, `brand_xbgpic`, `brand_tjstore`, `brand_introduction`, `brand_view`) VALUES
+INSERT INTO `xunshi_brand` (`brand_id`, `brand_name`, `brand_initial`, `brand_class`, `brand_pic`, `brand_sort`, `brand_recommend`, `store_id`, `brand_apply`, `class_id`, `show_type`, `brand_bgpic`, `brand_xbgpic`, `brand_tjstore`, `brand_introduction`, `brand_view`) VALUES
 (242, '中国联通', 'Z', '虚拟充值', '04399847297781057_sm.jpg', 0, 0, 0, 1, 1037, 0, 'brand_default_max.jpg', 'brand_default_small.jpg', '请于品牌管理里编辑我', '好商城提醒您：你当前的品牌介绍并没有填写！使用默认的这些会出现在你的眼前，请于后台进行修改', 0),
 (243, '中国电信', 'Z', '虚拟充值', '04399847472066981_sm.jpg', 0, 0, 0, 1, 1037, 0, 'brand_default_max.jpg', 'brand_default_small.jpg', '请于品牌管理里编辑我', '好商城提醒您：你当前的品牌介绍并没有填写！使用默认的这些会出现在你的眼前，请于后台进行修改', 0),
 (244, '中国移动', 'Z', '虚拟充值', '04399847612667714_sm.jpg', 0, 0, 0, 1, 1037, 0, 'brand_default_max.jpg', 'brand_default_small.jpg', '请于品牌管理里编辑我', '好商城提醒您：你当前的品牌介绍并没有填写！使用默认的这些会出现在你的眼前，请于后台进行修改', 0),
@@ -4123,10 +4123,10 @@ INSERT INTO `33hao_brand` (`brand_id`, `brand_name`, `brand_initial`, `brand_cla
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_cart`
+-- 表的结构 `xunshi_cart`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_cart` (
+CREATE TABLE IF NOT EXISTS `xunshi_cart` (
   `cart_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '购物车id',
   `buyer_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '买家id',
   `store_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '店铺id',
@@ -4144,10 +4144,10 @@ CREATE TABLE IF NOT EXISTS `33hao_cart` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_chain`
+-- 表的结构 `xunshi_chain`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_chain` (
+CREATE TABLE IF NOT EXISTS `xunshi_chain` (
   `chain_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '门店id',
   `store_id` int(10) unsigned NOT NULL COMMENT '所属店铺id',
   `chain_user` varchar(50) NOT NULL COMMENT '登录名',
@@ -4170,10 +4170,10 @@ CREATE TABLE IF NOT EXISTS `33hao_chain` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_chain_stock`
+-- 表的结构 `xunshi_chain_stock`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_chain_stock` (
+CREATE TABLE IF NOT EXISTS `xunshi_chain_stock` (
   `chain_id` int(10) unsigned NOT NULL COMMENT '门店id',
   `goods_id` int(10) unsigned NOT NULL COMMENT '商品id',
   `goods_commonid` int(10) unsigned NOT NULL COMMENT '商品SPU',
@@ -4184,10 +4184,10 @@ CREATE TABLE IF NOT EXISTS `33hao_chain_stock` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_chat_log`
+-- 表的结构 `xunshi_chat_log`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_chat_log` (
+CREATE TABLE IF NOT EXISTS `xunshi_chat_log` (
   `m_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '记录ID',
   `f_id` int(10) unsigned NOT NULL COMMENT '会员ID',
   `f_name` varchar(50) NOT NULL COMMENT '会员名',
@@ -4202,10 +4202,10 @@ CREATE TABLE IF NOT EXISTS `33hao_chat_log` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_chat_msg`
+-- 表的结构 `xunshi_chat_msg`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_chat_msg` (
+CREATE TABLE IF NOT EXISTS `xunshi_chat_msg` (
   `m_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '记录ID',
   `f_id` int(10) unsigned NOT NULL COMMENT '会员ID',
   `f_name` varchar(50) NOT NULL COMMENT '会员名',
@@ -4221,10 +4221,10 @@ CREATE TABLE IF NOT EXISTS `33hao_chat_msg` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle`
+-- 表的结构 `xunshi_circle`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle` (
   `circle_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '圈子id',
   `circle_name` varchar(12) NOT NULL COMMENT '圈子名称',
   `circle_desc` varchar(255) DEFAULT NULL COMMENT '圈子描述',
@@ -4256,10 +4256,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle_affix`
+-- 表的结构 `xunshi_circle_affix`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle_affix` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle_affix` (
   `affix_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '附件id',
   `affix_filename` varchar(100) NOT NULL COMMENT '文件名称',
   `affix_filethumb` varchar(100) NOT NULL COMMENT '缩略图名称',
@@ -4276,10 +4276,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle_affix` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle_class`
+-- 表的结构 `xunshi_circle_class`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle_class` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle_class` (
   `class_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '圈子分类id',
   `class_name` varchar(50) NOT NULL COMMENT '圈子分类名称',
   `class_addtime` varchar(10) NOT NULL COMMENT '圈子分类创建时间',
@@ -4292,10 +4292,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle_class` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle_explog`
+-- 表的结构 `xunshi_circle_explog`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle_explog` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle_explog` (
   `el_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '经验日志id',
   `circle_id` int(11) unsigned NOT NULL COMMENT '圈子id',
   `member_id` int(11) unsigned NOT NULL COMMENT '成员id',
@@ -4311,10 +4311,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle_explog` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle_expmember`
+-- 表的结构 `xunshi_circle_expmember`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle_expmember` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle_expmember` (
   `member_id` int(11) NOT NULL COMMENT '成员id',
   `circle_id` int(11) unsigned NOT NULL COMMENT '圈子id',
   `em_exp` int(10) NOT NULL COMMENT '获得经验',
@@ -4325,10 +4325,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle_expmember` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle_exptheme`
+-- 表的结构 `xunshi_circle_exptheme`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle_exptheme` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle_exptheme` (
   `theme_id` int(11) unsigned NOT NULL COMMENT '主题id',
   `et_exp` int(10) NOT NULL COMMENT '获得经验',
   `et_time` varchar(10) NOT NULL COMMENT '获得时间',
@@ -4338,10 +4338,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle_exptheme` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle_fs`
+-- 表的结构 `xunshi_circle_fs`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle_fs` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle_fs` (
   `circle_id` int(11) unsigned NOT NULL COMMENT '圈子id',
   `friendship_id` int(11) unsigned NOT NULL COMMENT '友情圈子id',
   `friendship_name` varchar(11) NOT NULL COMMENT '友情圈子名称',
@@ -4353,10 +4353,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle_fs` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle_inform`
+-- 表的结构 `xunshi_circle_inform`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle_inform` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle_inform` (
   `inform_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '举报id',
   `circle_id` int(11) unsigned NOT NULL COMMENT '圈子id',
   `circle_name` varchar(12) NOT NULL COMMENT '圈子名称',
@@ -4380,10 +4380,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle_inform` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle_like`
+-- 表的结构 `xunshi_circle_like`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle_like` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle_like` (
   `theme_id` int(11) unsigned NOT NULL COMMENT '主题id',
   `member_id` int(11) unsigned NOT NULL COMMENT '会员id',
   `circle_id` int(11) unsigned NOT NULL COMMENT '圈子id'
@@ -4392,10 +4392,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle_like` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle_mapply`
+-- 表的结构 `xunshi_circle_mapply`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle_mapply` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle_mapply` (
   `mapply_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '申请id',
   `circle_id` int(11) unsigned NOT NULL COMMENT '圈子id',
   `member_id` int(11) unsigned NOT NULL COMMENT '成员id',
@@ -4407,10 +4407,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle_mapply` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle_member`
+-- 表的结构 `xunshi_circle_member`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle_member` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle_member` (
   `member_id` int(11) unsigned NOT NULL COMMENT '会员id',
   `circle_id` int(11) unsigned NOT NULL COMMENT '圈子id',
   `circle_name` varchar(12) DEFAULT NULL COMMENT '圈子名称',
@@ -4437,10 +4437,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle_member` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle_ml`
+-- 表的结构 `xunshi_circle_ml`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle_ml` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle_ml` (
   `circle_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '圈子id',
   `mlref_id` int(10) DEFAULT NULL COMMENT '参考头衔id 0为默认 null为自定义',
   `ml_1` varchar(10) NOT NULL COMMENT '1级头衔名称',
@@ -4465,10 +4465,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle_ml` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle_mldefault`
+-- 表的结构 `xunshi_circle_mldefault`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle_mldefault` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle_mldefault` (
   `mld_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '头衔等级',
   `mld_name` varchar(10) NOT NULL COMMENT '头衔名称',
   `mld_exp` int(10) NOT NULL COMMENT '所需经验值',
@@ -4476,10 +4476,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle_mldefault` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='成员头衔默认设置表' AUTO_INCREMENT=17 ;
 
 --
--- 转存表中的数据 `33hao_circle_mldefault`
+-- 转存表中的数据 `xunshi_circle_mldefault`
 --
 
-INSERT INTO `33hao_circle_mldefault` (`mld_id`, `mld_name`, `mld_exp`) VALUES
+INSERT INTO `xunshi_circle_mldefault` (`mld_id`, `mld_name`, `mld_exp`) VALUES
 (1, '初级粉丝', 1),
 (2, '中级粉丝', 5),
 (3, '高级粉丝', 15),
@@ -4500,10 +4500,10 @@ INSERT INTO `33hao_circle_mldefault` (`mld_id`, `mld_name`, `mld_exp`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle_mlref`
+-- 表的结构 `xunshi_circle_mlref`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle_mlref` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle_mlref` (
   `mlref_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '参考头衔id',
   `mlref_name` varchar(10) NOT NULL COMMENT '参考头衔名称',
   `mlref_addtime` varchar(10) NOT NULL COMMENT '创建时间',
@@ -4528,10 +4528,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle_mlref` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='会员参考头衔表' AUTO_INCREMENT=7 ;
 
 --
--- 转存表中的数据 `33hao_circle_mlref`
+-- 转存表中的数据 `xunshi_circle_mlref`
 --
 
-INSERT INTO `33hao_circle_mlref` (`mlref_id`, `mlref_name`, `mlref_addtime`, `mlref_status`, `mlref_1`, `mlref_2`, `mlref_3`, `mlref_4`, `mlref_5`, `mlref_6`, `mlref_7`, `mlref_8`, `mlref_9`, `mlref_10`, `mlref_11`, `mlref_12`, `mlref_13`, `mlref_14`, `mlref_15`, `mlref_16`) VALUES
+INSERT INTO `xunshi_circle_mlref` (`mlref_id`, `mlref_name`, `mlref_addtime`, `mlref_status`, `mlref_1`, `mlref_2`, `mlref_3`, `mlref_4`, `mlref_5`, `mlref_6`, `mlref_7`, `mlref_8`, `mlref_9`, `mlref_10`, `mlref_11`, `mlref_12`, `mlref_13`, `mlref_14`, `mlref_15`, `mlref_16`) VALUES
 (1, '校园系列', '1371784037', 1, '托儿所', '幼儿园', '学前班', '一年级', '二年级', '三年级', '四年级', '五年级', '六年级', '初一', '初二', '初三', '高一', '高二', '高三', '大学'),
 (2, '名气系列', '1371797598', 1, '默默无闻', '崭露头角', '锋芒毕露', '小有名气', '小有美名', '颇具名气', '颇具盛名', '富有名气', '富有美誉', '远近闻名', '崭露头角', '声名远扬', '赫赫有名', '大名鼎鼎', '如雷贯耳', '名扬四海'),
 (3, '内涵系列', '1371884423', 1, '1L喂熊', '抢个沙发', '自带板凳', '路人甲君', '打酱油的', '华丽飘过', '前来围观', '我勒个去', '亮了瞎了', '兰州烧饼', '鸭梨山大', '笑而不语', '内牛满面', '虎躯一震', '霸气外露', '此贴必火'),
@@ -4542,10 +4542,10 @@ INSERT INTO `33hao_circle_mlref` (`mlref_id`, `mlref_name`, `mlref_addtime`, `ml
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle_recycle`
+-- 表的结构 `xunshi_circle_recycle`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle_recycle` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle_recycle` (
   `recycle_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '回收站id',
   `member_id` int(11) NOT NULL COMMENT '会员id',
   `member_name` varchar(50) NOT NULL COMMENT '会员名称',
@@ -4563,10 +4563,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle_recycle` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle_thclass`
+-- 表的结构 `xunshi_circle_thclass`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle_thclass` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle_thclass` (
   `thclass_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主题分类id',
   `thclass_name` varchar(20) NOT NULL COMMENT '主题名称',
   `thclass_status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '主题状态 1开启，0关闭',
@@ -4579,10 +4579,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle_thclass` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle_theme`
+-- 表的结构 `xunshi_circle_theme`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle_theme` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle_theme` (
   `theme_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '主题id',
   `theme_name` varchar(50) NOT NULL COMMENT '主题名称',
   `theme_content` text NOT NULL COMMENT '主题内容',
@@ -4619,10 +4619,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle_theme` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle_thg`
+-- 表的结构 `xunshi_circle_thg`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle_thg` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle_thg` (
   `themegoods_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主题商品id',
   `theme_id` int(11) NOT NULL COMMENT '主题id',
   `reply_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '回复id',
@@ -4640,10 +4640,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle_thg` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle_thpoll`
+-- 表的结构 `xunshi_circle_thpoll`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle_thpoll` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle_thpoll` (
   `theme_id` int(11) unsigned NOT NULL COMMENT '话题id',
   `poll_multiple` tinyint(3) unsigned NOT NULL COMMENT '单/多选 0单选、1多选',
   `poll_startime` varchar(10) NOT NULL COMMENT '开始时间',
@@ -4656,10 +4656,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle_thpoll` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle_thpolloption`
+-- 表的结构 `xunshi_circle_thpolloption`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle_thpolloption` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle_thpolloption` (
   `pollop_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '投票选项id',
   `theme_id` int(11) unsigned NOT NULL COMMENT '话题id',
   `pollop_option` varchar(80) NOT NULL COMMENT '投票选项',
@@ -4672,10 +4672,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle_thpolloption` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle_thpollvoter`
+-- 表的结构 `xunshi_circle_thpollvoter`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle_thpollvoter` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle_thpollvoter` (
   `theme_id` int(11) unsigned NOT NULL COMMENT '话题id',
   `member_id` int(11) unsigned NOT NULL COMMENT '成员id',
   `member_name` varchar(50) NOT NULL COMMENT '成员名称',
@@ -4687,10 +4687,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle_thpollvoter` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_circle_threply`
+-- 表的结构 `xunshi_circle_threply`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_circle_threply` (
+CREATE TABLE IF NOT EXISTS `xunshi_circle_threply` (
   `theme_id` int(11) unsigned NOT NULL COMMENT '主题id',
   `reply_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '评论id',
   `circle_id` int(11) unsigned NOT NULL COMMENT '圈子id',
@@ -4708,10 +4708,10 @@ CREATE TABLE IF NOT EXISTS `33hao_circle_threply` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_cms_article`
+-- 表的结构 `xunshi_cms_article`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_cms_article` (
+CREATE TABLE IF NOT EXISTS `xunshi_cms_article` (
   `article_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '文章编号',
   `article_title` varchar(50) NOT NULL COMMENT '文章标题',
   `article_class_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '文章分类编号',
@@ -4759,10 +4759,10 @@ CREATE TABLE IF NOT EXISTS `33hao_cms_article` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_cms_article_attitude`
+-- 表的结构 `xunshi_cms_article_attitude`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_cms_article_attitude` (
+CREATE TABLE IF NOT EXISTS `xunshi_cms_article_attitude` (
   `attitude_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '心情编号',
   `attitude_article_id` int(10) unsigned NOT NULL COMMENT '文章编号',
   `attitude_member_id` int(10) unsigned NOT NULL COMMENT '用户编号',
@@ -4773,10 +4773,10 @@ CREATE TABLE IF NOT EXISTS `33hao_cms_article_attitude` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_cms_article_class`
+-- 表的结构 `xunshi_cms_article_class`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_cms_article_class` (
+CREATE TABLE IF NOT EXISTS `xunshi_cms_article_class` (
   `class_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '分类编号 ',
   `class_name` varchar(50) NOT NULL COMMENT '分类名称',
   `class_sort` tinyint(1) unsigned NOT NULL DEFAULT '255' COMMENT '排序',
@@ -4786,10 +4786,10 @@ CREATE TABLE IF NOT EXISTS `33hao_cms_article_class` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_cms_comment`
+-- 表的结构 `xunshi_cms_comment`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_cms_comment` (
+CREATE TABLE IF NOT EXISTS `xunshi_cms_comment` (
   `comment_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '评论编号',
   `comment_type` tinyint(1) NOT NULL COMMENT '评论类型编号',
   `comment_object_id` int(10) unsigned NOT NULL COMMENT '推荐商品编号',
@@ -4804,10 +4804,10 @@ CREATE TABLE IF NOT EXISTS `33hao_cms_comment` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_cms_comment_up`
+-- 表的结构 `xunshi_cms_comment_up`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_cms_comment_up` (
+CREATE TABLE IF NOT EXISTS `xunshi_cms_comment_up` (
   `up_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '顶编号',
   `comment_id` int(10) unsigned NOT NULL COMMENT '评论编号',
   `up_member_id` int(10) unsigned NOT NULL COMMENT '用户编号',
@@ -4818,10 +4818,10 @@ CREATE TABLE IF NOT EXISTS `33hao_cms_comment_up` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_cms_index_module`
+-- 表的结构 `xunshi_cms_index_module`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_cms_index_module` (
+CREATE TABLE IF NOT EXISTS `xunshi_cms_index_module` (
   `module_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '模块编号',
   `module_title` varchar(50) DEFAULT '' COMMENT '模块标题',
   `module_name` varchar(50) NOT NULL COMMENT '模板名称',
@@ -4837,10 +4837,10 @@ CREATE TABLE IF NOT EXISTS `33hao_cms_index_module` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_cms_module`
+-- 表的结构 `xunshi_cms_module`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_cms_module` (
+CREATE TABLE IF NOT EXISTS `xunshi_cms_module` (
   `module_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '模板模块编号',
   `module_title` varchar(50) NOT NULL DEFAULT '' COMMENT '模板模块标题',
   `module_name` varchar(50) NOT NULL DEFAULT '' COMMENT '模板名称',
@@ -4850,10 +4850,10 @@ CREATE TABLE IF NOT EXISTS `33hao_cms_module` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='CMS模板模块表' AUTO_INCREMENT=6 ;
 
 --
--- 转存表中的数据 `33hao_cms_module`
+-- 转存表中的数据 `xunshi_cms_module`
 --
 
-INSERT INTO `33hao_cms_module` (`module_id`, `module_title`, `module_name`, `module_type`, `module_class`) VALUES
+INSERT INTO `xunshi_cms_module` (`module_id`, `module_title`, `module_name`, `module_type`, `module_class`) VALUES
 (1, '综合模块', 'index', 'index', 1),
 (2, '微商城模块', 'micro', 'micro', 1),
 (3, '文章模块1', 'article1', 'article1', 1),
@@ -4863,10 +4863,10 @@ INSERT INTO `33hao_cms_module` (`module_id`, `module_title`, `module_name`, `mod
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_cms_module_assembly`
+-- 表的结构 `xunshi_cms_module_assembly`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_cms_module_assembly` (
+CREATE TABLE IF NOT EXISTS `xunshi_cms_module_assembly` (
   `assembly_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '组件编号',
   `assembly_title` varchar(50) NOT NULL COMMENT '组件标题',
   `assembly_name` varchar(50) NOT NULL COMMENT '组件名称',
@@ -4875,10 +4875,10 @@ CREATE TABLE IF NOT EXISTS `33hao_cms_module_assembly` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='cms模块组件表' AUTO_INCREMENT=10 ;
 
 --
--- 转存表中的数据 `33hao_cms_module_assembly`
+-- 转存表中的数据 `xunshi_cms_module_assembly`
 --
 
-INSERT INTO `33hao_cms_module_assembly` (`assembly_id`, `assembly_title`, `assembly_name`, `assembly_explain`) VALUES
+INSERT INTO `xunshi_cms_module_assembly` (`assembly_id`, `assembly_title`, `assembly_name`, `assembly_explain`) VALUES
 (1, '文章', 'article', '文章组件'),
 (2, '图片', 'picture', '图片组件'),
 (3, '商品', 'goods', '商品组件'),
@@ -4892,10 +4892,10 @@ INSERT INTO `33hao_cms_module_assembly` (`assembly_id`, `assembly_title`, `assem
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_cms_module_frame`
+-- 表的结构 `xunshi_cms_module_frame`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_cms_module_frame` (
+CREATE TABLE IF NOT EXISTS `xunshi_cms_module_frame` (
   `frame_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '框架编号',
   `frame_title` varchar(50) NOT NULL COMMENT '框架标题',
   `frame_name` varchar(50) NOT NULL COMMENT '框架名称',
@@ -4905,10 +4905,10 @@ CREATE TABLE IF NOT EXISTS `33hao_cms_module_frame` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='cms模块框架表' AUTO_INCREMENT=9 ;
 
 --
--- 转存表中的数据 `33hao_cms_module_frame`
+-- 转存表中的数据 `xunshi_cms_module_frame`
 --
 
-INSERT INTO `33hao_cms_module_frame` (`frame_id`, `frame_title`, `frame_name`, `frame_explain`, `frame_structure`) VALUES
+INSERT INTO `xunshi_cms_module_frame` (`frame_id`, `frame_title`, `frame_name`, `frame_explain`, `frame_structure`) VALUES
 (1, '右边栏三列结构', '2_2_1', '右边栏三列结构', '{"block1":{"type":"block","name":"w2"},"block2":{"type":"block","name":"w2"},"block3":{"type":"block","name":"w1"}}'),
 (2, '左边栏三列结构', '1_2_2', '左边栏三列结构', '{"block1":{"type":"block","name":"w1"},"block2":{"type":"block","name":"w2"},"block3":{"type":"block","name":"w2"}}'),
 (3, '左右宽边栏结构', '2_1_2', '左右宽边栏结构', '{"block1":{"type":"block","name":"w2"},"block2":{"type":"block","name":"w1"},"block3":{"type":"block","name":"w2"}}'),
@@ -4921,10 +4921,10 @@ INSERT INTO `33hao_cms_module_frame` (`frame_id`, `frame_title`, `frame_name`, `
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_cms_navigation`
+-- 表的结构 `xunshi_cms_navigation`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_cms_navigation` (
+CREATE TABLE IF NOT EXISTS `xunshi_cms_navigation` (
   `navigation_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '导航编号',
   `navigation_title` varchar(50) NOT NULL COMMENT '导航标题',
   `navigation_link` varchar(255) NOT NULL COMMENT '导航链接',
@@ -4934,10 +4934,10 @@ CREATE TABLE IF NOT EXISTS `33hao_cms_navigation` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='CMS导航表' AUTO_INCREMENT=5 ;
 
 --
--- 转存表中的数据 `33hao_cms_navigation`
+-- 转存表中的数据 `xunshi_cms_navigation`
 --
 
-INSERT INTO `33hao_cms_navigation` (`navigation_id`, `navigation_title`, `navigation_link`, `navigation_sort`, `navigation_open_type`) VALUES
+INSERT INTO `xunshi_cms_navigation` (`navigation_id`, `navigation_title`, `navigation_link`, `navigation_sort`, `navigation_open_type`) VALUES
 (1, '商城', 'http://v5.33hao.com/', 255, 1),
 (2, '圈子', 'http://v5.33hao.com/circle', 255, 1),
 (3, '微商城', 'http://v5.33hao.com/microshop', 255, 1),
@@ -4946,10 +4946,10 @@ INSERT INTO `33hao_cms_navigation` (`navigation_id`, `navigation_title`, `naviga
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_cms_picture`
+-- 表的结构 `xunshi_cms_picture`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_cms_picture` (
+CREATE TABLE IF NOT EXISTS `xunshi_cms_picture` (
   `picture_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '画报编号',
   `picture_title` varchar(50) NOT NULL COMMENT '画报标题',
   `picture_class_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '画报分类编号',
@@ -4982,10 +4982,10 @@ CREATE TABLE IF NOT EXISTS `33hao_cms_picture` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_cms_picture_class`
+-- 表的结构 `xunshi_cms_picture_class`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_cms_picture_class` (
+CREATE TABLE IF NOT EXISTS `xunshi_cms_picture_class` (
   `class_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '分类编号 ',
   `class_name` varchar(50) NOT NULL COMMENT '分类名称',
   `class_sort` tinyint(1) unsigned NOT NULL DEFAULT '255' COMMENT '排序',
@@ -4995,10 +4995,10 @@ CREATE TABLE IF NOT EXISTS `33hao_cms_picture_class` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_cms_picture_image`
+-- 表的结构 `xunshi_cms_picture_image`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_cms_picture_image` (
+CREATE TABLE IF NOT EXISTS `xunshi_cms_picture_image` (
   `image_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '图片编号',
   `image_name` varchar(255) NOT NULL COMMENT '图片地址',
   `image_abstract` varchar(200) DEFAULT NULL COMMENT '图片摘要',
@@ -5014,10 +5014,10 @@ CREATE TABLE IF NOT EXISTS `33hao_cms_picture_image` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_cms_special`
+-- 表的结构 `xunshi_cms_special`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_cms_special` (
+CREATE TABLE IF NOT EXISTS `xunshi_cms_special` (
   `special_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '专题编号',
   `special_title` varchar(50) NOT NULL COMMENT '专题标题',
   `special_stitle` varchar(200) NOT NULL COMMENT '专题副标题',
@@ -5038,10 +5038,10 @@ CREATE TABLE IF NOT EXISTS `33hao_cms_special` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_cms_tag`
+-- 表的结构 `xunshi_cms_tag`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_cms_tag` (
+CREATE TABLE IF NOT EXISTS `xunshi_cms_tag` (
   `tag_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '标签编号',
   `tag_name` varchar(50) NOT NULL COMMENT '标签名称',
   `tag_sort` tinyint(1) unsigned NOT NULL COMMENT '标签排序',
@@ -5052,10 +5052,10 @@ CREATE TABLE IF NOT EXISTS `33hao_cms_tag` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_cms_tag_relation`
+-- 表的结构 `xunshi_cms_tag_relation`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_cms_tag_relation` (
+CREATE TABLE IF NOT EXISTS `xunshi_cms_tag_relation` (
   `relation_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '关系编号',
   `relation_type` tinyint(1) unsigned NOT NULL COMMENT '关系类型1-文章，2-画报',
   `relation_tag_id` int(10) unsigned NOT NULL COMMENT '标签编号',
@@ -5066,10 +5066,10 @@ CREATE TABLE IF NOT EXISTS `33hao_cms_tag_relation` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_complain`
+-- 表的结构 `xunshi_complain`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_complain` (
+CREATE TABLE IF NOT EXISTS `xunshi_complain` (
   `complain_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '投诉id',
   `order_id` int(11) NOT NULL COMMENT '订单id',
   `order_goods_id` int(10) unsigned DEFAULT '0' COMMENT '订单商品ID',
@@ -5102,10 +5102,10 @@ CREATE TABLE IF NOT EXISTS `33hao_complain` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_complain_subject`
+-- 表的结构 `xunshi_complain_subject`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_complain_subject` (
+CREATE TABLE IF NOT EXISTS `xunshi_complain_subject` (
   `complain_subject_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '投诉主题id',
   `complain_subject_content` varchar(50) NOT NULL COMMENT '投诉主题',
   `complain_subject_desc` varchar(100) NOT NULL COMMENT '投诉主题描述',
@@ -5114,10 +5114,10 @@ CREATE TABLE IF NOT EXISTS `33hao_complain_subject` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='投诉主题表' AUTO_INCREMENT=4 ;
 
 --
--- 转存表中的数据 `33hao_complain_subject`
+-- 转存表中的数据 `xunshi_complain_subject`
 --
 
-INSERT INTO `33hao_complain_subject` (`complain_subject_id`, `complain_subject_content`, `complain_subject_desc`, `complain_subject_state`) VALUES
+INSERT INTO `xunshi_complain_subject` (`complain_subject_id`, `complain_subject_content`, `complain_subject_desc`, `complain_subject_state`) VALUES
 (1, '商家不同意退款', '买家申请退款被拒绝。', 2),
 (2, '未收到货', '交易成功，未收到货，钱已经付给商家，可进行维权。', 1),
 (3, '售后保障服务', '交易完成后30天内，在使用商品过程中，发现商品有质量问题或无法正常使用，可进行维权。', 1);
@@ -5125,10 +5125,10 @@ INSERT INTO `33hao_complain_subject` (`complain_subject_id`, `complain_subject_c
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_complain_talk`
+-- 表的结构 `xunshi_complain_talk`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_complain_talk` (
+CREATE TABLE IF NOT EXISTS `xunshi_complain_talk` (
   `talk_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '投诉对话id',
   `complain_id` int(11) NOT NULL COMMENT '投诉id',
   `talk_member_id` int(11) NOT NULL COMMENT '发言人id',
@@ -5144,10 +5144,10 @@ CREATE TABLE IF NOT EXISTS `33hao_complain_talk` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_consult`
+-- 表的结构 `xunshi_consult`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_consult` (
+CREATE TABLE IF NOT EXISTS `xunshi_consult` (
   `consult_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '咨询编号',
   `goods_id` int(11) unsigned DEFAULT '0' COMMENT '商品编号',
   `goods_name` varchar(100) NOT NULL COMMENT '商品名称',
@@ -5169,10 +5169,10 @@ CREATE TABLE IF NOT EXISTS `33hao_consult` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_consult_type`
+-- 表的结构 `xunshi_consult_type`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_consult_type` (
+CREATE TABLE IF NOT EXISTS `xunshi_consult_type` (
   `ct_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '咨询类型id',
   `ct_name` varchar(10) NOT NULL COMMENT '咨询类型名称',
   `ct_introduce` text NOT NULL COMMENT '咨询类型详细介绍',
@@ -5181,10 +5181,10 @@ CREATE TABLE IF NOT EXISTS `33hao_consult_type` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='咨询类型表' AUTO_INCREMENT=5 ;
 
 --
--- 转存表中的数据 `33hao_consult_type`
+-- 转存表中的数据 `xunshi_consult_type`
 --
 
-INSERT INTO `33hao_consult_type` (`ct_id`, `ct_name`, `ct_introduce`, `ct_sort`) VALUES
+INSERT INTO `xunshi_consult_type` (`ct_id`, `ct_name`, `ct_introduce`, `ct_sort`) VALUES
 (1, '商品咨询', '&lt;strong&gt;商城承诺&lt;/strong&gt;：商品均为原装正品行货，自带机打发票，严格执行国家三包政策，享受全国联保服务。&lt;br /&gt;\r\n&lt;strong&gt;功能咨询&lt;/strong&gt;：咨询商品功能建议您拨打各品牌的官方客服电话，以便获得更准确的信息。', 1),
 (2, '支付问题', '&lt;strong&gt;大额支付&lt;/strong&gt;：线上支付中的招行、工行、建行、农行、广发支持大额支付，最高单笔一次支付10000元。&lt;br /&gt;\r\n&lt;strong&gt;货到付款&lt;/strong&gt;：只有官方店铺支持货到付款功能。&lt;br /&gt;', 2),
 (3, '发票及保修', '&lt;strong&gt;商城承诺&lt;/strong&gt;：商品均为原装正品行货，自带机打发票，严格执行国家三包政策，享受全国联保服务。&lt;br /&gt;\r\n&lt;strong&gt;发票类型&lt;/strong&gt;：商城所售商品均自带机打发票，在提供相关企业资料证明后，可申请开取增值税发票。&lt;br /&gt;\r\n&lt;strong&gt;退 换 货&lt;/strong&gt;：商城为您提供完善的退换货服务。', 3),
@@ -5193,10 +5193,10 @@ INSERT INTO `33hao_consult_type` (`ct_id`, `ct_name`, `ct_introduce`, `ct_sort`)
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_consume`
+-- 表的结构 `xunshi_consume`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_consume` (
+CREATE TABLE IF NOT EXISTS `xunshi_consume` (
   `consume_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '消费表',
   `member_id` int(10) unsigned NOT NULL COMMENT '会员id',
   `member_name` varchar(50) NOT NULL COMMENT '会员名称',
@@ -5209,10 +5209,10 @@ CREATE TABLE IF NOT EXISTS `33hao_consume` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_contract`
+-- 表的结构 `xunshi_contract`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_contract` (
+CREATE TABLE IF NOT EXISTS `xunshi_contract` (
   `ct_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
   `ct_storeid` int(11) NOT NULL COMMENT '店铺ID',
   `ct_storename` varchar(500) NOT NULL COMMENT '店铺名称',
@@ -5228,10 +5228,10 @@ CREATE TABLE IF NOT EXISTS `33hao_contract` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_contract_apply`
+-- 表的结构 `xunshi_contract_apply`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_contract_apply` (
+CREATE TABLE IF NOT EXISTS `xunshi_contract_apply` (
   `cta_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '申请ID',
   `cta_itemid` int(11) NOT NULL COMMENT '保障项目ID',
   `cta_storeid` int(11) NOT NULL COMMENT '店铺ID',
@@ -5246,10 +5246,10 @@ CREATE TABLE IF NOT EXISTS `33hao_contract_apply` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_contract_costlog`
+-- 表的结构 `xunshi_contract_costlog`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_contract_costlog` (
+CREATE TABLE IF NOT EXISTS `xunshi_contract_costlog` (
   `clog_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
   `clog_itemid` int(11) NOT NULL COMMENT '保障项目ID',
   `clog_itemname` varchar(100) NOT NULL COMMENT '保障项目名称',
@@ -5266,10 +5266,10 @@ CREATE TABLE IF NOT EXISTS `33hao_contract_costlog` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_contract_item`
+-- 表的结构 `xunshi_contract_item`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_contract_item` (
+CREATE TABLE IF NOT EXISTS `xunshi_contract_item` (
   `cti_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
   `cti_name` varchar(100) NOT NULL COMMENT '保障项目名称',
   `cti_describe` varchar(2000) NOT NULL COMMENT '保障项目描述',
@@ -5282,10 +5282,10 @@ CREATE TABLE IF NOT EXISTS `33hao_contract_item` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='消费者保障服务项目表' AUTO_INCREMENT=11 ;
 
 --
--- 转存表中的数据 `33hao_contract_item`
+-- 转存表中的数据 `xunshi_contract_item`
 --
 
-INSERT INTO `33hao_contract_item` (`cti_id`, `cti_name`, `cti_describe`, `cti_cost`, `cti_icon`, `cti_descurl`, `cti_state`, `cti_sort`) VALUES
+INSERT INTO `xunshi_contract_item` (`cti_id`, `cti_name`, `cti_describe`, `cti_cost`, `cti_icon`, `cti_descurl`, `cti_state`, `cti_sort`) VALUES
 (1, '7天退货', '卖家就该商品退货服务向买家作出承诺，自商品签收之日起至卖家承诺保障时间内，商品符合卖家约定状态的情况下，如买家对购买的商品不满意可无理由申请退货。', '1000.00', '7day.gif', '', 1, 1),
 (2, '品质承诺', '卖家就该商品品质向买家作出承诺，承诺商品为正品。', '1000.00', 'pz.gif', '', 1, 2),
 (3, '破损补寄', '卖家就该商品签收状态作出承诺，自商品签收之日起至卖家承诺保障时间内，如发现商品在运输途中出现破损，买家可申请破损部分商品补寄。', '1000.00', 'psbf.gif', '', 1, 3),
@@ -5300,10 +5300,10 @@ INSERT INTO `33hao_contract_item` (`cti_id`, `cti_name`, `cti_describe`, `cti_co
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_contract_log`
+-- 表的结构 `xunshi_contract_log`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_contract_log` (
+CREATE TABLE IF NOT EXISTS `xunshi_contract_log` (
   `log_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
   `log_storeid` int(11) NOT NULL COMMENT '店铺ID',
   `log_storename` varchar(500) NOT NULL COMMENT '店铺名称',
@@ -5320,10 +5320,10 @@ CREATE TABLE IF NOT EXISTS `33hao_contract_log` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_contract_quitapply`
+-- 表的结构 `xunshi_contract_quitapply`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_contract_quitapply` (
+CREATE TABLE IF NOT EXISTS `xunshi_contract_quitapply` (
   `ctq_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '退出申请ID',
   `ctq_itemid` int(11) NOT NULL COMMENT '项目ID',
   `ctq_itemname` varchar(200) NOT NULL COMMENT '项目名称',
@@ -5337,10 +5337,10 @@ CREATE TABLE IF NOT EXISTS `33hao_contract_quitapply` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_cron`
+-- 表的结构 `xunshi_cron`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_cron` (
+CREATE TABLE IF NOT EXISTS `xunshi_cron` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `type` tinyint(3) unsigned DEFAULT NULL COMMENT '任务类型 1商品上架 2根据商品id更新商品促销价格 3优惠套装过期 4推荐展位过期 5抢购开始更新商品促销价格 6抢购过期 7限时折扣过期 8加价购过期 9商品消费者保障服务开启状态更新 10手机专享过期',
   `exeid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '关联任务的ID[如商品ID,会员ID]',
@@ -5349,19 +5349,19 @@ CREATE TABLE IF NOT EXISTS `33hao_cron` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='任务队列表' AUTO_INCREMENT=6 ;
 
 --
--- 转存表中的数据 `33hao_cron`
+-- 转存表中的数据 `xunshi_cron`
 --
 
-INSERT INTO `33hao_cron` (`id`, `type`, `exeid`, `exetime`) VALUES
+INSERT INTO `xunshi_cron` (`id`, `type`, `exeid`, `exetime`) VALUES
 (5, 1, 100008, 1490544300);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_daddress`
+-- 表的结构 `xunshi_daddress`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_daddress` (
+CREATE TABLE IF NOT EXISTS `xunshi_daddress` (
   `address_id` mediumint(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '地址ID',
   `store_id` mediumint(10) unsigned NOT NULL DEFAULT '0' COMMENT '店铺ID',
   `seller_name` varchar(50) NOT NULL DEFAULT '' COMMENT '联系人',
@@ -5378,10 +5378,10 @@ CREATE TABLE IF NOT EXISTS `33hao_daddress` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_delivery_order`
+-- 表的结构 `xunshi_delivery_order`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_delivery_order` (
+CREATE TABLE IF NOT EXISTS `xunshi_delivery_order` (
   `order_id` int(11) NOT NULL COMMENT '订单ID',
   `addtime` int(11) DEFAULT '0' COMMENT '订单生成时间',
   `order_sn` bigint(20) DEFAULT NULL COMMENT '订单号',
@@ -5400,10 +5400,10 @@ CREATE TABLE IF NOT EXISTS `33hao_delivery_order` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_delivery_point`
+-- 表的结构 `xunshi_delivery_point`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_delivery_point` (
+CREATE TABLE IF NOT EXISTS `xunshi_delivery_point` (
   `dlyp_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '提货站id',
   `dlyp_name` varchar(50) NOT NULL COMMENT '提货站登录名',
   `dlyp_passwd` varchar(32) NOT NULL COMMENT '提货站登录密码',
@@ -5432,10 +5432,10 @@ CREATE TABLE IF NOT EXISTS `33hao_delivery_point` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_document`
+-- 表的结构 `xunshi_document`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_document` (
+CREATE TABLE IF NOT EXISTS `xunshi_document` (
   `doc_id` mediumint(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `doc_code` varchar(255) NOT NULL COMMENT '调用标识码',
   `doc_title` varchar(255) NOT NULL COMMENT '标题',
@@ -5446,10 +5446,10 @@ CREATE TABLE IF NOT EXISTS `33hao_document` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='系统文章表' AUTO_INCREMENT=7 ;
 
 --
--- 转存表中的数据 `33hao_document`
+-- 转存表中的数据 `xunshi_document`
 --
 
-INSERT INTO `33hao_document` (`doc_id`, `doc_code`, `doc_title`, `doc_content`, `doc_time`) VALUES
+INSERT INTO `xunshi_document` (`doc_id`, `doc_code`, `doc_title`, `doc_content`, `doc_time`) VALUES
 (1, 'agreement', '用户服务协议', '<p>特别提醒用户认真阅读本《用户服务协议》(下称《协议》) 中各条款。除非您接受本《协议》条款，否则您无权使用本网站提供的相关服务。您的使用行为将视为对本《协议》的接受，并同意接受本《协议》各项条款的约束。 <br /> <br /> <strong>一、定义</strong><br /></p>\r\n<ol>\r\n<li>"用户"指符合本协议所规定的条件，同意遵守本网站各种规则、条款（包括但不限于本协议），并使用本网站的个人或机构。</li>\r\n<li>"卖家"是指在本网站上出售物品的用户。"买家"是指在本网站购买物品的用户。</li>\r\n<li>"成交"指买家根据卖家所刊登的交易要求，在特定时间内提出最优的交易条件，因而取得依其提出的条件购买该交易物品的权利。</li>\r\n</ol>\r\n<p><br /> <br /> <strong>二、用户资格</strong><br /> <br /> 只有符合下列条件之一的人员或实体才能申请成为本网站用户，可以使用本网站的服务。</p>\r\n<ol>\r\n<li>年满十八岁，并具有民事权利能力和民事行为能力的自然人；</li>\r\n<li>未满十八岁，但监护人（包括但不仅限于父母）予以书面同意的自然人；</li>\r\n<li>根据中国法律或设立地法律、法规和/或规章成立并合法存在的公司、企事业单位、社团组织和其他组织。</li>\r\n</ol>\r\n<p><br /> 无民事行为能力人、限制民事行为能力人以及无经营或特定经营资格的组织不当注册为本网站用户或超过其民事权利或行为能力范围从事交易的，其与本网站之间的协议自始无效，本网站一经发现，有权立即注销该用户，并追究其使用本网站"服务"的一切法律责任。<br /> <br /> <strong>三.用户的权利和义务</strong><br /></p>\r\n<ol>\r\n<li>用户有权根据本协议的规定及本网站发布的相关规则，利用本网站网上交易平台登录物品、发布交易信息、查询物品信息、购买物品、与其他用户订立物品买卖合同、在本网站社区发帖、参加本网站的有关活动及有权享受本网站提供的其他的有关资讯及信息服务。</li>\r\n<li>用户有权根据需要更改密码和交易密码。用户应对以该用户名进行的所有活动和事件负全部责任。</li>\r\n<li>用户有义务确保向本网站提供的任何资料、注册信息真实准确，包括但不限于真实姓名、身份证号、联系电话、地址、邮政编码等。保证本网站及其他用户可以通过上述联系方式与自己进行联系。同时，用户也有义务在相关资料实际变更时及时更新有关注册资料。</li>\r\n<li>用户不得以任何形式擅自转让或授权他人使用自己在本网站的用户账号。</li>\r\n<li>用户有义务确保在本网站网上交易平台上登录物品、发布的交易信息真实、准确，无误导性。</li>\r\n<li>用户不得在本网站网上交易平台买卖国家禁止销售的或限制销售的物品、不得买卖侵犯他人知识产权或其他合法权益的物品，也不得买卖违背社会公共利益或公共道德的物品。</li>\r\n<li>用户不得在本网站发布各类违法或违规信息。包括但不限于物品信息、交易信息、社区帖子、物品留言，店铺留言，评价内容等。</li>\r\n<li>用户在本网站交易中应当遵守诚实信用原则，不得以干预或操纵物品价格等不正当竞争方式扰乱网上交易秩序，不得从事与网上交易无关的不当行为，不得在交易平台上发布任何违法信息。</li>\r\n<li>用户不应采取不正当手段（包括但不限于虚假交易、互换好评等方式）提高自身或他人信用度，或采用不正当手段恶意评价其他用户，降低其他用户信用度。</li>\r\n<li>用户承诺自己在使用本网站网上交易平台实施的所有行为遵守国家法律、法规和本网站的相关规定以及各种社会公共利益或公共道德。对于任何法律后果的发生，用户将以自己的名义独立承担所有相应的法律责任。</li>\r\n<li>用户在本网站网上交易过程中如与其他用户因交易产生纠纷，可以请求本网站从中予以协调。用户如发现其他用户有违法或违反本协议的行为，可以向本网站举报。如用户因网上交易与其他用户产生诉讼的，用户有权通过司法部门要求本网站提供相关资料。</li>\r\n<li>用户应自行承担因交易产生的相关费用，并依法纳税。</li>\r\n<li>未经本网站书面允许，用户不得将本网站资料以及在交易平台上所展示的任何信息以复制、修改、翻译等形式制作衍生作品、分发或公开展示。</li>\r\n<li>用户同意接收来自本网站的信息，包括但不限于活动信息、交易信息、促销信息等。</li>\r\n</ol>\r\n<p><br /> <br /> <strong>四、 本网站的权利和义务</strong><br /></p>\r\n<ol>\r\n<li>本网站不是传统意义上的"拍卖商"，仅为用户提供一个信息交流、进行物品买卖的平台，充当买卖双方之间的交流媒介，而非买主或卖主的代理商、合伙  人、雇员或雇主等经营关系人。公布在本网站上的交易物品是用户自行上传进行交易的物品，并非本网站所有。对于用户刊登物品、提供的信息或参与竞标的过程，  本网站均不加以监视或控制，亦不介入物品的交易过程，包括运送、付款、退款、瑕疵担保及其它交易事项，且不承担因交易物品存在品质、权利上的瑕疵以及交易  方履行交易协议的能力而产生的任何责任，对于出现在拍卖上的物品品质、安全性或合法性，本网站均不予保证。</li>\r\n<li>本网站有义务在现有技术水平的基础上努力确保整个网上交易平台的正常运行，尽力避免服务中断或将中断时间限制在最短时间内，保证用户网上交易活动的顺利进行。</li>\r\n<li>本网站有义务对用户在注册使用本网站网上交易平台中所遇到的问题及反映的情况及时作出回复。 </li>\r\n<li>本网站有权对用户的注册资料进行查阅，对存在任何问题或怀疑的注册资料，本网站有权发出通知询问用户并要求用户做出解释、改正，或直接做出处罚、删除等处理。</li>\r\n<li>用  户因在本网站网上交易与其他用户产生纠纷的，用户通过司法部门或行政部门依照法定程序要求本网站提供相关资料，本网站将积极配合并提供有关资料；用户将纠  纷告知本网站，或本网站知悉纠纷情况的，经审核后，本网站有权通过电子邮件及电话联系向纠纷双方了解纠纷情况，并将所了解的情况通过电子邮件互相通知对  方。 </li>\r\n<li>因网上交易平台的特殊性，本网站没有义务对所有用户的注册资料、所有的交易行为以及与交易有关的其他事项进行事先审查，但如发生以下情形，本网站有权限制用户的活动、向用户核实有关资料、发出警告通知、暂时中止、无限期地中止及拒绝向该用户提供服务：         \r\n<ul>\r\n<li>用户违反本协议或因被提及而纳入本协议的文件；</li>\r\n<li>存在用户或其他第三方通知本网站，认为某个用户或具体交易事项存在违法或不当行为，并提供相关证据，而本网站无法联系到该用户核证或验证该用户向本网站提供的任何资料；</li>\r\n<li>存在用户或其他第三方通知本网站，认为某个用户或具体交易事项存在违法或不当行为，并提供相关证据。本网站以普通非专业交易者的知识水平标准对相关内容进行判别，可以明显认为这些内容或行为可能对本网站用户或本网站造成财务损失或法律责任。 </li>\r\n</ul>\r\n</li>\r\n<li>在反网络欺诈行动中，本着保护广大用户利益的原则，当用户举报自己交易可能存在欺诈而产生交易争议时，本网站有权通过表面判断暂时冻结相关用户账号，并有权核对当事人身份资料及要求提供交易相关证明材料。</li>\r\n<li>根据国家法律法规、本协议的内容和本网站所掌握的事实依据，可以认定用户存在违法或违反本协议行为以及在本网站交易平台上的其他不当行为，本网站有权在本网站交易平台及所在网站上以网络发布形式公布用户的违法行为，并有权随时作出删除相关信息，而无须征得用户的同意。</li>\r\n<li>本  网站有权在不通知用户的前提下删除或采取其他限制性措施处理下列信息：包括但不限于以规避费用为目的；以炒作信用为目的；存在欺诈等恶意或虚假内容；与网  上交易无关或不是以交易为目的；存在恶意竞价或其他试图扰乱正常交易秩序因素；该信息违反公共利益或可能严重损害本网站和其他用户合法利益的。</li>\r\n<li>用  户授予本网站独家的、全球通用的、永久的、免费的信息许可使用权利，本网站有权对该权利进行再授权，依此授权本网站有权(全部或部份地)  使用、复制、修订、改写、发布、翻译、分发、执行和展示用户公示于网站的各类信息或制作其派生作品，以现在已知或日后开发的任何形式、媒体或技术，将上述  信息纳入其他作品内。</li>\r\n</ol>\r\n<p><br /> <br /> <strong>五、服务的中断和终止</strong><br /></p>\r\n<ol>\r\n<li>在  本网站未向用户收取相关服务费用的情况下，本网站可自行全权决定以任何理由  (包括但不限于本网站认为用户已违反本协议的字面意义和精神，或用户在超过180天内未登录本网站等)  终止对用户的服务，并不再保存用户在本网站的全部资料（包括但不限于用户信息、商品信息、交易信息等）。同时本网站可自行全权决定，在发出通知或不发出通  知的情况下，随时停止提供全部或部分服务。服务终止后，本网站没有义务为用户保留原用户资料或与之相关的任何信息，或转发任何未曾阅读或发送的信息给用户  或第三方。此外，本网站不就终止对用户的服务而对用户或任何第三方承担任何责任。 </li>\r\n<li>如用户向本网站提出注销本网站注册用户身份，需经本网站审核同意，由本网站注销该注册用户，用户即解除与本网站的协议关系，但本网站仍保留下列权利：         \r\n<ul>\r\n<li>用户注销后，本网站有权保留该用户的资料,包括但不限于以前的用户资料、店铺资料、商品资料和交易记录等。 </li>\r\n<li>用户注销后，如用户在注销前在本网站交易平台上存在违法行为或违反本协议的行为，本网站仍可行使本协议所规定的权利。 </li>\r\n</ul>\r\n</li>\r\n<li>如存在下列情况，本网站可以通过注销用户的方式终止服务：         \r\n<ul>\r\n<li>在用户违反本协议相关规定时，本网站有权终止向该用户提供服务。本网站将在中断服务时通知用户。但如该用户在被本网站终止提供服务后，再一次直接或间接或以他人名义注册为本网站用户的，本网站有权再次单方面终止为该用户提供服务；</li>\r\n<li>一旦本网站发现用户注册资料中主要内容是虚假的，本网站有权随时终止为该用户提供服务； </li>\r\n<li>本协议终止或更新时，用户未确认新的协议的。 </li>\r\n<li>其它本网站认为需终止服务的情况。 </li>\r\n</ul>\r\n</li>\r\n<li>因用户违反相关法律法规或者违反本协议规定等原因而致使本网站中断、终止对用户服务的，对于服务中断、终止之前用户交易行为依下列原则处理：         \r\n<ul>\r\n<li>本网站有权决定是否在中断、终止对用户服务前将用户被中断或终止服务的情况和原因通知用户交易关系方，包括但不限于对该交易有意向但尚未达成交易的用户,参与该交易竞价的用户，已达成交易要约用户。</li>\r\n<li>服务中断、终止之前，用户已经上传至本网站的物品尚未交易或交易尚未完成的，本网站有权在中断、终止服务的同时删除此项物品的相关信息。 </li>\r\n<li>服务中断、终止之前，用户已经就其他用户出售的具体物品作出要约，但交易尚未结束，本网站有权在中断或终止服务的同时删除该用户的相关要约和信息。</li>\r\n</ul>\r\n</li>\r\n<li>本网站若因用户的行为（包括但不限于刊登的商品、在本网站社区发帖等）侵害了第三方的权利或违反了相关规定，而受到第三方的追偿或受到主管机关的处分时，用户应赔偿本网站因此所产生的一切损失及费用。</li>\r\n<li>对违反相关法律法规或者违反本协议规定，且情节严重的用户，本网站有权终止该用户的其它服务。</li>\r\n</ol>\r\n<p><br /> <br /> <strong>六、协议的修订</strong><br /> <br /> 本协议可由本网站随时修订，并将修订后的协议公告于本网站之上，修订后的条款内容自公告时起生效，并成为本协议的一部分。用户若在本协议修改之后，仍继续使用本网站，则视为用户接受和自愿遵守修订后的协议。本网站行使修改或中断服务时，不需对任何第三方负责。<br /> <br /> <strong>七、 本网站的责任范围 </strong><br /> <br /> 当用户接受该协议时，用户应明确了解并同意∶</p>\r\n<ol>\r\n<li>是否经由本网站下载或取得任何资料，由用户自行考虑、衡量并且自负风险，因下载任何资料而导致用户电脑系统的任何损坏或资料流失，用户应负完全责任。</li>\r\n<li>用户经由本网站取得的建议和资讯，无论其形式或表现，绝不构成本协议未明示规定的任何保证。</li>\r\n<li>基于以下原因而造成的利润、商誉、使用、资料损失或其它无形损失，本网站不承担任何直接、间接、附带、特别、衍生性或惩罚性赔偿（即使本网站已被告知前款赔偿的可能性）：         \r\n<ul>\r\n<li>本网站的使用或无法使用。</li>\r\n<li>经由或通过本网站购买或取得的任何物品，或接收之信息，或进行交易所随之产生的替代物品及服务的购买成本。</li>\r\n<li>用户的传输或资料遭到未获授权的存取或变更。</li>\r\n<li>本网站中任何第三方之声明或行为。</li>\r\n<li>本网站其它相关事宜。</li>\r\n</ul>\r\n</li>\r\n<li>本网站只是为用户提供一个交易的平台，对于用户所刊登的交易物品的合法性、真实性及其品质，以及用户履行交易的能力等，本网站一律不负任何担保责任。用户如果因使用本网站，或因购买刊登于本网站的任何物品，而受有损害时，本网站不负任何补偿或赔偿责任。</li>\r\n<li>本  网站提供与其它互联网上的网站或资源的链接，用户可能会因此连结至其它运营商经营的网站，但不表示本网站与这些运营商有任何关系。其它运营商经营的网站均  由各经营者自行负责，不属于本网站控制及负责范围之内。对于存在或来源于此类网站或资源的任何内容、广告、产品或其它资料，本网站亦不予保证或负责。因使  用或依赖任何此类网站或资源发布的或经由此类网站或资源获得的任何内容、物品或服务所产生的任何损害或损失，本网站不负任何直接或间接的责任。</li>\r\n</ol>\r\n<p><br /> <br /> <strong>八.、不可抗力</strong><br /> <br /> 因不可抗力或者其他意外事件，使得本协议的履行不可能、不必要或者无意义的，双方均不承担责任。本合同所称之不可抗力意指不能预见、不能避免并不能克服的  客观情况，包括但不限于战争、台风、水灾、火灾、雷击或地震、罢工、暴动、法定疾病、黑客攻击、网络病毒、电信部门技术管制、政府行为或任何其它自然或人  为造成的灾难等客观情况。<br /> <br /> <strong>九、争议解决方式</strong><br /></p>\r\n<ol>\r\n<li>本协议及其修订本的有效性、履行和与本协议及其修订本效力有关的所有事宜，将受中华人民共和国法律管辖，任何争议仅适用中华人民共和国法律。</li>\r\n<li>因  使用本网站服务所引起与本网站的任何争议，均应提交深圳仲裁委员会按照该会届时有效的仲裁规则进行仲裁。相关争议应单独仲裁，不得与任何其它方的争议在任  何仲裁中合并处理，该仲裁裁决是终局，对各方均有约束力。如果所涉及的争议不适于仲裁解决，用户同意一切争议由人民法院管辖。</li>\r\n</ol>', 1449242303),
 (4, 'open_store', '开店协议', '<p>使用本公司服务所须遵守的条款和条件。<br /><br />1.用户资格<br />本公司的服务仅向适用法律下能够签订具有法律约束力的合同的个人提供并仅由其使用。在不限制前述规定的前提下，本公司的服务不向18周岁以下或被临时或无限期中止的用户提供。如您不合资格，请勿使用本公司的服务。此外，您的账户（包括信用评价）和用户名不得向其他方转让或出售。另外，本公司保留根据其意愿中止或终止您的账户的权利。<br /><br />2.您的资料（包括但不限于所添加的任何商品）不得：<br />*具有欺诈性、虚假、不准确或具误导性；<br />*侵犯任何第三方著作权、专利权、商标权、商业秘密或其他专有权利或发表权或隐私权；<br />*违反任何适用的法律或法规（包括但不限于有关出口管制、消费者保护、不正当竞争、刑法、反歧视或贸易惯例/公平贸易法律的法律或法规）；<br />*有侮辱或者诽谤他人，侵害他人合法权益的内容；<br />*有淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪的内容；<br />*包含可能破坏、改变、删除、不利影响、秘密截取、未经授权而接触或征用任何系统、数据或个人资料的任何病毒、特洛依木马、蠕虫、定时炸弹、删除蝇、复活节彩蛋、间谍软件或其他电脑程序；<br /><br />3.违约<br />如发生以下情形，本公司可能限制您的活动、立即删除您的商品、向本公司社区发出有关您的行为的警告、发出警告通知、暂时中止、无限期地中止或终止您的用户资格及拒绝向您提供服务：<br />(a)您违反本协议或纳入本协议的文件；<br />(b)本公司无法核证或验证您向本公司提供的任何资料；<br />(c)本公司相信您的行为可能对您、本公司用户或本公司造成损失或法律责任。<br /><br />4.责任限制<br />本公司、本公司的关联公司和相关实体或本公司的供应商在任何情况下均不就因本公司的网站、本公司的服务或本协议而产生或与之有关的利润损失或任何特别、间接或后果性的损害（无论以何种方式产生，包括疏忽）承担任何责任。您同意您就您自身行为之合法性单独承担责任。您同意，本公司和本公司的所有关联公司和相关实体对本公司用户的行为的合法性及产生的任何结果不承担责任。<br /><br />5.无代理关系<br />用户和本公司是独立的合同方，本协议无意建立也没有创立任何代理、合伙、合营、雇员与雇主或特许经营关系。本公司也不对任何用户及其网上交易行为做出明示或默许的推荐、承诺或担保。<br /><br />6.一般规定<br />本协议在所有方面均受中华人民共和国法律管辖。本协议的规定是可分割的，如本协议任何规定被裁定为无效或不可执行，该规定可被删除而其余条款应予以执行。</p>', 1449242303),
 (5, 'groupbuy', '抢购活动协议', '<p>\r\n  一、抢购的所有权和运作权归本公司。\r\n</p>\r\n<p>\r\n    二、本公司有权在必要时修改本协议，本协议一旦发生变更，将会在相关页面上公布。如果您不同意所改动的内容，您应主动停止使用抢购服务。如果您继续使用服务，则视为接受本协议的变更。\r\n</p>\r\n<p>\r\n   三、如发生下列任何一种情形，本公司有权中断或终止向您提供的服务而无需通知您：\r\n</p>\r\n1、 您提供的个人资料不真实；<br />\r\n2、您违反本协议的规定；<br />\r\n3、 按照政府主管部门的监管要求；<br />\r\n4、本公司认为您的行为违反抢购服务性质或需求的特殊情形。\r\n<p>\r\n 四、尽管本协议可能另有其他规定，本公司仍然可以随时终止本协议。\r\n</p>\r\n<p>\r\n  五、本公司终止本协议的权利不会妨害本公司可能拥有的在本协议终止前因您违反本协议或本公司本应享有的任何其他权利。\r\n</p>\r\n<p>\r\n  六、您理解并完全接受，本公司有权自行对抢购资源作下线处理。\r\n</p>', 1449242303),
@@ -5458,10 +5458,10 @@ INSERT INTO `33hao_document` (`doc_id`, `doc_code`, `doc_title`, `doc_content`, 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_evaluate_goods`
+-- 表的结构 `xunshi_evaluate_goods`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_evaluate_goods` (
+CREATE TABLE IF NOT EXISTS `xunshi_evaluate_goods` (
   `geval_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '评价ID',
   `geval_orderid` int(11) NOT NULL COMMENT '订单表自增ID',
   `geval_orderno` bigint(20) unsigned NOT NULL COMMENT '订单编号',
@@ -5490,10 +5490,10 @@ CREATE TABLE IF NOT EXISTS `33hao_evaluate_goods` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_evaluate_store`
+-- 表的结构 `xunshi_evaluate_store`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_evaluate_store` (
+CREATE TABLE IF NOT EXISTS `xunshi_evaluate_store` (
   `seval_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '评价ID',
   `seval_orderid` int(11) unsigned NOT NULL COMMENT '订单ID',
   `seval_orderno` varchar(100) NOT NULL COMMENT '订单编号',
@@ -5511,10 +5511,10 @@ CREATE TABLE IF NOT EXISTS `33hao_evaluate_store` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_exppoints_log`
+-- 表的结构 `xunshi_exppoints_log`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_exppoints_log` (
+CREATE TABLE IF NOT EXISTS `xunshi_exppoints_log` (
   `exp_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '经验值日志编号',
   `exp_memberid` int(11) NOT NULL COMMENT '会员编号',
   `exp_membername` varchar(100) NOT NULL COMMENT '会员名称',
@@ -5528,10 +5528,10 @@ CREATE TABLE IF NOT EXISTS `33hao_exppoints_log` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_express`
+-- 表的结构 `xunshi_express`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_express` (
+CREATE TABLE IF NOT EXISTS `xunshi_express` (
   `id` tinyint(1) unsigned NOT NULL AUTO_INCREMENT COMMENT '索引ID',
   `e_name` varchar(50) NOT NULL COMMENT '公司名称',
   `e_state` enum('0','1') NOT NULL DEFAULT '1' COMMENT '状态',
@@ -5544,10 +5544,10 @@ CREATE TABLE IF NOT EXISTS `33hao_express` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='快递公司' AUTO_INCREMENT=48 ;
 
 --
--- 转存表中的数据 `33hao_express`
+-- 转存表中的数据 `xunshi_express`
 --
 
-INSERT INTO `33hao_express` (`id`, `e_name`, `e_state`, `e_code`, `e_letter`, `e_order`, `e_url`, `e_zt_state`) VALUES
+INSERT INTO `xunshi_express` (`id`, `e_name`, `e_state`, `e_code`, `e_letter`, `e_order`, `e_url`, `e_zt_state`) VALUES
 (1, '安信达', '0', 'anxindakuaixi', 'A', '2', 'http://www.anxinda.com', 0),
 (2, '包裹平邮', '1', 'youzhengguonei', 'B', '2', 'http://yjcx.chinapost.com.cn', 0),
 (3, 'CCES', '1', 'cces', 'C', '2', 'http://www.cces.com.cn', 0),
@@ -5599,10 +5599,10 @@ INSERT INTO `33hao_express` (`id`, `e_name`, `e_state`, `e_code`, `e_letter`, `e
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_favorites`
+-- 表的结构 `xunshi_favorites`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_favorites` (
+CREATE TABLE IF NOT EXISTS `xunshi_favorites` (
   `log_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '记录ID',
   `member_id` int(10) unsigned NOT NULL COMMENT '会员ID',
   `member_name` varchar(50) NOT NULL COMMENT '会员名',
@@ -5624,10 +5624,10 @@ CREATE TABLE IF NOT EXISTS `33hao_favorites` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_flowstat`
+-- 表的结构 `xunshi_flowstat`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_flowstat` (
+CREATE TABLE IF NOT EXISTS `xunshi_flowstat` (
   `stattime` int(11) unsigned NOT NULL COMMENT '访问日期',
   `clicknum` int(11) unsigned NOT NULL COMMENT '访问量',
   `store_id` int(11) unsigned NOT NULL COMMENT '店铺ID',
@@ -5638,10 +5638,10 @@ CREATE TABLE IF NOT EXISTS `33hao_flowstat` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_flowstat_1`
+-- 表的结构 `xunshi_flowstat_1`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_flowstat_1` (
+CREATE TABLE IF NOT EXISTS `xunshi_flowstat_1` (
   `stattime` int(11) unsigned NOT NULL COMMENT '访问日期',
   `clicknum` int(11) unsigned NOT NULL COMMENT '访问量',
   `store_id` int(11) unsigned NOT NULL COMMENT '店铺ID',
@@ -5652,10 +5652,10 @@ CREATE TABLE IF NOT EXISTS `33hao_flowstat_1` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_flowstat_2`
+-- 表的结构 `xunshi_flowstat_2`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_flowstat_2` (
+CREATE TABLE IF NOT EXISTS `xunshi_flowstat_2` (
   `stattime` int(11) unsigned NOT NULL COMMENT '访问日期',
   `clicknum` int(11) unsigned NOT NULL COMMENT '访问量',
   `store_id` int(11) unsigned NOT NULL COMMENT '店铺ID',
@@ -5666,10 +5666,10 @@ CREATE TABLE IF NOT EXISTS `33hao_flowstat_2` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_gadmin`
+-- 表的结构 `xunshi_gadmin`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_gadmin` (
+CREATE TABLE IF NOT EXISTS `xunshi_gadmin` (
   `gid` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
   `gname` varchar(50) DEFAULT NULL COMMENT '组名',
   `limits` text COMMENT '权限内容',
@@ -5679,10 +5679,10 @@ CREATE TABLE IF NOT EXISTS `33hao_gadmin` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_goods`
+-- 表的结构 `xunshi_goods`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_goods` (
+CREATE TABLE IF NOT EXISTS `xunshi_goods` (
   `goods_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '商品id(SKU)',
   `goods_commonid` int(10) unsigned NOT NULL COMMENT '商品公共表id',
   `goods_name` varchar(50) NOT NULL COMMENT '商品名称（+规格名称）',
@@ -5754,10 +5754,10 @@ CREATE TABLE IF NOT EXISTS `33hao_goods` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='商品表' AUTO_INCREMENT=100010 ;
 
 --
--- 转存表中的数据 `33hao_goods`
+-- 转存表中的数据 `xunshi_goods`
 --
 
-INSERT INTO `33hao_goods` (`goods_id`, `goods_commonid`, `goods_name`, `goods_jingle`, `store_id`, `store_name`, `gc_id`, `gc_id_1`, `gc_id_2`, `gc_id_3`, `brand_id`, `goods_price`, `goods_promotion_price`, `goods_promotion_type`, `goods_marketprice`, `goods_serial`, `goods_storage_alarm`, `goods_barcode`, `goods_click`, `goods_salenum`, `goods_collect`, `spec_name`, `goods_spec`, `goods_storage`, `goods_image`, `goods_body`, `mobile_body`, `goods_state`, `goods_verify`, `goods_addtime`, `goods_edittime`, `areaid_1`, `areaid_2`, `color_id`, `transport_id`, `goods_freight`, `goods_vat`, `goods_commend`, `goods_stcids`, `evaluation_good_star`, `evaluation_count`, `is_virtual`, `virtual_indate`, `virtual_limit`, `virtual_invalid_refund`, `is_fcode`, `is_presell`, `presell_deliverdate`, `is_book`, `book_down_payment`, `book_final_payment`, `book_down_time`, `book_buyers`, `have_gift`, `is_own_shop`, `contract_1`, `contract_2`, `contract_3`, `contract_4`, `contract_5`, `contract_6`, `contract_7`, `contract_8`, `contract_9`, `contract_10`, `is_chain`, `invite_rate`) VALUES
+INSERT INTO `xunshi_goods` (`goods_id`, `goods_commonid`, `goods_name`, `goods_jingle`, `store_id`, `store_name`, `gc_id`, `gc_id_1`, `gc_id_2`, `gc_id_3`, `brand_id`, `goods_price`, `goods_promotion_price`, `goods_promotion_type`, `goods_marketprice`, `goods_serial`, `goods_storage_alarm`, `goods_barcode`, `goods_click`, `goods_salenum`, `goods_collect`, `spec_name`, `goods_spec`, `goods_storage`, `goods_image`, `goods_body`, `mobile_body`, `goods_state`, `goods_verify`, `goods_addtime`, `goods_edittime`, `areaid_1`, `areaid_2`, `color_id`, `transport_id`, `goods_freight`, `goods_vat`, `goods_commend`, `goods_stcids`, `evaluation_good_star`, `evaluation_count`, `is_virtual`, `virtual_indate`, `virtual_limit`, `virtual_invalid_refund`, `is_fcode`, `is_presell`, `presell_deliverdate`, `is_book`, `book_down_payment`, `book_final_payment`, `book_down_time`, `book_buyers`, `have_gift`, `is_own_shop`, `contract_1`, `contract_2`, `contract_3`, `contract_4`, `contract_5`, `contract_6`, `contract_7`, `contract_8`, `contract_9`, `contract_10`, `is_chain`, `invite_rate`) VALUES
 (100000, 100000, '劳力士ROLEX-潜航者型 116610-LV-97200自动机械钢带男表联保正品', '', 1, '好商城自营', 587, 530, 540, 587, 0, '70000.00', '70000.00', 0, '70000.00', '', 0, '', 0, 0, 0, 'N;', 'N;', 100, '1_04752627678636481.jpg', '', '', 1, 1, 1421918768, 1421918768, 0, 0, 0, 0, '0.00', 0, 1, '', 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, '0.00', '0.00', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '0.00'),
 (100001, 100001, '劳力士Rolex 深海系列 自动机械钢带男士表 联保正品116660 98210', '【雅欧国际】：所有商品全新原装正品　　', 1, '好商城自营', 587, 530, 540, 587, 0, '87500.00', '87500.00', 0, '87500.00', '', 0, '', 1, 0, 0, 'N;', 'N;', 100, '1_04752627707766698.png', '', '', 1, 1, 1421918773, 1421920269, 0, 0, 0, 0, '0.00', 0, 1, '', 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, '0.00', '0.00', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '0.00'),
 (100002, 100002, '劳力士Rolex MILGAUSS 116400GV-72400 自动机械钢带男表联保正品', '', 1, '好商城自营', 587, 530, 540, 587, 0, '63200.00', '63200.00', 0, '63200.00', '', 0, '', 0, 0, 0, 'N;', 'N;', 300, '1_04752627750479728.png', '', '', 1, 1, 1421918775, 1421918775, 0, 0, 0, 0, '0.00', 0, 1, '', 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, '0.00', '0.00', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '0.00'),
@@ -5772,10 +5772,10 @@ INSERT INTO `33hao_goods` (`goods_id`, `goods_commonid`, `goods_name`, `goods_ji
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_goods_attr_index`
+-- 表的结构 `xunshi_goods_attr_index`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_goods_attr_index` (
+CREATE TABLE IF NOT EXISTS `xunshi_goods_attr_index` (
   `goods_id` int(10) unsigned NOT NULL COMMENT '商品id',
   `goods_commonid` int(10) unsigned NOT NULL COMMENT '商品公共表id',
   `gc_id` int(10) unsigned NOT NULL COMMENT '商品分类id',
@@ -5788,10 +5788,10 @@ CREATE TABLE IF NOT EXISTS `33hao_goods_attr_index` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_goods_browse`
+-- 表的结构 `xunshi_goods_browse`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_goods_browse` (
+CREATE TABLE IF NOT EXISTS `xunshi_goods_browse` (
   `goods_id` int(11) NOT NULL COMMENT '商品ID',
   `member_id` int(11) NOT NULL COMMENT '会员ID',
   `browsetime` int(11) NOT NULL COMMENT '浏览时间',
@@ -5805,10 +5805,10 @@ CREATE TABLE IF NOT EXISTS `33hao_goods_browse` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_goods_class`
+-- 表的结构 `xunshi_goods_class`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_goods_class` (
+CREATE TABLE IF NOT EXISTS `xunshi_goods_class` (
   `gc_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '索引ID',
   `gc_name` varchar(100) NOT NULL COMMENT '分类名称',
   `type_id` int(10) unsigned DEFAULT '0' COMMENT '类型id',
@@ -5826,10 +5826,10 @@ CREATE TABLE IF NOT EXISTS `33hao_goods_class` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='商品分类表' AUTO_INCREMENT=1057 ;
 
 --
--- 转存表中的数据 `33hao_goods_class`
+-- 转存表中的数据 `xunshi_goods_class`
 --
 
-INSERT INTO `33hao_goods_class` (`gc_id`, `gc_name`, `type_id`, `type_name`, `gc_parent_id`, `commis_rate`, `gc_sort`, `gc_virtual`, `gc_title`, `gc_keywords`, `gc_description`, `show_type`) VALUES
+INSERT INTO `xunshi_goods_class` (`gc_id`, `gc_name`, `type_id`, `type_name`, `gc_parent_id`, `commis_rate`, `gc_sort`, `gc_virtual`, `gc_title`, `gc_keywords`, `gc_description`, `show_type`) VALUES
 (1, '服饰鞋帽', 0, '', 0, 0, 255, 0, '', '', '', 1),
 (2, '礼品箱包', 0, '', 0, 0, 255, 0, '', '', '', 1),
 (3, '家居家装', 0, '', 0, 0, 255, 0, '', '', '', 1),
@@ -6703,7 +6703,7 @@ INSERT INTO `33hao_goods_class` (`gc_id`, `gc_name`, `type_id`, `type_name`, `gc
 (876, '创意玩具', 0, '', 836, 0, 255, 0, '', '', '', 1),
 (877, '钢琴', 0, '', 837, 0, 255, 0, '', '', '', 1),
 (878, '电子琴', 0, '', 837, 0, 255, 0, '', '', '', 1);
-INSERT INTO `33hao_goods_class` (`gc_id`, `gc_name`, `type_id`, `type_name`, `gc_parent_id`, `commis_rate`, `gc_sort`, `gc_virtual`, `gc_title`, `gc_keywords`, `gc_description`, `show_type`) VALUES
+INSERT INTO `xunshi_goods_class` (`gc_id`, `gc_name`, `type_id`, `type_name`, `gc_parent_id`, `commis_rate`, `gc_sort`, `gc_virtual`, `gc_title`, `gc_keywords`, `gc_description`, `show_type`) VALUES
 (879, '手风琴', 0, '', 837, 0, 255, 0, '', '', '', 1),
 (880, '吉他/贝斯', 0, '', 837, 0, 255, 0, '', '', '', 1),
 (881, '民族管弦乐器', 0, '', 837, 0, 255, 0, '', '', '', 1),
@@ -6859,10 +6859,10 @@ INSERT INTO `33hao_goods_class` (`gc_id`, `gc_name`, `type_id`, `type_name`, `gc
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_goods_class_nav`
+-- 表的结构 `xunshi_goods_class_nav`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_goods_class_nav` (
+CREATE TABLE IF NOT EXISTS `xunshi_goods_class_nav` (
   `cn_adv2_link` varchar(100) NOT NULL COMMENT '广告2链接',
   `gc_id` int(10) unsigned NOT NULL COMMENT '商品分类id',
   `cn_alias` varchar(100) DEFAULT '' COMMENT '商品分类别名',
@@ -6876,10 +6876,10 @@ CREATE TABLE IF NOT EXISTS `33hao_goods_class_nav` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='分类导航表';
 
 --
--- 转存表中的数据 `33hao_goods_class_nav`
+-- 转存表中的数据 `xunshi_goods_class_nav`
 --
 
-INSERT INTO `33hao_goods_class_nav` (`cn_adv2_link`, `gc_id`, `cn_alias`, `cn_classids`, `cn_brandids`, `cn_pic`, `cn_adv1`, `cn_adv1_link`, `cn_adv2`) VALUES
+INSERT INTO `xunshi_goods_class_nav` (`cn_adv2_link`, `gc_id`, `cn_alias`, `cn_classids`, `cn_brandids`, `cn_pic`, `cn_adv1`, `cn_adv1_link`, `cn_adv2`) VALUES
 ('', 1, '', '12,19,26,33,35,42,49,56', '108,105,101,96,89,80,83,352', '04849343852775378.png', '04849383096194771.jpg', '', '04849383096284687.jpg'),
 ('', 2, '', '156,163,168,170,186,192,193,198', '342,341,336,335,334,330,329,328', '04849344505821846.png', '04849386427434184.jpg', '', '04849386427492123.jpg'),
 ('', 3, '', '206,210,213,216,220,227,231', '344,342,341,338,336,335,330,329', '04849345975757419.png', '04849387912371887.jpg', '', '04849387912422255.jpg'),
@@ -6898,10 +6898,10 @@ INSERT INTO `33hao_goods_class_nav` (`cn_adv2_link`, `gc_id`, `cn_alias`, `cn_cl
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_goods_class_staple`
+-- 表的结构 `xunshi_goods_class_staple`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_goods_class_staple` (
+CREATE TABLE IF NOT EXISTS `xunshi_goods_class_staple` (
   `staple_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '常用分类id',
   `staple_name` varchar(255) NOT NULL COMMENT '常用分类名称',
   `gc_id_1` int(10) unsigned NOT NULL COMMENT '一级分类id',
@@ -6917,10 +6917,10 @@ CREATE TABLE IF NOT EXISTS `33hao_goods_class_staple` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_goods_class_tag`
+-- 表的结构 `xunshi_goods_class_tag`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_goods_class_tag` (
+CREATE TABLE IF NOT EXISTS `xunshi_goods_class_tag` (
   `gc_tag_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'TAGid',
   `gc_id_1` int(10) unsigned NOT NULL COMMENT '一级分类id',
   `gc_id_2` int(10) unsigned NOT NULL COMMENT '二级分类id',
@@ -6935,10 +6935,10 @@ CREATE TABLE IF NOT EXISTS `33hao_goods_class_tag` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_goods_common`
+-- 表的结构 `xunshi_goods_common`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_goods_common` (
+CREATE TABLE IF NOT EXISTS `xunshi_goods_common` (
   `goods_commonid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '商品公共表id',
   `goods_name` varchar(50) NOT NULL COMMENT '商品名称',
   `goods_jingle` varchar(150) DEFAULT '' COMMENT '商品广告词',
@@ -6993,10 +6993,10 @@ CREATE TABLE IF NOT EXISTS `33hao_goods_common` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='商品公共内容表' AUTO_INCREMENT=100010 ;
 
 --
--- 转存表中的数据 `33hao_goods_common`
+-- 转存表中的数据 `xunshi_goods_common`
 --
 
-INSERT INTO `33hao_goods_common` (`goods_commonid`, `goods_name`, `goods_jingle`, `gc_id`, `gc_id_1`, `gc_id_2`, `gc_id_3`, `gc_name`, `store_id`, `store_name`, `spec_name`, `spec_value`, `brand_id`, `brand_name`, `type_id`, `goods_image`, `goods_attr`, `goods_custom`, `goods_body`, `mobile_body`, `goods_state`, `goods_stateremark`, `goods_verify`, `goods_verifyremark`, `goods_lock`, `goods_addtime`, `goods_selltime`, `goods_price`, `goods_marketprice`, `goods_costprice`, `goods_discount`, `goods_serial`, `goods_storage_alarm`, `goods_barcode`, `transport_id`, `transport_title`, `goods_commend`, `goods_freight`, `goods_vat`, `areaid_1`, `areaid_2`, `goods_stcids`, `plateid_top`, `plateid_bottom`, `is_virtual`, `virtual_indate`, `virtual_limit`, `virtual_invalid_refund`, `sup_id`, `is_own_shop`) VALUES
+INSERT INTO `xunshi_goods_common` (`goods_commonid`, `goods_name`, `goods_jingle`, `gc_id`, `gc_id_1`, `gc_id_2`, `gc_id_3`, `gc_name`, `store_id`, `store_name`, `spec_name`, `spec_value`, `brand_id`, `brand_name`, `type_id`, `goods_image`, `goods_attr`, `goods_custom`, `goods_body`, `mobile_body`, `goods_state`, `goods_stateremark`, `goods_verify`, `goods_verifyremark`, `goods_lock`, `goods_addtime`, `goods_selltime`, `goods_price`, `goods_marketprice`, `goods_costprice`, `goods_discount`, `goods_serial`, `goods_storage_alarm`, `goods_barcode`, `transport_id`, `transport_title`, `goods_commend`, `goods_freight`, `goods_vat`, `areaid_1`, `areaid_2`, `goods_stcids`, `plateid_top`, `plateid_bottom`, `is_virtual`, `virtual_indate`, `virtual_limit`, `virtual_invalid_refund`, `sup_id`, `is_own_shop`) VALUES
 (100000, '劳力士ROLEX-潜航者型 116610-LV-97200自动机械钢带男表联保正品', '', 587, 530, 540, 587, '珠宝手表&gt;钟表手表&gt;瑞士品牌', 1, '好商城自营', 'N;', 'N;', 0, '', 0, '1_04752627678636481.jpg', 's:0:"";', 's:0:"";', '<p><img src="http://img04.taobaocdn.com/imgextra/i4/2010071101/TB2tCEPaVXXXXX_XpXXXXXXXXXX_!!2010071101.jpg" alt="image" style="text-align: absmiddle;" /> </p><table border="0" cellpadding="0" cellspacing="0" width="90%"><tr><td>&nbsp;</td></tr></table>', '', 1, NULL, 1, NULL, 0, 1421918768, 0, '70000.00', '70000.00', '0.00', 0, '', 0, '', 0, '', 1, '0.00', 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 1),
 (100001, '劳力士Rolex 深海系列 自动机械钢带男士表 联保正品116660 98210', '【雅欧国际】：所有商品全新原装正品　　', 587, 530, 540, 587, '珠宝手表&gt;钟表手表&gt;瑞士品牌', 1, '好商城自营', 'N;', 'N;', 0, '', 0, '1_04752627707766698.png', 's:0:"";', 's:0:"";', '<p><img src="http://img03.taobaocdn.com/imgextra/i3/2010071101/TB2XkUKaVXXXXbOXpXXXXXXXXXX_!!2010071101.jpg" alt="image" style="text-align: absmiddle;" /> </p><table border="0" cellpadding="0" cellspacing="0" width="90%"><tr><td>&nbsp;</td></tr></table>', '', 1, NULL, 1, NULL, 0, 1421918773, 0, '87500.00', '87500.00', '0.00', 0, '', 0, '', 0, '', 1, '0.00', 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 1),
 (100002, '劳力士Rolex MILGAUSS 116400GV-72400 自动机械钢带男表联保正品', '', 587, 530, 540, 587, '珠宝手表&gt;钟表手表&gt;瑞士品牌', 1, '好商城自营', 'N;', 'N;', 0, '', 0, '1_04752627750479728.png', 's:0:"";', 's:0:"";', '<p><img src="http://img02.taobaocdn.com/imgextra/i2/2010071101/TB2x97LaVXXXXbqXpXXXXXXXXXX_!!2010071101.jpg" alt="image" style="text-align: absmiddle;" /></p><table border="0" cellpadding="0" cellspacing="0" width="90%"><tr><td>&nbsp;</td></tr></table>', '', 1, NULL, 1, NULL, 0, 1421918775, 0, '63200.00', '63200.00', '0.00', 0, '', 0, '', 0, '', 1, '0.00', 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 1),
@@ -7011,10 +7011,10 @@ INSERT INTO `33hao_goods_common` (`goods_commonid`, `goods_name`, `goods_jingle`
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_goods_fcode`
+-- 表的结构 `xunshi_goods_fcode`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_goods_fcode` (
+CREATE TABLE IF NOT EXISTS `xunshi_goods_fcode` (
   `fc_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'F码id',
   `goods_id` int(10) unsigned NOT NULL COMMENT '商品sku',
   `fc_code` varchar(20) NOT NULL COMMENT 'F码',
@@ -7025,10 +7025,10 @@ CREATE TABLE IF NOT EXISTS `33hao_goods_fcode` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_goods_gift`
+-- 表的结构 `xunshi_goods_gift`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_goods_gift` (
+CREATE TABLE IF NOT EXISTS `xunshi_goods_gift` (
   `gift_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '赠品id ',
   `goods_id` int(10) unsigned NOT NULL COMMENT '主商品id',
   `goods_commonid` int(10) unsigned NOT NULL COMMENT '主商品公共id',
@@ -7042,10 +7042,10 @@ CREATE TABLE IF NOT EXISTS `33hao_goods_gift` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_goods_images`
+-- 表的结构 `xunshi_goods_images`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_goods_images` (
+CREATE TABLE IF NOT EXISTS `xunshi_goods_images` (
   `goods_image_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '商品图片id',
   `goods_commonid` int(10) unsigned NOT NULL COMMENT '商品公共内容id',
   `store_id` int(10) unsigned NOT NULL COMMENT '店铺id',
@@ -7057,10 +7057,10 @@ CREATE TABLE IF NOT EXISTS `33hao_goods_images` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='商品图片' AUTO_INCREMENT=21 ;
 
 --
--- 转存表中的数据 `33hao_goods_images`
+-- 转存表中的数据 `xunshi_goods_images`
 --
 
-INSERT INTO `33hao_goods_images` (`goods_image_id`, `goods_commonid`, `store_id`, `color_id`, `goods_image`, `goods_image_sort`, `is_default`) VALUES
+INSERT INTO `xunshi_goods_images` (`goods_image_id`, `goods_commonid`, `store_id`, `color_id`, `goods_image`, `goods_image_sort`, `is_default`) VALUES
 (1, 100000, 1, 0, '1_04752627678636481.jpg', 0, 1),
 (2, 100001, 1, 0, '1_04752627707766698.png', 0, 1),
 (3, 100001, 1, 0, '1_04752627711844438.png', 0, 0),
@@ -7084,10 +7084,10 @@ INSERT INTO `33hao_goods_images` (`goods_image_id`, `goods_commonid`, `store_id`
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_goods_recommend`
+-- 表的结构 `xunshi_goods_recommend`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_goods_recommend` (
+CREATE TABLE IF NOT EXISTS `xunshi_goods_recommend` (
   `rec_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `rec_gc_id` mediumint(9) DEFAULT NULL COMMENT '最底级商品分类ID',
   `rec_goods_id` int(11) DEFAULT NULL COMMENT '商品goods_id',
@@ -7099,10 +7099,10 @@ CREATE TABLE IF NOT EXISTS `33hao_goods_recommend` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_groupbuy`
+-- 表的结构 `xunshi_groupbuy`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_groupbuy` (
+CREATE TABLE IF NOT EXISTS `xunshi_groupbuy` (
   `groupbuy_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '抢购ID',
   `groupbuy_name` varchar(255) NOT NULL COMMENT '活动名称',
   `start_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '开始时间',
@@ -7138,19 +7138,19 @@ CREATE TABLE IF NOT EXISTS `33hao_groupbuy` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='抢购商品表' AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `33hao_groupbuy`
+-- 转存表中的数据 `xunshi_groupbuy`
 --
 
-INSERT INTO `33hao_groupbuy` (`groupbuy_id`, `groupbuy_name`, `start_time`, `end_time`, `goods_id`, `goods_commonid`, `goods_name`, `store_id`, `store_name`, `goods_price`, `groupbuy_price`, `groupbuy_rebate`, `virtual_quantity`, `upper_limit`, `buyer_count`, `buy_quantity`, `groupbuy_intro`, `state`, `recommended`, `views`, `class_id`, `s_class_id`, `groupbuy_image`, `groupbuy_image1`, `remark`, `is_vr`, `vr_city_id`, `vr_area_id`, `vr_mall_id`, `vr_class_id`, `vr_s_class_id`) VALUES
+INSERT INTO `xunshi_groupbuy` (`groupbuy_id`, `groupbuy_name`, `start_time`, `end_time`, `goods_id`, `goods_commonid`, `goods_name`, `store_id`, `store_name`, `goods_price`, `groupbuy_price`, `groupbuy_rebate`, `virtual_quantity`, `upper_limit`, `buyer_count`, `buy_quantity`, `groupbuy_intro`, `state`, `recommended`, `views`, `class_id`, `s_class_id`, `groupbuy_image`, `groupbuy_image1`, `remark`, `is_vr`, `vr_city_id`, `vr_area_id`, `vr_mall_id`, `vr_class_id`, `vr_s_class_id`) VALUES
 (1, '劳力士Rolex 日志型系列 116200 63200', 1421942400, 1453392000, 100009, 100009, '劳力士Rolex 日志型系列 116200 63200 自动机械钢带男表联保正品', 1, '好商城自营', '52800.00', '42800.00', '8.11', 0, 0, 0, 0, '<img src="../data/upload/shop/store/goods/1/1_04752627958339099_1280.jpg" alt="image" />', 32, 0, 0, 0, 0, '1_04752644979681500.jpg', '', '自动机械钢带男表联保正品', 0, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_groupbuy_class`
+-- 表的结构 `xunshi_groupbuy_class`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_groupbuy_class` (
+CREATE TABLE IF NOT EXISTS `xunshi_groupbuy_class` (
   `class_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '类别编号',
   `class_name` varchar(20) NOT NULL COMMENT '类别名称',
   `class_parent_id` int(10) unsigned NOT NULL COMMENT '父类别编号',
@@ -7162,10 +7162,10 @@ CREATE TABLE IF NOT EXISTS `33hao_groupbuy_class` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_groupbuy_price_range`
+-- 表的结构 `xunshi_groupbuy_price_range`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_groupbuy_price_range` (
+CREATE TABLE IF NOT EXISTS `xunshi_groupbuy_price_range` (
   `range_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '价格区间编号',
   `range_name` varchar(20) NOT NULL COMMENT '区间名称',
   `range_start` int(10) unsigned NOT NULL COMMENT '区间下限',
@@ -7176,10 +7176,10 @@ CREATE TABLE IF NOT EXISTS `33hao_groupbuy_price_range` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_groupbuy_quota`
+-- 表的结构 `xunshi_groupbuy_quota`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_groupbuy_quota` (
+CREATE TABLE IF NOT EXISTS `xunshi_groupbuy_quota` (
   `quota_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '抢购套餐编号',
   `member_id` int(10) unsigned NOT NULL COMMENT '用户编号',
   `store_id` int(10) unsigned NOT NULL COMMENT '店铺编号',
@@ -7193,10 +7193,10 @@ CREATE TABLE IF NOT EXISTS `33hao_groupbuy_quota` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_help`
+-- 表的结构 `xunshi_help`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_help` (
+CREATE TABLE IF NOT EXISTS `xunshi_help` (
   `help_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '帮助ID',
   `help_sort` tinyint(1) unsigned DEFAULT '255' COMMENT '排序',
   `help_title` varchar(100) NOT NULL COMMENT '标题',
@@ -7209,10 +7209,10 @@ CREATE TABLE IF NOT EXISTS `33hao_help` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='帮助内容表' AUTO_INCREMENT=111 ;
 
 --
--- 转存表中的数据 `33hao_help`
+-- 转存表中的数据 `xunshi_help`
 --
 
-INSERT INTO `33hao_help` (`help_id`, `help_sort`, `help_title`, `help_info`, `help_url`, `update_time`, `type_id`, `page_show`) VALUES
+INSERT INTO `xunshi_help` (`help_id`, `help_sort`, `help_title`, `help_info`, `help_url`, `update_time`, `type_id`, `page_show`) VALUES
 (96, 1, '入驻流程', '<div class="right">\r\n        <ul class="right-top">\r\n                <li class="single">\r\n                        <p class="first">\r\n                                了解入驻相关要求\r\n                        </p>\r\n                </li>\r\n                <li class="double">\r\n                        <span>入驻标准</span> \r\n                </li>\r\n                <li class="single">\r\n                        <p>\r\n                                入驻申请\r\n                        </p>\r\n                </li>\r\n                <li class="double">\r\n                        <span>马上入驻</span> \r\n                </li>\r\n                <li class="single">\r\n                        <p>\r\n                                等待审核\r\n                        </p>\r\n                </li>\r\n                <li class="double">\r\n                        <span>查看审核进度</span> \r\n                </li>\r\n                <li class="single">\r\n                        <p>\r\n                                入驻成功\r\n                        </p>\r\n                </li>\r\n        </ul>\r\n        <div class="t-1">\r\n                <p class="title">\r\n                        注册本站账号\r\n                </p>\r\n                <p>\r\n                        点击网站右上方的“免费注册”按钮进行注册，成为本站会员\r\n                </p>\r\n        </div>\r\n        <div class="bg-icon">\r\n        </div>\r\n        <div class="t-2">\r\n                <p class="title">\r\n                        基本资料填写\r\n                </p>\r\n                <p>\r\n                        进入“商家中心”，点击“立即入驻”即可进行资料填写\r\n                </p>\r\n        </div>\r\n        <div class="bg-icon">\r\n        </div>\r\n        <div class="t-3">\r\n                <p class="title">\r\n                        资质证明上传\r\n                </p>\r\n                <p>\r\n                        将营业执照原件的彩色扫描件（或彩照形式）及盖公章的申请人身份证正反面复印件上传\r\n                </p>\r\n        </div>\r\n        <div class="bg-icon">\r\n        </div>\r\n        <div class="t-4">\r\n                <p class="title">\r\n                        等候审核\r\n                </p>\r\n                <p>\r\n                        本站会在3个工作日内审核您的入驻申请\r\n                </p>\r\n        </div>\r\n        <div class="bg-icon">\r\n        </div>\r\n        <div class="t-5">\r\n                <p class="title">\r\n                        签署协议\r\n                </p>\r\n                <p>\r\n                        审核通过后即可在线签署《入驻合同》\r\n                </p>\r\n        </div>\r\n        <div class="bg-icon">\r\n        </div>\r\n        <div class="t-6">\r\n                <p class="title">\r\n                        提交保证金\r\n                </p>\r\n                <p>\r\n                        商家在活动上线前须交纳 ¥10000 元商品质量和服务保证金\r\n                </p>\r\n                <p>\r\n                        数码类目商家保证金为 ¥50000（等其他类目\r\n                </p>\r\n                <p>\r\n                        $8500，手续费需自行承担）\r\n                </p>\r\n        </div>\r\n</div>', '', 1455720010, 1, 1),
 (97, 2, '招商标准', '<div class="text">\r\n	<p>\r\n		<span>1</span>商家需具有一般纳税人或者小额纳税人资质；注册资本50万元及以上。\r\n	</p>\r\n</div>\r\n<div class="text">\r\n	<p class="more">\r\n		<span>2</span>我们接受各行业有一定知名度的品牌入驻，入驻企业须是品牌所有者或授权渠道商，并且确保所提供的商品\r\n          为品牌正品，价格足够有竞争力。\r\n	</p>\r\n</div>\r\n<div class="text">\r\n	<span>3</span>入驻商家经营类目需是以下类目的一种或几种 <span class="sign">箱包</span> <span class="sign">服饰</span> <span class="sign">电器</span> <span class="sign">家居</span> <span class="sign">办公</span> \r\n</div>\r\n<div class="text last-text">\r\n	<p>\r\n		<span>4</span>入驻商家成立时间需大于1年，即商家营业执照有效期起始时间至商家提交入驻审核时间大于1年。\r\n	</p>\r\n</div>\r\n<div class="c-request">\r\n	<div class="title">\r\n		<span></span>公司资质要求\r\n	</div>\r\n	<table>\r\n		<tbody>\r\n			<tr>\r\n				<td class="col1">\r\n					证件名称\r\n				</td>\r\n				<td>\r\n					资质要求\r\n				</td>\r\n			</tr>\r\n		</tbody>\r\n		<tbody>\r\n			<tr>\r\n				<td class="col1">\r\n					1.营业执照\r\n				</td>\r\n				<td>\r\n					必须具有法人资格，如为分支机构不具有法人资格的需提供总公司营业执照及其授权书；\r\n                    完成有效年检，复印件需加盖公司公章。<a class="showImg" href="javascript:;">查看样例&gt;</a> \r\n				</td>\r\n			</tr>\r\n			<tr>\r\n				<td class="col1">\r\n					2.税务登记证\r\n				</td>\r\n				<td>\r\n					国税、地税均可，复印件需加盖公司公章。<a class="showImg" href="javascript:;">查看样例&gt;</a> \r\n				</td>\r\n			</tr>\r\n			<tr>\r\n				<td class="col1">\r\n					3.组织机构代码证\r\n				</td>\r\n				<td>\r\n					复印件需加盖公司公章。<a class="showImg" href="javascript:;">查看样例&gt;</a> \r\n				</td>\r\n			</tr>\r\n			<tr>\r\n				<td class="col1">\r\n					4.法人身份证\r\n				</td>\r\n				<td>\r\n					需提供法人正反面身份证扫描件或复印件，并加盖公司公章。<a class="showImg" href="javascript:;">查看样例&gt;</a> \r\n				</td>\r\n			</tr>\r\n		</tbody>\r\n	</table>\r\n</div>\r\n<div class="b-request">\r\n	<div class="title">\r\n		<span></span>品牌资质要求\r\n	</div>\r\n	<table>\r\n		<tbody>\r\n			<tr>\r\n				<td class="col1">\r\n					证件名称\r\n				</td>\r\n				<td>\r\n					资质要求\r\n				</td>\r\n			</tr>\r\n		</tbody>\r\n		<tbody>\r\n			<tr>\r\n				<td class="col1">\r\n					1.商标注册证\r\n				</td>\r\n				<td>\r\n					需提供有效期内的商标注册证，仅接受R标。\r\n				</td>\r\n			</tr>\r\n			<tr>\r\n				<td class="col1">\r\n					2.品牌授权书\r\n				</td>\r\n				<td>\r\n					若品牌申请人为代理商，需提供满足以下条件的品牌授权书：\r\n					<p>\r\n						(1) 需授权在本站销售\r\n					</p>\r\n					<p>\r\n						(2) 授权书需注明授权期限、落款\r\n					</p>\r\n					<p>\r\n						(3) 若商标注册人是个人，需提供商标注册人身份证正反面复印件\r\n					</p>\r\n					<p>\r\n						(4) 需要确保授权链条的完整，即申请入驻企业拿到的授权能够逐级逆推回品牌商。\r\n					</p>\r\n				</td>\r\n			</tr>\r\n			<tr>\r\n				<td class="col1">\r\n					3.质检报告或3C认证证书\r\n				</td>\r\n				<td>\r\n					每个品牌须提供一份由权威质检机构出具的最近2年内的质检报告\r\n或者有效期内的3C认证证书。<a class="showImg" href="javascript:;">查看详细说明&gt;</a> \r\n				</td>\r\n			</tr>\r\n			<tr>\r\n				<td class="col1">\r\n					4.报关单和检验检疫证明\r\n				</td>\r\n				<td>\r\n					若为进口产品，须提交近一年内海关进口报关单和检验检疫合格证明\r\n				</td>\r\n			</tr>\r\n		</tbody>\r\n	</table>\r\n</div>', '', 1455720054, 1, 1),
 (98, 3, '合作细则', '<div class="fee">\r\n        <div class="title">\r\n                <span></span>收费标准\r\n        </div>\r\n        <p>\r\n                *本站于2015年2月1日起，邀请部分品牌商家体验平台合作，暂时不收佣金。\r\n        </p>\r\n        <p>\r\n                *本站有权根据市场情况及自身经营情况调整佣金比例，但调整需至少提前30天通知商家。\r\n        </p>\r\n</div>\r\n<div class="fee-rule">\r\n        <div class="title">\r\n                <span></span>保证金\r\n        </div>\r\n        <p>\r\n                *商家在本站参与抢购活动必须交商品质量服务保证金（保证金主要用于保证商家按照网的规则进行抢购活动，并且在商家有违规行为时\r\n根据相关规则用于向本站及消费者支付违约金）。\r\n        </p>\r\n        <p>\r\n                *商家在申请入驻获得批准时需一次性缴纳保证金，统一为人民币壹万元，食品类目商家、海外购国内商家为伍万元人民币（海外购国外商家需\r\n缴纳捌仟伍佰元美元，手续费需自行承担）\r\n        </p>\r\n        <p>\r\n                *本站有权根据商家的业务变化及实际违约赔付情况通知商家调整保证金金额，商家应在收到本站通知后的10天内补足保证金，如果没有及\r\n时补足保证金金额的，本站有权中止合作。\r\n        </p>\r\n        <p>\r\n                *由于保证金并非本站收取的费用，一直存在于您的本站企业账户中做冻结，所以不提供收据或发票，敬请谅解。\r\n        </p>\r\n        <p>\r\n                *商家如果要退出本站，终止合作，可以向本站提出保证金退还申请，本站审核通过后会在1个月内将保证金解冻至商家的本站账户内。\r\n商家同意该保证金不计算利息。\r\n        </p>\r\n        <p>\r\n                *商家有违规行为时，如根据相关规则需从已冻结保证金中支付违约金的，本站根据商家申请，按照商家实际支付金额向商家开具合法票据。\r\n开具日期为商家提交申请后的15个工作日内。\r\n        </p>\r\n        <p>\r\n                *因资质造假被清退的商家将不返还保证金，因违规行为扣取的保证金不返还，具体保证金扣取情况参见《本站合作商家违规处罚管理规定》。\r\n        </p>\r\n        <p>\r\n                *本站将根据国家经济情况、市场状况及网经营情况适时适当调整保证金制度。保证金制度的调整会提前1个月公布并通知所有商家。\r\n        </p>\r\n</div>\r\n<div class="fee services">\r\n        <div class="title">\r\n                <span></span>48小时发货服务\r\n        </div>\r\n        <p>\r\n                *您的订单将在付款后48小时内发货。\r\n        </p>\r\n</div>\r\n<div class="fee baoyou">\r\n        <div class="title">\r\n                <span></span>全场包邮\r\n        </div>\r\n        <p>\r\n                *配送：本站支持偏远地区除外的下单即包邮（偏远地区包括新疆、西藏、内蒙古、宁夏、青海），特定地区按每笔最小订单加收25元运费，\r\n部分类目（一般指大件商品）因供应商原因不支持包邮送货。\r\n        </p>\r\n</div>\r\n<div class="fee qianshou">\r\n        <div class="title">\r\n                <span></span>验货签收\r\n        </div>\r\n        <p>\r\n                *货物当面交付的，收货人接受货物后，视为对表面一致的确认；\r\n收货人不能亲自签收，委托第三人签收时，第三人应当提供收货人的授权文件并出示收货人及第三人本人身份证原件。\r\n        </p>\r\n        <p>\r\n                对于需要先签收再打开包装查看的货物，收货人应当要求承运人当场监督并打开包装查看。如发现表面不一致，应当直接退货或者要求在签收单\r\n（收货人联和承运人联）上加注详细情况并让承运人签字确认。\r\n        </p>\r\n        <p>\r\n                收货人签字确认表面一致后，不得就表面一致的问题提出异议并要求退款。但如收货人能够提供相关证据，如物流公司证明商品签收时即存在表面\r\n一致问题的除外。\r\n        </p>\r\n        <p>\r\n                表面一致的定义：表面一致指凭肉眼或简单计量工具即可判断所收到的货物表面状况良好且与网页上的商品图片或者文字描述一致。表面一致的判\r\n断范围可参考但不限于货物的形状、大小、重量、颜色、型号、新旧程度。\r\n        </p>\r\n</div>\r\n<div class="fee meiliyou">\r\n        <div class="title">\r\n                <span></span>15天无理由退货服务\r\n        </div>\r\n        <h3>\r\n                一、15天无理由退货\r\n        </h3>\r\n        <p>\r\n                *本站郑重承诺：如商品未经使用或穿着，商品及外包装保持出售时的原状，商品吊牌及配件齐全，将享受15天无理由退货服务。即如果您对商\r\n品不满意，在不影响二次销售的前提下，可在收货后15天之内申请无理由退货。退回运费由您自行承担。\r\n退货金额将在供应商确认收货1个工作日内退至您的本站账户\r\n        </p>\r\n        <p>\r\n                *温馨提示：以下情况均不享受15天无理由退货服务\r\n        </p>\r\n        <p>\r\n                1、任何非本站出售的商品；\r\n        </p>\r\n        <p>\r\n                2、申请退货日期距商品签收日期超过7天的；\r\n        </p>\r\n        <p>\r\n                3、任何因非正常使用、保管或买家个人原因造成商品损坏的，包括但不限于自行修改尺寸，洗涤，皮具表面刮花、打油，刺绣，水洗、碰酸、碱、\r\n     油或者触硬物，雨天穿着，长时间穿着等；\r\n        </p>\r\n        <p>\r\n                4、未经网上申请，自行寄回至本站或供应商仓库的；\r\n        </p>\r\n        <p>\r\n                5、使用快递到付、平邮或未将商品寄至正确地址的；\r\n        </p>\r\n        <p>\r\n                6、鉴于食品安全问题，食品类商品不支持无理由退货；\r\n        </p>\r\n        <p>\r\n                7、海外购某些特殊情况不办理退货的，但仍可与商家协商；\r\n        </p>\r\n        <h3>\r\n                二、退货运费条款\r\n        </h3>\r\n        <p>\r\n                （一）15天无理由退货产生的运费由买家承担\r\n        </p>\r\n        <p>\r\n                （二）由于商品问题导致的退货，本站将提供运费补贴。同省补贴不超过10元，非同省不超过20元，特定地区不超过25元（特定地区指：新疆、\r\n          西藏、内蒙古、宁夏、青海）。\r\n        </p>\r\n        <p>\r\n                （三）、本站是限时抢购模式，商品在线时间均不超过7天，不支持换货。\r\n        </p>\r\n</div>\r\n<div class="fee tuihuo">\r\n        <div class="title">\r\n                <span></span>退货流程\r\n        </div>\r\n        <p>\r\n                第一步，申请退货：进入“我的—我的订单”找到对应的订单，点击“售后”，填写及上传相关的信息提交退货申请。\r\n        </p>\r\n        <p>\r\n                第二步，本站审核：退货申请提交后，本站将对售后理由、图片凭证进行审核。\r\n        </p>\r\n        <p>\r\n                第三步，寄回商品：审核通过后，根据页面的退货地址退货商品，并填写有效的退货物流单号（部分退货原因无需此操作）\r\n        </p>\r\n        <p>\r\n                第四步，供应商签收：供应商签收商品后，同意退款申请。\r\n        </p>\r\n        <p>\r\n                第五步，退款完成：退款款项将在1个工作日内打款至网账户。\r\n        </p>\r\n</div>\r\n<div class="fee peifu">\r\n        <div class="title">\r\n                <span></span>非正品赔付\r\n        </div>\r\n        <p>\r\n                本站承诺，在线销售的所有商品均为品牌正品。您在本站购买的每件商品，均由中国人民财产保险公司（PICC）承保。如您对商品是否正品\r\n存在怀疑，可到品牌专柜或有资质的机构进行鉴定，并及时通知网。如鉴定结果为非正品，请提供相关证明，并在收件后90天内申请赔付。\r\n本站将按商品实付金额的三倍进行赔偿。\r\n        </p>\r\n</div>', '', 1455720086, 1, 1),
@@ -7231,10 +7231,10 @@ INSERT INTO `33hao_help` (`help_id`, `help_sort`, `help_title`, `help_info`, `he
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_help_type`
+-- 表的结构 `xunshi_help_type`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_help_type` (
+CREATE TABLE IF NOT EXISTS `xunshi_help_type` (
   `type_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '类型ID',
   `type_name` varchar(50) NOT NULL COMMENT '类型名称',
   `type_sort` tinyint(1) unsigned DEFAULT '255' COMMENT '排序',
@@ -7245,10 +7245,10 @@ CREATE TABLE IF NOT EXISTS `33hao_help_type` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='帮助类型表' AUTO_INCREMENT=100 ;
 
 --
--- 转存表中的数据 `33hao_help_type`
+-- 转存表中的数据 `xunshi_help_type`
 --
 
-INSERT INTO `33hao_help_type` (`type_id`, `type_name`, `type_sort`, `help_code`, `help_show`, `page_show`) VALUES
+INSERT INTO `xunshi_help_type` (`type_id`, `type_name`, `type_sort`, `help_code`, `help_show`, `page_show`) VALUES
 (91, '规则体系', 91, 'sys_rules', 1, 1),
 (92, '商品管理', 92, 'sys_goods', 1, 1),
 (93, '促销方式', 93, 'sys_sales', 1, 1),
@@ -7259,10 +7259,10 @@ INSERT INTO `33hao_help_type` (`type_id`, `type_name`, `type_sort`, `help_code`,
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_inform`
+-- 表的结构 `xunshi_inform`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_inform` (
+CREATE TABLE IF NOT EXISTS `xunshi_inform` (
   `inform_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '举报id',
   `inform_member_id` int(11) NOT NULL COMMENT '举报人id',
   `inform_member_name` varchar(50) NOT NULL COMMENT '举报人会员名',
@@ -7289,10 +7289,10 @@ CREATE TABLE IF NOT EXISTS `33hao_inform` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_inform_subject`
+-- 表的结构 `xunshi_inform_subject`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_inform_subject` (
+CREATE TABLE IF NOT EXISTS `xunshi_inform_subject` (
   `inform_subject_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '举报主题id',
   `inform_subject_content` varchar(100) NOT NULL COMMENT '举报主题内容',
   `inform_subject_type_id` int(11) NOT NULL COMMENT '举报类型id',
@@ -7302,10 +7302,10 @@ CREATE TABLE IF NOT EXISTS `33hao_inform_subject` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='举报主题表' AUTO_INCREMENT=6 ;
 
 --
--- 转存表中的数据 `33hao_inform_subject`
+-- 转存表中的数据 `xunshi_inform_subject`
 --
 
-INSERT INTO `33hao_inform_subject` (`inform_subject_id`, `inform_subject_content`, `inform_subject_type_id`, `inform_subject_type_name`, `inform_subject_state`) VALUES
+INSERT INTO `xunshi_inform_subject` (`inform_subject_id`, `inform_subject_content`, `inform_subject_type_id`, `inform_subject_type_name`, `inform_subject_state`) VALUES
 (1, '管制刀具、弓弩类、其他武器等', 1, '出售禁售品', 1),
 (2, '赌博用具类', 1, '出售禁售品', 1),
 (3, '枪支弹药', 1, '出售禁售品', 1),
@@ -7315,10 +7315,10 @@ INSERT INTO `33hao_inform_subject` (`inform_subject_id`, `inform_subject_content
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_inform_subject_type`
+-- 表的结构 `xunshi_inform_subject_type`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_inform_subject_type` (
+CREATE TABLE IF NOT EXISTS `xunshi_inform_subject_type` (
   `inform_type_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '举报类型id',
   `inform_type_name` varchar(50) NOT NULL COMMENT '举报类型名称 ',
   `inform_type_desc` varchar(100) NOT NULL COMMENT '举报类型描述',
@@ -7327,20 +7327,20 @@ CREATE TABLE IF NOT EXISTS `33hao_inform_subject_type` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='举报类型表' AUTO_INCREMENT=3 ;
 
 --
--- 转存表中的数据 `33hao_inform_subject_type`
+-- 转存表中的数据 `xunshi_inform_subject_type`
 --
 
-INSERT INTO `33hao_inform_subject_type` (`inform_type_id`, `inform_type_name`, `inform_type_desc`, `inform_type_state`) VALUES
+INSERT INTO `xunshi_inform_subject_type` (`inform_type_id`, `inform_type_name`, `inform_type_desc`, `inform_type_state`) VALUES
 (1, '出售禁售品', '销售商城禁止和限制交易规则下所规定的所有商品。', 1),
 (2, '产品质量问题', '产品质量差，与描述严重不相符。', 1);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_invoice`
+-- 表的结构 `xunshi_invoice`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_invoice` (
+CREATE TABLE IF NOT EXISTS `xunshi_invoice` (
   `inv_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '索引id',
   `member_id` int(10) unsigned NOT NULL COMMENT '会员ID',
   `inv_state` enum('1','2') DEFAULT NULL COMMENT '1普通发票2增值税发票',
@@ -7362,10 +7362,10 @@ CREATE TABLE IF NOT EXISTS `33hao_invoice` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_link`
+-- 表的结构 `xunshi_link`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_link` (
+CREATE TABLE IF NOT EXISTS `xunshi_link` (
   `link_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '索引id',
   `link_title` varchar(100) DEFAULT NULL COMMENT '标题',
   `link_url` varchar(100) DEFAULT NULL COMMENT '链接',
@@ -7375,10 +7375,10 @@ CREATE TABLE IF NOT EXISTS `33hao_link` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='合作伙伴表' AUTO_INCREMENT=6 ;
 
 --
--- 转存表中的数据 `33hao_link`
+-- 转存表中的数据 `xunshi_link`
 --
 
-INSERT INTO `33hao_link` (`link_id`, `link_title`, `link_url`, `link_pic`, `link_sort`) VALUES
+INSERT INTO `xunshi_link` (`link_id`, `link_title`, `link_url`, `link_pic`, `link_sort`) VALUES
 (1, '好商城', 'http://www.33hao.com', '33haologo.png', 0),
 (2, '演示站点', 'http://v3.33hao.com', '33haologo.png', 1),
 (4, '支持论坛', 'http://bbs.33hao.com', '', 1),
@@ -7387,10 +7387,10 @@ INSERT INTO `33hao_link` (`link_id`, `link_title`, `link_url`, `link_pic`, `link
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_lock`
+-- 表的结构 `xunshi_lock`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_lock` (
+CREATE TABLE IF NOT EXISTS `xunshi_lock` (
   `pid` bigint(20) unsigned NOT NULL COMMENT 'IP+TYPE',
   `pvalue` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '次数',
   `expiretime` int(11) NOT NULL DEFAULT '0' COMMENT '锁定截止时间',
@@ -7400,10 +7400,10 @@ CREATE TABLE IF NOT EXISTS `33hao_lock` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_mail_cron`
+-- 表的结构 `xunshi_mail_cron`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_mail_cron` (
+CREATE TABLE IF NOT EXISTS `xunshi_mail_cron` (
   `mail_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '消息任务计划id',
   `mail` varchar(100) NOT NULL COMMENT '邮箱地址',
   `subject` varchar(255) NOT NULL COMMENT '邮件标题',
@@ -7414,10 +7414,10 @@ CREATE TABLE IF NOT EXISTS `33hao_mail_cron` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_mail_msg_temlates`
+-- 表的结构 `xunshi_mail_msg_temlates`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_mail_msg_temlates` (
+CREATE TABLE IF NOT EXISTS `xunshi_mail_msg_temlates` (
   `name` varchar(100) NOT NULL COMMENT '模板名称',
   `title` varchar(100) DEFAULT NULL COMMENT '模板标题',
   `code` varchar(30) NOT NULL COMMENT '模板调用代码',
@@ -7426,10 +7426,10 @@ CREATE TABLE IF NOT EXISTS `33hao_mail_msg_temlates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='邮件模板表';
 
 --
--- 转存表中的数据 `33hao_mail_msg_temlates`
+-- 转存表中的数据 `xunshi_mail_msg_temlates`
 --
 
-INSERT INTO `33hao_mail_msg_temlates` (`name`, `title`, `code`, `content`) VALUES
+INSERT INTO `xunshi_mail_msg_temlates` (`name`, `title`, `code`, `content`) VALUES
 ('<strong>[用户]</strong>身份验证通知', '账户安全认证 - {$site_name}', 'authenticate', '【{$site_name}】您于{$send_time}提交账户安全验证，验证码是：{$verify_code}。'),
 ('<strong>[用户]</strong>邮箱验证通知', '邮箱验证通知 - {$site_name}', 'bind_email', '<p>您好！</p>\r\n<p>请在24小时内点击以下链接完成邮箱验证</p>\r\n<p><a href="{$verify_url}" target="_blank">马上验证</a></p>\r\n<p>如果您不能点击上面链接，还可以将以下链接复制到浏览器地址栏中访问</p>\r\n<p>{$verify_url}</p>'),
 ('<strong>[用户]</strong>手机验证通知', '手机验证通知 - {$site_name}', 'modify_mobile', '【{$site_name}】您于{$send_time}绑定手机号，验证码是：{$verify_code}。'),
@@ -7441,10 +7441,10 @@ INSERT INTO `33hao_mail_msg_temlates` (`name`, `title`, `code`, `content`) VALUE
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_mall_consult`
+-- 表的结构 `xunshi_mall_consult`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_mall_consult` (
+CREATE TABLE IF NOT EXISTS `xunshi_mall_consult` (
   `mc_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '平台客服咨询id',
   `mct_id` int(10) unsigned NOT NULL COMMENT '咨询类型id',
   `member_id` int(10) unsigned NOT NULL COMMENT '会员id',
@@ -7462,10 +7462,10 @@ CREATE TABLE IF NOT EXISTS `33hao_mall_consult` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_mall_consult_type`
+-- 表的结构 `xunshi_mall_consult_type`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_mall_consult_type` (
+CREATE TABLE IF NOT EXISTS `xunshi_mall_consult_type` (
   `mct_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '平台客服咨询类型id',
   `mct_name` varchar(50) NOT NULL COMMENT '咨询类型名称',
   `mct_introduce` text NOT NULL COMMENT '平台客服咨询类型备注',
@@ -7474,30 +7474,30 @@ CREATE TABLE IF NOT EXISTS `33hao_mall_consult_type` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='平台客服咨询类型表' AUTO_INCREMENT=3 ;
 
 --
--- 转存表中的数据 `33hao_mall_consult_type`
+-- 转存表中的数据 `xunshi_mall_consult_type`
 --
 
-INSERT INTO `33hao_mall_consult_type` (`mct_id`, `mct_name`, `mct_introduce`, `mct_sort`) VALUES
+INSERT INTO `xunshi_mall_consult_type` (`mct_id`, `mct_name`, `mct_introduce`, `mct_sort`) VALUES
 (1, '商品咨询', '&lt;p&gt;\r\n  请写明商品链接，或平台货号。\r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n   如果您对商品规格、介绍等有疑问，可以在商品详情页“购买咨询”处发起咨询，会得到及时专业的回复。\r\n&lt;/p&gt;', 255),
 (2, '订单咨询', '&lt;p&gt;\r\n  请写明要咨询的订单编号。\r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n 如需处理交易中产生的纠纷，请选择投诉。\r\n&lt;/p&gt;', 255);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_mb_category`
+-- 表的结构 `xunshi_mb_category`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_mb_category` (
+CREATE TABLE IF NOT EXISTS `xunshi_mb_category` (
   `gc_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT '商城系统的分类ID',
   `gc_thumb` varchar(150) DEFAULT NULL COMMENT '缩略图',
   PRIMARY KEY (`gc_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='一级分类缩略图[手机端]';
 
 --
--- 转存表中的数据 `33hao_mb_category`
+-- 转存表中的数据 `xunshi_mb_category`
 --
 
-INSERT INTO `33hao_mb_category` (`gc_id`, `gc_thumb`) VALUES
+INSERT INTO `xunshi_mb_category` (`gc_id`, `gc_thumb`) VALUES
 (1, '05015381809285330.png'),
 (2, '05015381349504237.png'),
 (3, '05015381681266734.png'),
@@ -7515,10 +7515,10 @@ INSERT INTO `33hao_mb_category` (`gc_id`, `gc_thumb`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_mb_feedback`
+-- 表的结构 `xunshi_mb_feedback`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_mb_feedback` (
+CREATE TABLE IF NOT EXISTS `xunshi_mb_feedback` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `content` varchar(500) DEFAULT NULL,
   `type` varchar(50) DEFAULT NULL COMMENT '1来自手机端2来自PC端',
@@ -7531,10 +7531,10 @@ CREATE TABLE IF NOT EXISTS `33hao_mb_feedback` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_mb_payment`
+-- 表的结构 `xunshi_mb_payment`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_mb_payment` (
+CREATE TABLE IF NOT EXISTS `xunshi_mb_payment` (
   `payment_id` tinyint(1) unsigned NOT NULL COMMENT '支付索引id',
   `payment_code` char(20) NOT NULL COMMENT '支付代码名称',
   `payment_name` char(10) NOT NULL COMMENT '支付名称',
@@ -7544,10 +7544,10 @@ CREATE TABLE IF NOT EXISTS `33hao_mb_payment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='手机支付方式表';
 
 --
--- 转存表中的数据 `33hao_mb_payment`
+-- 转存表中的数据 `xunshi_mb_payment`
 --
 
-INSERT INTO `33hao_mb_payment` (`payment_id`, `payment_code`, `payment_name`, `payment_config`, `payment_state`) VALUES
+INSERT INTO `xunshi_mb_payment` (`payment_id`, `payment_code`, `payment_name`, `payment_config`, `payment_state`) VALUES
 (1, 'alipay', '支付宝', '', '0'),
 (2, 'wxpay', '微信支付', '', '0'),
 (3, 'wxpay_jsapi', '微信支付JSAPI', '', '0'),
@@ -7556,10 +7556,10 @@ INSERT INTO `33hao_mb_payment` (`payment_id`, `payment_code`, `payment_name`, `p
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_mb_seller_token`
+-- 表的结构 `xunshi_mb_seller_token`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_mb_seller_token` (
+CREATE TABLE IF NOT EXISTS `xunshi_mb_seller_token` (
   `token_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '令牌编号',
   `seller_id` int(10) unsigned NOT NULL COMMENT '用户编号',
   `seller_name` varchar(50) NOT NULL COMMENT '用户名',
@@ -7571,19 +7571,19 @@ CREATE TABLE IF NOT EXISTS `33hao_mb_seller_token` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='客户端商家登录令牌表' AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `33hao_mb_seller_token`
+-- 转存表中的数据 `xunshi_mb_seller_token`
 --
 
-INSERT INTO `33hao_mb_seller_token` (`token_id`, `seller_id`, `seller_name`, `token`, `openid`, `login_time`, `client_type`) VALUES
+INSERT INTO `xunshi_mb_seller_token` (`token_id`, `seller_id`, `seller_name`, `token`, `openid`, `login_time`, `client_type`) VALUES
 (1, 1, 'admin', '20b67082f0928dd651ec1253bc33bd02', NULL, 1481028212, 'wap');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_mb_special`
+-- 表的结构 `xunshi_mb_special`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_mb_special` (
+CREATE TABLE IF NOT EXISTS `xunshi_mb_special` (
   `special_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '专题编号',
   `special_desc` varchar(20) NOT NULL COMMENT '专题描述',
   PRIMARY KEY (`special_id`)
@@ -7592,10 +7592,10 @@ CREATE TABLE IF NOT EXISTS `33hao_mb_special` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_mb_special_item`
+-- 表的结构 `xunshi_mb_special_item`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_mb_special_item` (
+CREATE TABLE IF NOT EXISTS `xunshi_mb_special_item` (
   `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '专题项目编号',
   `special_id` int(10) unsigned NOT NULL COMMENT '专题编号',
   `item_type` varchar(50) NOT NULL COMMENT '项目类型',
@@ -7608,10 +7608,10 @@ CREATE TABLE IF NOT EXISTS `33hao_mb_special_item` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_mb_user_token`
+-- 表的结构 `xunshi_mb_user_token`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_mb_user_token` (
+CREATE TABLE IF NOT EXISTS `xunshi_mb_user_token` (
   `token_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '令牌编号',
   `member_id` int(10) unsigned NOT NULL COMMENT '用户编号',
   `member_name` varchar(50) NOT NULL COMMENT '用户名',
@@ -7625,10 +7625,10 @@ CREATE TABLE IF NOT EXISTS `33hao_mb_user_token` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_member`
+-- 表的结构 `xunshi_member`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_member` (
+CREATE TABLE IF NOT EXISTS `xunshi_member` (
   `member_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '会员id',
   `member_name` varchar(50) NOT NULL COMMENT '会员名称',
   `member_truename` varchar(20) DEFAULT NULL COMMENT '真实姓名',
@@ -7680,19 +7680,19 @@ CREATE TABLE IF NOT EXISTS `33hao_member` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='会员表' AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `33hao_member`
+-- 转存表中的数据 `xunshi_member`
 --
 
-INSERT INTO `33hao_member` (`member_id`, `member_name`, `member_truename`, `member_avatar`, `member_sex`, `member_birthday`, `member_passwd`, `member_paypwd`, `member_email`, `member_email_bind`, `member_mobile`, `member_mobile_bind`, `member_qq`, `member_ww`, `member_login_num`, `member_time`, `member_login_time`, `member_old_login_time`, `member_login_ip`, `member_old_login_ip`, `member_qqopenid`, `member_qqinfo`, `member_sinaopenid`, `member_sinainfo`, `weixin_unionid`, `weixin_info`, `member_points`, `available_predeposit`, `freeze_predeposit`, `available_rc_balance`, `freeze_rc_balance`, `inform_allow`, `is_buy`, `is_allowtalk`, `member_state`, `member_snsvisitnum`, `member_areaid`, `member_cityid`, `member_provinceid`, `member_areainfo`, `member_privacy`, `member_exppoints`, `invite_one`, `invite_two`, `invite_three`, `inviter_id`) VALUES
+INSERT INTO `xunshi_member` (`member_id`, `member_name`, `member_truename`, `member_avatar`, `member_sex`, `member_birthday`, `member_passwd`, `member_paypwd`, `member_email`, `member_email_bind`, `member_mobile`, `member_mobile_bind`, `member_qq`, `member_ww`, `member_login_num`, `member_time`, `member_login_time`, `member_old_login_time`, `member_login_ip`, `member_old_login_ip`, `member_qqopenid`, `member_qqinfo`, `member_sinaopenid`, `member_sinainfo`, `weixin_unionid`, `weixin_info`, `member_points`, `available_predeposit`, `freeze_predeposit`, `available_rc_balance`, `freeze_rc_balance`, `inform_allow`, `is_buy`, `is_allowtalk`, `member_state`, `member_snsvisitnum`, `member_areaid`, `member_cityid`, `member_provinceid`, `member_areainfo`, `member_privacy`, `member_exppoints`, `invite_one`, `invite_two`, `invite_three`, `inviter_id`) VALUES
 (1, 'admin', NULL, NULL, NULL, NULL, '7fef6171469e80d32c0559f88b377245', NULL, '', 0, NULL, 0, NULL, NULL, 1, '1481027687', '1481027687', '1481027687', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '0.00', '0.00', '0.00', '0.00', 1, 1, 1, 1, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_member_common`
+-- 表的结构 `xunshi_member_common`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_member_common` (
+CREATE TABLE IF NOT EXISTS `xunshi_member_common` (
   `member_id` int(11) NOT NULL COMMENT '会员ID',
   `auth_code` char(6) DEFAULT NULL COMMENT '短信/邮件验证码',
   `send_acode_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '短信/邮件验证码发送时间',
@@ -7706,19 +7706,19 @@ CREATE TABLE IF NOT EXISTS `33hao_member_common` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='会员扩展表';
 
 --
--- 转存表中的数据 `33hao_member_common`
+-- 转存表中的数据 `xunshi_member_common`
 --
 
-INSERT INTO `33hao_member_common` (`member_id`, `auth_code`, `send_acode_time`, `send_mb_time`, `send_email_time`, `send_mb_times`, `send_acode_times`, `auth_code_check_times`, `auth_modify_pwd_time`) VALUES
+INSERT INTO `xunshi_member_common` (`member_id`, `auth_code`, `send_acode_time`, `send_mb_time`, `send_email_time`, `send_mb_times`, `send_acode_times`, `auth_code_check_times`, `auth_modify_pwd_time`) VALUES
 (1, NULL, 0, NULL, NULL, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_member_msg_setting`
+-- 表的结构 `xunshi_member_msg_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_member_msg_setting` (
+CREATE TABLE IF NOT EXISTS `xunshi_member_msg_setting` (
   `mmt_code` varchar(50) NOT NULL COMMENT '用户消息模板编号',
   `member_id` int(10) unsigned NOT NULL COMMENT '会员id',
   `is_receive` tinyint(3) unsigned NOT NULL COMMENT '是否接收 1是，0否',
@@ -7728,10 +7728,10 @@ CREATE TABLE IF NOT EXISTS `33hao_member_msg_setting` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_member_msg_tpl`
+-- 表的结构 `xunshi_member_msg_tpl`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_member_msg_tpl` (
+CREATE TABLE IF NOT EXISTS `xunshi_member_msg_tpl` (
   `mmt_code` varchar(50) NOT NULL COMMENT '用户消息模板编号',
   `mmt_name` varchar(50) NOT NULL COMMENT '模板名称',
   `mmt_message_switch` tinyint(3) unsigned NOT NULL COMMENT '站内信接收开关',
@@ -7745,10 +7745,10 @@ CREATE TABLE IF NOT EXISTS `33hao_member_msg_tpl` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户消息模板';
 
 --
--- 转存表中的数据 `33hao_member_msg_tpl`
+-- 转存表中的数据 `xunshi_member_msg_tpl`
 --
 
-INSERT INTO `33hao_member_msg_tpl` (`mmt_code`, `mmt_name`, `mmt_message_switch`, `mmt_message_content`, `mmt_short_switch`, `mmt_short_content`, `mmt_mail_switch`, `mmt_mail_subject`, `mmt_mail_content`) VALUES
+INSERT INTO `xunshi_member_msg_tpl` (`mmt_code`, `mmt_name`, `mmt_message_switch`, `mmt_message_content`, `mmt_short_switch`, `mmt_short_content`, `mmt_mail_switch`, `mmt_mail_subject`, `mmt_mail_content`) VALUES
 ('arrival_notice', '到货通知提醒', 1, '您关注的商品 “{$goods_name}” 已经到货。<a href="{$goods_url}" target="_blank">点击查看商品</a>', 0, '【{$site_name}】您关注的商品 “{$goods_name}” 已经到货。', 0, '{$site_name}提醒：您关注的商品  “{$goods_name}” 已经到货。', '<p>\r\n   {$site_name}提醒：\r\n</p>\r\n<p>\r\n  您关注的商品 “{$goods_name}” 已经到货。\r\n</p>\r\n<p>\r\n <a href="{$goods_url}" target="_blank">点击查看商品</a> \r\n</p>\r\n<p>\r\n   <br />\r\n</p>\r\n<p>\r\n   <br />\r\n</p>\r\n<p>\r\n   <br />\r\n</p>\r\n<p style="text-align:right;">\r\n {$site_name}\r\n</p>\r\n<p style="text-align:right;">\r\n   {$mail_send_time}\r\n</p>'),
 ('consult_goods_reply', '商品咨询回复提醒', 1, '您关于商品 “{$goods_name}”的咨询，商家已经回复。<a href="{$consult_url}" target="_blank">点击查看回复</a>', 0, '【{$site_name}】您关于商品 “{$goods_name}” 的咨询，商家已经回复。', 0, '{$site_name}提醒：您关于商品 “{$goods_name}”的咨询，商家已经回复。', '<p>\r\n  {$site_name}提醒：\r\n</p>\r\n<p>\r\n  您关注的商品“{$goods_name}” 已经到货。\r\n</p>\r\n<p>\r\n  <a href="{$consult_url}" target="_blank">点击查看回复</a> \r\n</p>\r\n<p>\r\n <br />\r\n</p>\r\n<p>\r\n   <br />\r\n</p>\r\n<p>\r\n   <br />\r\n</p>\r\n<p style="text-align:right;">\r\n {$site_name}\r\n</p>\r\n<p style="text-align:right;">\r\n   {$mail_send_time}\r\n</p>\r\n<br />\r\n<div class="firebugResetStyles firebugBlockBackgroundColor">\r\n <div style="background-color:transparent ! important;" class="firebugResetStyles">\r\n  </div>\r\n</div>'),
 ('consult_mall_reply', '平台客服回复提醒', 1, '您的平台客服咨询已经回复。<a href="{$consult_url}" target="_blank">点击查看回复</a>', 0, '【{$site_name}】您的平台客服咨询已经回复。', 0, '{$site_name}提醒：您的平台客服咨询已经回复。', '<p>\r\n {$site_name}提醒：\r\n</p>\r\n<p>\r\n  您的平台客服咨询已经回复。\r\n</p>\r\n<p>\r\n    <a href="{$consult_url}" target="_blank">点击查看回复</a> \r\n</p>\r\n<p>\r\n <br />\r\n</p>\r\n<p>\r\n   <br />\r\n</p>\r\n<p style="text-align:right;">\r\n {$site_name}\r\n</p>\r\n<p style="text-align:right;">\r\n   {$mail_send_time}\r\n</p>'),
@@ -7766,10 +7766,10 @@ INSERT INTO `33hao_member_msg_tpl` (`mmt_code`, `mmt_name`, `mmt_message_switch`
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_message`
+-- 表的结构 `xunshi_message`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_message` (
+CREATE TABLE IF NOT EXISTS `xunshi_message` (
   `message_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '短消息索引id',
   `message_parent_id` int(11) NOT NULL COMMENT '回复短消息message_id',
   `from_member_id` int(11) NOT NULL COMMENT '短消息发送人',
@@ -7795,10 +7795,10 @@ CREATE TABLE IF NOT EXISTS `33hao_message` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_micro_adv`
+-- 表的结构 `xunshi_micro_adv`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_micro_adv` (
+CREATE TABLE IF NOT EXISTS `xunshi_micro_adv` (
   `adv_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '广告编号',
   `adv_type` varchar(50) DEFAULT '' COMMENT '广告类型',
   `adv_name` varchar(255) DEFAULT '' COMMENT '广告名称',
@@ -7811,10 +7811,10 @@ CREATE TABLE IF NOT EXISTS `33hao_micro_adv` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_micro_comment`
+-- 表的结构 `xunshi_micro_comment`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_micro_comment` (
+CREATE TABLE IF NOT EXISTS `xunshi_micro_comment` (
   `comment_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '评论编号',
   `comment_type` tinyint(1) NOT NULL COMMENT '评论类型编号',
   `comment_object_id` int(10) unsigned NOT NULL COMMENT '推荐商品编号',
@@ -7827,10 +7827,10 @@ CREATE TABLE IF NOT EXISTS `33hao_micro_comment` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_micro_goods`
+-- 表的结构 `xunshi_micro_goods`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_micro_goods` (
+CREATE TABLE IF NOT EXISTS `xunshi_micro_goods` (
   `commend_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '推荐编号',
   `commend_member_id` int(10) unsigned NOT NULL COMMENT '推荐人用户编号',
   `commend_goods_id` int(10) unsigned NOT NULL COMMENT '推荐商品编号',
@@ -7853,10 +7853,10 @@ CREATE TABLE IF NOT EXISTS `33hao_micro_goods` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_micro_goods_class`
+-- 表的结构 `xunshi_micro_goods_class`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_micro_goods_class` (
+CREATE TABLE IF NOT EXISTS `xunshi_micro_goods_class` (
   `class_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '分类编号 ',
   `class_name` varchar(50) NOT NULL COMMENT '分类名称',
   `class_parent_id` int(11) unsigned DEFAULT '0' COMMENT '父级分类编号',
@@ -7871,10 +7871,10 @@ CREATE TABLE IF NOT EXISTS `33hao_micro_goods_class` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_micro_goods_relation`
+-- 表的结构 `xunshi_micro_goods_relation`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_micro_goods_relation` (
+CREATE TABLE IF NOT EXISTS `xunshi_micro_goods_relation` (
   `relation_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '关系编号',
   `class_id` int(10) unsigned NOT NULL COMMENT '微商城商品分类编号',
   `shop_class_id` int(10) unsigned NOT NULL COMMENT '商城商品分类编号',
@@ -7884,10 +7884,10 @@ CREATE TABLE IF NOT EXISTS `33hao_micro_goods_relation` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_micro_like`
+-- 表的结构 `xunshi_micro_like`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_micro_like` (
+CREATE TABLE IF NOT EXISTS `xunshi_micro_like` (
   `like_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '喜欢编号',
   `like_type` tinyint(1) NOT NULL COMMENT '喜欢类型编号',
   `like_object_id` int(10) unsigned NOT NULL COMMENT '喜欢对象编号',
@@ -7899,10 +7899,10 @@ CREATE TABLE IF NOT EXISTS `33hao_micro_like` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_micro_member_info`
+-- 表的结构 `xunshi_micro_member_info`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_micro_member_info` (
+CREATE TABLE IF NOT EXISTS `xunshi_micro_member_info` (
   `member_id` int(11) unsigned NOT NULL COMMENT '用户编号',
   `visit_count` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '个人中心访问计数',
   `personal_count` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '已发布个人秀数量',
@@ -7913,10 +7913,10 @@ CREATE TABLE IF NOT EXISTS `33hao_micro_member_info` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_micro_personal`
+-- 表的结构 `xunshi_micro_personal`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_micro_personal` (
+CREATE TABLE IF NOT EXISTS `xunshi_micro_personal` (
   `personal_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '推荐编号',
   `commend_member_id` int(10) unsigned NOT NULL COMMENT '推荐人用户编号',
   `commend_image` text NOT NULL COMMENT '推荐图片',
@@ -7935,10 +7935,10 @@ CREATE TABLE IF NOT EXISTS `33hao_micro_personal` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_micro_personal_class`
+-- 表的结构 `xunshi_micro_personal_class`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_micro_personal_class` (
+CREATE TABLE IF NOT EXISTS `xunshi_micro_personal_class` (
   `class_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '分类编号 ',
   `class_name` varchar(50) NOT NULL COMMENT '分类名称',
   `class_sort` tinyint(4) unsigned NOT NULL COMMENT '排序',
@@ -7949,10 +7949,10 @@ CREATE TABLE IF NOT EXISTS `33hao_micro_personal_class` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_micro_store`
+-- 表的结构 `xunshi_micro_store`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_micro_store` (
+CREATE TABLE IF NOT EXISTS `xunshi_micro_store` (
   `microshop_store_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '店铺街店铺编号',
   `shop_store_id` int(11) unsigned NOT NULL COMMENT '商城店铺编号',
   `microshop_sort` tinyint(1) unsigned DEFAULT '255' COMMENT '排序',
@@ -7966,10 +7966,10 @@ CREATE TABLE IF NOT EXISTS `33hao_micro_store` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_navigation`
+-- 表的结构 `xunshi_navigation`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_navigation` (
+CREATE TABLE IF NOT EXISTS `xunshi_navigation` (
   `nav_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '索引ID',
   `nav_type` tinyint(1) NOT NULL DEFAULT '0' COMMENT '类别，0自定义导航，1商品分类，2文章导航，3活动导航，默认为0',
   `nav_title` varchar(100) DEFAULT NULL COMMENT '导航标题',
@@ -7982,10 +7982,10 @@ CREATE TABLE IF NOT EXISTS `33hao_navigation` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='页面导航表' AUTO_INCREMENT=17 ;
 
 --
--- 转存表中的数据 `33hao_navigation`
+-- 转存表中的数据 `xunshi_navigation`
 --
 
-INSERT INTO `33hao_navigation` (`nav_id`, `nav_type`, `nav_title`, `nav_url`, `nav_location`, `nav_new_open`, `nav_sort`, `item_id`) VALUES
+INSERT INTO `xunshi_navigation` (`nav_id`, `nav_type`, `nav_title`, `nav_url`, `nav_location`, `nav_new_open`, `nav_sort`, `item_id`) VALUES
 (6, 0, '关于我们', 'http://v5.33hao.com/member/index.php?act=article&article_id=22', 2, 0, 255, 0),
 (7, 0, '联系我们', 'http://v5.33hao.com/member/index.php?act=article&article_id=23', 2, 0, 240, 0),
 (8, 0, '合作及洽谈', 'http://v5.33hao.com/member/index.php?act=article&article_id=25', 2, 0, 220, 0),
@@ -8000,10 +8000,10 @@ INSERT INTO `33hao_navigation` (`nav_id`, `nav_type`, `nav_title`, `nav_url`, `n
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_offpay_area`
+-- 表的结构 `xunshi_offpay_area`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_offpay_area` (
+CREATE TABLE IF NOT EXISTS `xunshi_offpay_area` (
   `store_id` int(8) unsigned NOT NULL COMMENT '商家ID',
   `area_id` text COMMENT '县ID组合',
   PRIMARY KEY (`store_id`)
@@ -8012,10 +8012,10 @@ CREATE TABLE IF NOT EXISTS `33hao_offpay_area` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_orders`
+-- 表的结构 `xunshi_orders`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_orders` (
+CREATE TABLE IF NOT EXISTS `xunshi_orders` (
   `order_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '订单索引id',
   `order_sn` bigint(20) unsigned NOT NULL COMMENT '订单编号',
   `pay_sn` bigint(20) unsigned NOT NULL COMMENT '支付单号',
@@ -8057,10 +8057,10 @@ CREATE TABLE IF NOT EXISTS `33hao_orders` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_order_bill`
+-- 表的结构 `xunshi_order_bill`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_order_bill` (
+CREATE TABLE IF NOT EXISTS `xunshi_order_bill` (
   `ob_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键ID作为新结算单编号',
   `ob_no` int(11) DEFAULT '0' COMMENT '结算单编号(年月店铺ID)',
   `ob_start_date` int(11) NOT NULL COMMENT '开始日期',
@@ -8088,10 +8088,10 @@ CREATE TABLE IF NOT EXISTS `33hao_order_bill` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_order_book`
+-- 表的结构 `xunshi_order_book`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_order_book` (
+CREATE TABLE IF NOT EXISTS `xunshi_order_book` (
   `book_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
   `book_order_id` int(11) DEFAULT NULL COMMENT '订单ID',
   `book_step` tinyint(4) DEFAULT NULL COMMENT '预定时段,值为1 or 2,0为不分时段，全款支付',
@@ -8114,10 +8114,10 @@ CREATE TABLE IF NOT EXISTS `33hao_order_book` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_order_common`
+-- 表的结构 `xunshi_order_common`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_order_common` (
+CREATE TABLE IF NOT EXISTS `xunshi_order_common` (
   `order_id` int(11) NOT NULL COMMENT '订单索引id',
   `store_id` int(10) unsigned NOT NULL COMMENT '店铺ID',
   `shipping_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '配送时间',
@@ -8145,10 +8145,10 @@ CREATE TABLE IF NOT EXISTS `33hao_order_common` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_order_goods`
+-- 表的结构 `xunshi_order_goods`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_order_goods` (
+CREATE TABLE IF NOT EXISTS `xunshi_order_goods` (
   `rec_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '订单商品表索引id',
   `order_id` int(11) NOT NULL COMMENT '订单id',
   `goods_id` int(11) NOT NULL COMMENT '商品id',
@@ -8173,10 +8173,10 @@ CREATE TABLE IF NOT EXISTS `33hao_order_goods` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_order_log`
+-- 表的结构 `xunshi_order_log`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_order_log` (
+CREATE TABLE IF NOT EXISTS `xunshi_order_log` (
   `log_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `order_id` int(11) NOT NULL COMMENT '订单id',
   `log_msg` varchar(150) DEFAULT '' COMMENT '文字描述',
@@ -8190,10 +8190,10 @@ CREATE TABLE IF NOT EXISTS `33hao_order_log` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_order_pay`
+-- 表的结构 `xunshi_order_pay`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_order_pay` (
+CREATE TABLE IF NOT EXISTS `xunshi_order_pay` (
   `pay_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pay_sn` bigint(20) unsigned NOT NULL COMMENT '支付单号',
   `buyer_id` int(10) unsigned NOT NULL COMMENT '买家ID',
@@ -8204,10 +8204,10 @@ CREATE TABLE IF NOT EXISTS `33hao_order_pay` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_order_snapshot`
+-- 表的结构 `xunshi_order_snapshot`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_order_snapshot` (
+CREATE TABLE IF NOT EXISTS `xunshi_order_snapshot` (
   `rec_id` int(11) NOT NULL COMMENT '主键',
   `goods_id` int(11) NOT NULL COMMENT '商品ID',
   `create_time` int(11) NOT NULL COMMENT '生成时间',
@@ -8221,10 +8221,10 @@ CREATE TABLE IF NOT EXISTS `33hao_order_snapshot` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_order_statis`
+-- 表的结构 `xunshi_order_statis`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_order_statis` (
+CREATE TABLE IF NOT EXISTS `xunshi_order_statis` (
   `os_month` mediumint(9) unsigned NOT NULL DEFAULT '0' COMMENT '统计编号(年月)',
   `os_year` smallint(6) DEFAULT '0' COMMENT '年',
   `os_start_date` int(11) NOT NULL COMMENT '开始日期',
@@ -8244,10 +8244,10 @@ CREATE TABLE IF NOT EXISTS `33hao_order_statis` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_payment`
+-- 表的结构 `xunshi_payment`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_payment` (
+CREATE TABLE IF NOT EXISTS `xunshi_payment` (
   `payment_id` tinyint(1) unsigned NOT NULL COMMENT '支付索引id',
   `payment_code` char(10) NOT NULL COMMENT '支付代码名称',
   `payment_name` char(10) NOT NULL COMMENT '支付名称',
@@ -8257,10 +8257,10 @@ CREATE TABLE IF NOT EXISTS `33hao_payment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='支付方式表';
 
 --
--- 转存表中的数据 `33hao_payment`
+-- 转存表中的数据 `xunshi_payment`
 --
 
-INSERT INTO `33hao_payment` (`payment_id`, `payment_code`, `payment_name`, `payment_config`, `payment_state`) VALUES
+INSERT INTO `xunshi_payment` (`payment_id`, `payment_code`, `payment_name`, `payment_config`, `payment_state`) VALUES
 (1, 'offline', '货到付款', 'a:1:{s:0:"";s:0:"";}', '0'),
 (2, 'alipay', '支付宝', 'a:4:{s:14:"alipay_service";s:25:"create_direct_pay_by_user";s:14:"alipay_account";s:0:"";s:10:"alipay_key";s:0:"";s:14:"alipay_partner";s:0:"";}', '0'),
 (3, 'tenpay', '财付通', 'a:2:{s:14:"tenpay_account";s:0:"";s:10:"tenpay_key";s:0:"";}', '0'),
@@ -8271,10 +8271,10 @@ INSERT INTO `33hao_payment` (`payment_id`, `payment_code`, `payment_name`, `paym
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_pd_cash`
+-- 表的结构 `xunshi_pd_cash`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_pd_cash` (
+CREATE TABLE IF NOT EXISTS `xunshi_pd_cash` (
   `pdc_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增编号',
   `pdc_sn` bigint(20) NOT NULL COMMENT '记录唯一标示',
   `pdc_member_id` int(11) NOT NULL COMMENT '会员编号',
@@ -8293,10 +8293,10 @@ CREATE TABLE IF NOT EXISTS `33hao_pd_cash` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_pd_log`
+-- 表的结构 `xunshi_pd_log`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_pd_log` (
+CREATE TABLE IF NOT EXISTS `xunshi_pd_log` (
   `lg_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增编号',
   `lg_member_id` int(11) NOT NULL COMMENT '会员编号',
   `lg_member_name` varchar(50) NOT NULL COMMENT '会员名称',
@@ -8313,10 +8313,10 @@ CREATE TABLE IF NOT EXISTS `33hao_pd_log` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_pd_recharge`
+-- 表的结构 `xunshi_pd_recharge`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_pd_recharge` (
+CREATE TABLE IF NOT EXISTS `xunshi_pd_recharge` (
   `pdr_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增编号',
   `pdr_sn` bigint(20) unsigned NOT NULL COMMENT '记录唯一标示',
   `pdr_member_id` int(11) NOT NULL COMMENT '会员编号',
@@ -8335,10 +8335,10 @@ CREATE TABLE IF NOT EXISTS `33hao_pd_recharge` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_points_cart`
+-- 表的结构 `xunshi_points_cart`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_points_cart` (
+CREATE TABLE IF NOT EXISTS `xunshi_points_cart` (
   `pcart_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
   `pmember_id` int(11) NOT NULL COMMENT '会员编号',
   `pgoods_id` int(11) NOT NULL COMMENT '积分礼品序号',
@@ -8352,10 +8352,10 @@ CREATE TABLE IF NOT EXISTS `33hao_points_cart` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_points_goods`
+-- 表的结构 `xunshi_points_goods`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_points_goods` (
+CREATE TABLE IF NOT EXISTS `xunshi_points_goods` (
   `pgoods_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '积分礼品索引id',
   `pgoods_name` varchar(100) NOT NULL COMMENT '积分礼品名称',
   `pgoods_price` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '积分礼品原价',
@@ -8387,10 +8387,10 @@ CREATE TABLE IF NOT EXISTS `33hao_points_goods` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_points_log`
+-- 表的结构 `xunshi_points_log`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_points_log` (
+CREATE TABLE IF NOT EXISTS `xunshi_points_log` (
   `pl_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '积分日志编号',
   `pl_memberid` int(11) NOT NULL COMMENT '会员编号',
   `pl_membername` varchar(100) NOT NULL COMMENT '会员名称',
@@ -8406,10 +8406,10 @@ CREATE TABLE IF NOT EXISTS `33hao_points_log` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_points_order`
+-- 表的结构 `xunshi_points_order`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_points_order` (
+CREATE TABLE IF NOT EXISTS `xunshi_points_order` (
   `point_orderid` int(11) NOT NULL AUTO_INCREMENT COMMENT '兑换订单编号',
   `point_ordersn` varchar(20) NOT NULL COMMENT '兑换订单编号',
   `point_buyerid` int(11) NOT NULL COMMENT '兑换会员id',
@@ -8429,10 +8429,10 @@ CREATE TABLE IF NOT EXISTS `33hao_points_order` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_points_orderaddress`
+-- 表的结构 `xunshi_points_orderaddress`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_points_orderaddress` (
+CREATE TABLE IF NOT EXISTS `xunshi_points_orderaddress` (
   `point_oaid` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
   `point_orderid` int(11) NOT NULL COMMENT '订单id',
   `point_truename` varchar(50) NOT NULL COMMENT '收货人姓名',
@@ -8447,10 +8447,10 @@ CREATE TABLE IF NOT EXISTS `33hao_points_orderaddress` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_points_ordergoods`
+-- 表的结构 `xunshi_points_ordergoods`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_points_ordergoods` (
+CREATE TABLE IF NOT EXISTS `xunshi_points_ordergoods` (
   `point_recid` int(11) NOT NULL AUTO_INCREMENT COMMENT '订单礼品表索引',
   `point_orderid` int(11) NOT NULL COMMENT '订单id',
   `point_goodsid` int(11) NOT NULL COMMENT '礼品id',
@@ -8464,10 +8464,10 @@ CREATE TABLE IF NOT EXISTS `33hao_points_ordergoods` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_book_quota`
+-- 表的结构 `xunshi_p_book_quota`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_book_quota` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_book_quota` (
   `bkq_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '预定套餐id',
   `store_id` int(11) NOT NULL COMMENT '店铺id',
   `store_name` varchar(50) NOT NULL COMMENT '店铺名称',
@@ -8479,10 +8479,10 @@ CREATE TABLE IF NOT EXISTS `33hao_p_book_quota` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_booth_goods`
+-- 表的结构 `xunshi_p_booth_goods`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_booth_goods` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_booth_goods` (
   `booth_goods_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '套餐商品id',
   `store_id` int(10) unsigned NOT NULL COMMENT '店铺id',
   `goods_id` int(10) unsigned NOT NULL COMMENT '商品id',
@@ -8494,10 +8494,10 @@ CREATE TABLE IF NOT EXISTS `33hao_p_booth_goods` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_booth_quota`
+-- 表的结构 `xunshi_p_booth_quota`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_booth_quota` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_booth_quota` (
   `booth_quota_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '套餐id',
   `store_id` int(10) unsigned NOT NULL COMMENT '店铺id',
   `store_name` varchar(50) NOT NULL COMMENT '店铺名称',
@@ -8510,10 +8510,10 @@ CREATE TABLE IF NOT EXISTS `33hao_p_booth_quota` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_bundling`
+-- 表的结构 `xunshi_p_bundling`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_bundling` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_bundling` (
   `bl_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '组合ID',
   `bl_name` varchar(50) NOT NULL COMMENT '组合名称',
   `store_id` int(11) NOT NULL COMMENT '店铺名称',
@@ -8528,10 +8528,10 @@ CREATE TABLE IF NOT EXISTS `33hao_p_bundling` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_bundling_goods`
+-- 表的结构 `xunshi_p_bundling_goods`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_bundling_goods` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_bundling_goods` (
   `bl_goods_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '组合商品id',
   `bl_id` int(11) NOT NULL COMMENT '组合id',
   `goods_id` int(10) unsigned NOT NULL COMMENT '商品id',
@@ -8545,10 +8545,10 @@ CREATE TABLE IF NOT EXISTS `33hao_p_bundling_goods` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_bundling_quota`
+-- 表的结构 `xunshi_p_bundling_quota`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_bundling_quota` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_bundling_quota` (
   `bl_quota_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '套餐ID',
   `store_id` int(11) NOT NULL COMMENT '店铺id',
   `store_name` varchar(50) NOT NULL COMMENT '店铺名称',
@@ -8564,10 +8564,10 @@ CREATE TABLE IF NOT EXISTS `33hao_p_bundling_quota` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_combo_goods`
+-- 表的结构 `xunshi_p_combo_goods`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_combo_goods` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_combo_goods` (
   `cg_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '推荐组合id ',
   `cg_class` varchar(10) NOT NULL COMMENT '推荐组合名称',
   `goods_id` int(10) unsigned NOT NULL COMMENT '主商品id',
@@ -8580,10 +8580,10 @@ CREATE TABLE IF NOT EXISTS `33hao_p_combo_goods` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_combo_quota`
+-- 表的结构 `xunshi_p_combo_quota`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_combo_quota` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_combo_quota` (
   `cq_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '推荐组合套餐id',
   `store_id` int(10) unsigned NOT NULL COMMENT '店铺id',
   `store_name` varchar(50) NOT NULL COMMENT '店铺名称',
@@ -8595,10 +8595,10 @@ CREATE TABLE IF NOT EXISTS `33hao_p_combo_quota` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_cou`
+-- 表的结构 `xunshi_p_cou`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_cou` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_cou` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `store_id` int(11) NOT NULL COMMENT '店铺ID',
   `store_name` varchar(50) NOT NULL COMMENT '店铺名称',
@@ -8615,10 +8615,10 @@ CREATE TABLE IF NOT EXISTS `33hao_p_cou` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_cou_level`
+-- 表的结构 `xunshi_p_cou_level`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_cou_level` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_cou_level` (
   `cou_id` int(11) NOT NULL COMMENT '加价购ID',
   `xlevel` tinyint(3) unsigned NOT NULL COMMENT '等级',
   `mincost` decimal(10,2) NOT NULL COMMENT '最低消费金额',
@@ -8629,10 +8629,10 @@ CREATE TABLE IF NOT EXISTS `33hao_p_cou_level` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_cou_level_sku`
+-- 表的结构 `xunshi_p_cou_level_sku`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_cou_level_sku` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_cou_level_sku` (
   `cou_id` int(11) NOT NULL COMMENT '加价购ID',
   `xlevel` tinyint(3) unsigned NOT NULL COMMENT '等级',
   `sku_id` int(11) NOT NULL COMMENT '商品条目ID',
@@ -8643,10 +8643,10 @@ CREATE TABLE IF NOT EXISTS `33hao_p_cou_level_sku` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_cou_quota`
+-- 表的结构 `xunshi_p_cou_quota`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_cou_quota` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_cou_quota` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `store_id` int(11) NOT NULL COMMENT '店铺ID',
   `store_name` varchar(50) NOT NULL COMMENT '店铺名称',
@@ -8659,10 +8659,10 @@ CREATE TABLE IF NOT EXISTS `33hao_p_cou_quota` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_cou_sku`
+-- 表的结构 `xunshi_p_cou_sku`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_cou_sku` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_cou_sku` (
   `sku_id` int(11) NOT NULL COMMENT '商品条目ID',
   `cou_id` int(11) NOT NULL COMMENT '加价购ID',
   `tstart` int(10) unsigned NOT NULL COMMENT '开始时间',
@@ -8674,10 +8674,10 @@ CREATE TABLE IF NOT EXISTS `33hao_p_cou_sku` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_fcode_quota`
+-- 表的结构 `xunshi_p_fcode_quota`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_fcode_quota` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_fcode_quota` (
   `fcq_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'F码套餐id',
   `store_id` int(11) NOT NULL COMMENT '店铺id',
   `store_name` varchar(50) NOT NULL COMMENT '店铺名称',
@@ -8689,10 +8689,10 @@ CREATE TABLE IF NOT EXISTS `33hao_p_fcode_quota` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_mansong`
+-- 表的结构 `xunshi_p_mansong`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_mansong` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_mansong` (
   `mansong_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '满送活动编号',
   `mansong_name` varchar(50) NOT NULL COMMENT '活动名称',
   `quota_id` int(10) unsigned NOT NULL COMMENT '套餐编号',
@@ -8710,10 +8710,10 @@ CREATE TABLE IF NOT EXISTS `33hao_p_mansong` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_mansong_quota`
+-- 表的结构 `xunshi_p_mansong_quota`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_mansong_quota` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_mansong_quota` (
   `quota_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '满就送套餐编号',
   `member_id` int(10) unsigned NOT NULL COMMENT '用户编号',
   `store_id` int(10) unsigned NOT NULL COMMENT '店铺编号',
@@ -8728,10 +8728,10 @@ CREATE TABLE IF NOT EXISTS `33hao_p_mansong_quota` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_mansong_rule`
+-- 表的结构 `xunshi_p_mansong_rule`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_mansong_rule` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_mansong_rule` (
   `rule_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '规则编号',
   `mansong_id` int(10) unsigned NOT NULL COMMENT '活动编号',
   `price` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '级别价格',
@@ -8744,10 +8744,10 @@ CREATE TABLE IF NOT EXISTS `33hao_p_mansong_rule` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_sole_goods`
+-- 表的结构 `xunshi_p_sole_goods`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_sole_goods` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_sole_goods` (
   `sole_goods_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '手机专享商品id',
   `store_id` int(10) unsigned NOT NULL COMMENT '店铺id',
   `goods_id` int(10) unsigned NOT NULL COMMENT '商品id',
@@ -8760,10 +8760,10 @@ CREATE TABLE IF NOT EXISTS `33hao_p_sole_goods` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_sole_quota`
+-- 表的结构 `xunshi_p_sole_quota`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_sole_quota` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_sole_quota` (
   `sole_quota_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '套餐id',
   `store_id` int(10) unsigned NOT NULL COMMENT '店铺id',
   `store_name` varchar(50) NOT NULL COMMENT '店铺名称',
@@ -8776,10 +8776,10 @@ CREATE TABLE IF NOT EXISTS `33hao_p_sole_quota` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_xianshi`
+-- 表的结构 `xunshi_p_xianshi`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_xianshi` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_xianshi` (
   `xianshi_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '限时编号',
   `xianshi_name` varchar(50) NOT NULL COMMENT '活动名称',
   `xianshi_title` varchar(10) DEFAULT NULL COMMENT '活动标题',
@@ -8797,19 +8797,19 @@ CREATE TABLE IF NOT EXISTS `33hao_p_xianshi` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='限时折扣活动表' AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `33hao_p_xianshi`
+-- 转存表中的数据 `xunshi_p_xianshi`
 --
 
-INSERT INTO `33hao_p_xianshi` (`xianshi_id`, `xianshi_name`, `xianshi_title`, `xianshi_explain`, `quota_id`, `start_time`, `end_time`, `member_id`, `store_id`, `member_name`, `store_name`, `lower_limit`, `state`) VALUES
+INSERT INTO `xunshi_p_xianshi` (`xianshi_id`, `xianshi_name`, `xianshi_title`, `xianshi_explain`, `quota_id`, `start_time`, `end_time`, `member_id`, `store_id`, `member_name`, `store_name`, `lower_limit`, `state`) VALUES
 (1, '新店大酬宾', '新店大酬宾', '劳力士经典腕表 九折 优惠', 0, 1421856000, 1453392000, 1, 1, 'admin', '好商城自营', 1, 2);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_xianshi_goods`
+-- 表的结构 `xunshi_p_xianshi_goods`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_xianshi_goods` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_xianshi_goods` (
   `xianshi_goods_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '限时折扣商品表',
   `xianshi_id` int(10) unsigned NOT NULL COMMENT '限时活动编号',
   `xianshi_name` varchar(50) NOT NULL COMMENT '活动名称',
@@ -8831,19 +8831,19 @@ CREATE TABLE IF NOT EXISTS `33hao_p_xianshi_goods` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='限时折扣商品表' AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `33hao_p_xianshi_goods`
+-- 转存表中的数据 `xunshi_p_xianshi_goods`
 --
 
-INSERT INTO `33hao_p_xianshi_goods` (`xianshi_goods_id`, `xianshi_id`, `xianshi_name`, `xianshi_title`, `xianshi_explain`, `goods_id`, `store_id`, `goods_name`, `goods_price`, `xianshi_price`, `goods_image`, `start_time`, `end_time`, `lower_limit`, `state`, `xianshi_recommend`, `gc_id_1`) VALUES
+INSERT INTO `xunshi_p_xianshi_goods` (`xianshi_goods_id`, `xianshi_id`, `xianshi_name`, `xianshi_title`, `xianshi_explain`, `goods_id`, `store_id`, `goods_name`, `goods_price`, `xianshi_price`, `goods_image`, `start_time`, `end_time`, `lower_limit`, `state`, `xianshi_recommend`, `gc_id_1`) VALUES
 (1, 1, '新店大酬宾', '新店大酬宾', '劳力士经典腕表 九折 优惠', 100008, 1, '劳力士Rolex 宇宙计型迪通拿 自动机械皮带男表 正品116519 CR.TB', '209500.00', '188550.00', '1_04752627931531971.jpg', 1421856000, 1453392000, 1, 1, 0, 530);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_p_xianshi_quota`
+-- 表的结构 `xunshi_p_xianshi_quota`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_p_xianshi_quota` (
+CREATE TABLE IF NOT EXISTS `xunshi_p_xianshi_quota` (
   `quota_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '限时折扣套餐编号',
   `member_id` int(10) unsigned NOT NULL COMMENT '用户编号',
   `store_id` int(10) unsigned NOT NULL COMMENT '店铺编号',
@@ -8857,10 +8857,10 @@ CREATE TABLE IF NOT EXISTS `33hao_p_xianshi_quota` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_rcb_log`
+-- 表的结构 `xunshi_rcb_log`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_rcb_log` (
+CREATE TABLE IF NOT EXISTS `xunshi_rcb_log` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增编号',
   `member_id` int(11) NOT NULL COMMENT '会员编号',
   `member_name` varchar(50) NOT NULL COMMENT '会员名称',
@@ -8875,10 +8875,10 @@ CREATE TABLE IF NOT EXISTS `33hao_rcb_log` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_rechargecard`
+-- 表的结构 `xunshi_rechargecard`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_rechargecard` (
+CREATE TABLE IF NOT EXISTS `xunshi_rechargecard` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
   `sn` varchar(50) NOT NULL COMMENT '卡号',
   `denomination` decimal(10,2) NOT NULL COMMENT '面额',
@@ -8895,10 +8895,10 @@ CREATE TABLE IF NOT EXISTS `33hao_rechargecard` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_rec_position`
+-- 表的结构 `xunshi_rec_position`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_rec_position` (
+CREATE TABLE IF NOT EXISTS `xunshi_rec_position` (
   `rec_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `pic_type` enum('1','2','0') NOT NULL DEFAULT '1' COMMENT '0文字1本地图片2远程',
   `title` varchar(200) DEFAULT '' COMMENT '标题',
@@ -8909,10 +8909,10 @@ CREATE TABLE IF NOT EXISTS `33hao_rec_position` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_redpacket`
+-- 表的结构 `xunshi_redpacket`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_redpacket` (
+CREATE TABLE IF NOT EXISTS `xunshi_redpacket` (
   `rpacket_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '红包编号',
   `rpacket_code` varchar(32) NOT NULL COMMENT '红包编码',
   `rpacket_t_id` int(11) NOT NULL COMMENT '红包模版编号',
@@ -8938,10 +8938,10 @@ CREATE TABLE IF NOT EXISTS `33hao_redpacket` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_redpacket_template`
+-- 表的结构 `xunshi_redpacket_template`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_redpacket_template` (
+CREATE TABLE IF NOT EXISTS `xunshi_redpacket_template` (
   `rpacket_t_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '红包模版编号',
   `rpacket_t_title` varchar(50) NOT NULL COMMENT '红包模版名称',
   `rpacket_t_desc` varchar(255) NOT NULL COMMENT '红包模版描述',
@@ -8968,10 +8968,10 @@ CREATE TABLE IF NOT EXISTS `33hao_redpacket_template` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_refund_detail`
+-- 表的结构 `xunshi_refund_detail`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_refund_detail` (
+CREATE TABLE IF NOT EXISTS `xunshi_refund_detail` (
   `refund_id` int(10) unsigned NOT NULL COMMENT '记录ID',
   `order_id` int(10) unsigned NOT NULL COMMENT '订单ID',
   `batch_no` varchar(32) NOT NULL COMMENT '批次号',
@@ -8990,10 +8990,10 @@ CREATE TABLE IF NOT EXISTS `33hao_refund_detail` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_refund_reason`
+-- 表的结构 `xunshi_refund_reason`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_refund_reason` (
+CREATE TABLE IF NOT EXISTS `xunshi_refund_reason` (
   `reason_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '原因ID',
   `reason_info` varchar(50) NOT NULL COMMENT '原因内容',
   `sort` tinyint(1) unsigned DEFAULT '255' COMMENT '排序',
@@ -9002,10 +9002,10 @@ CREATE TABLE IF NOT EXISTS `33hao_refund_reason` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='退款退货原因表' AUTO_INCREMENT=100 ;
 
 --
--- 转存表中的数据 `33hao_refund_reason`
+-- 转存表中的数据 `xunshi_refund_reason`
 --
 
-INSERT INTO `33hao_refund_reason` (`reason_id`, `reason_info`, `sort`, `update_time`) VALUES
+INSERT INTO `xunshi_refund_reason` (`reason_id`, `reason_info`, `sort`, `update_time`) VALUES
 (95, '效果不好不喜欢', 123, 1435766400),
 (96, '商品破损、有污渍', 123, 1435766400),
 (97, '保质期不符', 123, 1435766400),
@@ -9015,10 +9015,10 @@ INSERT INTO `33hao_refund_reason` (`reason_id`, `reason_info`, `sort`, `update_t
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_refund_return`
+-- 表的结构 `xunshi_refund_return`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_refund_return` (
+CREATE TABLE IF NOT EXISTS `xunshi_refund_return` (
   `refund_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '记录ID',
   `order_id` int(10) unsigned NOT NULL COMMENT '订单ID',
   `order_sn` varchar(50) NOT NULL COMMENT '订单编号',
@@ -9063,10 +9063,10 @@ CREATE TABLE IF NOT EXISTS `33hao_refund_return` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_seller`
+-- 表的结构 `xunshi_seller`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_seller` (
+CREATE TABLE IF NOT EXISTS `xunshi_seller` (
   `seller_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '卖家编号',
   `seller_name` varchar(50) NOT NULL COMMENT '卖家用户名',
   `member_id` int(10) unsigned NOT NULL COMMENT '用户编号',
@@ -9080,19 +9080,19 @@ CREATE TABLE IF NOT EXISTS `33hao_seller` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='卖家用户表' AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `33hao_seller`
+-- 转存表中的数据 `xunshi_seller`
 --
 
-INSERT INTO `33hao_seller` (`seller_id`, `seller_name`, `member_id`, `seller_group_id`, `store_id`, `is_admin`, `seller_quicklink`, `last_login_time`, `is_client`) VALUES
+INSERT INTO `xunshi_seller` (`seller_id`, `seller_name`, `member_id`, `seller_group_id`, `store_id`, `is_admin`, `seller_quicklink`, `last_login_time`, `is_client`) VALUES
 (1, 'admin', 1, 0, 1, 1, NULL, 1481028212, 0);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_seller_group`
+-- 表的结构 `xunshi_seller_group`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_seller_group` (
+CREATE TABLE IF NOT EXISTS `xunshi_seller_group` (
   `group_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '卖家组编号',
   `group_name` varchar(50) NOT NULL COMMENT '组名',
   `limits` text NOT NULL COMMENT '权限',
@@ -9105,10 +9105,10 @@ CREATE TABLE IF NOT EXISTS `33hao_seller_group` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_seller_group_bclass`
+-- 表的结构 `xunshi_seller_group_bclass`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_seller_group_bclass` (
+CREATE TABLE IF NOT EXISTS `xunshi_seller_group_bclass` (
   `bid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `group_id` int(11) unsigned DEFAULT '0' COMMENT '权限组ID',
   `class_1` mediumint(9) unsigned DEFAULT '0' COMMENT '一级分类',
@@ -9122,10 +9122,10 @@ CREATE TABLE IF NOT EXISTS `33hao_seller_group_bclass` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_seller_log`
+-- 表的结构 `xunshi_seller_log`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_seller_log` (
+CREATE TABLE IF NOT EXISTS `xunshi_seller_log` (
   `log_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '日志编号',
   `log_content` varchar(500) NOT NULL COMMENT '日志内容',
   `log_time` int(10) unsigned NOT NULL COMMENT '日志时间',
@@ -9139,20 +9139,20 @@ CREATE TABLE IF NOT EXISTS `33hao_seller_log` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='卖家日志表' AUTO_INCREMENT=3 ;
 
 --
--- 转存表中的数据 `33hao_seller_log`
+-- 转存表中的数据 `xunshi_seller_log`
 --
 
-INSERT INTO `33hao_seller_log` (`log_id`, `log_content`, `log_time`, `log_seller_id`, `log_seller_name`, `log_store_id`, `log_seller_ip`, `log_url`, `log_state`) VALUES
+INSERT INTO `xunshi_seller_log` (`log_id`, `log_content`, `log_time`, `log_seller_id`, `log_seller_name`, `log_store_id`, `log_seller_ip`, `log_url`, `log_state`) VALUES
 (1, '编辑商品，SPU:100008', 1481028625, 1, 'admin', 1, '127.0.0.1', 'goodsLogic&saveGoods', 1),
 (2, '商品图片编辑，SPU:100008', 1481028625, 1, 'admin', 1, '127.0.0.1', 'goodsLogic&saveGoods', 1);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_seo`
+-- 表的结构 `xunshi_seo`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_seo` (
+CREATE TABLE IF NOT EXISTS `xunshi_seo` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
   `title` varchar(255) NOT NULL COMMENT '标题',
   `keywords` varchar(255) NOT NULL COMMENT '关键词',
@@ -9162,10 +9162,10 @@ CREATE TABLE IF NOT EXISTS `33hao_seo` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='SEO信息存放表' AUTO_INCREMENT=15 ;
 
 --
--- 转存表中的数据 `33hao_seo`
+-- 转存表中的数据 `xunshi_seo`
 --
 
-INSERT INTO `33hao_seo` (`id`, `title`, `keywords`, `description`, `type`) VALUES
+INSERT INTO `xunshi_seo` (`id`, `title`, `keywords`, `description`, `type`) VALUES
 (1, '{sitename} - Powered by 33hao', '33hao,PHP商城系统,33hao商城系统,多用户商城系统,电商ERP,电商CRM,电子商务解决方案', '33hao专注于研发符合时代发展需要的电子商务商城系统，以专业化的服务水平为企业级用户提供B(2B)2C【B2B2C】电子商务平台解决方案，全力打造电商平台专项ERP(CRM)系统、ERP(RFID)系统等，引领中国电子商务行业企业级需求的发展方向。咨询电话：400-333-8888', 'index'),
 (2, '{sitename} - 抢购', '33hao,{sitename}', '33hao专注于研发符合时代发展需要的电子商务商城系统，以专业化的服务水平为企业级用户提供B(2B)2C【B2B2C】电子商务平台解决方案，全力打造电商平台专项ERP(CRM)系统、ERP(RFID)系统等，引领中国电子商务行业企业级需求的发展方向。咨询电话：400-333-8888', 'group'),
 (3, '{sitename} - {name}', '33hao,{name},{sitename}', '33hao,{name},{sitename}', 'group_content'),
@@ -9183,20 +9183,20 @@ INSERT INTO `33hao_seo` (`id`, `title`, `keywords`, `description`, `type`) VALUE
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_setting`
+-- 表的结构 `xunshi_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_setting` (
+CREATE TABLE IF NOT EXISTS `xunshi_setting` (
   `name` varchar(50) NOT NULL COMMENT '名称',
   `value` text COMMENT '值',
   PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='系统设置表';
 
 --
--- 转存表中的数据 `33hao_setting`
+-- 转存表中的数据 `xunshi_setting`
 --
 
-INSERT INTO `33hao_setting` (`name`, `value`) VALUES
+INSERT INTO `xunshi_setting` (`name`, `value`) VALUES
 ('app_qq_akey', ''),
 ('app_qq_isuse', '0'),
 ('app_qq_skey', ''),
@@ -9412,10 +9412,10 @@ INSERT INTO `33hao_setting` (`name`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_signin`
+-- 表的结构 `xunshi_signin`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_signin` (
+CREATE TABLE IF NOT EXISTS `xunshi_signin` (
   `sl_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
   `sl_memberid` int(11) NOT NULL COMMENT '会员ID',
   `sl_membername` varchar(100) NOT NULL COMMENT '会员名称',
@@ -9427,10 +9427,10 @@ CREATE TABLE IF NOT EXISTS `33hao_signin` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_sms_log`
+-- 表的结构 `xunshi_sms_log`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_sms_log` (
+CREATE TABLE IF NOT EXISTS `xunshi_sms_log` (
   `log_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '记录ID',
   `log_phone` char(11) NOT NULL COMMENT '手机号',
   `log_captcha` char(6) NOT NULL COMMENT '短信验证码',
@@ -9447,10 +9447,10 @@ CREATE TABLE IF NOT EXISTS `33hao_sms_log` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_sns_albumclass`
+-- 表的结构 `xunshi_sns_albumclass`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_sns_albumclass` (
+CREATE TABLE IF NOT EXISTS `xunshi_sns_albumclass` (
   `ac_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '相册id',
   `ac_name` varchar(100) NOT NULL COMMENT '相册名称',
   `member_id` int(10) unsigned NOT NULL COMMENT '所属会员id',
@@ -9465,10 +9465,10 @@ CREATE TABLE IF NOT EXISTS `33hao_sns_albumclass` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_sns_albumpic`
+-- 表的结构 `xunshi_sns_albumpic`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_sns_albumpic` (
+CREATE TABLE IF NOT EXISTS `xunshi_sns_albumpic` (
   `ap_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '相册图片表id',
   `ap_name` varchar(100) NOT NULL COMMENT '图片名称',
   `ac_id` int(10) unsigned NOT NULL COMMENT '相册id',
@@ -9485,10 +9485,10 @@ CREATE TABLE IF NOT EXISTS `33hao_sns_albumpic` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_sns_binding`
+-- 表的结构 `xunshi_sns_binding`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_sns_binding` (
+CREATE TABLE IF NOT EXISTS `xunshi_sns_binding` (
   `snsbind_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
   `snsbind_memberid` int(11) NOT NULL COMMENT '会员编号',
   `snsbind_membername` varchar(100) NOT NULL COMMENT '会员名称',
@@ -9505,10 +9505,10 @@ CREATE TABLE IF NOT EXISTS `33hao_sns_binding` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_sns_comment`
+-- 表的结构 `xunshi_sns_comment`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_sns_comment` (
+CREATE TABLE IF NOT EXISTS `xunshi_sns_comment` (
   `comment_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
   `comment_memberid` int(11) NOT NULL COMMENT '会员ID',
   `comment_membername` varchar(100) NOT NULL COMMENT '会员名称',
@@ -9525,10 +9525,10 @@ CREATE TABLE IF NOT EXISTS `33hao_sns_comment` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_sns_friend`
+-- 表的结构 `xunshi_sns_friend`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_sns_friend` (
+CREATE TABLE IF NOT EXISTS `xunshi_sns_friend` (
   `friend_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id值',
   `friend_frommid` int(11) NOT NULL COMMENT '会员id',
   `friend_frommname` varchar(100) DEFAULT NULL COMMENT '会员名称',
@@ -9544,10 +9544,10 @@ CREATE TABLE IF NOT EXISTS `33hao_sns_friend` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_sns_goods`
+-- 表的结构 `xunshi_sns_goods`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_sns_goods` (
+CREATE TABLE IF NOT EXISTS `xunshi_sns_goods` (
   `snsgoods_goodsid` int(11) NOT NULL COMMENT '商品ID',
   `snsgoods_goodsname` varchar(100) NOT NULL COMMENT '商品名称',
   `snsgoods_goodsimage` varchar(100) DEFAULT NULL COMMENT '商品图片',
@@ -9564,10 +9564,10 @@ CREATE TABLE IF NOT EXISTS `33hao_sns_goods` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_sns_membertag`
+-- 表的结构 `xunshi_sns_membertag`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_sns_membertag` (
+CREATE TABLE IF NOT EXISTS `xunshi_sns_membertag` (
   `mtag_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '会员标签id',
   `mtag_name` varchar(20) NOT NULL COMMENT '会员标签名称',
   `mtag_sort` tinyint(4) NOT NULL DEFAULT '0' COMMENT '会员标签排序',
@@ -9580,10 +9580,10 @@ CREATE TABLE IF NOT EXISTS `33hao_sns_membertag` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_sns_mtagmember`
+-- 表的结构 `xunshi_sns_mtagmember`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_sns_mtagmember` (
+CREATE TABLE IF NOT EXISTS `xunshi_sns_mtagmember` (
   `mtag_id` int(11) NOT NULL COMMENT '会员标签表id',
   `member_id` int(11) NOT NULL COMMENT '会员id',
   `recommend` tinyint(4) NOT NULL DEFAULT '0' COMMENT '推荐，默认为0',
@@ -9593,10 +9593,10 @@ CREATE TABLE IF NOT EXISTS `33hao_sns_mtagmember` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_sns_setting`
+-- 表的结构 `xunshi_sns_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_sns_setting` (
+CREATE TABLE IF NOT EXISTS `xunshi_sns_setting` (
   `member_id` int(11) NOT NULL COMMENT '会员id',
   `setting_skin` varchar(50) DEFAULT NULL COMMENT '皮肤',
   PRIMARY KEY (`member_id`)
@@ -9605,10 +9605,10 @@ CREATE TABLE IF NOT EXISTS `33hao_sns_setting` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_sns_sharegoods`
+-- 表的结构 `xunshi_sns_sharegoods`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_sns_sharegoods` (
+CREATE TABLE IF NOT EXISTS `xunshi_sns_sharegoods` (
   `share_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
   `share_goodsid` int(11) NOT NULL COMMENT '商品ID',
   `share_memberid` int(11) NOT NULL COMMENT '所属会员ID',
@@ -9626,10 +9626,10 @@ CREATE TABLE IF NOT EXISTS `33hao_sns_sharegoods` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_sns_sharestore`
+-- 表的结构 `xunshi_sns_sharestore`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_sns_sharestore` (
+CREATE TABLE IF NOT EXISTS `xunshi_sns_sharestore` (
   `share_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
   `share_storeid` int(11) NOT NULL COMMENT '店铺编号',
   `share_storename` varchar(100) NOT NULL COMMENT '店铺名称',
@@ -9644,10 +9644,10 @@ CREATE TABLE IF NOT EXISTS `33hao_sns_sharestore` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_sns_tracelog`
+-- 表的结构 `xunshi_sns_tracelog`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_sns_tracelog` (
+CREATE TABLE IF NOT EXISTS `xunshi_sns_tracelog` (
   `trace_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
   `trace_originalid` int(11) NOT NULL DEFAULT '0' COMMENT '原动态ID 默认为0',
   `trace_originalmemberid` int(11) NOT NULL DEFAULT '0' COMMENT '原帖会员编号',
@@ -9671,10 +9671,10 @@ CREATE TABLE IF NOT EXISTS `33hao_sns_tracelog` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_sns_visitor`
+-- 表的结构 `xunshi_sns_visitor`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_sns_visitor` (
+CREATE TABLE IF NOT EXISTS `xunshi_sns_visitor` (
   `v_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
   `v_mid` int(11) NOT NULL COMMENT '访客会员ID',
   `v_mname` varchar(100) NOT NULL COMMENT '访客会员名称',
@@ -9689,10 +9689,10 @@ CREATE TABLE IF NOT EXISTS `33hao_sns_visitor` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_spec`
+-- 表的结构 `xunshi_spec`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_spec` (
+CREATE TABLE IF NOT EXISTS `xunshi_spec` (
   `sp_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '规格id',
   `sp_name` varchar(100) NOT NULL COMMENT '规格名称',
   `sp_sort` tinyint(1) unsigned NOT NULL COMMENT '排序',
@@ -9702,19 +9702,19 @@ CREATE TABLE IF NOT EXISTS `33hao_spec` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='商品规格表' AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `33hao_spec`
+-- 转存表中的数据 `xunshi_spec`
 --
 
-INSERT INTO `33hao_spec` (`sp_id`, `sp_name`, `sp_sort`, `class_id`, `class_name`) VALUES
+INSERT INTO `xunshi_spec` (`sp_id`, `sp_name`, `sp_sort`, `class_id`, `class_name`) VALUES
 (1, '颜色', 0, 0, '');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_spec_value`
+-- 表的结构 `xunshi_spec_value`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_spec_value` (
+CREATE TABLE IF NOT EXISTS `xunshi_spec_value` (
   `sp_value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '规格值id',
   `sp_value_name` varchar(100) NOT NULL COMMENT '规格值名称',
   `sp_id` int(10) unsigned NOT NULL COMMENT '所属规格id',
@@ -9729,10 +9729,10 @@ CREATE TABLE IF NOT EXISTS `33hao_spec_value` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_stat_member`
+-- 表的结构 `xunshi_stat_member`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_stat_member` (
+CREATE TABLE IF NOT EXISTS `xunshi_stat_member` (
   `statm_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
   `statm_memberid` int(11) NOT NULL COMMENT '会员ID',
   `statm_membername` varchar(100) NOT NULL COMMENT '会员名称',
@@ -9751,10 +9751,10 @@ CREATE TABLE IF NOT EXISTS `33hao_stat_member` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_stat_order`
+-- 表的结构 `xunshi_stat_order`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_stat_order` (
+CREATE TABLE IF NOT EXISTS `xunshi_stat_order` (
   `order_id` int(11) NOT NULL COMMENT '订单id',
   `order_sn` bigint(20) unsigned NOT NULL COMMENT '订单编号',
   `order_add_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '订单生成时间',
@@ -9782,10 +9782,10 @@ CREATE TABLE IF NOT EXISTS `33hao_stat_order` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_stat_ordergoods`
+-- 表的结构 `xunshi_stat_ordergoods`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_stat_ordergoods` (
+CREATE TABLE IF NOT EXISTS `xunshi_stat_ordergoods` (
   `rec_id` int(11) NOT NULL COMMENT '订单商品表索引id',
   `stat_updatetime` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '缓存生成时间',
   `order_id` int(11) NOT NULL COMMENT '订单id',
@@ -9833,10 +9833,10 @@ CREATE TABLE IF NOT EXISTS `33hao_stat_ordergoods` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store`
+-- 表的结构 `xunshi_store`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store` (
+CREATE TABLE IF NOT EXISTS `xunshi_store` (
   `store_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '店铺索引id',
   `store_name` varchar(50) NOT NULL COMMENT '店铺名称',
   `grade_id` int(11) NOT NULL COMMENT '店铺等级',
@@ -9900,19 +9900,19 @@ CREATE TABLE IF NOT EXISTS `33hao_store` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='店铺数据表' AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `33hao_store`
+-- 转存表中的数据 `xunshi_store`
 --
 
-INSERT INTO `33hao_store` (`store_id`, `store_name`, `grade_id`, `member_id`, `member_name`, `seller_name`, `sc_id`, `store_company_name`, `province_id`, `area_info`, `store_address`, `store_zip`, `store_state`, `store_close_info`, `store_sort`, `store_time`, `store_end_time`, `store_label`, `store_banner`, `store_avatar`, `store_keywords`, `store_description`, `store_qq`, `store_ww`, `store_phone`, `store_zy`, `store_domain`, `store_domain_times`, `store_recommend`, `store_theme`, `store_credit`, `store_desccredit`, `store_servicecredit`, `store_deliverycredit`, `store_collect`, `store_slide`, `store_slide_url`, `store_stamp`, `store_printdesc`, `store_sales`, `store_presales`, `store_aftersales`, `store_workingtime`, `store_free_price`, `store_decoration_switch`, `store_decoration_only`, `store_decoration_image_count`, `is_own_shop`, `bind_all_gc`, `store_vrcode_prefix`, `mb_title_img`, `mb_sliders`, `left_bar_type`, `deliver_region`, `is_distribution`, `is_person`) VALUES
+INSERT INTO `xunshi_store` (`store_id`, `store_name`, `grade_id`, `member_id`, `member_name`, `seller_name`, `sc_id`, `store_company_name`, `province_id`, `area_info`, `store_address`, `store_zip`, `store_state`, `store_close_info`, `store_sort`, `store_time`, `store_end_time`, `store_label`, `store_banner`, `store_avatar`, `store_keywords`, `store_description`, `store_qq`, `store_ww`, `store_phone`, `store_zy`, `store_domain`, `store_domain_times`, `store_recommend`, `store_theme`, `store_credit`, `store_desccredit`, `store_servicecredit`, `store_deliverycredit`, `store_collect`, `store_slide`, `store_slide_url`, `store_stamp`, `store_printdesc`, `store_sales`, `store_presales`, `store_aftersales`, `store_workingtime`, `store_free_price`, `store_decoration_switch`, `store_decoration_only`, `store_decoration_image_count`, `is_own_shop`, `bind_all_gc`, `store_vrcode_prefix`, `mb_title_img`, `mb_sliders`, `left_bar_type`, `deliver_region`, `is_distribution`, `is_person`) VALUES
 (1, '好商城自营', 0, 1, 'admin', 'admin', 0, NULL, 0, '', '', '', 1, NULL, 0, '1481027687', NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, 0, 0, 'default', 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '0.00', 0, 0, 0, 1, 1, NULL, NULL, NULL, 1, NULL, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_bind_class`
+-- 表的结构 `xunshi_store_bind_class`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_bind_class` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_bind_class` (
   `bid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `store_id` int(11) unsigned DEFAULT '0' COMMENT '店铺ID',
   `commis_rate` tinyint(4) unsigned DEFAULT '0' COMMENT '佣金比例',
@@ -9927,10 +9927,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_bind_class` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_class`
+-- 表的结构 `xunshi_store_class`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_class` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_class` (
   `sc_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '索引ID',
   `sc_name` varchar(50) NOT NULL COMMENT '分类名称',
   `sc_bail` mediumint(8) unsigned NOT NULL DEFAULT '0' COMMENT '保证金数额',
@@ -9939,10 +9939,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_class` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='店铺分类表' AUTO_INCREMENT=11 ;
 
 --
--- 转存表中的数据 `33hao_store_class`
+-- 转存表中的数据 `xunshi_store_class`
 --
 
-INSERT INTO `33hao_store_class` (`sc_id`, `sc_name`, `sc_bail`, `sc_sort`) VALUES
+INSERT INTO `xunshi_store_class` (`sc_id`, `sc_name`, `sc_bail`, `sc_sort`) VALUES
 (1, '珠宝/首饰', 0, 8),
 (2, '服装鞋包', 0, 1),
 (3, '3C数码', 0, 2),
@@ -9957,10 +9957,10 @@ INSERT INTO `33hao_store_class` (`sc_id`, `sc_name`, `sc_bail`, `sc_sort`) VALUE
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_cost`
+-- 表的结构 `xunshi_store_cost`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_cost` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_cost` (
   `cost_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '费用编号',
   `cost_store_id` int(10) unsigned NOT NULL COMMENT '店铺编号',
   `cost_seller_id` int(10) unsigned NOT NULL COMMENT '卖家编号',
@@ -9974,10 +9974,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_cost` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_decoration`
+-- 表的结构 `xunshi_store_decoration`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_decoration` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_decoration` (
   `decoration_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '装修编号',
   `decoration_name` varchar(50) NOT NULL COMMENT '装修名称',
   `store_id` int(10) unsigned NOT NULL COMMENT '店铺编号',
@@ -9990,10 +9990,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_decoration` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_decoration_album`
+-- 表的结构 `xunshi_store_decoration_album`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_decoration_album` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_decoration_album` (
   `image_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '图片编号',
   `image_name` varchar(50) NOT NULL COMMENT '图片名称',
   `image_origin_name` varchar(50) NOT NULL COMMENT '图片原始名称',
@@ -10008,10 +10008,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_decoration_album` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_decoration_block`
+-- 表的结构 `xunshi_store_decoration_block`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_decoration_block` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_decoration_block` (
   `block_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '装修块编号',
   `decoration_id` int(10) unsigned NOT NULL COMMENT '装修编号',
   `store_id` int(10) unsigned NOT NULL COMMENT '店铺编号',
@@ -10026,10 +10026,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_decoration_block` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_distribution`
+-- 表的结构 `xunshi_store_distribution`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_distribution` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_distribution` (
   `distri_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增编号',
   `distri_store_id` int(11) NOT NULL COMMENT '申请者店铺ID',
   `distri_store_name` varchar(255) NOT NULL COMMENT '申请者店铺名称',
@@ -10042,10 +10042,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_distribution` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_extend`
+-- 表的结构 `xunshi_store_extend`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_extend` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_extend` (
   `store_id` mediumint(8) unsigned NOT NULL COMMENT '店铺ID',
   `express` text COMMENT '快递公司ID的组合',
   `pricerange` text COMMENT '店铺统计设置的商品价格区间',
@@ -10055,19 +10055,19 @@ CREATE TABLE IF NOT EXISTS `33hao_store_extend` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='店铺信息扩展表';
 
 --
--- 转存表中的数据 `33hao_store_extend`
+-- 转存表中的数据 `xunshi_store_extend`
 --
 
-INSERT INTO `33hao_store_extend` (`store_id`, `express`, `pricerange`, `orderpricerange`, `bill_cycle`) VALUES
+INSERT INTO `xunshi_store_extend` (`store_id`, `express`, `pricerange`, `orderpricerange`, `bill_cycle`) VALUES
 (1, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_goods_class`
+-- 表的结构 `xunshi_store_goods_class`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_goods_class` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_goods_class` (
   `stc_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '索引ID',
   `stc_name` varchar(50) NOT NULL COMMENT '店铺商品分类名称',
   `stc_parent_id` int(11) NOT NULL COMMENT '父级id',
@@ -10082,10 +10082,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_goods_class` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_grade`
+-- 表的结构 `xunshi_store_grade`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_grade` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_grade` (
   `sg_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '索引ID',
   `sg_name` char(50) DEFAULT NULL COMMENT '等级名称',
   `sg_goods_limit` mediumint(10) unsigned NOT NULL DEFAULT '0' COMMENT '允许发布的商品数量',
@@ -10101,10 +10101,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_grade` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='店铺等级表' AUTO_INCREMENT=4 ;
 
 --
--- 转存表中的数据 `33hao_store_grade`
+-- 转存表中的数据 `xunshi_store_grade`
 --
 
-INSERT INTO `33hao_store_grade` (`sg_id`, `sg_name`, `sg_goods_limit`, `sg_album_limit`, `sg_space_limit`, `sg_template_number`, `sg_template`, `sg_price`, `sg_description`, `sg_function`, `sg_sort`) VALUES
+INSERT INTO `xunshi_store_grade` (`sg_id`, `sg_name`, `sg_goods_limit`, `sg_album_limit`, `sg_space_limit`, `sg_template_number`, `sg_template`, `sg_price`, `sg_description`, `sg_function`, `sg_sort`) VALUES
 (1, '系统默认', 100, 500, 100, 6, 'default|style1|style2|style3|style4|style5', '100.00', '用户选择“默认等级”，可以立即开通。', '', 0),
 (2, '白金店铺', 200, 1000, 100, 6, 'default|style1|style2|style3|style4|style5', '200.00', '享受更多特权', 'editor_multimedia', 2),
 (3, '钻石店铺', 0, 1000, 100, 6, 'default|style1|style2|style3|style4|style5', '1000.00', '', 'editor_multimedia', 100);
@@ -10112,10 +10112,10 @@ INSERT INTO `33hao_store_grade` (`sg_id`, `sg_name`, `sg_goods_limit`, `sg_album
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_joinin`
+-- 表的结构 `xunshi_store_joinin`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_joinin` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_joinin` (
   `member_id` int(10) unsigned NOT NULL COMMENT '用户编号',
   `member_name` varchar(50) DEFAULT NULL COMMENT '店主用户名',
   `company_name` varchar(50) DEFAULT NULL COMMENT '公司名称',
@@ -10176,10 +10176,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_joinin` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_map`
+-- 表的结构 `xunshi_store_map`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_map` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_map` (
   `map_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '地图ID',
   `store_id` int(10) unsigned NOT NULL COMMENT '店铺ID',
   `sc_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '店铺分类ID',
@@ -10202,10 +10202,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_map` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_msg`
+-- 表的结构 `xunshi_store_msg`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_msg` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_msg` (
   `sm_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '店铺消息id',
   `smt_code` varchar(100) NOT NULL COMMENT '模板编码',
   `store_id` int(10) unsigned NOT NULL COMMENT '店铺id',
@@ -10218,10 +10218,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_msg` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_msg_read`
+-- 表的结构 `xunshi_store_msg_read`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_msg_read` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_msg_read` (
   `sm_id` int(11) NOT NULL COMMENT '店铺消息id',
   `seller_id` int(11) NOT NULL COMMENT '卖家id',
   `read_time` int(11) NOT NULL COMMENT '阅读时间',
@@ -10231,10 +10231,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_msg_read` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_msg_setting`
+-- 表的结构 `xunshi_store_msg_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_msg_setting` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_msg_setting` (
   `smt_code` varchar(100) NOT NULL COMMENT '模板编码',
   `store_id` int(10) unsigned NOT NULL COMMENT '店铺id',
   `sms_message_switch` tinyint(3) unsigned NOT NULL COMMENT '站内信接收开关，0关闭，1开启',
@@ -10248,10 +10248,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_msg_setting` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_msg_tpl`
+-- 表的结构 `xunshi_store_msg_tpl`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_msg_tpl` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_msg_tpl` (
   `smt_code` varchar(100) NOT NULL COMMENT '模板编码',
   `smt_name` varchar(100) NOT NULL COMMENT '模板名称',
   `smt_message_switch` tinyint(3) unsigned NOT NULL COMMENT '站内信默认开关，0关，1开',
@@ -10268,10 +10268,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_msg_tpl` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商家消息模板';
 
 --
--- 转存表中的数据 `33hao_store_msg_tpl`
+-- 转存表中的数据 `xunshi_store_msg_tpl`
 --
 
-INSERT INTO `33hao_store_msg_tpl` (`smt_code`, `smt_name`, `smt_message_switch`, `smt_message_content`, `smt_message_forced`, `smt_short_switch`, `smt_short_content`, `smt_short_forced`, `smt_mail_switch`, `smt_mail_subject`, `smt_mail_content`, `smt_mail_forced`) VALUES
+INSERT INTO `xunshi_store_msg_tpl` (`smt_code`, `smt_name`, `smt_message_switch`, `smt_message_content`, `smt_message_forced`, `smt_short_switch`, `smt_short_content`, `smt_short_forced`, `smt_mail_switch`, `smt_mail_subject`, `smt_mail_content`, `smt_mail_forced`) VALUES
 ('complain', '商品被投诉提醒', 1, '您售出的商品被投诉，等待商家申诉。投诉单编号：{$complain_id}。', 1, 0, '【{$site_name}】您售出的商品被投诉，等待商家申诉。投诉单编号：{$complain_id}。', 0, 0, '{$site_name}提醒：您售出的商品被投诉，等待商家申诉。投诉单编号：{$complain_id}。', '<p>\r\n  {$site_name}提醒：\r\n</p>\r\n<p>\r\n  您售出的商品被投诉，等待商家申诉。投诉单编号：{$complain_id}。\r\n</p>\r\n<p>\r\n   <br />\r\n</p>\r\n<p>\r\n   <br />\r\n</p>\r\n<p>\r\n   <br />\r\n</p>\r\n<p style="text-align:right;">\r\n {$site_name}\r\n</p>\r\n<p style="text-align:right;">\r\n   {$mail_send_time}\r\n</p>\r\n<p>\r\n    <br />\r\n</p>', 0),
 ('goods_storage_alarm', '商品库存预警', 1, '您的商品库存不足，请及时补货。SPU：{$common_id}，SKU：{$sku_id}。', 1, 0, '【{$site_name}】您的商品库存不足，请及时补货。SPU：{$common_id}，SKU：{$sku_id}。', 0, 0, '{$site_name}提醒：您的商品库存不足，请及时补货。', '<p>\r\n {$site_name}提醒：\r\n</p>\r\n<p>\r\n  您的商品库存不足，请及时补货。SPU：{$common_id}，SKU：{$sku_id}。\r\n</p>\r\n<p>\r\n  点击下面链接查看商品详细信息\r\n</p>\r\n<p>\r\n   <a href="http://{$shop_site_url}/index.php?act=goods&amp;op=index&amp;goods_id={$sku_id}" target="_blank">http://{$shop_site_url}/index.php?act=goods&amp;op=index&amp;goods_id={$sku_id}</a> \r\n</p>\r\n<p>\r\n   <br />\r\n</p>\r\n<p>\r\n   <br />\r\n</p>\r\n<p>\r\n   <br />\r\n</p>\r\n<p style="text-align:right;">\r\n {$site_name}\r\n</p>\r\n<p style="text-align:right;">\r\n   {$mail_send_time}\r\n</p>\r\n<p>\r\n    <br />\r\n</p>\r\n<br />', 0),
 ('goods_verify', '商品审核失败提醒', 1, '您的商品没有通过管理员审核，原因：“{$remark}”。SPU：{$common_id}。', 1, 0, '【{$site_name}】您的商品没有通过管理员审核，原因：“{$remark}”。SPU：{$common_id}。', 0, 0, '{$site_name}提醒：您的商品没有通过管理员审核。', '<p>\r\n   {$site_name}提醒：\r\n</p>\r\n<p>\r\n  您的商品没有通过管理员审核，原因：“{$remark}”。SPU：{$common_id}。\r\n </p><p>\r\n     <br />\r\n  </p>\r\n    <p>\r\n     <br />\r\n  </p>\r\n    <p style="text-align:right;">\r\n       {$site_name}\r\n    </p>\r\n    <p style="text-align:right;">\r\n       {$mail_send_time}\r\n   </p>', 0),
@@ -10290,10 +10290,10 @@ INSERT INTO `33hao_store_msg_tpl` (`smt_code`, `smt_name`, `smt_message_switch`,
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_navigation`
+-- 表的结构 `xunshi_store_navigation`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_navigation` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_navigation` (
   `sn_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '导航ID',
   `sn_title` varchar(50) NOT NULL COMMENT '导航名称',
   `sn_store_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '卖家店铺ID',
@@ -10309,10 +10309,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_navigation` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_plate`
+-- 表的结构 `xunshi_store_plate`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_plate` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_plate` (
   `plate_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '关联板式id',
   `plate_name` varchar(10) NOT NULL COMMENT '关联板式名称',
   `plate_position` tinyint(3) unsigned NOT NULL COMMENT '关联板式位置 1顶部，0底部',
@@ -10324,10 +10324,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_plate` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_reopen`
+-- 表的结构 `xunshi_store_reopen`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_reopen` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_reopen` (
   `re_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `re_grade_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT '店铺等级ID',
   `re_grade_name` varchar(30) DEFAULT NULL COMMENT '等级名称',
@@ -10348,10 +10348,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_reopen` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_sns_comment`
+-- 表的结构 `xunshi_store_sns_comment`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_sns_comment` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_sns_comment` (
   `scomm_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '店铺动态评论id',
   `strace_id` int(11) NOT NULL COMMENT '店铺动态id',
   `scomm_content` varchar(150) DEFAULT NULL COMMENT '评论内容',
@@ -10367,10 +10367,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_sns_comment` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_sns_setting`
+-- 表的结构 `xunshi_store_sns_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_sns_setting` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_sns_setting` (
   `sauto_storeid` int(11) NOT NULL COMMENT '店铺id',
   `sauto_new` tinyint(4) NOT NULL DEFAULT '1' COMMENT '新品,0为关闭/1为开启',
   `sauto_newtitle` varchar(150) DEFAULT '' COMMENT '新品内容',
@@ -10390,10 +10390,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_sns_setting` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_sns_tracelog`
+-- 表的结构 `xunshi_store_sns_tracelog`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_sns_tracelog` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_sns_tracelog` (
   `strace_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '店铺动态id',
   `strace_storeid` int(11) DEFAULT NULL COMMENT '店铺id',
   `strace_storename` varchar(100) DEFAULT NULL COMMENT '店铺名称',
@@ -10413,10 +10413,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_sns_tracelog` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_supplier`
+-- 表的结构 `xunshi_store_supplier`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_supplier` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_supplier` (
   `sup_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `sup_store_id` int(11) DEFAULT NULL COMMENT '商家ID',
   `sup_store_name` varchar(50) DEFAULT NULL COMMENT '商家名称',
@@ -10430,10 +10430,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_supplier` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_watermark`
+-- 表的结构 `xunshi_store_watermark`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_watermark` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_watermark` (
   `wm_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '水印id',
   `jpeg_quality` int(3) NOT NULL DEFAULT '90' COMMENT 'jpeg图片质量',
   `wm_image_name` varchar(255) DEFAULT NULL COMMENT '水印图片的路径以及文件名',
@@ -10453,10 +10453,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_watermark` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_store_waybill`
+-- 表的结构 `xunshi_store_waybill`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_store_waybill` (
+CREATE TABLE IF NOT EXISTS `xunshi_store_waybill` (
   `store_waybill_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '店铺运单模板编号',
   `store_id` int(10) unsigned NOT NULL COMMENT '店铺编号',
   `express_id` int(10) unsigned NOT NULL COMMENT '物流公司编号',
@@ -10472,10 +10472,10 @@ CREATE TABLE IF NOT EXISTS `33hao_store_waybill` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_transport`
+-- 表的结构 `xunshi_transport`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_transport` (
+CREATE TABLE IF NOT EXISTS `xunshi_transport` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT '运费模板ID',
   `title` varchar(30) NOT NULL COMMENT '运费模板名称',
   `send_tpl_id` mediumint(8) unsigned DEFAULT NULL COMMENT '发货地区模板ID',
@@ -10487,10 +10487,10 @@ CREATE TABLE IF NOT EXISTS `33hao_transport` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_transport_extend`
+-- 表的结构 `xunshi_transport_extend`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_transport_extend` (
+CREATE TABLE IF NOT EXISTS `xunshi_transport_extend` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT '运费模板扩展ID',
   `area_id` text COMMENT '市级地区ID组成的串，以，隔开，两端也有，',
   `top_area_id` text COMMENT '省级地区ID组成的串，以，隔开，两端也有，',
@@ -10504,10 +10504,10 @@ CREATE TABLE IF NOT EXISTS `33hao_transport_extend` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_type`
+-- 表的结构 `xunshi_type`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_type` (
+CREATE TABLE IF NOT EXISTS `xunshi_type` (
   `type_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '类型id',
   `type_name` varchar(100) NOT NULL COMMENT '类型名称',
   `type_sort` tinyint(1) unsigned NOT NULL COMMENT '排序',
@@ -10519,10 +10519,10 @@ CREATE TABLE IF NOT EXISTS `33hao_type` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_type_brand`
+-- 表的结构 `xunshi_type_brand`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_type_brand` (
+CREATE TABLE IF NOT EXISTS `xunshi_type_brand` (
   `type_id` int(10) unsigned NOT NULL COMMENT '类型id',
   `brand_id` int(10) unsigned NOT NULL COMMENT '品牌id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品类型与品牌对应表';
@@ -10530,10 +10530,10 @@ CREATE TABLE IF NOT EXISTS `33hao_type_brand` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_type_custom`
+-- 表的结构 `xunshi_type_custom`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_type_custom` (
+CREATE TABLE IF NOT EXISTS `xunshi_type_custom` (
   `custom_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '自定义属性id',
   `custom_name` varchar(50) NOT NULL COMMENT '自定义属性名称',
   `type_id` int(10) unsigned NOT NULL COMMENT '类型id',
@@ -10543,10 +10543,10 @@ CREATE TABLE IF NOT EXISTS `33hao_type_custom` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_type_spec`
+-- 表的结构 `xunshi_type_spec`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_type_spec` (
+CREATE TABLE IF NOT EXISTS `xunshi_type_spec` (
   `type_id` int(10) unsigned NOT NULL COMMENT '类型id',
   `sp_id` int(10) unsigned NOT NULL COMMENT '规格id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品类型与规格对应表';
@@ -10554,10 +10554,10 @@ CREATE TABLE IF NOT EXISTS `33hao_type_spec` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_upload`
+-- 表的结构 `xunshi_upload`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_upload` (
+CREATE TABLE IF NOT EXISTS `xunshi_upload` (
   `upload_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '索引ID',
   `file_name` varchar(100) DEFAULT NULL COMMENT '文件名',
   `file_thumb` varchar(100) DEFAULT NULL COMMENT '缩微图片',
@@ -10569,10 +10569,10 @@ CREATE TABLE IF NOT EXISTS `33hao_upload` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='上传文件表' AUTO_INCREMENT=181 ;
 
 --
--- 转存表中的数据 `33hao_upload`
+-- 转存表中的数据 `xunshi_upload`
 --
 
-INSERT INTO `33hao_upload` (`upload_id`, `file_name`, `file_thumb`, `file_size`, `upload_type`, `upload_time`, `item_id`) VALUES
+INSERT INTO `xunshi_upload` (`upload_id`, `file_name`, `file_thumb`, `file_size`, `upload_type`, `upload_time`, `item_id`) VALUES
 (175, 'help_store_04526250471329237.jpg', NULL, 93814, 2, 1435766400, 97),
 (176, 'help_store_04526250486031950.jpg', NULL, 402109, 2, 1435766400, 97),
 (177, 'help_store_04526250504192250.jpg', NULL, 248466, 2, 1435766400, 97),
@@ -10581,10 +10581,10 @@ INSERT INTO `33hao_upload` (`upload_id`, `file_name`, `file_thumb`, `file_size`,
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_voucher`
+-- 表的结构 `xunshi_voucher`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_voucher` (
+CREATE TABLE IF NOT EXISTS `xunshi_voucher` (
   `voucher_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '代金券编号',
   `voucher_code` varchar(32) NOT NULL COMMENT '代金券编码',
   `voucher_t_id` int(11) NOT NULL COMMENT '代金券模版编号',
@@ -10609,10 +10609,10 @@ CREATE TABLE IF NOT EXISTS `33hao_voucher` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_voucher_price`
+-- 表的结构 `xunshi_voucher_price`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_voucher_price` (
+CREATE TABLE IF NOT EXISTS `xunshi_voucher_price` (
   `voucher_price_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '代金券面值编号',
   `voucher_price_describe` varchar(255) NOT NULL COMMENT '代金券描述',
   `voucher_price` int(11) NOT NULL COMMENT '代金券面值',
@@ -10623,10 +10623,10 @@ CREATE TABLE IF NOT EXISTS `33hao_voucher_price` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_voucher_quota`
+-- 表的结构 `xunshi_voucher_quota`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_voucher_quota` (
+CREATE TABLE IF NOT EXISTS `xunshi_voucher_quota` (
   `quota_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '套餐编号',
   `quota_memberid` int(11) NOT NULL COMMENT '会员编号',
   `quota_membername` varchar(100) NOT NULL COMMENT '会员名称',
@@ -10641,10 +10641,10 @@ CREATE TABLE IF NOT EXISTS `33hao_voucher_quota` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_voucher_template`
+-- 表的结构 `xunshi_voucher_template`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_voucher_template` (
+CREATE TABLE IF NOT EXISTS `xunshi_voucher_template` (
   `voucher_t_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '代金券模版编号',
   `voucher_t_title` varchar(50) NOT NULL COMMENT '代金券模版名称',
   `voucher_t_desc` varchar(255) NOT NULL COMMENT '代金券模版描述',
@@ -10676,10 +10676,10 @@ CREATE TABLE IF NOT EXISTS `33hao_voucher_template` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_vr_groupbuy_area`
+-- 表的结构 `xunshi_vr_groupbuy_area`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_vr_groupbuy_area` (
+CREATE TABLE IF NOT EXISTS `xunshi_vr_groupbuy_area` (
   `area_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '区域id',
   `area_name` varchar(100) NOT NULL COMMENT '域区名称',
   `parent_area_id` int(11) NOT NULL COMMENT '域区id',
@@ -10693,10 +10693,10 @@ CREATE TABLE IF NOT EXISTS `33hao_vr_groupbuy_area` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='虚拟抢购区域表' AUTO_INCREMENT=382 ;
 
 --
--- 转存表中的数据 `33hao_vr_groupbuy_area`
+-- 转存表中的数据 `xunshi_vr_groupbuy_area`
 --
 
-INSERT INTO `33hao_vr_groupbuy_area` (`area_id`, `area_name`, `parent_area_id`, `add_time`, `first_letter`, `area_number`, `post`, `hot_city`, `area_num`) VALUES
+INSERT INTO `xunshi_vr_groupbuy_area` (`area_id`, `area_name`, `parent_area_id`, `add_time`, `first_letter`, `area_number`, `post`, `hot_city`, `area_num`) VALUES
 (1, '天津', 0, 1395277186, 'T', '022', '30000', 1, 0),
 (2, '北京', 0, 1368172202, 'B', '010', '0', 1, 0),
 (3, '南开区', 1, 1395277206, 'A', '', '0', 0, 0),
@@ -11077,10 +11077,10 @@ INSERT INTO `33hao_vr_groupbuy_area` (`area_id`, `area_name`, `parent_area_id`, 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_vr_groupbuy_class`
+-- 表的结构 `xunshi_vr_groupbuy_class`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_vr_groupbuy_class` (
+CREATE TABLE IF NOT EXISTS `xunshi_vr_groupbuy_class` (
   `class_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '分类id',
   `class_name` varchar(100) NOT NULL COMMENT '分类名称',
   `parent_class_id` int(11) NOT NULL COMMENT '父类class_id',
@@ -11089,10 +11089,10 @@ CREATE TABLE IF NOT EXISTS `33hao_vr_groupbuy_class` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='虚拟抢购分类表' AUTO_INCREMENT=101 ;
 
 --
--- 转存表中的数据 `33hao_vr_groupbuy_class`
+-- 转存表中的数据 `xunshi_vr_groupbuy_class`
 --
 
-INSERT INTO `33hao_vr_groupbuy_class` (`class_id`, `class_name`, `parent_class_id`, `class_sort`) VALUES
+INSERT INTO `xunshi_vr_groupbuy_class` (`class_id`, `class_name`, `parent_class_id`, `class_sort`) VALUES
 (2, '餐饮美食', 0, 2),
 (3, '休闲娱乐', 0, 2),
 (7, '生活服务', 0, 3),
@@ -11171,10 +11171,10 @@ INSERT INTO `33hao_vr_groupbuy_class` (`class_id`, `class_name`, `parent_class_i
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_vr_order`
+-- 表的结构 `xunshi_vr_order`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_vr_order` (
+CREATE TABLE IF NOT EXISTS `xunshi_vr_order` (
   `order_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '虚拟订单索引id',
   `order_sn` bigint(20) unsigned NOT NULL COMMENT '订单编号',
   `store_id` int(11) unsigned NOT NULL COMMENT '卖家店铺id',
@@ -11222,10 +11222,10 @@ CREATE TABLE IF NOT EXISTS `33hao_vr_order` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_vr_order_bill`
+-- 表的结构 `xunshi_vr_order_bill`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_vr_order_bill` (
+CREATE TABLE IF NOT EXISTS `xunshi_vr_order_bill` (
   `ob_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键作为结算单号',
   `ob_no` int(11) DEFAULT '0' COMMENT '结算单编号(年月店铺ID)',
   `ob_start_date` int(11) NOT NULL COMMENT '开始日期',
@@ -11246,10 +11246,10 @@ CREATE TABLE IF NOT EXISTS `33hao_vr_order_bill` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_vr_order_code`
+-- 表的结构 `xunshi_vr_order_code`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_vr_order_code` (
+CREATE TABLE IF NOT EXISTS `xunshi_vr_order_code` (
   `rec_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '兑换码表索引id',
   `order_id` int(11) NOT NULL COMMENT '虚拟订单id',
   `store_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '店铺ID',
@@ -11269,10 +11269,10 @@ CREATE TABLE IF NOT EXISTS `33hao_vr_order_code` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_vr_order_snapshot`
+-- 表的结构 `xunshi_vr_order_snapshot`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_vr_order_snapshot` (
+CREATE TABLE IF NOT EXISTS `xunshi_vr_order_snapshot` (
   `order_id` int(11) NOT NULL COMMENT '主键',
   `goods_id` int(11) NOT NULL COMMENT '商品ID',
   `create_time` int(11) NOT NULL COMMENT '生成时间',
@@ -11286,10 +11286,10 @@ CREATE TABLE IF NOT EXISTS `33hao_vr_order_snapshot` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_vr_order_statis`
+-- 表的结构 `xunshi_vr_order_statis`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_vr_order_statis` (
+CREATE TABLE IF NOT EXISTS `xunshi_vr_order_statis` (
   `os_month` mediumint(9) unsigned NOT NULL DEFAULT '0' COMMENT '统计编号(年月)',
   `os_year` smallint(6) DEFAULT '0' COMMENT '年',
   `os_start_date` int(11) NOT NULL COMMENT '开始日期',
@@ -11304,10 +11304,10 @@ CREATE TABLE IF NOT EXISTS `33hao_vr_order_statis` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_vr_refund`
+-- 表的结构 `xunshi_vr_refund`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_vr_refund` (
+CREATE TABLE IF NOT EXISTS `xunshi_vr_refund` (
   `refund_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '记录ID',
   `order_id` int(10) unsigned NOT NULL COMMENT '虚拟订单ID',
   `order_sn` varchar(50) NOT NULL COMMENT '虚拟订单编号',
@@ -11334,10 +11334,10 @@ CREATE TABLE IF NOT EXISTS `33hao_vr_refund` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_vr_refund_detail`
+-- 表的结构 `xunshi_vr_refund_detail`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_vr_refund_detail` (
+CREATE TABLE IF NOT EXISTS `xunshi_vr_refund_detail` (
   `refund_id` int(10) unsigned NOT NULL COMMENT '记录ID',
   `order_id` int(10) unsigned NOT NULL COMMENT '订单ID',
   `batch_no` varchar(32) NOT NULL COMMENT '批次号',
@@ -11356,10 +11356,10 @@ CREATE TABLE IF NOT EXISTS `33hao_vr_refund_detail` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_waybill`
+-- 表的结构 `xunshi_waybill`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_waybill` (
+CREATE TABLE IF NOT EXISTS `xunshi_waybill` (
   `waybill_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '编号',
   `waybill_name` varchar(50) NOT NULL,
   `waybill_image` varchar(50) NOT NULL,
@@ -11376,10 +11376,10 @@ CREATE TABLE IF NOT EXISTS `33hao_waybill` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='快递单打印模板表' AUTO_INCREMENT=5 ;
 
 --
--- 转存表中的数据 `33hao_waybill`
+-- 转存表中的数据 `xunshi_waybill`
 --
 
-INSERT INTO `33hao_waybill` (`waybill_id`, `waybill_name`, `waybill_image`, `waybill_width`, `waybill_height`, `waybill_data`, `waybill_usable`, `waybill_top`, `waybill_left`, `express_id`, `express_name`, `store_id`) VALUES
+INSERT INTO `xunshi_waybill` (`waybill_id`, `waybill_name`, `waybill_image`, `waybill_width`, `waybill_height`, `waybill_data`, `waybill_usable`, `waybill_top`, `waybill_left`, `express_id`, `express_name`, `store_id`) VALUES
 (1, '百世汇通', '04558238732336424.jpg', 229, 126, 'a:10:{s:10:"buyer_name";a:5:{s:5:"check";s:2:"on";s:4:"left";s:3:"485";s:3:"top";s:2:"97";s:5:"width";s:2:"88";s:6:"height";s:2:"24";}s:10:"buyer_area";a:5:{s:5:"check";s:2:"on";s:4:"left";s:3:"423";s:3:"top";s:3:"173";s:5:"width";s:3:"256";s:6:"height";s:2:"20";}s:13:"buyer_address";a:5:{s:5:"check";s:2:"on";s:4:"left";s:3:"420";s:3:"top";s:3:"201";s:5:"width";s:3:"333";s:6:"height";s:2:"20";}s:12:"buyer_mobile";a:5:{s:5:"check";s:2:"on";s:4:"left";s:3:"473";s:3:"top";s:3:"230";s:5:"width";s:3:"141";s:6:"height";s:2:"20";}s:11:"buyer_phone";a:5:{s:5:"check";s:2:"on";s:4:"left";s:3:"671";s:3:"top";s:3:"227";s:5:"width";s:3:"100";s:6:"height";s:2:"20";}s:11:"seller_name";a:5:{s:5:"check";s:2:"on";s:4:"left";s:3:"126";s:3:"top";s:2:"98";s:5:"width";s:3:"112";s:6:"height";s:2:"16";}s:11:"seller_area";a:5:{s:5:"check";s:2:"on";s:4:"left";s:2:"72";s:3:"top";s:3:"174";s:5:"width";s:3:"227";s:6:"height";s:2:"20";}s:14:"seller_address";a:5:{s:5:"check";s:2:"on";s:4:"left";s:2:"68";s:3:"top";s:3:"204";s:5:"width";s:3:"294";s:6:"height";s:2:"20";}s:12:"seller_phone";a:5:{s:5:"check";s:2:"on";s:4:"left";s:3:"120";s:3:"top";s:3:"231";s:5:"width";s:3:"124";s:6:"height";s:2:"20";}s:14:"seller_company";a:5:{s:5:"check";s:2:"on";s:4:"left";s:3:"116";s:3:"top";s:3:"124";s:5:"width";s:3:"184";s:6:"height";s:2:"20";}}', 1, -3, -5, 16, '汇通快递', 0),
 (2, '申通', '04559833067248352.jpg', 229, 127, 'a:10:{s:10:"buyer_name";a:5:{s:5:"check";s:2:"on";s:4:"left";s:3:"497";s:3:"top";s:2:"99";s:5:"width";s:3:"100";s:6:"height";s:2:"20";}s:10:"buyer_area";a:5:{s:5:"check";s:2:"on";s:4:"left";s:3:"492";s:3:"top";s:3:"165";s:5:"width";s:3:"191";s:6:"height";s:2:"20";}s:13:"buyer_address";a:5:{s:5:"check";s:2:"on";s:4:"left";s:3:"426";s:3:"top";s:3:"200";s:5:"width";s:3:"322";s:6:"height";s:2:"20";}s:12:"buyer_mobile";a:5:{s:5:"check";s:2:"on";s:4:"left";s:3:"551";s:3:"top";s:3:"235";s:5:"width";s:3:"122";s:6:"height";s:2:"20";}s:11:"buyer_phone";a:5:{s:5:"check";s:2:"on";s:4:"left";s:3:"688";s:3:"top";s:3:"236";s:5:"width";s:3:"100";s:6:"height";s:2:"20";}s:11:"seller_name";a:5:{s:5:"check";s:2:"on";s:4:"left";s:3:"132";s:3:"top";s:3:"100";s:5:"width";s:3:"100";s:6:"height";s:2:"20";}s:11:"seller_area";a:5:{s:5:"check";s:2:"on";s:4:"left";s:3:"125";s:3:"top";s:3:"169";s:5:"width";s:3:"218";s:6:"height";s:2:"20";}s:14:"seller_address";a:5:{s:5:"check";s:2:"on";s:4:"left";s:2:"68";s:3:"top";s:3:"208";s:5:"width";s:3:"100";s:6:"height";s:2:"20";}s:12:"seller_phone";a:5:{s:5:"check";s:2:"on";s:4:"left";s:3:"171";s:3:"top";s:3:"238";s:5:"width";s:3:"159";s:6:"height";s:2:"20";}s:14:"seller_company";a:5:{s:5:"check";s:2:"on";s:4:"left";s:3:"140";s:3:"top";s:3:"136";s:5:"width";s:3:"217";s:6:"height";s:2:"20";}}', 1, -3, -5, 28, '申通快递', 0),
 (3, '顺风', '04559894766651678.jpg', 216, 139, 'a:10:{s:10:"buyer_name";a:5:{s:5:"check";s:2:"on";s:4:"left";s:3:"302";s:3:"top";s:3:"290";s:5:"width";s:3:"100";s:6:"height";s:2:"20";}s:10:"buyer_area";a:5:{s:5:"check";s:2:"on";s:4:"left";s:3:"101";s:3:"top";s:3:"317";s:5:"width";s:3:"100";s:6:"height";s:2:"20";}s:13:"buyer_address";a:4:{s:4:"left";s:1:"0";s:3:"top";s:1:"0";s:5:"width";s:1:"0";s:6:"height";s:1:"0";}s:12:"buyer_mobile";a:4:{s:4:"left";s:1:"0";s:3:"top";s:1:"0";s:5:"width";s:1:"0";s:6:"height";s:1:"0";}s:11:"buyer_phone";a:4:{s:4:"left";s:1:"0";s:3:"top";s:1:"0";s:5:"width";s:1:"0";s:6:"height";s:1:"0";}s:11:"seller_name";a:4:{s:4:"left";s:1:"0";s:3:"top";s:1:"0";s:5:"width";s:1:"0";s:6:"height";s:1:"0";}s:11:"seller_area";a:4:{s:4:"left";s:1:"0";s:3:"top";s:1:"0";s:5:"width";s:1:"0";s:6:"height";s:1:"0";}s:14:"seller_address";a:4:{s:4:"left";s:1:"0";s:3:"top";s:1:"0";s:5:"width";s:1:"0";s:6:"height";s:1:"0";}s:12:"seller_phone";a:4:{s:4:"left";s:1:"0";s:3:"top";s:1:"0";s:5:"width";s:1:"0";s:6:"height";s:1:"0";}s:14:"seller_company";a:4:{s:4:"left";s:1:"0";s:3:"top";s:1:"0";s:5:"width";s:1:"0";s:6:"height";s:1:"0";}}', 1, -4, -5, 29, '顺丰快递', 0),
@@ -11388,10 +11388,10 @@ INSERT INTO `33hao_waybill` (`waybill_id`, `waybill_name`, `waybill_image`, `way
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_web`
+-- 表的结构 `xunshi_web`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_web` (
+CREATE TABLE IF NOT EXISTS `xunshi_web` (
   `web_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '模块ID',
   `web_name` varchar(20) DEFAULT '' COMMENT '模块名称',
   `style_name` varchar(20) DEFAULT 'orange' COMMENT '风格名称',
@@ -11404,31 +11404,31 @@ CREATE TABLE IF NOT EXISTS `33hao_web` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='页面模块表' AUTO_INCREMENT=123 ;
 
 --
--- 转存表中的数据 `33hao_web`
+-- 转存表中的数据 `xunshi_web`
 --
 
-INSERT INTO `33hao_web` (`web_id`, `web_name`, `style_name`, `web_page`, `update_time`, `web_sort`, `web_show`, `web_html`) VALUES
+INSERT INTO `xunshi_web` (`web_id`, `web_name`, `style_name`, `web_page`, `update_time`, `web_sort`, `web_show`, `web_html`) VALUES
 (1, '红色', 'red', 'index', 1481515835, 1, 1, '\r\n<div class="home-standard-layout wrapper style-red">\r\n  <div class="left-sidebar">\r\n    <div class="title">\r\n            <div class="txt-type">\r\n                <span>1F</span>\r\n                <h2 title="潮流女装">潮流女装</h2>\r\n      </div>\r\n          </div>\r\n    <div class="left-ads">\r\n            <a href="http://www.telaigou.cn/shop" title="" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-1-13.jpg?343" alt=""> </a>\r\n          </div>\r\n    <div class="recommend-classes">\r\n    <h3>大家还喜欢了</h3>\r\n      <ul>\r\n                        <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1103" title="衬衫" target="_blank">衬衫</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1104" title="T恤" target="_blank">T恤</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1106" title="雪纺衫" target="_blank">雪纺衫</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1524" title="情侣装" target="_blank">情侣装</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1528" title="大码女装" target="_blank">大码女装</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1264" title="连衣裙" target="_blank">连衣裙</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1265" title="半身裙" target="_blank">半身裙</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1434" title="旗袍" target="_blank">旗袍</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1253" title="牛仔裤" target="_blank">牛仔裤</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1254" title="休闲裤" target="_blank">休闲裤</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1255" title="西装裤" target="_blank">西装裤</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1443" title="七分裤" target="_blank">七分裤</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1527" title="短裤" target="_blank">短裤</a></li>\r\n                      </ul>\r\n    </div>\r\n  </div>\r\n  <div class="middle-layout">\r\n \r\n  <ul class="right-brand">\r\n\r\n                                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=106" title="RDK" target="_blank">RDK</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=104" title="esprit" target="_blank">esprit</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=83" title="秀秀美" target="_blank">秀秀美</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=85" title="猫人" target="_blank">猫人</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=87" title="Hanes恒适" target="_blank">Hanes恒适</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=80" title="享爱." target="_blank">享爱.</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=81" title="派丽蒙" target="_blank">派丽蒙</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=82" title="康妮雅" target="_blank">康妮雅</a>\r\n        </li>\r\n                                                       <li>\r\n          <a href="http://v5.33hao.com/index.php?act=brand&op=index" title="" target="_blank">更多</a>\r\n        </li>\r\n            </ul>\r\n    \r\n    <ul class="tabs-nav">\r\n                  <li class="tabs-selected"><i class="arrow"></i>\r\n        <h3>商品推荐</h3>\r\n      </li>\r\n                </ul>\r\n                <div class="tabs-panel middle-banner-style01 fade-img ">\r\n    \r\n      <div class="right-sidebar">\r\n        <div class="right-side-focus">\r\n          <ul>\r\n                                                <li><a href="http://demo.33hao.com/shop/index.php?act=goods&amp;op=index&amp;goods_id=102126" title="拉夏贝尔 秋新款女装街头人物印花休闲圆领长袖连衣裙 黑色 S" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-1-18-2.png?254" alt="拉夏贝尔 秋新款女装街头人物印花休闲圆领长袖连衣裙 黑色 S"/></a> </li>\r\n                                                <li><a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1100" title="拉夏贝尔套头针织衫 2015冬新款休闲圆领直身裙套装女 拉贝缇 墨绿色 M" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-1-18-1.png?318" alt="拉夏贝尔套头针织衫 2015冬新款休闲圆领直身裙套装女 拉贝缇 墨绿色 M"/></a> </li>\r\n                                                <li><a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1100" title="拉夏贝尔拉贝缇2015冬新款毛织T恤松紧腰直身裙两件套女 灰蓝色 L     拉夏贝尔拉贝缇2015冬新款毛织T恤松紧腰直身裙两件套女 灰蓝色 L     拉夏贝尔拉贝缇2015冬新款毛织T恤松紧腰直身裙两件套女 灰蓝色 L     拉夏贝尔拉贝缇2015冬新款毛织T恤松紧腰直身裙两件套女 灰蓝色 L     拉夏贝尔拉贝缇2015冬新款毛织T恤松紧腰直身裙两件套女 灰蓝色 L  商品编号：1726332280 关注商品 分享 拉夏贝尔拉贝缇2015冬新款毛织T恤松紧腰直身裙两件套女 灰蓝色 L" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-1-18-3.png?756" alt="拉夏贝尔拉贝缇2015冬新款毛织T恤松紧腰直身裙两件套女 灰蓝色 L     拉夏贝尔拉贝缇2015冬新款毛织T恤松紧腰直身裙两件套女 灰蓝色 L     拉夏贝尔拉贝缇2015冬新款毛织T恤松紧腰直身裙两件套女 灰蓝色 L     拉夏贝尔拉贝缇2015冬新款毛织T恤松紧腰直身裙两件套女 灰蓝色 L     拉夏贝尔拉贝缇2015冬新款毛织T恤松紧腰直身裙两件套女 灰蓝色 L  商品编号：1726332280 关注商品 分享 拉夏贝尔拉贝缇2015冬新款毛织T恤松紧腰直身裙两件套女 灰蓝色 L"/></a> </li>\r\n                                              </ul>\r\n        </div>\r\n      </div>\r\n      \r\n      <div class="middle-banner-list">\r\n        <ul>\r\n          <li>\r\n            <dl>\r\n               \r\n              <dt class="banner-name"><a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1100" title="针织格子提花休闲圆领七分袖连衣裙 格子混色 L" target="_blank"> 针织格子提花休闲圆领七分袖连衣裙 格子混色 L</a></dt>\r\n                            <dd class="banner-thumb"> <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1100" title="针织格子提花休闲圆领七分袖连衣裙 格子混色 L" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="针织格子提花休闲圆领七分袖连衣裙 格子混色 L" data-url="http://v5.33hao.com/data/upload/shop/editor/web-1-15-1-11.jpg?445" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n		  <li>\r\n            <dl>\r\n                            <dt class="banner-name"><a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1100" title="撞色印花提花针织短袖连衣裙 米白 L" target="_blank"> 撞色印花提花针织短袖连衣裙 米白 L</a></dt>\r\n                            <dd class="banner-thumb"> <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1100" title="撞色印花提花针织短袖连衣裙 米白 L" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="撞色印花提花针织短袖连衣裙 米白 L" data-url="http://v5.33hao.com/data/upload/shop/editor/web-1-15-1-31.jpg?570" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n		  <li>\r\n            <dl>\r\n                            <dt class="banner-name"><a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1100" title="钉珠蝴蝶结长袖连衣裙套装女 玫红 L" target="_blank"> 钉珠蝴蝶结长袖连衣裙套装女 玫红 L</a></dt>\r\n                            <dd class="banner-thumb"> <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1100" title="钉珠蝴蝶结长袖连衣裙套装女 玫红 L" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="钉珠蝴蝶结长袖连衣裙套装女 玫红 L" data-url="http://v5.33hao.com/data/upload/shop/editor/web-1-15-1-33.jpg?633" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dt class="banner-name"><a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1100" title="街头人物印花休闲圆领长袖连衣裙 黑色 S" target="_blank"> 街头人物印花休闲圆领长袖连衣裙 黑色 S</a></dt>\r\n                            <dd class="banner-thumb"> <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1100" title="街头人物印花休闲圆领长袖连衣裙 黑色 S" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="街头人物印花休闲圆领长袖连衣裙 黑色 S" data-url="http://v5.33hao.com/data/upload/shop/editor/web-1-15-1-12.jpg?299" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dt class="banner-name"><a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1100" title="钉珠蝴蝶结长袖连衣裙套装女 玫红 L" target="_blank"> 钉珠蝴蝶结长袖连衣裙套装女 玫红 L</a></dt>\r\n                            <dd class="banner-thumb"> <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1100" title="钉珠蝴蝶结长袖连衣裙套装女 玫红 L" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="钉珠蝴蝶结长袖连衣裙套装女 玫红 L" data-url="http://v5.33hao.com/data/upload/shop/editor/web-1-15-1-32.jpg?568" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dt class="banner-name"><a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1100" title="波点绣花两件套毛衣连衣裙女 黑色 M" target="_blank"> 波点绣花两件套毛衣连衣裙女 黑色 M</a></dt>\r\n                            <dd class="banner-thumb"> <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1100" title="波点绣花两件套毛衣连衣裙女 黑色 M" class="a1" target="_blank"> <img alt="波点绣花两件套毛衣连衣裙女 黑色 M" src="http://v5.33hao.com/data/upload/shop/editor/web-1-15-1-34.jpg?499" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n      \r\n       </div>\r\n              </div>\r\n</div>\r\n'),
 (2, '粉色', 'pink', 'index', 1481515835, 1, 1, '\r\n<div class="home-standard-layout wrapper style-pink">\r\n  <div class="left-sidebar">\r\n    <div class="title">\r\n            <div class="txt-type">\r\n                <span>2F</span>\r\n                <h2 title="精品男装">精品男装</h2>\r\n      </div>\r\n          </div>\r\n    <div class="left-ads">\r\n            <a href="http://www.telaigou.cn/shop" title="出游服装五折起" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-2-23.jpg?343" alt="出游服装五折起"> </a>\r\n          </div>\r\n    <div class="recommend-classes">\r\n    <h3>大家还喜欢了</h3>\r\n      <ul>\r\n                        <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1140" title="衬衫" target="_blank">衬衫</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1141" title="T恤" target="_blank">T恤</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1142" title="POLO衫" target="_blank">POLO衫</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1144" title="卫衣" target="_blank">卫衣</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1530" title="唐装" target="_blank">唐装</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1150" title="西裤" target="_blank">西裤</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1151" title="休闲裤" target="_blank">休闲裤</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1152" title="牛仔裤" target="_blank">牛仔裤</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1158" title="卫裤" target="_blank">卫裤</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1373" title="九分裤" target="_blank">九分裤</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1442" title="短裤" target="_blank">短裤</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1300" title="T恤/背心" target="_blank">T恤/背心</a></li>\r\n                      </ul>\r\n    </div>\r\n  </div>\r\n  <div class="middle-layout">\r\n \r\n  <ul class="right-brand">\r\n\r\n                                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=104" title="esprit" target="_blank">esprit</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=102" title="她他/tata" target="_blank">她他/tata</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=99" title="梦特娇" target="_blank">梦特娇</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=96" title="佐丹奴" target="_blank">佐丹奴</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=90" title="金利来" target="_blank">金利来</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=84" title="阿迪达斯" target="_blank">阿迪达斯</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=85" title="猫人" target="_blank">猫人</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=95" title="李宁" target="_blank">李宁</a>\r\n        </li>\r\n                                                       <li>\r\n          <a href="http://v5.33hao.com/index.php?act=brand&op=index" title="" target="_blank">更多</a>\r\n        </li>\r\n            </ul>\r\n    \r\n    <ul class="tabs-nav">\r\n                  <li class="tabs-selected"><i class="arrow"></i>\r\n        <h3>商品推荐</h3>\r\n      </li>\r\n                </ul>\r\n                <div class="tabs-panel middle-banner-style01 fade-img ">\r\n    \r\n      <div class="right-sidebar">\r\n        <div class="right-side-focus">\r\n          <ul>\r\n                                                <li><a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1112" title="冬装可拆卸帽可拆卸袖百搭羽绒服" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-2-28-1.png?688" alt="冬装可拆卸帽可拆卸袖百搭羽绒服"/></a> </li>\r\n                                                <li><a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1100" title="冬新品男士羊毛衫圆领套头毛衫蓝色针织衫" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-2-28-2.png?755" alt="冬新品男士羊毛衫圆领套头毛衫蓝色针织衫"/></a> </li>\r\n                                                <li><a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1100" title="冬装新品卡其色翻领男式羊毛呢大衣中长款" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-2-28-3.png?557" alt="冬装新品卡其色翻领男式羊毛呢大衣中长款"/></a> </li>\r\n                                              </ul>\r\n        </div>\r\n      </div>\r\n      \r\n      <div class="middle-banner-list">\r\n        <ul>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-2-25-1-11.jpg?694" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n		  <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-2-25-1-31.jpg?959" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n		  <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-2-25-1-33.jpg?984" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-2-25-1-12.jpg?135" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-2-25-1-32.jpg?131" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img alt="" src="http://v5.33hao.com/data/upload/shop/editor/web-2-25-1-34.jpg?246" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n      \r\n       </div>\r\n              </div>\r\n</div>\r\n'),
 (3, '橘色', 'orange', 'index', 1481515835, 2, 1, '\r\n<div class="home-standard-layout wrapper style-orange">\r\n  <div class="left-sidebar">\r\n    <div class="title">\r\n            <div class="txt-type">\r\n                <span>3F</span>\r\n                <h2 title="时尚鞋靴">时尚鞋靴</h2>\r\n      </div>\r\n          </div>\r\n    <div class="left-ads">\r\n            <a href="http://www.telaigou.cn/shop" title="" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-3-33.png?575" alt=""> </a>\r\n          </div>\r\n    <div class="recommend-classes">\r\n    <h3>大家还喜欢了</h3>\r\n      <ul>\r\n                        <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1160" title="单鞋" target="_blank">单鞋</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1161" title="平底鞋" target="_blank">平底鞋</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1165" title="帆布鞋" target="_blank">帆布鞋</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1425" title="内增高" target="_blank">内增高</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1428" title="凉鞋" target="_blank">凉鞋</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1472" title="拖鞋" target="_blank">拖鞋</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1175" title="休闲鞋" target="_blank">休闲鞋</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1176" title="正装鞋" target="_blank">正装鞋</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1177" title="商务鞋" target="_blank">商务鞋</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1182" title="板鞋" target="_blank">板鞋</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1534" title="短靴" target="_blank">短靴</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1536" title="马丁靴" target="_blank">马丁靴</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1549" title="雨靴" target="_blank">雨靴</a></li>\r\n                      </ul>\r\n    </div>\r\n  </div>\r\n  <div class="middle-layout">\r\n \r\n  <ul class="right-brand">\r\n\r\n                                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=105" title="westside" target="_blank">westside</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=104" title="esprit" target="_blank">esprit</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=103" title="ELLE HOME" target="_blank">ELLE HOME</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=102" title="她他/tata" target="_blank">她他/tata</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=101" title="爱帝" target="_blank">爱帝</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=98" title="斯波帝卡" target="_blank">斯波帝卡</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=97" title="百思图" target="_blank">百思图</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=100" title="宝姿" target="_blank">宝姿</a>\r\n        </li>\r\n                                                       <li>\r\n          <a href="http://v5.33hao.com/index.php?act=brand&op=index" title="" target="_blank">更多</a>\r\n        </li>\r\n            </ul>\r\n    \r\n    <ul class="tabs-nav">\r\n                  <li class="tabs-selected"><i class="arrow"></i>\r\n        <h3>商品推荐</h3>\r\n      </li>\r\n                </ul>\r\n                <div class="tabs-panel middle-banner-style01 fade-img ">\r\n    \r\n      <div class="right-sidebar">\r\n        <div class="right-side-focus">\r\n          <ul>\r\n                                                <li><a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1109" title="冬季新款骑士靴棉靴子" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-3-38-2.png?328" alt="冬季新款骑士靴棉靴子"/></a> </li>\r\n                                                <li><a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1109" title="时尚平底铆钉短靴子" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-3-38-3.png?218" alt="时尚平底铆钉短靴子"/></a> </li>\r\n                                                <li><a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1109" title="新款粗跟圆头加绒短靴裸靴" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-3-38-5.png?708" alt="新款粗跟圆头加绒短靴裸靴"/></a> </li>\r\n                                              </ul>\r\n        </div>\r\n      </div>\r\n      \r\n      <div class="middle-banner-list">\r\n        <ul>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1109" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-3-35-1-11.jpg?136" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n		  <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1109" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-3-35-1-31.jpg?822" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n		  <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1109" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-3-35-1-33.jpg?259" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1109" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-3-35-1-12.jpg?270" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1109" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-3-35-1-32.jpg?894" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1109" title="" class="a1" target="_blank"> <img alt="" src="http://v5.33hao.com/data/upload/shop/editor/web-3-35-1-34.jpg?192" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n      \r\n       </div>\r\n              </div>\r\n</div>\r\n'),
 (4, '绿色', 'green', 'index', 1481515835, 3, 1, '\r\n<div class="home-standard-layout wrapper style-green">\r\n  <div class="left-sidebar">\r\n    <div class="title">\r\n            <div class="txt-type">\r\n                <span>4F</span>\r\n                <h2 title="美妆护肤">美妆护肤</h2>\r\n      </div>\r\n          </div>\r\n    <div class="left-ads">\r\n            <a href="http://www.telaigou.cn/shop" title="" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-4-43.jpg?581" alt=""> </a>\r\n          </div>\r\n    <div class="recommend-classes">\r\n    <h3>大家还喜欢了</h3>\r\n      <ul>\r\n                        <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1183" title="洁面" target="_blank">洁面</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1184" title="面膜" target="_blank">面膜</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1185" title="化妆水" target="_blank">化妆水</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1186" title="精华" target="_blank">精华</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1187" title="乳液" target="_blank">乳液</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1188" title="面霜" target="_blank">面霜</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1189" title="眼霜" target="_blank">眼霜</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1498" title="防晒" target="_blank">防晒</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1501" title="护肤套装" target="_blank">护肤套装</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1225" title="卸妆" target="_blank">卸妆</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1227" title="BB霜" target="_blank">BB霜</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1508" title="彩妆套装" target="_blank">彩妆套装</a></li>\r\n                      </ul>\r\n    </div>\r\n  </div>\r\n  <div class="middle-layout">\r\n \r\n  <ul class="right-brand">\r\n\r\n                                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=102" title="她他/tata" target="_blank">她他/tata</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=104" title="esprit" target="_blank">esprit</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=106" title="RDK" target="_blank">RDK</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=86" title="茵曼（INMAN）" target="_blank">茵曼（INMAN）</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=88" title="缪诗" target="_blank">缪诗</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=85" title="猫人" target="_blank">猫人</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=80" title="享爱." target="_blank">享爱.</a>\r\n        </li>\r\n                                                       <li>\r\n          <a href="http://v5.33hao.com/index.php?act=brand&op=index" title="" target="_blank">更多</a>\r\n        </li>\r\n            </ul>\r\n    \r\n    <ul class="tabs-nav">\r\n                  <li class="tabs-selected"><i class="arrow"></i>\r\n        <h3>商品推荐</h3>\r\n      </li>\r\n                </ul>\r\n                <div class="tabs-panel middle-banner-style01 fade-img ">\r\n    \r\n      <div class="right-sidebar">\r\n        <div class="right-side-focus">\r\n          <ul>\r\n                                                <li><a href="" title="" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-4-48-1.jpg?202" alt=""/></a> </li>\r\n                                                <li><a href="" title="" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-4-48-4.jpg?901" alt=""/></a> </li>\r\n                                                <li><a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1111" title="海飞丝洗发露" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-4-48-2.png?560" alt="海飞丝洗发露"/></a> </li>\r\n                                              </ul>\r\n        </div>\r\n      </div>\r\n      \r\n      <div class="middle-banner-list">\r\n        <ul>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-4-45-2-11.jpg?532" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n		  <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-4-45-2-31.jpg?561" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n		  <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-4-45-2-33.jpg?573" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1109" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-4-45-2-12.jpg?965" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-4-45-2-32.jpg?189" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img alt="" src="http://v5.33hao.com/data/upload/shop/editor/web-4-45-2-34.jpg?625" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n      \r\n       </div>\r\n              </div>\r\n</div>\r\n'),
 (5, '蓝色', 'blue', 'index', 1481515835, 4, 1, '\r\n<div class="home-standard-layout wrapper style-blue">\r\n  <div class="left-sidebar">\r\n    <div class="title">\r\n            <div class="txt-type">\r\n                <span>5F</span>\r\n                <h2 title="箱包皮具">箱包皮具</h2>\r\n      </div>\r\n          </div>\r\n    <div class="left-ads">\r\n            <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1110" title="" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-5-53.png?994" alt=""> </a>\r\n          </div>\r\n    <div class="recommend-classes">\r\n    <h3>大家还喜欢了</h3>\r\n      <ul>\r\n                        <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1195" title="手提包" target="_blank">手提包</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1196" title="单肩包" target="_blank">单肩包</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1224" title="双肩包" target="_blank">双肩包</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1304" title="斜挎包" target="_blank">斜挎包</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1198" title="商务包" target="_blank">商务包</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1311" title="休闲包" target="_blank">休闲包</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1312" title="公文包" target="_blank">公文包</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1193" title="女士钱包" target="_blank">女士钱包</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1197" title="男士钱包" target="_blank">男士钱包</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1568" title="旅行包" target="_blank">旅行包</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1322" title="行李箱" target="_blank">行李箱</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1323" title="拉杆箱" target="_blank">拉杆箱</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1324" title="旅行箱" target="_blank">旅行箱</a></li>\r\n                      </ul>\r\n    </div>\r\n  </div>\r\n  <div class="middle-layout">\r\n \r\n  <ul class="right-brand">\r\n\r\n                                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=366" title="摩伊拉" target="_blank">摩伊拉</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=93" title="百丽" target="_blank">百丽</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=96" title="佐丹奴" target="_blank">佐丹奴</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=91" title="其乐" target="_blank">其乐</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=81" title="派丽蒙" target="_blank">派丽蒙</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=83" title="秀秀美" target="_blank">秀秀美</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=80" title="享爱." target="_blank">享爱.</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=82" title="康妮雅" target="_blank">康妮雅</a>\r\n        </li>\r\n                                                       <li>\r\n          <a href="http://v5.33hao.com/index.php?act=brand&op=index" title="" target="_blank">更多</a>\r\n        </li>\r\n            </ul>\r\n    \r\n    <ul class="tabs-nav">\r\n                  <li class="tabs-selected"><i class="arrow"></i>\r\n        <h3>商品推荐</h3>\r\n      </li>\r\n                </ul>\r\n                <div class="tabs-panel middle-banner-style01 fade-img ">\r\n    \r\n      <div class="right-sidebar">\r\n        <div class="right-side-focus">\r\n          <ul>\r\n                                                <li><a href="" title="" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-5-58-1.jpg?965" alt=""/></a> </li>\r\n                                                <li><a href="" title="" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-5-58-2.jpg?837" alt=""/></a> </li>\r\n                                              </ul>\r\n        </div>\r\n      </div>\r\n      \r\n      <div class="middle-banner-list">\r\n        <ul>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-5-55-1-11.jpg?978" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n		  <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-5-55-1-31.jpg?165" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n		  <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-5-55-1-33.jpg?687" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-5-55-1-12.jpg?770" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-5-55-1-32.jpg?495" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img alt="" src="http://v5.33hao.com/data/upload/shop/editor/web-5-55-1-34.jpg?363" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n      \r\n       </div>\r\n              </div>\r\n</div>\r\n');
-INSERT INTO `33hao_web` (`web_id`, `web_name`, `style_name`, `web_page`, `update_time`, `web_sort`, `web_show`, `web_html`) VALUES
+INSERT INTO `xunshi_web` (`web_id`, `web_name`, `style_name`, `web_page`, `update_time`, `web_sort`, `web_show`, `web_html`) VALUES
 (6, '紫色', 'purple', 'index', 1481515835, 6, 1, '\r\n<div class="home-standard-layout wrapper style-purple">\r\n  <div class="left-sidebar">\r\n    <div class="title">\r\n            <div class="txt-type">\r\n                <span>6F</span>\r\n                <h2 title="运动户外">运动户外</h2>\r\n      </div>\r\n          </div>\r\n    <div class="left-ads">\r\n            <a href="http://demo.33hao.com/shop" title="" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-6-63.png?949" alt=""> </a>\r\n          </div>\r\n    <div class="recommend-classes">\r\n    <h3>大家还喜欢了</h3>\r\n      <ul>\r\n                        <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1124" title="运动鞋" target="_blank">运动鞋</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1125" title="运动服" target="_blank">运动服</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1408" title="户外鞋" target="_blank">户外鞋</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1474" title="户外服" target="_blank">户外服</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1475" title="冲锋衣裤" target="_blank">冲锋衣裤</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1476" title="速干衣裤" target="_blank">速干衣裤</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1477" title="抓绒衣裤" target="_blank">抓绒衣裤</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1478" title="软壳衣裤" target="_blank">软壳衣裤</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1479" title="T恤" target="_blank">T恤</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1481" title="滑雪服" target="_blank">滑雪服</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1482" title="功能内衣" target="_blank">功能内衣</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1220" title="T恤" target="_blank">T恤</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1221" title="卫衣" target="_blank">卫衣</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1222" title="运动裤" target="_blank">运动裤</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1223" title="运动套装" target="_blank">运动套装</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1331" title="足球服" target="_blank">足球服</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1332" title="篮球服" target="_blank">篮球服</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1333" title="风衣夹克" target="_blank">风衣夹克</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1334" title="网羽服" target="_blank">网羽服</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1335" title="棒球服" target="_blank">棒球服</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1415" title="训练服" target="_blank">训练服</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1416" title="运动帽" target="_blank">运动帽</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1563" title="运动手套" target="_blank">运动手套</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1564" title="运动袜" target="_blank">运动袜</a></li>\r\n                      </ul>\r\n    </div>\r\n  </div>\r\n  <div class="middle-layout">\r\n \r\n  <ul class="right-brand">\r\n\r\n                                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=106" title="RDK" target="_blank">RDK</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=105" title="westside" target="_blank">westside</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=104" title="esprit" target="_blank">esprit</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=103" title="ELLE HOME" target="_blank">ELLE HOME</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=100" title="宝姿" target="_blank">宝姿</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=98" title="斯波帝卡" target="_blank">斯波帝卡</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=81" title="派丽蒙" target="_blank">派丽蒙</a>\r\n        </li>\r\n                                                       <li>\r\n          <a href="http://v5.33hao.com/index.php?act=brand&op=index" title="" target="_blank">更多</a>\r\n        </li>\r\n            </ul>\r\n    \r\n    <ul class="tabs-nav">\r\n                  <li class="tabs-selected"><i class="arrow"></i>\r\n        <h3>商品推荐</h3>\r\n      </li>\r\n                </ul>\r\n                <div class="tabs-panel middle-banner-style01 fade-img ">\r\n    \r\n      <div class="right-sidebar">\r\n        <div class="right-side-focus">\r\n          <ul>\r\n                                                <li><a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index" title="" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-6-68-1.png?180" alt=""/></a> </li>\r\n                                                <li><a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1100" title="" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-6-68-2.png?492" alt=""/></a> </li>\r\n                                              </ul>\r\n        </div>\r\n      </div>\r\n      \r\n      <div class="middle-banner-list">\r\n        <ul>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-6-65-1-11.jpg?387" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n		  <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-6-65-1-31.png?563" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n		  <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-6-65-1-33.jpg?841" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-6-65-1-12.jpg?513" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-6-65-1-32.png?804" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img alt="" src="http://v5.33hao.com/data/upload/shop/editor/web-6-65-1-34.jpg?793" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n      \r\n       </div>\r\n              </div>\r\n</div>\r\n'),
 (7, '褐色', 'brown', 'index', 1481515835, 7, 1, '\r\n<div class="home-standard-layout wrapper style-brown">\r\n  <div class="left-sidebar">\r\n    <div class="title">\r\n            <div class="txt-type">\r\n                <span>7F</span>\r\n                <h2 title="礼品配饰">礼品配饰</h2>\r\n      </div>\r\n          </div>\r\n    <div class="left-ads">\r\n            <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1114" title="" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-7-73.png?848" alt=""> </a>\r\n          </div>\r\n    <div class="recommend-classes">\r\n    <h3>大家还喜欢了</h3>\r\n      <ul>\r\n                        <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1203" title="项链" target="_blank">项链</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1204" title="戒指" target="_blank">戒指</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1205" title="手镯" target="_blank">手镯</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1206" title="耳饰" target="_blank">耳饰</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1207" title="发饰" target="_blank">发饰</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1208" title="手链" target="_blank">手链</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1209" title="锁骨链" target="_blank">锁骨链</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1210" title="佛珠" target="_blank">佛珠</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1211" title="转运珠" target="_blank">转运珠</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1212" title="太阳镜" target="_blank">太阳镜</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1422" title="护目镜" target="_blank">护目镜</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1999" title="情侣饰品" target="_blank">情侣饰品</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1213" title="机械表" target="_blank">机械表</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1214" title="电子表" target="_blank">电子表</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1215" title="石英表" target="_blank">石英表</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1336" title="时装表" target="_blank">时装表</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1337" title="学生表" target="_blank">学生表</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1338" title="运动表" target="_blank">运动表</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1339" title="儿童表" target="_blank">儿童表</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1340" title="防水表" target="_blank">防水表</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1341" title="情侣表" target="_blank">情侣表</a></li>\r\n                      </ul>\r\n    </div>\r\n  </div>\r\n  <div class="middle-layout">\r\n \r\n  <ul class="right-brand">\r\n\r\n                                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=106" title="RDK" target="_blank">RDK</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=105" title="westside" target="_blank">westside</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=365" title="柒牌" target="_blank">柒牌</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=87" title="Hanes恒适" target="_blank">Hanes恒适</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=88" title="缪诗" target="_blank">缪诗</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=90" title="金利来" target="_blank">金利来</a>\r\n        </li>\r\n                                                       <li>\r\n          <a href="http://v5.33hao.com/index.php?act=brand&op=index" title="" target="_blank">更多</a>\r\n        </li>\r\n            </ul>\r\n    \r\n    <ul class="tabs-nav">\r\n                  <li class="tabs-selected"><i class="arrow"></i>\r\n        <h3>商品推荐</h3>\r\n      </li>\r\n                </ul>\r\n                <div class="tabs-panel middle-banner-style01 fade-img ">\r\n    \r\n      <div class="right-sidebar">\r\n        <div class="right-side-focus">\r\n          <ul>\r\n                                                <li><a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index" title="七度银饰专场" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-7-78-1.jpg?446" alt="七度银饰专场"/></a> </li>\r\n                                                <li><a href="http://demo.33hao.com/shop/index.php?act=goods&amp;op=index&amp;goods_id=102126" title="七度银饰专场" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-7-78-2.png?182" alt="七度银饰专场"/></a> </li>\r\n                                              </ul>\r\n        </div>\r\n      </div>\r\n      \r\n      <div class="middle-banner-list">\r\n        <ul>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-7-75-1-11.jpg?585" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n		  <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-7-75-1-31.png?392" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n		  <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-7-75-1-33.png?752" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-7-75-1-12.jpg?181" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-7-75-1-32.jpg?806" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img alt="" src="http://v5.33hao.com/data/upload/shop/editor/web-7-75-1-34.jpg?541" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n      \r\n       </div>\r\n              </div>\r\n</div>\r\n'),
 (8, '默认', 'default', 'index', 1481515836, 8, 1, '\r\n<div class="home-standard-layout wrapper style-default">\r\n  <div class="left-sidebar">\r\n    <div class="title">\r\n            <div class="txt-type">\r\n                <span>8F</span>\r\n                <h2 title="生活家居">生活家居</h2>\r\n      </div>\r\n          </div>\r\n    <div class="left-ads">\r\n            <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1231" title="" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-8-83.png?171" alt=""> </a>\r\n          </div>\r\n    <div class="recommend-classes">\r\n    <h3>大家还喜欢了</h3>\r\n      <ul>\r\n                        <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1234" title="四件套" target="_blank">四件套</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1235" title="被子/被套" target="_blank">被子/被套</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1236" title="枕头/枕套" target="_blank">枕头/枕套</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1419" title="公仔" target="_blank">公仔</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1421" title="凉席/凉枕" target="_blank">凉席/凉枕</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1858" title="手工/十字绣" target="_blank">手工/十字绣</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1240" title="工艺摆件" target="_blank">工艺摆件</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1241" title="花瓶/花器" target="_blank">花瓶/花器</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1242" title="仿真花卉" target="_blank">仿真花卉</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1243" title="装饰画" target="_blank">装饰画</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1352" title="相架/画框" target="_blank">相架/画框</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1353" title="闹钟/挂钟" target="_blank">闹钟/挂钟</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1354" title="香薰/蜡烛" target="_blank">香薰/蜡烛</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1355" title="创意家居" target="_blank">创意家居</a></li>\r\n                <li><a href="http://v5.33hao.com/shop/index.php?act=search&op=index&cate_id=1356" title="办公用品" target="_blank">办公用品</a></li>\r\n                      </ul>\r\n    </div>\r\n  </div>\r\n  <div class="middle-layout">\r\n \r\n  <ul class="right-brand">\r\n\r\n                                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=104" title="esprit" target="_blank">esprit</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=103" title="ELLE HOME" target="_blank">ELLE HOME</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=105" title="westside" target="_blank">westside</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=106" title="RDK" target="_blank">RDK</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=92" title="Newbalance" target="_blank">Newbalance</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=91" title="其乐" target="_blank">其乐</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=85" title="猫人" target="_blank">猫人</a>\r\n        </li>\r\n                          <li>\r\n          <a href="http://v5.33hao.com/shop/index.php?act=brand&op=list&brand=93" title="百丽" target="_blank">百丽</a>\r\n        </li>\r\n                                                       <li>\r\n          <a href="http://v5.33hao.com/index.php?act=brand&op=index" title="" target="_blank">更多</a>\r\n        </li>\r\n            </ul>\r\n    \r\n    <ul class="tabs-nav">\r\n                  <li class="tabs-selected"><i class="arrow"></i>\r\n        <h3>商品推荐</h3>\r\n      </li>\r\n                </ul>\r\n                <div class="tabs-panel middle-banner-style01 fade-img ">\r\n    \r\n      <div class="right-sidebar">\r\n        <div class="right-side-focus">\r\n          <ul>\r\n                                                <li><a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1109" title="" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-8-88-2.jpg?934" alt=""/></a> </li>\r\n                                                <li><a href="http://demo.33hao.com/shop/index.php?act=goods&amp;op=index&amp;goods_id=102126" title="拉夏贝尔 秋新款女装街头人物印花休闲圆领长袖连衣裙 黑色 S" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/editor/web-8-88-3.jpg?885" alt="拉夏贝尔 秋新款女装街头人物印花休闲圆领长袖连衣裙 黑色 S"/></a> </li>\r\n                                              </ul>\r\n        </div>\r\n      </div>\r\n      \r\n      <div class="middle-banner-list">\r\n        <ul>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-8-85-1-11.jpg?195" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n		  <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-8-85-1-31.jpg?634" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n		  <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-8-85-1-33.jpg?689" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-8-85-1-12.jpg?235" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img src="http://v5.33hao.com/data/upload/shop/common/loading.gif" alt="" data-url="http://v5.33hao.com/data/upload/shop/editor/web-8-85-1-32.jpg?454" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n          <li>\r\n            <dl>\r\n                            <dd class="banner-thumb"> <a href="" title="" class="a1" target="_blank"> <img alt="" src="http://v5.33hao.com/data/upload/shop/editor/web-8-85-1-34.jpg?772" rel="lazy" /></a></dd>\r\n            </dl>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n      \r\n       </div>\r\n              </div>\r\n</div>\r\n'),
 (101, '首页头部焦点图片', 'orange', 'index_pic', 1481515900, 100, 1, '\r\n  <ul id="fullScreenSlides" class="full-screen-slides">\r\n                                        <li style="background: #EDD9C0 url(''http://v5.33hao.com/data/upload/shop/editor/web-101-101-1.png?177'') no-repeat center top">\r\n            <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1100" target="_blank" title="好商城">&nbsp;</a></li>\r\n                                        <li style="background: #200772 url(''http://v5.33hao.com/data/upload/shop/editor/web-101-101-2.png?442'') no-repeat center top">\r\n            <a href="http://demo.33hao.com/shop/index.php?act=show_groupbuy&amp;op=index" target="_blank" title="好商城">&nbsp;</a></li>\r\n                                        <li style="background: #EFE6DD url(''http://v5.33hao.com/data/upload/shop/editor/web-101-101-3.png?983'') no-repeat center top">\r\n            <a href="http://demo.33hao.com/shop/index.php?act=show_groupbuy&amp;op=index" target="_blank" title="好商城">&nbsp;</a></li>\r\n                                        <li style="background: #760907 url(''http://v5.33hao.com/data/upload/shop/editor/web-101-101-4.png?779'') no-repeat center top">\r\n            <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index&amp;cate_id=1100" target="_blank" title="好商城">&nbsp;</a></li>\r\n                              \r\n  </ul>\r\n  <div class="jfocus-trigeminybox">\r\n  <a class="limited_time" title="限时打折" href="http://v5.33hao.com/index.php?act=promotion&op=index">\r\n        <div class="clock-wrap">\r\n          <div class="clock">\r\n            <div class="clock-h" id="ClockHours" style="-webkit-transform: rotate(93deg);"></div>\r\n            <div class="clock-m"></div>\r\n            <div class="clock-s"></div>\r\n          </div>\r\n    </div>\r\n    </a>\r\n  <div class="jfocus-trigeminy"> \r\n    <ul>\r\n                              <li>\r\n                                        <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index" target="_blank" title="测试">\r\n                <img src="http://v5.33hao.com/data/upload/shop/editor/web-101-102-1-1.jpg?306" alt="测试"></a>\r\n                          <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index" target="_blank" title="测试">\r\n                <img src="http://v5.33hao.com/data/upload/shop/editor/web-101-102-1-2.jpg?220" alt="测试"></a>\r\n                          <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index" target="_blank" title="测试">\r\n                <img src="http://v5.33hao.com/data/upload/shop/editor/web-101-102-1-3.jpg?296" alt="测试"></a>\r\n                          <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index" target="_blank" title="测试">\r\n                <img src="http://v5.33hao.com/data/upload/shop/editor/web-101-102-1-4.jpg?752" alt="测试"></a>\r\n                                      </li>\r\n                    <li>\r\n                                        <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index" target="_blank" title="测试">\r\n                <img src="http://v5.33hao.com/data/upload/shop/editor/web-101-102-2-1.jpg?718" alt="测试"></a>\r\n                          <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index" target="_blank" title="测试">\r\n                <img src="http://v5.33hao.com/data/upload/shop/editor/web-101-102-2-2.jpg?967" alt="测试"></a>\r\n                          <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index" target="_blank" title="测试">\r\n                <img src="http://v5.33hao.com/data/upload/shop/editor/web-101-102-2-3.jpg?477" alt="测试"></a>\r\n                          <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index" target="_blank" title="测试">\r\n                <img src="http://v5.33hao.com/data/upload/shop/editor/web-101-102-2-4.jpg?643" alt="测试"></a>\r\n                                      </li>\r\n                    <li>\r\n                                        <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index" target="_blank" title="测试">\r\n                <img src="http://v5.33hao.com/data/upload/shop/editor/web-101-102-3-1.jpg?970" alt="测试"></a>\r\n                          <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index" target="_blank" title="测试">\r\n                <img src="http://v5.33hao.com/data/upload/shop/editor/web-101-102-3-2.jpg?341" alt="测试"></a>\r\n                          <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index" target="_blank" title="测试">\r\n                <img src="http://v5.33hao.com/data/upload/shop/editor/web-101-102-3-3.jpg?480" alt="测试"></a>\r\n                          <a href="http://demo.33hao.com/shop/index.php?act=search&amp;op=index" target="_blank" title="测试">\r\n                <img src="http://v5.33hao.com/data/upload/shop/editor/web-101-102-3-4.jpg?162" alt="测试"></a>\r\n                                      </li>\r\n                        </ul>\r\n  </div>\r\n  </div>\r\n<script type="text/javascript">\r\n	update_screen_focus();\r\n</script>');
-INSERT INTO `33hao_web` (`web_id`, `web_name`, `style_name`, `web_page`, `update_time`, `web_sort`, `web_show`, `web_html`) VALUES
+INSERT INTO `xunshi_web` (`web_id`, `web_name`, `style_name`, `web_page`, `update_time`, `web_sort`, `web_show`, `web_html`) VALUES
 (121, '首页促销区', 'orange', 'index_sale', 1481515913, 120, 1, '\r\n    <ul class="tabs-nav">\r\n                                            <li class="tabs-selected"><h3>新品上架</h3></li>\r\n                          <li class=""><h3>热卖商品</h3></li>\r\n                          <li class=""><h3>疯狂抢购</h3></li>\r\n                          <li class=""><h3>猜您喜欢</h3></li>\r\n                          <li class=""><h3>热评商品</h3></li>\r\n                                        </ul>\r\n                                                                                                <div class="tabs-panel sale-goods-list ">\r\n                                    <ul>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102592" title="爵爷商务皮鞋 秋款男士正装 前系带 金属尖头低帮单鞋 黑色 38">\r\n                                          	爵爷商务皮鞋 秋款男士正装 前系带 金属尖头低帮单鞋 黑色 38</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102592">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/16/16_05000683915287946_240.jpg" alt="爵爷商务皮鞋 秋款男士正装 前系带 金属尖头低帮单鞋 黑色 38" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;108.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102700" title="纯色透气圆头单鞋男真皮方跟低帮鞋前系带男士皮鞋 棕色 38">\r\n                                          	纯色透气圆头单鞋男真皮方跟低帮鞋前系带男士皮鞋 棕色 38</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102700">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/16/16_05003068354931461_240.jpg" alt="纯色透气圆头单鞋男真皮方跟低帮鞋前系带男士皮鞋 棕色 38" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;88.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102649" title="优质超纤皮男鞋纯色前系带尖头低帮皮鞋 棕色 38">\r\n                                          	优质超纤皮男鞋纯色前系带尖头低帮皮鞋 棕色 38</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102649">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/16/16_05002911543965426_240.jpg" alt="优质超纤皮男鞋纯色前系带尖头低帮皮鞋 棕色 38" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;108.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102688" title="爵爷2015春秋商务正装男士皮鞋透气超纤皮男鞋 黑色 38">\r\n                                          	爵爷2015春秋商务正装男士皮鞋透气超纤皮男鞋 黑色 38</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102688">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/16/16_05003062100708546_240.jpg" alt="爵爷2015春秋商务正装男士皮鞋透气超纤皮男鞋 黑色 38" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;108.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102604" title="日常休闲鞋男士豆豆鞋驾车真皮男鞋英伦皮鞋 黄色 38">\r\n                                          	日常休闲鞋男士豆豆鞋驾车真皮男鞋英伦皮鞋 黄色 38</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102604">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/16/16_05001210537684207_240.jpg" alt="日常休闲鞋男士豆豆鞋驾车真皮男鞋英伦皮鞋 黄色 38" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;108.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                        </ul>\r\n                                  </div>\r\n                                                                                                        <div class="tabs-panel sale-goods-list tabs-hide">\r\n                                    <ul>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102020" title="冬装男装立领 男式纯棉T恤男士加厚加绒保暖打底衫 白色 M">\r\n                                          	冬装男装立领 男式纯棉T恤男士加厚加绒保暖打底衫 白色 M</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102020">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/15/15_04999727187217105_240.png" alt="冬装男装立领 男式纯棉T恤男士加厚加绒保暖打底衫 白色 M" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;73.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102165" title="2015秋新款男装男式牛仔裤男休闲商务长裤子韩版修身直筒 图片色 28">\r\n                                          	2015秋新款男装男式牛仔裤男休闲商务长裤子韩版修身直筒 图片色 28</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102165">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/15/15_04999963827312369_240.jpg" alt="2015秋新款男装男式牛仔裤男休闲商务长裤子韩版修身直筒 图片色 28" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;81.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102126" title="2015秋冬新款韩版女羽绒棉服女立领修身显瘦棉衣短款棉服外套 红色 L">\r\n                                          	2015秋冬新款韩版女羽绒棉服女立领修身显瘦棉衣短款棉服外套 红色 L</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102126">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/12/12_04999931964380007_240.jpg" alt="2015秋冬新款韩版女羽绒棉服女立领修身显瘦棉衣短款棉服外套 红色 L" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;103.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102070" title="新款女装韩版修身A字斗篷棉衣加厚保暖短外套大毛领连帽羽绒棉服 蓝色 M">\r\n                                          	新款女装韩版修身A字斗篷棉衣加厚保暖短外套大毛领连帽羽绒棉服 蓝色 M</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102070">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/12/12_04999920485539383_240.jpg" alt="新款女装韩版修身A字斗篷棉衣加厚保暖短外套大毛领连帽羽绒棉服 蓝色 M" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;118.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=101680" title="2015秋冬新款女装女式韩版修身短款棉衣棉服羽绒棉衣女 粉色 M">\r\n                                          	2015秋冬新款女装女式韩版修身短款棉衣棉服羽绒棉衣女 粉色 M</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=101680">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/12/12_04999938698283696_240.png" alt="2015秋冬新款女装女式韩版修身短款棉衣棉服羽绒棉衣女 粉色 M" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;112.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                        </ul>\r\n                                  </div>\r\n                                                                                                        <div class="tabs-panel sale-goods-list tabs-hide">\r\n                                    <ul>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=101559" title="2015冬季新款棉衣女修身大码羽绒棉服女士短款韩版连帽冬季防寒服 蓝色 M">\r\n                                          	2015冬季新款棉衣女修身大码羽绒棉服女士短款韩版连帽冬季防寒服 蓝色 M</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=101559">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/12/12_039f2d0f136e6927e9cfa6fff35e077_240.jpg" alt="2015冬季新款棉衣女修身大码羽绒棉服女士短款韩版连帽冬季防寒服 蓝色 M" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;88.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=101598" title="2015新款冬装棉衣外套女中长款大码加厚毛领羽绒棉服韩版修身棉袄 粉色 M">\r\n                                          	2015新款冬装棉衣外套女中长款大码加厚毛领羽绒棉服韩版修身棉袄 粉色 M</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=101598">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/12/12_cc322b39c176a5ae261b62795d46258_240.jpg" alt="2015新款冬装棉衣外套女中长款大码加厚毛领羽绒棉服韩版修身棉袄 粉色 M" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;119.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=101429" title="2015夏季新款鱼嘴凉鞋超高跟防水台夜店鞋透气网纱粗跟女鞋 粉色 34">\r\n                                          	2015夏季新款鱼嘴凉鞋超高跟防水台夜店鞋透气网纱粗跟女鞋 粉色 34</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=101429">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/6/6_04847714326505496_240.jpg" alt="2015夏季新款鱼嘴凉鞋超高跟防水台夜店鞋透气网纱粗跟女鞋 粉色 34" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;108.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102433" title="秋冬季时尚单鞋 糖果色亮面浅口细跟职业女鞋 漆皮镜面尖头高跟鞋 白色 34">\r\n                                          	秋冬季时尚单鞋 糖果色亮面浅口细跟职业女鞋 漆皮镜面尖头高跟鞋 白色 34</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102433">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/17/17_05000574018138552_240.jpg" alt="秋冬季时尚单鞋 糖果色亮面浅口细跟职业女鞋 漆皮镜面尖头高跟鞋 白色 34" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;119.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102265" title="秋季新款糖果色细跟单鞋 浅口真皮尖头高跟鞋 杏色 34">\r\n                                          	秋季新款糖果色细跟单鞋 浅口真皮尖头高跟鞋 杏色 34</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102265">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/17/17_05000548082598798_240.jpg" alt="秋季新款糖果色细跟单鞋 浅口真皮尖头高跟鞋 杏色 34" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;119.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                        </ul>\r\n                                  </div>\r\n                                                                                                        <div class="tabs-panel sale-goods-list tabs-hide">\r\n                                    <ul>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102865" title="酷迪璐新品男式夹克外套男士pu皮衣韩版休闲绒布接男装 蓝色 M">\r\n                                          	酷迪璐新品男式夹克外套男士pu皮衣韩版休闲绒布接男装 蓝色 M</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102865">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/18/18_05011806114146918_240.jpg" alt="酷迪璐新品男式夹克外套男士pu皮衣韩版休闲绒布接男装 蓝色 M" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;128.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102835" title="2015新款保暖加绒修身衬衫 白色 M">\r\n                                          	2015新款保暖加绒修身衬衫 白色 M</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102835">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/18/18_05011800162520471_240.jpg" alt="2015新款保暖加绒修身衬衫 白色 M" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;98.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102805" title="酷迪璐冬装男士加棉加厚长袖衬衫格子夹克衬衫 灰色 M">\r\n                                          	酷迪璐冬装男士加棉加厚长袖衬衫格子夹克衬衫 灰色 M</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102805">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/18/18_05011789584196803_240.jpg" alt="酷迪璐冬装男士加棉加厚长袖衬衫格子夹克衬衫 灰色 M" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;108.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102751" title="2015新款秋冬男式PU皮夹克外贸 海宁男士立领休闲修身外套 黑色 M">\r\n                                          	2015新款秋冬男式PU皮夹克外贸 海宁男士立领休闲修身外套 黑色 M</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102751">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/18/18_05011764627052815_240.jpg" alt="2015新款秋冬男式PU皮夹克外贸 海宁男士立领休闲修身外套 黑色 M" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;158.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102633" title="2015秋冬新款 全棉男式牛仔裤直筒型 图片色 28">\r\n                                          	2015秋冬新款 全棉男式牛仔裤直筒型 图片色 28</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102633">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/15/15_05002060806639307_240.jpg" alt="2015秋冬新款 全棉男式牛仔裤直筒型 图片色 28" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;89.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                        </ul>\r\n                                  </div>\r\n                                                                                                        <div class="tabs-panel sale-goods-list tabs-hide">\r\n                                    <ul>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102150" title="韩版品牌直筒修身牛仔裤 秋冬男士长裤休闲牛仔裤 图片色 28">\r\n                                          	韩版品牌直筒修身牛仔裤 秋冬男士长裤休闲牛仔裤 图片色 28</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102150">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/15/15_04999958412070501_240.jpg" alt="韩版品牌直筒修身牛仔裤 秋冬男士长裤休闲牛仔裤 图片色 28" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;82.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102005" title="冬装男装爆款 男式纯棉T恤男士加厚加绒保暖打底衫 黑色 M">\r\n                                          	冬装男装爆款 男式纯棉T恤男士加厚加绒保暖打底衫 黑色 M</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102005">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/15/15_04999724012252809_240.jpg" alt="冬装男装爆款 男式纯棉T恤男士加厚加绒保暖打底衫 黑色 M" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;69.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=101930" title="2015冬款新品 男式拼接长袖加厚加绒保暖V领T恤男装不倒绒 酒红 M">\r\n                                          	2015冬款新品 男式拼接长袖加厚加绒保暖V领T恤男装不倒绒 酒红 M</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=101930">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/15/15_04999707884947293_240.jpg" alt="2015冬款新品 男式拼接长袖加厚加绒保暖V领T恤男装不倒绒 酒红 M" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;65.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=101807" title="2015秋季新款男士长袖t恤潮纯棉秋长袖修身韩版青年体恤运动小衫 白拼枣红 M">\r\n                                          	2015秋季新款男士长袖t恤潮纯棉秋长袖修身韩版青年体恤运动小衫 白拼枣红 M</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=101807">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/15/15_04999618551849829_240.jpg" alt="2015秋季新款男士长袖t恤潮纯棉秋长袖修身韩版青年体恤运动小衫 白拼枣红 M" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;65.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                          <li>\r\n                                        <dl>\r\n                                          <dt class="goods-name"><a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102157" title="品牌男装牛仔裤纯棉商务男裤男式牛仔裤 图片色 28">\r\n                                          	品牌男装牛仔裤纯棉商务男裤男式牛仔裤 图片色 28</a></dt>\r\n                                          <dd class="goods-thumb">\r\n                                          	<a target="_blank" href="http://v5.33hao.com/shop/index.php?act=goods&op=index&goods_id=102157">\r\n                                          	<img src="http://v5.33hao.com/data/upload/shop/store/goods/15/15_04999961053663021_240.jpg" alt="品牌男装牛仔裤纯棉商务男裤男式牛仔裤 图片色 28" />\r\n                                          	</a></dd>\r\n                                          <dd class="goods-price">商城价：<em>&yen;89.00</em></dd>\r\n                                        </dl>\r\n                                      </li>\r\n                                                                        </ul>\r\n                                  </div>\r\n                                                              '),
 (122, '频道顶部测试', 'default', 'channel_tp', 1481027881, 255, 1, '');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_web_channel`
+-- 表的结构 `xunshi_web_channel`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_web_channel` (
+CREATE TABLE IF NOT EXISTS `xunshi_web_channel` (
   `channel_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '频道ID',
   `channel_name` varchar(50) DEFAULT '' COMMENT '频道名称',
   `channel_style` varchar(20) DEFAULT '' COMMENT '颜色风格',
@@ -11445,19 +11445,19 @@ CREATE TABLE IF NOT EXISTS `33hao_web_channel` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='商城频道表' AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `33hao_web_channel`
+-- 转存表中的数据 `xunshi_web_channel`
 --
 
-INSERT INTO `33hao_web_channel` (`channel_id`, `channel_name`, `channel_style`, `gc_id`, `gc_name`, `keywords`, `description`, `top_id`, `floor_ids`, `update_time`, `channel_show`) VALUES
+INSERT INTO `xunshi_web_channel` (`channel_id`, `channel_name`, `channel_style`, `gc_id`, `gc_name`, `keywords`, `description`, `top_id`, `floor_ids`, `update_time`, `channel_show`) VALUES
 (1, '频道测试', 'red', 1, '服饰鞋帽', '', '', 122, '', 1481027904, 1);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `33hao_web_code`
+-- 表的结构 `xunshi_web_code`
 --
 
-CREATE TABLE IF NOT EXISTS `33hao_web_code` (
+CREATE TABLE IF NOT EXISTS `xunshi_web_code` (
   `code_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '内容ID',
   `web_id` int(10) unsigned NOT NULL COMMENT '模块ID',
   `code_type` varchar(10) NOT NULL DEFAULT 'array' COMMENT '数据类型:array,html,json',
@@ -11469,10 +11469,10 @@ CREATE TABLE IF NOT EXISTS `33hao_web_code` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='模块内容表' AUTO_INCREMENT=164 ;
 
 --
--- 转存表中的数据 `33hao_web_code`
+-- 转存表中的数据 `xunshi_web_code`
 --
 
-INSERT INTO `33hao_web_code` (`code_id`, `web_id`, `code_type`, `var_name`, `code_info`, `show_name`) VALUES
+INSERT INTO `xunshi_web_code` (`code_id`, `web_id`, `code_type`, `var_name`, `code_info`, `show_name`) VALUES
 (11, 1, 'array', 'tit', 'a:5:{s:3:"pic";s:28:"shop/editor/web-1-11.png?926";s:3:"url";s:0:"";s:4:"type";s:3:"txt";s:5:"floor";s:2:"1F";s:5:"title";s:12:"潮流女装";}', '标题图片'),
 (12, 1, 'array', 'category_list', 'a:1:{s:11:"goods_class";a:13:{i:1103;a:2:{s:5:"gc_id";s:4:"1103";s:7:"gc_name";s:6:"衬衫";}i:1104;a:2:{s:5:"gc_id";s:4:"1104";s:7:"gc_name";s:4:"T恤";}i:1106;a:2:{s:5:"gc_id";s:4:"1106";s:7:"gc_name";s:9:"雪纺衫";}i:1524;a:2:{s:5:"gc_id";s:4:"1524";s:7:"gc_name";s:9:"情侣装";}i:1528;a:2:{s:5:"gc_id";s:4:"1528";s:7:"gc_name";s:12:"大码女装";}i:1264;a:2:{s:5:"gc_id";s:4:"1264";s:7:"gc_name";s:9:"连衣裙";}i:1265;a:2:{s:5:"gc_id";s:4:"1265";s:7:"gc_name";s:9:"半身裙";}i:1434;a:2:{s:5:"gc_id";s:4:"1434";s:7:"gc_name";s:6:"旗袍";}i:1253;a:2:{s:5:"gc_id";s:4:"1253";s:7:"gc_name";s:9:"牛仔裤";}i:1254;a:2:{s:5:"gc_id";s:4:"1254";s:7:"gc_name";s:9:"休闲裤";}i:1255;a:2:{s:5:"gc_id";s:4:"1255";s:7:"gc_name";s:9:"西装裤";}i:1443;a:2:{s:5:"gc_id";s:4:"1443";s:7:"gc_name";s:9:"七分裤";}i:1527;a:2:{s:5:"gc_id";s:4:"1527";s:7:"gc_name";s:6:"短裤";}}}', '推荐分类'),
 (13, 1, 'array', 'act', 'a:4:{s:3:"pic";s:28:"shop/editor/web-1-13.jpg?343";s:4:"type";s:3:"pic";s:5:"title";s:0:"";s:3:"url";s:27:"http://www.telaigou.cn/shop";}', '活动图片'),
@@ -11534,7 +11534,7 @@ INSERT INTO `33hao_web_code` (`code_id`, `web_id`, `code_type`, `var_name`, `cod
 (129, 8, 'array', 'banner', 'a:5:{s:3:"pic";s:29:"shop/editor/web-8-129.png?227";s:4:"type";s:3:"pic";s:5:"title";s:0:"";s:3:"url";s:21:"http://demo.33hao.com";s:4:"show";s:1:"1";}', ''),
 (130, 122, 'array', 'channel_tit', 'a:3:{s:3:"pic";s:0:"";s:3:"url";s:0:"";s:5:"title";s:12:"男女服装";}', '频道中部标题'),
 (131, 122, 'array', 'channel_act', 'a:4:{s:3:"pic";s:35:"shop/editor/channel-122-131.jpg?213";s:4:"type";s:3:"pic";s:5:"title";s:0:"";s:3:"url";s:0:"";}', '频道中部活动');
-INSERT INTO `33hao_web_code` (`code_id`, `web_id`, `code_type`, `var_name`, `code_info`, `show_name`) VALUES
+INSERT INTO `xunshi_web_code` (`code_id`, `web_id`, `code_type`, `var_name`, `code_info`, `show_name`) VALUES
 (132, 122, 'array', 'recommend_list', 'a:1:{i:1;a:2:{s:9:"recommend";a:1:{s:4:"name";s:12:"商品推荐";}s:10:"goods_list";a:8:{i:101559;a:5:{s:8:"goods_id";s:6:"101559";s:12:"market_price";s:6:"118.00";s:10:"goods_name";s:97:"2015冬季新款棉衣女修身大码羽绒棉服女士短款韩版连帽冬季防寒服 蓝色 M";s:11:"goods_price";s:5:"88.00";s:9:"goods_pic";s:62:"shop/store/goods/12/12_039f2d0f136e6927e9cfa6fff35e077_240.jpg";}i:101598;a:5:{s:8:"goods_id";s:6:"101598";s:12:"market_price";s:6:"169.00";s:10:"goods_name";s:97:"2015新款冬装棉衣外套女中长款大码加厚毛领羽绒棉服韩版修身棉袄 粉色 M";s:11:"goods_price";s:6:"119.00";s:9:"goods_pic";s:62:"shop/store/goods/12/12_cc322b39c176a5ae261b62795d46258_240.jpg";}i:101583;a:5:{s:8:"goods_id";s:6:"101583";s:12:"market_price";s:6:"228.00";s:10:"goods_name";s:94:"2015冬季新款棉衣女韩版加厚修身显瘦中长款连帽毛领外套棉袄女 蓝色 M";s:11:"goods_price";s:6:"168.00";s:9:"goods_pic";s:48:"shop/store/goods/12/12_04998647920805428_240.jpg";}i:101623;a:5:{s:8:"goods_id";s:6:"101623";s:12:"market_price";s:6:"192.00";s:10:"goods_name";s:96:"2015新款棉衣女 加厚羽绒棉服连帽中长款贴布刺绣 欧美风宽松大码 白色 M";s:11:"goods_price";s:6:"132.00";s:9:"goods_pic";s:62:"shop/store/goods/12/12_4eefff7530f50c03279f0ad372075be_240.jpg";}i:101635;a:5:{s:8:"goods_id";s:6:"101635";s:12:"market_price";s:6:"168.00";s:10:"goods_name";s:97:"2015秋冬装新款韩版中长款修身气质连帽毛领女装棉衣外套羽绒棉服 绿色 M";s:11:"goods_price";s:6:"138.00";s:9:"goods_pic";s:48:"shop/store/goods/12/12_04999935528632429_240.jpg";}i:101655;a:5:{s:8:"goods_id";s:6:"101655";s:12:"market_price";s:6:"195.00";s:10:"goods_name";s:82:"冬装新款2015羽绒棉服女中长款韩版连帽大毛领女式棉衣 蓝色 M";s:11:"goods_price";s:6:"165.00";s:9:"goods_pic";s:48:"shop/store/goods/12/12_04999940350217540_240.jpg";}i:102433;a:5:{s:8:"goods_id";s:6:"102433";s:12:"market_price";s:6:"199.00";s:10:"goods_name";s:99:"秋冬季时尚单鞋 糖果色亮面浅口细跟职业女鞋 漆皮镜面尖头高跟鞋 白色 34";s:11:"goods_price";s:6:"119.00";s:9:"goods_pic";s:48:"shop/store/goods/17/17_05000574018138552_240.jpg";}i:102265;a:5:{s:8:"goods_id";s:6:"102265";s:12:"market_price";s:6:"199.00";s:10:"goods_name";s:71:"秋季新款糖果色细跟单鞋 浅口真皮尖头高跟鞋 杏色 34";s:11:"goods_price";s:6:"119.00";s:9:"goods_pic";s:48:"shop/store/goods/17/17_05000548082598798_240.jpg";}}}}', '频道中部商品'),
 (133, 122, 'array', 'adv_a', 'a:3:{s:8:"pic_name";s:0:"";s:3:"pic";s:35:"shop/editor/channel-122-133.jpg?162";s:7:"pic_url";s:0:"";}', '频道中部广告1'),
 (134, 122, 'array', 'adv_b', 'a:3:{s:8:"pic_name";s:0:"";s:3:"pic";s:35:"shop/editor/channel-122-134.jpg?188";s:7:"pic_url";s:0:"";}', '频道中部广告2'),

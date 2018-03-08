@@ -1,3 +1,4 @@
+import shop from '../../utils/shop'
 Page({
 
   /**
@@ -6,8 +7,23 @@ Page({
   data: {
     winHeight:0,
     info:[
-      { username: '圣诞节', jifen: 0, isVip: false, tx: "/images/tx.jpg", erweima: ["/images/infocenter/erweima.jpg"],phone:"4545646455"}
+      {
+        username: '圣诞节',
+        jifen: 0,
+        isVip: false,
+        tx: "/images/tx.jpg",
+        erweima: ["/images/infocenter/erweima.jpg"],
+        phone:"4545646455"
+      }
     ],
+    userInfo: {
+      username: '未登录',
+      jifen: 0,
+      isVip: false,
+      avatarUrl: "/images/tx.jpg",
+      erweima: ["/images/infocenter/erweima.jpg"],
+      phone: null
+    },
   },
   imgyu:function(e){
     console.log(e);
@@ -28,5 +44,8 @@ Page({
         });
       }
     });
-  }
+    that.setData({
+      userInfo: shop.getUserInfo()
+    })
+  },
 })
