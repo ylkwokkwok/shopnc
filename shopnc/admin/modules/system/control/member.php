@@ -293,7 +293,7 @@ class memberControl extends SystemControl{
         $order = '';
         $param = array('member_id','member_name','member_avatar','member_email','member_mobile','member_sex','member_truename','member_birthday'
                 ,'member_time','member_login_time','member_login_ip','member_points','member_exppoints','member_grade','available_predeposit'
-                ,'freeze_predeposit','available_rc_balance','freeze_rc_balance','inform_allow','is_buy','is_allowtalk','member_state'
+                ,'freeze_predeposit','available_rc_balance','freeze_rc_balance','inform_allow','is_buy','is_allowtalk','member_state','integral','ifvip','shop_name','branch_shop_name'
         );
         if (in_array($_POST['sortname'], $param) && in_array($_POST['sortorder'], array('asc', 'desc'))) {
             $order = $_POST['sortname'] . ' ' . $_POST['sortorder'];
@@ -317,6 +317,10 @@ class memberControl extends SystemControl{
             $param['member_sex'] = $sex_array[$value['member_sex']];
             $param['member_truename'] = $value['member_truename'];
             $param['member_birthday'] = $value['member_birthday'];
+            $param['member_integral'] = $value['integral'];
+            $param['member_ifvip'] = $value['ifvip']=='1' ?'<span class="yes"><i class="fa fa-check-circle"></i>是</span>' : '<span class="no"><i class="fa fa-ban"></i>否</span>';
+            $param['shop_name'] = $value['shop_name'];
+            $param['branch_shop_name'] = $value['branch_shop_name'];
             $param['member_time'] = date('Y-m-d', $value['member_time']);
             $param['member_login_time'] = date('Y-m-d', $value['member_login_time']);
             $param['member_login_ip'] = $value['member_login_ip'];

@@ -276,7 +276,7 @@ class cacheModel extends Model {
     /**
      * 生成消费者保障服务项目缓存
      */
-    private function _contractitem(){ 
+    private function _contractitem(){
         $model_contract = Model('contract');
         $itemstate_arr = $model_contract->getItemState();
         $item_list_tmp = $model_contract->contractItemList(array(),'cti_sort asc');
