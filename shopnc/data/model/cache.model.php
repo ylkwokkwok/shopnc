@@ -259,18 +259,18 @@ class cacheModel extends Model {
         if (file_exists(BASE_PATH.DS.ADMIN_MODULES_SHOP.'/include/menu.php')) {
             require(BASE_PATH.DS.ADMIN_MODULES_SHOP.'/include/menu.php');
         }
-        if (file_exists(BASE_PATH.DS.ADMIN_MODULES_CMS.'/include/menu.php')) {
-            require(BASE_PATH.DS.ADMIN_MODULES_CMS.'/include/menu.php');
-        }
-        if (file_exists(BASE_PATH.DS.ADMIN_MODULES_CIECLE.'/include/menu.php')) {
-            require(BASE_PATH.DS.ADMIN_MODULES_CIECLE.'/include/menu.php');
-        }
-        if (file_exists(BASE_PATH.DS.ADMIN_MODULES_MICEOSHOP.'/include/menu.php')) {
-            require(BASE_PATH.DS.ADMIN_MODULES_MICEOSHOP.'/include/menu.php');
-        }
-        if (file_exists(BASE_PATH.DS.ADMIN_MODULES_MOBILE.'/include/menu.php')) {
-            require(BASE_PATH.DS.ADMIN_MODULES_MOBILE.'/include/menu.php');
-        }
+//        if (file_exists(BASE_PATH.DS.ADMIN_MODULES_CMS.'/include/menu.php')) {
+//            require(BASE_PATH.DS.ADMIN_MODULES_CMS.'/include/menu.php');
+//        }
+//        if (file_exists(BASE_PATH.DS.ADMIN_MODULES_CIECLE.'/include/menu.php')) {
+//            require(BASE_PATH.DS.ADMIN_MODULES_CIECLE.'/include/menu.php');
+//        }
+//        if (file_exists(BASE_PATH.DS.ADMIN_MODULES_MICEOSHOP.'/include/menu.php')) {
+//            require(BASE_PATH.DS.ADMIN_MODULES_MICEOSHOP.'/include/menu.php');
+//        }
+//        if (file_exists(BASE_PATH.DS.ADMIN_MODULES_MOBILE.'/include/menu.php')) {
+//            require(BASE_PATH.DS.ADMIN_MODULES_MOBILE.'/include/menu.php');
+//        }
         return $_menu;
     }
     /**

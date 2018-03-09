@@ -1,0 +1,48 @@
+[2018-03-08 14:13:55] /chain/index.php?act=login&op=index ( act=login&op=index ) 
+ERR: Db Error: Table 'xunshi.33hao_navigation' doesn't exist
+SELECT * FROM `33hao_navigation` ORDER BY nav_sort 
+[2018-03-08 14:14:29] /admin/index.php?act=login&op=login ( act=login&op=login ) 
+ERR: Db Error: Table 'xunshi.33hao_lock' doesn't exist
+SELECT * FROM `33hao_lock` WHERE ( pid = '213070643305' ) LIMIT 1  
+[2018-03-08 14:14:29] /admin/index.php?act=login&op=login ( act=login&op=login ) 
+ERR: Db Error: Table 'xunshi.33hao_admin' doesn't exist
+SELECT * FROM `33hao_admin` as `admin`  WHERE  admin_name = 'admin' and admin_password = '7fef6171469e80d32c0559f88b377245'
+[2018-03-08 14:14:29] /admin/index.php?act=login&op=login ( act=login&op=login ) 
+ERR: Db Error: Table 'xunshi.33hao_lock' doesn't exist
+SELECT * FROM `33hao_lock` WHERE ( pid = '21307064335' ) LIMIT 1  
+[2018-03-08 14:14:29] /admin/index.php?act=login&op=login ( act=login&op=login ) 
+ERR: Db Error: Table 'xunshi.33hao_lock' doesn't exist
+SELECT * FROM `33hao_lock` WHERE ( pid = '21307064335' ) LIMIT 1  
+[2018-03-08 14:14:29] /admin/index.php?act=login&op=login ( act=login&op=login ) 
+ERR: Db Error: Table 'xunshi.33hao_lock' doesn't exist
+INSERT  INTO `33hao_lock` (pid,pvalue,expiretime) VALUES ('21307064335','1','1520490269')
+[2018-03-08 14:14:44] /admin/index.php?act=login&op=login ( act=login&op=login ) 
+ERR: Db Error: Table 'xunshi.33hao_lock' doesn't exist
+SELECT * FROM `33hao_lock` WHERE ( pid = '213070643305' ) LIMIT 1  
+[2018-03-08 14:14:44] /admin/index.php?act=login&op=login ( act=login&op=login ) 
+ERR: Db Error: Table 'xunshi.33hao_admin' doesn't exist
+SELECT * FROM `33hao_admin` as `admin`  WHERE  admin_name = 'admin' and admin_password = '7fef6171469e80d32c0559f88b377245'
+[2018-03-08 14:14:44] /admin/index.php?act=login&op=login ( act=login&op=login ) 
+ERR: Db Error: Table 'xunshi.33hao_lock' doesn't exist
+SELECT * FROM `33hao_lock` WHERE ( pid = '21307064335' ) LIMIT 1  
+[2018-03-08 14:14:44] /admin/index.php?act=login&op=login ( act=login&op=login ) 
+ERR: Db Error: Table 'xunshi.33hao_lock' doesn't exist
+SELECT * FROM `33hao_lock` WHERE ( pid = '21307064335' ) LIMIT 1  
+[2018-03-08 14:14:44] /admin/index.php?act=login&op=login ( act=login&op=login ) 
+ERR: Db Error: Table 'xunshi.33hao_lock' doesn't exist
+INSERT  INTO `33hao_lock` (pid,pvalue,expiretime) VALUES ('21307064335','1','1520490284')
+[2018-03-08 14:15:09] /admin/index.php?act=login&op=login ( act=login&op=login ) 
+ERR: Db Error: Table 'xunshi.33hao_lock' doesn't exist
+SELECT * FROM `33hao_lock` WHERE ( pid = '213070643305' ) LIMIT 1  
+[2018-03-08 14:15:09] /admin/index.php?act=login&op=login ( act=login&op=login ) 
+ERR: Db Error: Table 'xunshi.33hao_admin' doesn't exist
+SELECT * FROM `33hao_admin` as `admin`  WHERE  admin_name = 'admin' and admin_password = '7fef6171469e80d32c0559f88b377245'
+[2018-03-08 14:15:09] /admin/index.php?act=login&op=login ( act=login&op=login ) 
+ERR: Db Error: Table 'xunshi.33hao_lock' doesn't exist
+SELECT * FROM `33hao_lock` WHERE ( pid = '21307064335' ) LIMIT 1  
+[2018-03-08 14:15:09] /admin/index.php?act=login&op=login ( act=login&op=login ) 
+ERR: Db Error: Table 'xunshi.33hao_lock' doesn't exist
+SELECT * FROM `33hao_lock` WHERE ( pid = '21307064335' ) LIMIT 1  
+[2018-03-08 14:15:09] /admin/index.php?act=login&op=login ( act=login&op=login ) 
+ERR: Db Error: Table 'xunshi.33hao_lock' doesn't exist
+INSERT  INTO `33hao_lock` (pid,pvalue,expiretime) VALUES ('21307064335','1','1520490309')

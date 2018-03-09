@@ -6,7 +6,7 @@
       <div class="subject">
         <h3><?php echo $lang['member_index_manage']?></h3>
         <h5><?php echo $lang['member_system_manage_subhead']?></h5>
-      </div> <?php echo $output['top_link'];?>
+<!--      </div> --><?php //echo $output['top_link'];?>
     </div>
   </div>
   <!-- 操作说明 -->
@@ -36,6 +36,10 @@ $(function(){
             {display: '会员性别', name : 'member_sex', width : 60, sortable : true, align: 'center'},
             {display: '真实姓名', name : 'member_truename', width : 100, sortable : true, align: 'left'},
             {display: '出生日期', name : 'member_birthday', width : 100, sortable : true, align: 'center'},
+            {display: '积分', name : 'member_integral', width : 100, sortable : true, align: 'center'},
+            {display: '是否vip', name : 'member_integral', width : 100, sortable : true, align: 'center'},
+            {display: '商家店名', name : 'shop_name', width : 100, sortable : true, align: 'center'},
+            {display: '分销店名', name : 'branch_name', width : 100, sortable : true, align: 'center'},
             {display: '注册时间', name : 'member_time', width : 100, sortable : true, align: 'center'},
             {display: '最后登录时间', name : 'member_login_time', width : 100, sortable : true, align: 'center'},
             {display: '最后登录IP', name : 'member_login_ip', width : 100, sortable : true, align: 'center'},

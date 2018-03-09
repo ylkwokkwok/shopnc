@@ -2,8 +2,8 @@
 
 <div class="login-layout">
   <div class="top">
-    <h2><?php echo $lang['login_index_title_02'];?></h2>
-    <h6><?php echo $lang['login_index_title_03'];?></h6>
+    <h2><?php echo '云派易购商城平台管理中心';?></h2>
+<!--    <h6>--><?php //echo $lang['login_index_title_03'];?><!--</h6>-->
   </div>
   <form method="post" id="form_login">
     <?php Security::getToken();?>

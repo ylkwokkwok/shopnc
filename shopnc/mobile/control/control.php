@@ -17,7 +17,7 @@ defined('In33hao') or exit('Access Invalid!');
 class mobileControl{
 
     //客户端类型
-    protected $client_type_array = array('android', 'wap', 'wechat', 'ios', 'windows');
+    protected $client_type_array = array('android', 'wap', 'wechat', 'ios', 'windows', 'xcx');
     //列表默认分页数
     protected $page = 5;
 

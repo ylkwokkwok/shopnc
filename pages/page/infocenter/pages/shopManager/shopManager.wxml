@@ -17,8 +17,12 @@
         <navigator class="{{curTab==1?'on':''}}" data-current="1" bindtap='shaiTab'>促销</navigator>
       </view>
       <view class="bottom">
-        <view style="{{curTab==0?'display:block':'display:none'}}"></view>
-        <view style="{{curTab==1?'display:block':'display:none'}}"></view>
+        <!--全部-->
+        <view style="{{curTab==0?'display:block':'display:none'}}" class="shoplist">
+          
+        </view>
+        <!--促销-->
+        <view style="{{curTab==1?'display:block':'display:none'}}" class="shoplist"></view>
       </view>
     </view>
     <!--仓库-->
@@ -28,8 +32,10 @@
         <navigator class="{{curTab==1?'on':''}}" data-current="1" bindtap='shaiTab'>促销</navigator>
       </view>
       <view class="bottom">
-        <view style="{{curTab==0?'display:block':'display:none'}}"></view>
-        <view style="{{curTab==1?'display:block':'display:none'}}"></view>
+      <!--全部-->
+        <view style="{{curTab==0?'display:block':'display:none'}}" class="shoplist"></view>
+      <!--促销-->
+        <view style="{{curTab==1?'display:block':'display:none'}}" class="shoplist"></view>
       </view>
     </view>
   </view>

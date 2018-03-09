@@ -1,0 +1,8 @@
+*/.idea
+/pages/.idea
+/shopnc/.idea
+/shopnc/data/config/config.ini.php
+/shopnc/data/log
+/shopnc/data/session
+/shopnc/data/cache
+/.idea
