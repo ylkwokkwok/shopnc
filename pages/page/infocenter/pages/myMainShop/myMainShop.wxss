@@ -208,6 +208,13 @@
   height: 480rpx;
   float: left;
   margin-bottom: 20rpx;
+  position: relative;
+}
+.shoplist .bottom .zhe{
+  position: absolute;
+  top:10rpx;
+  left: 10rpx;
+  width: 55rpx;
 }
 .shoplist .elme:nth-child(even){
   margin-right: 0;

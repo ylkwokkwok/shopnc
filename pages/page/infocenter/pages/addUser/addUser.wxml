@@ -1,0 +1,20 @@
+<view  class="container">
+  <form catchsubmit="formSubmit">
+    <view class="same">
+      <label>账号</label>
+      <input name="username"></input>
+      <text>{{usernamePrompt}}</text>
+    </view>
+    <view class="same">
+      <label>新密码</label>
+      <input name="psw" password='true'></input>
+      <text>{{pswPrompt}}</text>
+    </view>
+    <view class="same">
+      <label>确认密码</label>
+      <input name="confirmpsw" password='true'></input>
+      <text>{{confirmPswPrompt}}</text>
+    </view>
+    <button type='primary' class="sureBtn" hover-class="none">确认添加</button>
+  </form>
+</view>

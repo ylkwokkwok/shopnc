@@ -216,7 +216,7 @@
   width: 630rpx;
   overflow: hidden;
 }
-.shopName .bottom>navigator{
+.shopName .bottom>navigator,.shopName .bottom>view{
   width: 255rpx;
   height: 40rpx;
   border:1px solid #ccc;

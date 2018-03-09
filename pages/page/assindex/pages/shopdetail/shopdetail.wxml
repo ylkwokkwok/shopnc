@@ -71,8 +71,13 @@
       </view>
     </view>
     <view class="bottom">
-      <navigator>收藏店铺</navigator>
-      <navigator class="joinstore">进入店铺</navigator>
+      <block wx:if="{{isCollect}}">
+        <view bindtap='collectSel'>收藏店铺</view>
+      </block>
+      <block wx:else>
+        <view bindtap='collectSel'>已收藏该店铺</view>
+      </block>
+      <navigator class="joinstore" url="../../../infocenter/pages/myMainShop/myMainShop">进入店铺</navigator>
     </view>
   </view> 
   <!--评价-->
@@ -120,8 +125,8 @@
         <image src="/images/assortment/customer.png" ></image>
         <view>客服</view>
       </navigator>
-      <navigator class="first">
-        <image src="/images/assortment/intoStore.png" ></image>
+      <navigator class="first" url="../../../infocenter/pages/myMainShop/myMainShop">
+        <image src="/images/assortment/intoStore.png"></image>
         <view>进店</view>
       </navigator>
       <navigator class="first">
