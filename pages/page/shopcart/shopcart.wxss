@@ -233,6 +233,99 @@ button {
 .price{
   color: red;
 }
+/* address */
+.overflow-hidden{
+  overflow: hidden;
+}
+.overflow-auto{
+  overflow: auto;
+}
+.bg{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  background-color: rgba(0,0,0,.3);
+}
+.alert-box{
+  position: fixed;
+  width: 100%;
+  height: 60%;
+  left: 0;
+  bottom: 0;
+  z-index: 300;
+  background-color: #ffffff;
+  overflow: auto;
+  font-size: 30rpx;
+  color: #333333;
+}
+.alter-header{
+  height: 70rpx;
+  display: flex;
+  justify-content: center;
+  background-color: #eeeeee;
+  position: relative;
+}
+.alter-header text{
+  display: flex;
+  font-size: 36rpx;
+  line-height: 70rpx;
+}
+.alter-header image{
+  width: 36rpx;
+  height: 36rpx;
+  position:absolute;
+  right: 20rpx;
+  top: 22rpx;
+  vertical-align: middle;
+}
+.address-list{
+  display: flex;
+  flex-direction: column;
+}
+.address-item{
+  display: flex;
+  flex-direction: row;
+  height: 128rpx;
+  border-bottom: 1px solid #eeeeee;
+}
+.address-item radio{
+  margin-left: 20rpx;
+  margin-top: 50rpx;
+}
+.address-item-info{
+  width: 100%;
+  margin: 32rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+  line-height: 30rpx;
+}
+.address-item-icon{
+  display: flex;
+  justify-content: center;
+  margin-right: 20rpx;
+}
+.address-item-icon image{
+  display: flex;
+  width: 36rpx;
+  height: 36rpx;
+  margin-top: 46rpx;
+  vertical-align: middle;
+}
+.add-address image{
+  margin-left: 20rpx;
+  width: 36rpx;
+  height: 36rpx;
+  vertical-align: middle;
+}
+.add-address view{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 30rpx;
+}
 
 
 
