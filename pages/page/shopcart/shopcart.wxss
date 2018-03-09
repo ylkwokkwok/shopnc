@@ -54,6 +54,9 @@
   display:flex;
   flex-direction:row;
 }
+.goods-list .goods radio{
+  margin-top: 85rpx;
+}
 .goods-list .goods .goods-image-wrapper {
   display:flex;
   margin-right:5px;
