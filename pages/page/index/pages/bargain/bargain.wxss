@@ -1,0 +1,152 @@
+.container{
+  background-color: #f6f6f6;
+}
+
+.goods{
+  background-color: #ffffff;
+  padding: 18rpx 25rpx 26rpx 66rpx;
+}
+.goods-img{
+  padding-right: 55rpx;
+}
+.goods-img image{
+  width: 158rpx;
+  height: 158rpx;
+  vertical-align: middle;
+  border: 1px solid #e5e5e5;
+}
+.goods-info .goods-name{
+  font-size: 28rpx;
+  height:56rpx;
+  line-height:28rpx;
+  overflow:hidden;
+}
+.bargain-contro{
+  width: 710rpx;
+  height: 300rpx;
+  margin: 25rpx 20rpx;
+  border-radius: 30rpx;
+  background-color: #ffffff;
+}
+.bc-notice{
+  display: flex;
+  justify-content: center;
+  font-size: 30rpx;
+  padding-top: 55rpx;
+  padding-bottom: 31rpx;
+}
+.bc-notice .red{
+  font-size: 36rpx;
+  line-height: 30rpx;
+}
+.bc-btn{
+  margin: 0 auto;
+  height: 90rpx;
+  width: 475rpx;
+}
+.bc-btn button{
+  background-color: #e8b223;
+  color: #ffffff;
+  font-size: 28rpx;
+  border-radius: 10rpx;
+}
+.bc-time {
+  text-align: center;
+  font-size: 30rpx;
+  color: #333333;
+}
+.bargain-list{
+  margin-top: 25rpx;
+  background-color: #ffffff;
+  width: 100%;
+}
+.bl-title{
+  text-align: center;
+  font-size: 36rpx;
+  color: #333333;
+  margin-top: 17rpx;
+}
+.bl-item{
+  display: flex;
+  flex-direction: row;
+  padding: 0 20rpx 10rpx 20rpx;
+  height: 95rpx;
+  justify-content: space-between;
+}
+.bl-item .bl-item-img image{
+  width: 75rpx;
+  height: 75rpx;
+  border-radius: 37.5rpx;
+  margin-right: 25rpx;
+}
+.bl-item .bl-item-name{
+  font-size: 24rpx;
+  color: #333333;
+}
+.bl-item .bl-item-icon image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 25rpx;
+}
+.bl-item .bl-item-price{
+  font-size: 30rpx;
+  color: red;
+}
+.buy{
+  margin: 20rpx;
+}
+.buy button{
+  width: 710rpx;
+  height: 90rpx;
+  border-radius: 15rpx;
+  background-color: #568fdc;
+  color: #ffffff;
+  font-size: 34rpx;
+}
+/* alert */
+.bg{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  background-color: rgba(0,0,0,.3);
+}
+.alert-box{
+  position: fixed;
+  width: 100%;
+  height: 60%;
+  left: 0;
+  bottom: 0;
+  z-index: 300;
+  background-color: #ffffff;
+  overflow: auto;
+  font-size: 30rpx;
+  color: #333333;
+}
+.alter-header{
+  height: 70rpx;
+  display: flex;
+  justify-content: center;
+  background-color: #eeeeee;
+  position: relative;
+}
+.alter-header text{
+  display: flex;
+  font-size: 36rpx;
+  line-height: 70rpx;
+}
+.alter-header image {
+  width: 36rpx;
+  height: 36rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 22rpx;
+  vertical-align: middle;
+}
+
+
+
+
+

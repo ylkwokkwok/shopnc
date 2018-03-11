@@ -1,0 +1,62 @@
+<view class="container">
+  <view class="goods flex-row">
+    <view class="goods-img">
+      <image src="{{goods.goods_img}}"/>
+    </view>
+    <view class="goods-info flex-cloumn">
+      <view class="goods-name">
+        {{goods.goods_name}}
+      </view>
+      <view class="bargin-notice flex-row">
+        <text class="red" style="padding-right: 38rpx;">仅剩{{goods.goods_inventory}}份</text>
+        <text style="font-size: 20rpx; color: #666666; line-height: 38rpx">已有{{goods.sale_number}}人0元拿</text>
+      </view>
+      <view class="flex-row" style="font-size: 24rpx; color: #666666; padding-top: 20rpx;justify-content: space-between">
+        <text>原价: ￥{{goods.goods_price}}</text>
+        <view style="color: #568fdc" bindtap="showRules">游戏规则</view>
+      </view>
+    </view>
+  </view>
+  <view class="bargain-contro flex-column">
+    <view class="bc-notice">
+      <text>已砍</text><text class="red">50</text><text>元，还差</text><text class="red">1950</text><text>元</text>
+    </view>
+    <view class="bc-btn">
+      <button>分享好友多砍一刀</button>
+    </view>
+    <view class="bc-time">剩余砍价时间: {{time.h}}:{{time.i}}:{{time.s}}</view>
+  </view>
+  <view class="bargain-list">
+    <view class="bl-title">砍价帮</view>
+    <view class="bl-item" wx:for="{{bargainList}}" wx:for-item="bargainItem" wx:key="key">
+      <view class="flex-row">
+        <view class="bl-item-img">
+          <image src="{{bargainItem.img}}"/>
+        </view>
+        <view class="bl-item-name">{{bargainItem.name}}</view>
+        </view>
+      <view class="flex-row">
+        <view class="bl-item-icon">
+          <image src="/images/house.png"></image>
+        </view>
+        <view class="bl-item-price">已砍{{bargainItem.price}}元</view>
+      </view>
+    </view>
+  </view>
+  <view class="buy">
+    <button bindtap="toBuy">立即购买</button>
+  </view>
+</view>
+<!--弹出层-->
+<view wx:if="{{showRulesStatus}}">
+  <view class="bg" bindtap="cancelShowRules"></view>
+  <view class="alert-box">
+    <view class="alter-header">
+      <text>游戏规则</text>
+      <image src="/images/infocenter/cancel.png" bindtap="cancelShowRules"/>
+    </view>
+    <view>
+      rules
+    </view>
+  </view>
+</view>
