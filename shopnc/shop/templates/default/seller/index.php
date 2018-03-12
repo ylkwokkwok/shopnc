@@ -22,8 +22,8 @@
          </h5>
         </dt>
         <dd class="store-logo">
-          <p><img src="<?php echo getStoreLogo($output['store_info']['store_label'],'store_logo');?>"/></p>
-          <a href="<?php echo urlShop('store_setting', 'store_setting');?>"><i class="icon-edit"></i>编辑店铺设置</a> </dd>
+<!--          <p><img src="--><?php //echo getStoreLogo($output['store_info']['store_label'],'store_logo');?><!--"/></p>-->
+<!--          <a href="--><?php //echo urlShop('store_setting', 'store_setting');?><!--"><i class="icon-edit"></i>编辑店铺设置</a> </dd>-->
         <dd class="seller-permission">管理权限：<strong><?php echo $_SESSION['seller_group_name'];?></strong></dd>
         <dd class="seller-last-login">最后登录：<strong><?php echo $_SESSION['seller_last_login_time'];?></strong> </dd>
         <dd class="store-name"><?php echo $lang['store_name'].$lang['nc_colon'];?><a href="<?php echo urlShop('show_store', 'index', array('store_id' => $_SESSION['store_id']), $output['store_info']['store_domain']);?>" ><?php echo $output['store_info']['store_name'];?></a></dd>

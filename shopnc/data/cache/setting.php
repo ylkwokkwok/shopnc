@@ -182,7 +182,7 @@
   'statistics_code' => 'Copyright 2016 <a href="http://bbs.33hao.com" target="_blank">好商城</a> All rights reserved.<br />本演示来源于<a href="http://33haocom.taobao.com" target="_blank">bbs.33hao.com</a>',
   'stat_orderpricerange' => '',
   'stat_pricerange' => '',
-  'store_joinin_pic' => 'a:2:{s:8:"show_txt";s:293:"好商城平台为国内最大的B2B2C电商平台，提供各类专业管家服务，协助您开通店铺、运营店铺、组织营销活动及分析运营数据，悉心为您解答各类疑问，引导您按相关规则展开运营；我们将竭尽全力，为您的店铺保驾护航。";s:3:"pic";a:3:{i:1;s:18:"store_joinin_1.jpg";i:2;s:18:"store_joinin_2.jpg";i:3;s:18:"store_joinin_3.jpg";}}',
+  'store_joinin_pic' => 'a:2:{s:8:"show_txt";s:267:"云派易购电商平台，提供各类专业管家服务，协助您开通店铺、运营店铺、组织营销活动及分析运营数据，悉心为您解答各类疑问，引导您按相关规则展开运营；我们将竭尽全力，为您的店铺保驾护航。";s:3:"pic";a:3:{i:1;s:18:"store_joinin_1.jpg";i:2;s:18:"store_joinin_2.jpg";i:3;s:18:"store_joinin_3.jpg";}}',
   'subdomain_edit' => '0',
   'subdomain_length' => '3-12',
   'subdomain_reserved' => 'www',
