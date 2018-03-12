@@ -116,7 +116,7 @@ class store_joinincControl extends BaseHomeControl {
             $param['business_licence_number'] = $_POST['business_licence_number'];
             $param['business_sphere'] = $_POST['business_sphere'];
             $param['business_licence_number_elc'] = $_POST['business_licence_number_elc1'];
-	    $param['organization_code_electronic'] = $_POST['organization_code_electronic1'];
+	        $param['organization_code_electronic'] = $_POST['organization_code_electronic1'];
              $param['general_taxpayer'] = $_POST['general_taxpayer1'];
 
             $this->step2_save_valid($param);

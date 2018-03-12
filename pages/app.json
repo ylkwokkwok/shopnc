@@ -31,7 +31,10 @@
     "page/infocenter/pages/addUser/addUser",
     "page/infocenter/pages/userList/userList",
     "page/infocenter/pages/shopManager/shopManager",
-    "page/shopcart/shopcart"
+    "page/shopcart/shopcart",
+    "page/index/pages/bargain/bargain",
+    "page/index/pages/bargain_list/bargain_list",
+    "page/index/pages/buy/buy"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,3 +1,4 @@
+import shop from '../../../../utils/shop'
 var interval = null //倒计时函数
 Page({
 
@@ -10,52 +11,120 @@ Page({
     winHeight:0,
     showSel: false,
     xieyi:"的数据库办法的就是看阿斯达克警方把数据库的士大夫饭卡斯达克警方啊十大科技发生大家看法阿三的客服解决啊数据库的沙发上的夫卡是的基本饭卡手动阀安德森会计法科技时代发啊都十分骄傲的设计开发",
-    shopnameValue:'',
-    contactValue:'',
-    idcardValue:'',
-    introValue:'',
+    store_logo: '',
+    store_name:'',
+    contacts_name:'',
+    contacts_phone: '',
+    contacts_email: '',
+    contacts_idcard: '',
+    remark: '',
     currentTime: 61,
-    disabled:false
+    disabled:false,
+    sc_id: 0,
+    sc_name: '',
+    classListIndex: 0,
+    classList: [],
+    applyStatus: 0, // 0 未申请 1 待审核
+  },
+  bindPickerChange: function (e) {
+    let selectedClass = this.data.classList[e.detail.value]
+    this.setData({
+      sc_id: selectedClass.sc_id,
+      sc_name: selectedClass.sc_name,
+      classListIndex: e.detail.value
+    })
+  },
+  getStoreClassList: function () {
+    let that = this
+    shop.getStoreClassList().then(res => {
+      if(res.code == 200){
+        that.setData({
+          classList: res.datas.store_class,
+          sc_id: res.datas.store_class[0].sc_id,
+          sc_name: res.datas.store_class[0].sc_name,
+          applyStatus: res.datas.apply_status
+        })
+        if (res.datas.apply_status == 1){
+          that.setData({
+            store_name:res.datas.store_name,
+            contacts_name:res.datas.contacts_name,
+            contacts_phone: res.datas.contacts_phone,
+            contacts_email: res.datas.contacts_email,
+            contacts_idcard: res.datas.store_name,
+            remark: res.datas.remark,
+          })
+          for (var key in that.data.classList){
+            if (this.data.sc_id == that.data.classList[key].sc_id){
+              that.setData({
+                sc_id: that.data.classList[key].sc_id,
+                sc_name: that.data.classList[key].sc_name,
+                classListIndex: key,
+              })
+            }
+          }
+        }
+      }else{
+        wx.showToast({
+          title: "获取信息失败",
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
+  },
+  formSubmit: function () {
+    let validates = {
+      store_name:'请填写店铺名称',
+      contacts_name:'请填写联系人',
+      contacts_phone: '请填写电话号码',
+      contacts_email: '请填写邮箱',
+      contacts_idcard: '请填写身份证号',
+      remark: '请填写简单介绍',
+    }
+    let that = this
+    let data = {}
+    for (var key in validates){
+      if (that.data[key] == ''){
+        wx.showToast({
+          title: validates[key],
+          icon: 'none',
+          duration: 2000
+        })
+        return
+      }
+      data[key] = that.data[key]
+    }
+    console.log('validate success')
+    data.sc_id = that.data.sc_id
+    shop.applyStore(data).then(res => {
+      if(res.code == 200){
+        //success
+        wx.showToast({
+          title: "申请成功",
+          icon: 'success',
+          duration: 2000
+        })
+      }else{
+        //error
+        wx.showToast({
+          title: res.datas.error,
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
   },
   bindKeyInput:function(e){
-    var id=e.currentTarget.dataset.id;
-    if(id==1){
-      this.setData({
-        shopnameValue: e.detail.value//将input至与data中的inputValue绑定
-      })
-    }else if(id==2){
-      this.setData({
-        contactValue: e.detail.value//将input至与data中的inputValue绑定
-      })
-    }else if(id==3){
-      this.setData({
-        idcardValue: e.detail.value//将input至与data中的inputValue绑定
-      })
-    }else{
-      this.setData({
-        introValue: e.detail.value//将input至与data中的inputValue绑定
-      })
-    }
+    var key = e.currentTarget.dataset.key
+    var obj = {}
+    obj[key] = e.detail.value
+    this.setData(obj)
   },
   clearInput:function(e){
-    var id = e.currentTarget.dataset.id;
-    if (id == 1) {
-      this.setData({
-        shopnameValue:''//将input至与data中的inputValue绑定
-      })
-    } else if (id == 2) {
-      this.setData({
-        contactValue:''//将input至与data中的inputValue绑定
-      })
-    } else if (id == 3) {
-      this.setData({
-        idcardValue:''//将input至与data中的inputValue绑定
-      })
-    } else {
-      this.setData({
-        introValue:''//将input至与data中的inputValue绑定
-      })
-    } 
+    var key = e.currentTarget.dataset.key
+    var obj = {}
+    obj[key] = ''
+    this.setData(obj)
   },
   getCode: function (options) {
     var that = this;
@@ -116,5 +185,6 @@ Page({
         });
       }
     });
+    that.getStoreClassList()
   }
 })

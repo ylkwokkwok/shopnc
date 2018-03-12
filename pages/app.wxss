@@ -8,3 +8,16 @@ view,navigator{
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
+/* flex */
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.red{
+  color: red;
+}

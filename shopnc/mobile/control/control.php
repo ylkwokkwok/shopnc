@@ -55,6 +55,11 @@ class mobileHomeControl extends mobileControl{
     }
 }
 
+/**
+ * 用户API
+ *
+ * Class mobileMemberControl
+ */
 class mobileMemberControl extends mobileControl{
 
     protected $member_info = array();
@@ -64,32 +69,29 @@ class mobileMemberControl extends mobileControl{
 		$agent = $_SERVER['HTTP_USER_AGENT']; 
 		if (strpos($agent, "MicroMessenger") && $_GET["act"]=='auto') {	
 			$this->appId = C('app_weixin_appid');
-			$this->appSecret = C('app_weixin_secret');;			
+			$this->appSecret = C('app_weixin_secret');;
         }else{
-			$model_mb_user_token = Model('mb_user_token');
-			$key = $_POST['key'];
-			if(empty($key)) {
-				$key = $_GET['key'];
-			}
-			$mb_user_token_info = $model_mb_user_token->getMbUserTokenInfoByToken($key);
-			if(empty($mb_user_token_info)) {
-				output_error('请登录', array('login' => '0'));
-			}
+            $model_mb_user_token = Model('mb_user_token');
+            $key = $_POST['key'];
+            if(empty($key)) {
+                $key = $_GET['key'];
+            }
+            $mb_user_token_info = $model_mb_user_token->getMbUserTokenInfoByToken($key);
+            if(empty($mb_user_token_info)) {
+                output_error('请登录', array('login' => '0'));
+            }
 
-        $model_member = Model('member');
-        $this->member_info = $model_member->getMemberInfoByID($mb_user_token_info['member_id']);
+            $model_member = Model('member');
+            $this->member_info = $model_member->getMemberInfoByID($mb_user_token_info['member_id']);
 
-        if(empty($this->member_info)) {
-            output_error('请登录', array('login' => '0'));
+            if(empty($this->member_info)) {
+                output_error('请登录', array('login' => '0'));
 			} else {
 				$this->member_info['client_type'] = $mb_user_token_info['client_type'];
 				$this->member_info['openid'] = $mb_user_token_info['openid'];
 				$this->member_info['token'] = $mb_user_token_info['token'];
 				$level_name = $model_member->getOneMemberGrade($mb_user_token_info['member_id']);
 				$this->member_info['level_name'] = $level_name['level_name'];
-				//读取卖家信息
-				$seller_info = Model('seller')->getSellerInfo(array('member_id'=>$this->member_info['member_id']));
-				$this->member_info['store_id'] = $seller_info['store_id'];
 			}
         }
     }
@@ -106,36 +108,32 @@ class mobileMemberControl extends mobileControl{
     }
 }
 
-class mobileSellerControl extends mobileControl{
+/**
+ * 商家API
+ *
+ * Class mobileSellerControl
+ *
+ */
+class mobileSellerControl extends mobileMemberControl{
 
     protected $seller_info = array();
     protected $seller_group_info = array();
-    protected $member_info = array();
     protected $store_info = array();
     protected $store_grade = array();
 
     public function __construct() {
         parent::__construct();
 
-        $model_mb_seller_token = Model('mb_seller_token');
-
-        $key = $_POST['key']?$_POST['key']:$_GET['key'];
-        if(empty($key)) {
+        //读取卖家信息
+        $seller_info = Model('seller')->getSellerInfo(array('member_id'=>$this->member_info['member_id']));
+        if (empty($seller_info)){
             output_error('请登录', array('login' => '0'));
         }
+        $this->seller_info = $seller_info;
 
-        $mb_seller_token_info = $model_mb_seller_token->getSellerTokenInfoByToken($key);
-        if(empty($mb_seller_token_info)) {
-            output_error('请登录', array('login' => '0'));
-        }
-
-        $model_seller = Model('seller');
-        $model_member = Model('member');
         $model_store = Model('store');
         $model_seller_group = Model('seller_group');
 
-        $this->seller_info = $model_seller->getSellerInfo(array('seller_id' => $mb_seller_token_info['seller_id']));
-        $this->member_info = $model_member->getMemberInfoByID($this->seller_info['member_id']);
         $this->store_info = $model_store->getStoreInfoByID($this->seller_info['store_id']);
         $this->seller_group_info = $model_seller_group->getSellerGroupInfo(array('group_id' => $this->seller_info['seller_group_id']));
 
@@ -156,12 +154,6 @@ class mobileSellerControl extends mobileControl{
         } else {
             $store_grade = rkcache('store_grade', true);
             $this->store_grade = $store_grade[$this->store_info['grade_id']];
-        }
-
-        if(empty($this->member_info)) {
-            output_error('请登录', array('login' => '0'));
-        } else {
-            $this->seller_info['client_type'] = $mb_seller_token_info['client_type'];
         }
     }
 }
