@@ -163,3 +163,12 @@
   text-indent: 2em;
   color: #999;
 }
+.picker{
+  float:left;
+  margin-left:10rpx;
+  font-size:30rpx;
+  color:#999999;
+  height:100%;
+  line-height:100rpx;
+  width: 500rpx;
+}

@@ -1,4 +1,4 @@
-// page/infocenter/pages/mainStoreManager/mainStoreManager.js
+import shop from '../../../../utils/shop'
 Page({
 
   /**
@@ -12,12 +12,15 @@ Page({
     isBoss:false,
     mess:["的方式打开","考多少分卡萨丁","打死就放假啊死"],
   },
-
+  getSellerInfo: function () {
+    shop.getSellerInfo().then(res => console.log(res))
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var that=this;
+    that.getSellerInfo()
     console.log(options);
     wx.getSystemInfo({
       success: function (res) {
