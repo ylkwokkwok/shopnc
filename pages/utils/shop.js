@@ -114,16 +114,30 @@ export default {
       .then(() => wsAPI.post('?act=member_cart&op=cart_list', { key: wx.getStorageSync(TOKEN_NAME) }))
   },
   cartEditQuantity: function (data) {
+    data.key = wx.getStorageSync(TOKEN_NAME)
     return wsAPI.taskSequence()
-      .then(() => wsAPI.post('?act=member_cart&op=cart_edit_quantity', {
-        key: wx.getStorageSync(TOKEN_NAME),
-        cart_id: data.cart_id,
-        quantity: data.quantity
-      }))
+      .then(() => wsAPI.post('?act=member_cart&op=cart_edit_quantity', data))
   },
   isEmptyObject: function (e) {
     for (var i in e)
       return false
     return true
+  },
+  applyStore: function (data) {
+    data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=store_joininc&op=apply', data))
+  },
+  getStoreClassList: function () {
+    let data = {}
+    data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=store_joininc&op=get_store_class', data))
+  },
+  getSellerInfo: function () {
+    let data = {}
+    data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=seller_center&op=index', data))
   }
 }

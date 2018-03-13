@@ -1,6 +1,6 @@
 <view class="container" style="min-height:{{winHeight}}px">
   <form class="entry" catchsubmit="formSubmit">
-    <view class="same one">
+    <view class="same one" style="display: none;">
       <view class="left">
         <label>商品标志</label>
         <block wx:for="{{imageList}}" wx:key="*this">
@@ -14,28 +14,37 @@
     </view>
     <view class="same">
       <label>商户名称</label>
-      <input placeholder='您的店铺名称' placeholder-style='color:#999' bindinput="bindKeyInput" data-id="1" value="{{shopnameValue}}"></input>
-      <image src="/images/assortment/del.png" mode='widthFix' class="del" bindtap='clearInput' data-id="1"></image>
+      <input placeholder='您的店铺名称' placeholder-style='color:#999' bindinput="bindKeyInput" data-key="store_name" value="{{store_name}}"></input>
+      <image src="/images/assortment/del.png" mode='widthFix' class="del" bindtap='clearInput' data-key="store_name"></image>
     </view>
     <view class="same">
       <label>联系人</label>
-      <input placeholder='您的姓名' placeholder-style='color:#999' bindinput="bindKeyInput" data-id="2" value="{{contactValue}}"></input>
-      <image src="/images/assortment/del.png" mode='widthFix' class="del" bindtap='clearInput' data-id="2"></image>
+      <input placeholder='您的姓名' placeholder-style='color:#999' bindinput="bindKeyInput" data-key="contacts_name" value="{{contacts_name}}"></input>
+      <image src="/images/assortment/del.png" mode='widthFix' class="del" bindtap='clearInput' data-key="contacts_name"></image>
     </view>
     <view class="same">
       <label>身份证号</label>
-      <input placeholder='请输入您的身份证号' type='idcard' placeholder-style='color:#999' bindinput="bindKeyInput" data-id="3" value='{{idcardValue}}'></input>
-      <image src="/images/assortment/del.png" mode='widthFix' class="del" bindtap='clearInput' data-id="3"></image>
+      <input placeholder='请输入您的身份证号' type='idcard' placeholder-style='color:#999' bindinput="bindKeyInput" data-key="contacts_idcard" value='{{contacts_idcard}}'></input>
+      <image src="/images/assortment/del.png" mode='widthFix' class="del" bindtap='clearInput' data-key="contacts_idcard"></image>
+    </view>
+    <view class="same">
+      <label>经营行业</label>
+      <picker bindchange="bindPickerChange" value="{{classListIndex}}" range="{{classList}}" range-key="sc_name">
+        <view class="picker">
+          {{classList[classListIndex].sc_name}}
+        </view>
+      </picker>
+      <!--<input placeholder='请选择您的经营行业' type='text' placeholder-style='color:#999' value="{{gc_name}}"></input>-->
     </view>
     <view class="same nosame">
       <label>简单介绍</label>
-      <textarea placeholder-style="color:#999" bindinput="bindKeyInput" value="{{introValue}}" data-id="4">{{introValue}}</textarea>
-      <image src="/images/assortment/del.png" mode='widthFix' class="del" bindtap='clearInput' data-id="4"></image>
+      <textarea placeholder-style="color:#999" bindinput="bindKeyInput" data-key="remark">{{remark}}</textarea>
+      <image src="/images/assortment/del.png" mode='widthFix' class="del" bindtap='clearInput' data-key="remark"></image>
     </view>
     <view class="same">
       <label>电话号码</label>
-      <input placeholder='您的手机号码' type='number' placeholder-style='color:#999' maxlength="11"></input>
-      <button class="getyzm" disabled='{{disabled}}' data-id="2" bindtap="getVerificationCode">{{time}}</button>
+      <input placeholder='您的手机号码' type='number' placeholder-style='color:#999' maxlength="11" bindinput="bindKeyInput" data-key="contacts_phone" value="{{contacts_phone}}" ></input>
+      <button class="getyzm" disabled='{{disabled}}' data-key="contacts_phone" bindtap="getVerificationCode">{{time}}</button>
     </view>
     <view class="same">
       <label>验证码</label>
@@ -43,14 +52,16 @@
     </view>
     <view class="same">
       <label>邮箱</label>
-      <input placeholder='请输入您的邮箱' placeholder-style='color:#999'></input>
+      <input placeholder='请输入您的邮箱' placeholder-style='color:#999' bindinput="bindKeyInput" data-key="contacts_email" value='{{contacts_email}}'></input>
+      <image src="/images/assortment/del.png" mode='widthFix' class="del" bindtap='clearInput' data-key="contacts_email"></image>
     </view>
     <text class="prompt">请仔细填写联系方式，保证我们能尽快联系到您</text>
     <view class="read">
       <checkbox checked='true'></checkbox>
       <view>我已阅读并了解了 <text bindtap="entryprompt">【入驻申请协议】</text></view>
     </view>
-    <button type="primary" formType="submit">确定</button>
+    <button type="primary" formType="submit" wx:if="{{applyStatus == 0}}">确定</button>
+    <text style="display:block;font-size:30rpx;color:#999999;height:100%;line-height:100rpx;text-align: center;" wx:if="{{applyStatus == 1}}">入驻申请审核中，请耐心等待</text>
   </form>
   <view class="bg" style="{{showSel?'display:block':'display:none'}};height:{{winHeight}}px"></view>
   <view style="{{showSel?'display:block':'display:none'}}" class="addList">

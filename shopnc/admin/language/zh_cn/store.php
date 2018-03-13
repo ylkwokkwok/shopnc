@@ -26,7 +26,7 @@ $lang['address_no_null']       = '地区不能为空';
 $lang['please_sel_edit_store'] = '请选择要编辑的店铺';
 $lang['please_sel_edit_store'] = '请选择要编辑的内容!';
 
-$lang['store']           = '店铺';
+$lang['store']           = '商家';
 $lang['store_help1']     = '如果当前时间超过店铺有效期或店铺处于关闭状态，前台将不能继续浏览该店铺，但是店主仍然可以编辑该店铺';
 $lang['store_help2']     = '被推荐店铺，将在前台的店铺推荐等相关位置展示，处于关闭中的店铺，不可推荐';
 $lang['store_audit_help1']= '开店申请可批量通过审核';

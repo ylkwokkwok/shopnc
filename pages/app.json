@@ -30,6 +30,7 @@
     "page/infocenter/pages/addUser/addUser",
     "page/infocenter/pages/userList/userList",
     "page/infocenter/pages/shopManager/shopManager",
+<<<<<<< HEAD
     "page/infocenter/pages/shopManager1/shopManager1",
     "page/infocenter/pages/shopUpload/shopUpload",
     "page/infocenter/pages/uploadPage/uploadPage",
@@ -43,6 +44,12 @@
     "page/infocenter/pages/buyBooth/buyBooth",
     "page/infocenter/pages/staffProfit/staffProfit",
     "page/shopcart/shopcart"
+=======
+    "page/shopcart/shopcart",
+    "page/index/pages/bargain/bargain",
+    "page/index/pages/bargain_list/bargain_list",
+    "page/index/pages/buy/buy"
+>>>>>>> fcc5e3378b28467211a9e794e81c08490a5cfd33
   ],
   "window": {
     "backgroundTextStyle": "light",
