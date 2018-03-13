@@ -1,0 +1,165 @@
+.container{
+  background: #f6f6f6;
+}
+.entry{
+  width:750rpx;
+  background: white;
+  padding:20rpx 0;
+  overflow: hidden;
+  display: block;
+}
+.entry .same{
+  width: 100%;
+  border-bottom:1px solid #ccc;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding:0 20rpx;
+}
+.entry .one .left{
+  width: 610rpx;
+  float: left;
+  height: 100%;
+}
+.entry .same label{
+  width: 120rpx;
+  font-size: 30rpx;
+  float: left;
+  color: #666666;
+}
+.entry .one .left image{
+  width: 90rpx;
+  height: 90rpx;
+  margin-top:5rpx;
+  margin-left: 10rpx;
+}
+.entry .one .right{
+  width:100rpx;
+  float: right;
+}
+.entry .one .right .upload{
+  width: 52rpx;
+  margin-top:24rpx;
+  float: left;
+}
+.entry .one .right .jt{
+  width: 20rpx;
+  margin-top:30rpx;
+  float: right;
+}
+.entry .same input{
+  float: left;
+  margin-left: 10rpx;
+  font-size: 30rpx;
+  color: #999999;
+  height: 100%;
+  line-height: 100rpx;
+}
+.entry .same .del{
+  float: right;
+  width: 30rpx;
+  margin-top:35rpx;
+}
+.entry .nosame{
+  height: 180rpx;
+}
+.entry .nosame textarea{
+  float: left;
+  margin-left: 10rpx;
+  font-size: 30rpx;
+  color: #999;
+  width:500rpx;
+  height: 150rpx;
+}
+.entry .same .getyzm{
+  float: right;
+  height:40rpx;
+  width:185rpx;
+  font-size: 24rpx;
+  background: #dcdcdc;
+  border-radius: 10rpx;
+  color: white;
+  line-height: 40rpx;
+  text-align: center;
+  margin-top:30rpx;
+  border:none;
+}
+.entry .prompt{
+  font-size: 20rpx;
+  color: #999;
+  padding:20rpx;
+}
+.entry .read{
+  display: flex;
+  flex-direction: row;
+  width: 710rpx;
+  margin:auto;
+  margin-top:20rpx;
+  font-size: 20rpx;
+}
+.entry .read>view{
+  color: #999;
+  line-height: 50rpx;
+}
+.entry .read>view>text{
+  color: #568fdc;
+  letter-spacing: 2rpx;
+}
+.entry button{
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #568fdc;
+  margin:auto;
+  margin-top:20rpx;
+  width: 710rpx;
+}
+.bg{
+  width: 100%;
+  background: #a1a1a1;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index: 10;
+}
+.addList{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 740rpx;
+  left: 0;
+  background: white;
+  z-index: 20;
+}
+.addList .top{
+  width: 100%;
+  height: 70rpx;
+  background: #eeeeee;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.addList .top>view{
+  text-align: center;
+  width: 100%;
+  line-height: 70rpx;
+  display: block;
+  font-size: 30rpx;
+  color: 939393;
+}
+.addList .top>image{
+  position: absolute;
+  top:20rpx;
+  width: 30rpx;
+  right: 20rpx;
+}
+.addList .addList-tab{
+  margin-top:70rpx;
+  overflow-y: auto;
+}
+.addList .addList-tab>view{
+  font-size: 24rpx;
+  padding:20rpx;
+  text-indent: 2em;
+  color: #999;
+}

@@ -1,0 +1,94 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="paymentTab">
+    <block wx:for="{{tabItem}}" wx:key="index">
+      <view class="{{curTab==index?'on':''}}" data-current="{{index}}" bindtap='switchNav'>{{item}}</view>
+    </block>
+  </view>
+  <view class="tabdetail">
+    <!--待付款-->
+    <view style="curTab==0?'display:block':'display:none'">
+      <block wx:for="{{orderlist}}">
+        <block wx:if="{{item.status=='待付款'}}">
+          <view class="orderone">
+            <view class="top">
+              <image src="/images/infocenter/note.png" mode='widthFix'></image>
+              <text class="ordernum">{{item.number}}</text>
+              <text class="time">{{item.time}}</text>
+            </view>
+            <view class="center">
+              <view  class="up">
+                <image class="shopimg" src="{{item.img}}" mode='widthFix'></image>
+                <view class='right'>
+                  <view class="title">{{item.title}}</view>
+                  <view class="middle">
+                    <text class="zi">产品详情</text>
+                    <text class="price">￥{{item.price}}</text>
+                  </view>
+                  <view class="detail">×{{item.count}} 、{{item.color}} 、{{item.size}}</view>
+                </view>
+              </view>
+              <view class="down">
+                <view class="left">共计{{item.count}}件，实收<text>￥{{item.price}}</text>(含邮费{{item.freight}})</view>
+                <view class="status">{{item.status}}</view>
+              </view>
+            </view>
+            <view class="userinfo">
+              <view class="userchart">
+                <navigator><image src="/images/infocenter/kf.png" mode='widthFix'></image></navigator>
+                <text>{{item.username}}</text>
+              </view>
+              <view class="address">
+                <image src="/images/pos.png" mode='widthFix'></image>
+                <view>{{item.address}}</view>
+              </view>
+            </view>
+            <view class="operation">
+              <view class="changeprice" id="{{item.id}}" bindtap="changePrice">改价</view>
+              <view class="changefreight" bindtap='changeFreight'>改运费</view>
+              <view class="close" bindtap='closeOrder' id="{{item.id}}">关闭</view>
+            </view>
+          </view>
+        </block>
+      </block>
+    </view>
+    <!--退货中-->
+    <view style="curTab==1?'display:block':'display:none'"></view>
+    <!--待发货-->
+    <view style="curTab==2?'display:block':'display:none'"></view>
+    <!--已完成订单-->
+    <view style="curTab==3?'display:block':'display:none'"></view>
+    <!--全部订单-->
+    <view style="curTab==4?'display:block':'display:none'"></view>
+  </view>
+  <!--待付款关闭-->
+  <block wx:if="{{isClose}}">
+    <view class="close samePage">
+      <view class="reason">{{reason}}</view>
+      <view class="reasonlist">
+        <block wx:for="{{reasons}}" wx:key="index">
+          <view bindtap='changeReason' data-current="{{index}}" data-value="{{item}}">
+            <text>{{item}}</text>
+            <image src="{{currentTab==index?'/images/assortment/dui.png':''}}"></image>
+          </view>
+        </block>
+      </view>
+      <view class="confirmbtn" bindtap='confirm'>确认</view>
+    </view>
+  </block>
+  <!--待付款修改运费-->
+  <block wx:if="{{isChangeFreight}}">
+    <view class="changeFreight samePage">
+      <form class="form" catchsubmit="submitFreight">
+        <view class="view">
+          <label>修改运费</label>
+          <input name="freight" value='{{freight}}' type='digit'></input>
+        </view>
+        <view class="switch view">
+          <label>免运费</label>
+          <switch checked name="switch"></switch>
+        </view>
+        <button class="confirmbtn" form-type='submit' >确认</button>
+      </form>
+    </view>
+  </block>
+</view>

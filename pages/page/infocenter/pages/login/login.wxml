@@ -8,5 +8,5 @@
       <button class="loginBtn" type='primary' formType="submit">登录</button>
     </form>
   </view>
-  <navigator url="../Bosslogin/Bosslogin" class="bosslogin">超级管理员登录</navigator>
+  <navigator url="../Bosslogin/Bosslogin" class="bosslogin" open-type='redirect'>超级管理员登录</navigator>
 </view>

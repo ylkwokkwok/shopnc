@@ -1,0 +1,261 @@
+.container{
+  background: #f6f6f6;
+}
+.paymentTab{
+  background: white;
+  height: 90rpx;
+  line-height: 90rpx;
+  width:750rpx;
+  display: flex;
+  flex-direction: row;
+}
+.paymentTab>view{
+  width:20%;
+  font-size: 24rpx;
+  color: #333;
+  text-align: center;
+}
+.paymentTab>view.on{
+  color: #568fdc;
+}
+.tabdetail{
+  width:750rpx;
+  background: white;
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+.tabdetail .orderone{
+  width: 100%;
+}
+.tabdetail .orderone .top{
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  padding:0 20rpx;
+}
+.tabdetail .orderone .top image{
+  width: 30rpx;
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+}
+.tabdetail .orderone .top text{
+  font-size: 30rpx;
+  color: #333;
+  margin-right: 20rpx;
+}
+.tabdetail .orderone .center{
+  padding:10rpx 20rpx;
+  width: 100%;
+  border-bottom:1px solid #ccc;
+}
+.tabdetail .orderone .center .up{
+  overflow: hidden;
+}
+.tabdetail .orderone .center .up image{
+  width: 120rpx;
+  float: left;
+}
+.tabdetail .orderone .center .up .right{
+  float: left;
+  width: 550rpx;
+  margin-left: 30rpx;
+}
+.tabdetail .orderone .center .up .title{
+  font-size: 28rpx;
+  color: #333;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  letter-spacing: 2rpx;
+}
+.tabdetail .orderone .center .middle{
+  overflow: hidden;
+  padding-top: 10rpx;
+}
+.tabdetail .orderone .center .middle .zi{
+  font-size: 24rpx;
+  color: #999;
+  float: left;
+  display: block;
+}
+.tabdetail .orderone .center .middle .price{
+  color: red;
+  float: right;
+  text-align: right;
+  font-size: 30rpx;
+}
+.tabdetail .orderone .center .detail{
+  font-size: 24rpx;
+  color: #bfbfbf;
+}
+.tabdetail .orderone .center .down{
+  overflow: hidden;
+  padding-top: 20rpx;
+}
+.tabdetail .orderone .center .down .left{
+  font-size: 24rpx;
+  color: #333;
+  letter-spacing: 2rpx;
+  float: left;
+}
+.tabdetail .orderone .center .down .left>text{
+  color: red;
+}
+.tabdetail .orderone .center .down .status{
+  text-align: right;
+  display: block;
+  color: #568fdc;
+  font-size: 24rpx;
+  float: right;
+}
+.tabdetail .orderone .userinfo{
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+.tabdetail .orderone .userinfo .userchart{
+  display: flex;
+  flex-direction: row;
+}
+.tabdetail .orderone .userchart>navigator>image{
+  width: 35rpx;
+  margin-right: 20rpx;
+}
+.tabdetail .orderone .userchart>text{
+  font-size: 28rpx;
+  color: #999;
+}
+.tabdetail .orderone .userinfo .address{
+  display: flex;
+  flex-direction: row;
+}
+.tabdetail .orderone .userinfo .address image{
+  width: 30rpx;
+  margin-right: 20rpx;
+}
+.tabdetail .orderone .userinfo .address>view{
+  font-size: 28rpx;
+  color: #333;
+   display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  letter-spacing: 2rpx;
+}
+.tabdetail .orderone .operation{
+  background: #e1e9f3;
+  display: flex;
+  flex-direction: row;
+  height: 90rpx;
+  margin-top: 20rpx;
+  line-height: 90rpx;
+}
+.tabdetail .orderone .operation>view{
+  width: 33.33%;
+  text-align: center;
+  border-right: 1px solid black;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+}
+.tabdetail .orderone .operation>view:last-child{
+  border-right: none;
+}
+/**
+待付款关闭
+*/
+.samePage{
+  position:fixed;
+  width: 100%;
+  height: 100%;
+  background: white;
+  top: 0;
+  left: 0; 
+}
+.close .reason{
+  background: #f6f6f6;
+  color: black;
+  font-size: 24rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  padding-left: 20rpx;
+  width: 100%;
+}
+.close .reasonlist{
+  background: white;
+  width: 100%;
+}
+.close .reasonlist>view{
+  height: 80rpx;
+  color: black;
+  line-height: 80rpx;
+  border-bottom: 1px solid #ccc;
+  padding:0 20rpx;
+  width:100%;
+}
+.close .reasonlist>view>text{
+  float: left;
+  font-size: 26rpx;
+}
+.close .reasonlist>view>image{
+  float: right;
+  width: 31rpx;
+  height: 25rpx;
+  margin-top: 22.5rpx;
+}
+.samePage .confirmbtn{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: white;
+  text-align: center;
+  background: #568fdc;
+  font-size: 28rpx;
+  position: absolute;
+  bottom: 0;
+  letter-spacing: 2rpx;
+}
+/*
+修改运费
+*/
+.changeFreight{
+  background: #f6f6f6;
+}
+.changeFreight .form{
+  width: 100%;
+  overflow: hidden;
+}
+.changeFreight .view{
+  height: 90rpx;
+  line-height: 90rpx;
+  background: white;
+  margin-bottom: 20rpx;
+  width: 100%;
+}
+.changeFreight .view>label{
+  width: 150rpx;
+  float: left;
+  color: #333;
+  font-size: 30rpx;
+  display: block;
+  padding-left: 20rpx;
+}
+.changeFreight .view>input{
+  width: 580rpx;
+  float: left;
+  height: 90rpx;
+  line-height: 90rpx;
+  border: none;
+}
+.changeFreight .view>switch{
+  float: right;
+  width: 150rpx;
+}
+.changeFreight button{
+  border-radius: 0;
+}
