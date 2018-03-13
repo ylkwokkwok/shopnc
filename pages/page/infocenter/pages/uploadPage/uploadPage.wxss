@@ -1,0 +1,351 @@
+.container{
+  background: #f6f6f6;
+}
+.upload{
+  width:750rpx;
+}
+.uploadImg{
+  width: 100%;
+  height: 375rpx;
+  position: relative;
+}
+.uploadImg .upload1{
+  position: absolute;
+  top: 135rpx;
+  left: 0;
+  right: 0;
+  margin:auto;
+  width:105rpx;
+}
+.uploadImg .tabindex{
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+  font-size: 24rpx;
+  color: #333;
+}
+.uploadImg swiper{
+  width: 100%;
+  height: 100%;
+}
+.uploadImg swiper .img{
+  width: 100%;
+  height: 100%;
+}
+.uploadImg .cha{
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  width: 40rpx;
+}
+.uploadImg .upload2{
+  position: absolute;
+  bottom: 20rpx;
+  left: 20rpx;
+  width: 100rpx;
+  z-index: 1000;
+}
+.shopdetail{
+  width: 100%;
+  background: white;
+  padding: 20rpx 0;
+}
+.shopdetail>view,.shopdetail>navigator{
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  height: 100rpx;
+}
+.shopdetail>view>label,.shopdetail>navigator>label{
+  width:270rpx;
+  float: left;
+  font-size: 30rpx;
+  color: #333;
+  margin-left: 20rpx;
+  line-height: 100rpx;
+}
+.shopdetail>view>input,.shopdetail>view>view{
+  width: 400rpx;
+  float: left;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 24rpx;
+  min-height: auto;
+  text-align: right;
+  color: #999;
+}
+.shopdetail>view .jt,.shopdetail>navigator .jt{
+  float: right;
+  width: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 40rpx;
+}
+.shopdetail>view>view>image{
+  width: 80rpx;
+  height: 80rpx;
+  margin-top: 10rpx;
+  margin-left: 5rpx;
+}
+.shopdetail>text{
+  background: #f6f6f6;
+  height: 60rpx;
+  padding-left: 20rpx;
+  color: black;
+  font-size: 32rpx;
+  line-height: 60rpx;
+  display: block;
+}
+.shopdetail switch{
+  float: right;
+  margin-top: 20rpx;
+}
+.foot{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background: white;
+  height: 90rpx;
+  position: fixed;
+  bottom: 0;
+}
+button{
+  width: 33.33%;
+  border:none;
+  border-right:1px solid #ccc;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: black;
+  font-size: 30rpx; 
+  background: white;
+  float: left;
+  border-radius: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+}
+button.intodepot{
+  left: 33%;
+}
+button.release{
+  left: 66%;
+}
+button:last-child{
+  border-right: none;
+}
+.citypicker{
+  position: fixed;
+  height: 500rpx;
+  width: 100%;
+  bottom: 0;
+  background: white;
+  border-top: 1px solid black;
+  z-index: 100;
+}
+.citybody {
+  position: fixed;
+  bottom: 0px;
+}
+
+.cityheader {
+  position: absolute;
+  top:0px;
+  width: 100%;
+  z-index: 5;
+}
+
+.city-cancel {
+  float: left;
+  margin: 20rpx;
+  color: #000;
+}
+
+.city-true {
+  float: right;
+  margin: 20rpx;
+  color: #568fdc;
+}
+
+.section .picker {
+  background-color: #fff;
+  border-bottom: 2px #cccccc solid;
+  border-top: 2px #d9d9d9 solid;
+  padding: 20rpx;
+}
+.selectCategory,.selectShopdetail{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 100;
+}
+.search{
+  width: 750rpx;
+  position: relative;
+  background: white;
+  height:100rpx;
+  border-bottom:1px solid #ccc;
+}
+.top_search{
+  position: absolute;
+  top: 15rpx;
+  left: 0;
+  right: 0;
+  margin:auto;
+  width: 710rpx;
+}
+.top_search input{
+  position: absolute;
+  width: 650rpx;
+  margin:0 auto;
+  height: 70rpx;
+  top: 0rpx;
+  left: 0;
+  right: 0;
+  background: #dfdede;
+  color:black;
+  padding-left: 15rpx;
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+}
+.top_search image{
+  position: absolute;
+  right: 70rpx;
+  width:40rpx;
+  height: 40rpx;
+  z-index: 100; 
+  top:20rpx;
+}
+.selectCategory .bg{
+  width: 100%;
+  height: 20rpx;
+  background: #f6f6f6;
+}
+.selectCategory .select{
+  padding-top: 20rpx;
+  width: 710rpx;
+  margin:auto;
+}
+.selectCategory .category1{
+  font-size: 30rpx;
+}
+.selectCategory .categorys{
+  margin-top: 20rpx;
+}
+.selectCategory .categorys>view{
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.selectCategory .categorys>view>text{
+  float: left;
+  width: 650rpx;
+  font-size: 24rpx;
+  color: black;
+}
+.selectCategory .categorys>view.on>text{
+  color: #568fdc;
+}
+.selectCategory .categorys>view>image{
+  float: right;
+  width: 21rpx;
+  height: 17rpx;
+  margin-top: 10rpx;
+}
+/*
+商品描述
+*/
+.selectShopdetail{
+  width:750rpx;
+  background: #f6f6f6;
+  overflow: auto;
+  padding-bottom: 120rpx;
+}
+.selectShopdetail .top{
+  height: 90rpx;
+  line-height: 90rpx;
+  background: white;
+}
+.selectShopdetail .top>text{
+  float: left;
+  margin-left: 20rpx;
+  font-size: 30rpx;
+}
+.selectShopdetail .top>image{
+  width: 25rpx;
+  float: right;
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+}
+.selectShopdetail .imglist .imgone{
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid #ccc;
+}
+.selectShopdetail .imglist .imgone image{
+  width: 710rpx;
+  margin:auto;
+  display: block;
+}
+.selectShopdetail .imglist .imgone .operation{
+  position:absolute;
+  top:0;
+  right: 0;
+  height: 40rpx;
+  display: flex;
+  flex-direction: row;
+}
+.selectShopdetail .imglist .imgone .operation>view{
+  width:120rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: white;
+  background: #999999;
+  z-index: 200;
+  margin-left: 40rpx;
+}
+.selectShopdetail .foot{
+  position: fixed;
+  border: 0;
+  left: 0;
+  width: 750rpx;
+  background: white;
+  height: 90rpx;
+  line-height: 90rpx;
+  display: flex;
+  flex-direction: row;
+  z-index: 300;
+}
+.selectShopdetail .foot>view{
+  width: 50%;
+  text-align: center;
+  font-size: 30rpx;
+  border-right: 1px solid #ccc;
+}
+.selectShopdetail .foot>view:last-child{
+  border-right: none;
+}
+/*
+  上传规则
+*/
+.regular{
+  position: fixed;
+  width:100%;
+  height: 100%;
+  background: white;
+  overflow-y: auto;
+  top: 0;
+  left: 0;
+  z-index: 200;
+}
+.regular .hideregular{
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin-top: 20rpx;
+  color: #568fdc;
+  font-size: 24rpx;
+}

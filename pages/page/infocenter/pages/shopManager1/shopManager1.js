@@ -5,16 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    winHeight:0,
-    shoplist:[
-      { img: "/images/shop3.png", tit: "cpu:ingds", jie: "和覅身份is电话覅改阿斯卡都好损的阿斯蒂可打发士大夫", price: "2000", tuan: "活动标题", surplus: 20, totalsales: 5100, link: "../../../assindex/pages/shopdetail/shopdetail", isSelected: false, count: 1,shopgroup:"shoplist"},
-      { img: "/images/shop3.png", tit: "cpu:ingds", jie: "和覅身份is电话覅改阿斯卡都好损的阿斯蒂可打发士大夫", price: "2000", tuan: "活动标题", surplus: 20, totalsales: 5100, link: "../../../assindex/pages/shopdetail/shopdetail", isSelected: false, count: 1, shopgroup: "shoplist"},
+    winHeight: 0,
+    shoplist: [
+      { img: "/images/shop3.png", tit: "cpu:ingds", jie: "和覅身份is电话覅改阿斯卡都好损的阿斯蒂可打发士大夫", price: "2000", tuan: "活动标题", surplus: 20, totalsales: 5100, link: "../../../assindex/pages/shopdetail/shopdetail", isSelected: false, count: 1, shopgroup: "shoplist" },
+      { img: "/images/shop3.png", tit: "cpu:ingds", jie: "和覅身份is电话覅改阿斯卡都好损的阿斯蒂可打发士大夫", price: "2000", tuan: "活动标题", surplus: 20, totalsales: 5100, link: "../../../assindex/pages/shopdetail/shopdetail", isSelected: false, count: 1, shopgroup: "shoplist" },
     ],
     shoplist1: [
       { img: "/images/shop3.png", tit: "cpu:ingds", jie: "和覅身份is电话覅改阿斯卡都好损的阿斯蒂可打发士大夫", price: "2000", tuan: "活动标题", surplus: 20, totalsales: 5100, link: "../../../assindex/pages/shopdetail/shopdetail", isSelected: false, count: 1, shopgroup: "shoplist1" },
       { img: "/images/shop3.png", tit: "cpu:ingds", jie: "和覅身份is电话覅改阿斯卡都好损的阿斯蒂可打发士大夫", price: "2000", tuan: "活动标题", surplus: 20, totalsales: 5100, link: "../../../assindex/pages/shopdetail/shopdetail", isSelected: false, count: 1, shopgroup: "shoplist1" },
     ],
-    curTab:0,
+    curTab: 0,
     isAllSelected: false,
     totalsel: 0,
     isAllSelected1: false,
@@ -29,8 +29,8 @@ Page({
     let id = e.currentTarget.dataset.id,
 
       index = parseInt(e.currentTarget.dataset.index),
-      gname=e.currentTarget.dataset.group;
-    if(gname=="shoplist"){
+      gname = e.currentTarget.dataset.group;
+    if (gname == "shoplist") {
       this.data.shoplist[index].isSelected = !this.data.shoplist[index].isSelected;
       if (this.data.shoplist[index].isSelected) {
         this.data.totalsel = this.data.totalsel + this.data.shoplist[index].count;
@@ -54,7 +54,7 @@ Page({
         isAllSelected: this.data.isAllSelected,
       })
     }
-    if(gname=="shoplist1"){
+    if (gname == "shoplist1") {
       this.data.shoplist1[index].isSelected = !this.data.shoplist1[index].isSelected;
       if (this.data.shoplist1[index].isSelected) {
         this.data.totalsel1 = this.data.totalsel1 + this.data.shoplist1[index].count;
@@ -83,9 +83,9 @@ Page({
   allSelect: function (e) {
     //处理全选逻辑
     let i = 0;
-    var gname=e.currentTarget.dataset.group;
-    
-    if(gname=="shoplist"){
+    var gname = e.currentTarget.dataset.group;
+
+    if (gname == "shoplist") {
       if (!this.data.isAllSelected) {
         for (i = 0; i < this.data.shoplist.length; i++) {
           this.data.shoplist[i].isSelected = true;
@@ -104,7 +104,7 @@ Page({
         isAllSelected: !this.data.isAllSelected
       })
     }
-    if(gname=="shoplist1"){
+    if (gname == "shoplist1") {
       if (!this.data.isAllSelected1) {
         for (i = 0; i < this.data.shoplist1.length; i++) {
           this.data.shoplist1[i].isSelected = true;
@@ -127,14 +127,28 @@ Page({
   //多个删除
   delSelected: function (e) {
     var newShops = [];
-    for (var i = 0; i < this.data.shoplist.length; i++) {
-      if (!this.data.shoplist[i].isSelected) {
-        newShops.push(this.data.shoplist[i]);
+    var newShops1=[];
+    var gname=e.currentTarget.dataset.group;
+    if(gname=="shoplist"){
+      for (var i = 0; i < this.data.shoplist.length; i++) {
+        if (!this.data.shoplist[i].isSelected) {
+          newShops.push(this.data.shoplist[i]);
+        }
       }
+      this.setData({
+        shoplist: newShops
+      });
     }
-    this.setData({
-      shoplist: newShops
-    });
+    if (gname == "shoplist1") {
+      for (var i = 0; i < this.data.shoplist1.length; i++) {
+        if (!this.data.shoplist1[i].isSelected) {
+          newShops1.push(this.data.shoplist1[i]);
+        }
+      }
+      this.setData({
+        shoplist1: newShops1
+      });
+    }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -150,7 +164,7 @@ Page({
       }
     });
   },
-  shaiTab:function(e){
+  shaiTab: function (e) {
     var cur = e.currentTarget.dataset.current;
     if (this.data.curTab == cur) { return false; }
     else {

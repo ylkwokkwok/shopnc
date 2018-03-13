@@ -1,0 +1,19 @@
+<view class="container">
+  <form class="form">
+    <view class="top">
+      <image src="/images/infocenter/booth.png" mode='widthFix'></image>
+      <view class="number">
+        <view><image class="reduce" src='/images/assortment/reduce.png' bindtap='reduce' mode='widthFix'></image></view>
+        <input value="{{count}}"></input>
+        <view><image class='add' src='/images/assortment/add.png' bindtap='add' mode='widthFix'></image></view>
+      </view>
+      <text class="tit">展位</text>
+      <text class="total">￥{{totalMoney}}</text>
+      <rich-text nodes="{{nodes}}"></rich-text>
+    </view>
+    <view class="bottom">
+      【当前你有<text>{{count}}</text>个展位】
+    </view>
+    <button form-type='submit'>确认购买</button>
+  </form>
+</view>

@@ -1,5 +1,6 @@
 .container{
   background: #f6f6f6;
+  padding-bottom: 20rpx;
 }
 .infotop{
   width: 710rpx;

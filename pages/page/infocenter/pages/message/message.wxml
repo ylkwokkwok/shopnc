@@ -1,0 +1,15 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="messlist">
+     <navigator wx:for="{{message}}" wx:for-item="bransh" id="{{bransh.id}}" class="item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{bransh.right}}px;{{bransh.isSystem?'margin-bottom:20rpx':'margin-bottom:0'}}">
+      <image class="img" src="{{bransh.img}}"></image>
+      <view class="number-wrapper">
+        <view class="left">
+          <text class="name">{{bransh.title}}</text>
+          <text class="detail">{{bransh.detail}}</text>
+        </view>
+        <text class="right">{{bransh.time}}</text>
+      </view> 
+      <view class="remove" data-id="{{bransh.id}}" bindtap="delItem"><view>删除</view></view>
+    </navigator>
+  </view>
+</view>

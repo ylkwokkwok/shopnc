@@ -1,0 +1,47 @@
+<view class="container" style="height:{{winHeight}}px">
+  <view class="tabdetail">
+    <block wx:for="{{orderlist}}" wx:key="index">
+      <view class="orderone">
+        <view class="top">
+          <image src="/images/infocenter/note.png" mode='widthFix'></image>
+          <text class="ordernum">{{item.number}}</text>
+          <text class="time">{{item.time}}</text>
+        </view>
+        <view class="center">
+          <view  class="up">
+            <image class="shopimg" src="{{item.img}}" mode='widthFix'></image>
+            <view class='right'>
+              <view class="title">{{item.title}}</view>
+              <view class="middle">
+                <text class="zi">产品详情</text>
+                <text class="price">￥{{item.price}}</text>
+              </view>
+              <view class="detail">×{{item.count}} 、{{item.color}} 、{{item.size}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <form class="priceform" bindsubmit='changePrice'>
+      <view class="top sameview">
+        <view class="left">
+          <label>运费</label>
+          <input type='digit' name="freight" value='{{freight}}' bindinput='freightVal' placeholder='0.00'></input>
+        </view>
+        <view class="right">
+          <label>免邮</label><switch checked name="switch" bindchange="switchChange"></switch>
+        </view>
+      </view>
+      <view class="bottom sameview">
+        <view class="left">
+          <label>价格</label>
+          <input type='digit' value='{{price}}' bindinput='inputVal' placeholder='0.00'></input>
+        </view>
+        <view class="right">
+          <view>实收金额:<text>￥{{reallyPrice}}</text></view>
+        </view>
+      </view>
+      <button form-type='submit'>确认修改</button>
+    </form>
+  </view>
+</view>

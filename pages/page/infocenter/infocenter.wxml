@@ -89,10 +89,18 @@
     </view>
     <view class="bottom">
       <block wx:if="{{info[0].isVip}}">
-        <navigator url="">
-          <image src="/images/infocenter/wdfd.png" style="width:48rpx;"></image>
-          <text>我的分销店</text>
-        </navigator>
+        <block wx:if="{{info[0].hasBranch}}">
+          <navigator url="pages/branchStoreManager/branchStoreManager">
+            <image src="/images/infocenter/wdfd.png" style="width:48rpx;"></image>
+            <text>我的分销店</text>
+          </navigator>
+        </block>
+        <block wx:else>
+          <navigator url="pages/noBranch/noBranch">
+            <image src="/images/infocenter/wdfd.png" style="width:48rpx;"></image>
+            <text>我的分销店</text>
+          </navigator>
+        </block>
       </block>
       <block wx:else>
         <navigator url="pages/novip/novip">

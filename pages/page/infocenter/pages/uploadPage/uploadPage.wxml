@@ -1,0 +1,176 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <form class="upload" catchsubmit="formSubmit" catchreset="formReset">
+    <view class="uploadImg">
+      <block wx:if="{{imageList.length==0}}">
+        <image src="/images/infocenter/carmer.png" class="upload1" mode='widthFix' bindtap='chooseImage'></image>
+        <view class="tabindex">0/4</view>
+      </block>
+      <block wx:else> 
+        <swiper duration="1000" bindchange='changeSwiper'>
+          <block wx:for="{{imageList}}" wx:key="*this">
+            <swiper-item>
+              <image src="{{item}}" data-src="{{item}}" class="img"></image>
+              <image class="cha" src="/images/assortment/del.png" mode='widthFix' data-index="{{item}}" bindtap='clearimgs'></image>
+              <image src="/images/infocenter/carmer1.png" class="upload2" mode='widthFix' bindtap='chooseImage' data-index="current"></image>
+            </swiper-item>
+          </block>
+        </swiper> 
+        <view class="tabindex">
+          {{current}}/4
+        </view>
+      </block>
+     </view>
+      <view class="shopdetail">
+        <view>
+          <label>商品标题</label>
+          <input placeholder='请输入商品标题，不超过10个字' name="title"></input>
+        </view>
+        <view>
+          <label>商品编码</label>
+          <input maxlength="10" placeholder='请输入商品编码，不超过10个字' name="shopcode"></input>
+        </view>
+        <view bindtap='openCategory'>
+          <label>选择分类</label>
+          <view name="category">{{category}}</view>
+          <!-- <input value='{{category}}' style="display:none;"></input> -->
+          <image src="/images/jt.png" mode='widthFix' class="jt"></image>
+        </view>
+        <text>商品属性</text>
+        <view>
+          <label>商品价格</label>
+          <input placeholder='请输入商品价格' name="price"></input>
+        </view>
+        <view>
+          <label>VIP价格</label>
+          <input placeholder='请输入VIP价格' name="vipPrice"></input>
+        </view>
+        <view>
+          <label>库存</label>
+          <input placeholder='请输入库存' name="stock"></input>
+        </view>
+        <view>
+          <label>运费</label>
+          <input placeholder='请输入运费' name="freight"></input>
+        </view>
+         <view bindtap='selectShopDetail'>
+          <label>商品描述</label>
+          <block wx:if="{{imglist.length==0}}">
+            <input name="describe" value='商品描述'></input>
+          </block>
+          <block wx:else>
+            <view>
+              <block wx:for="{{imglist}}">
+                <image src="{{item}}"></image>
+              </block>
+            </view>
+          </block>
+          <image src="/images/jt.png" class="jt" mode='widthFix'></image>
+        </view>
+        <view class="provice same">
+          <label>发货地</label>
+          <input value='{{province}}-{{city}}' bindfocus="open" name="provice1"></input>
+          <image src="/images/jt.png" class="jt" mode='widthFix'></image>
+        </view> 
+        <view class="provice same">
+          <label>采货地</label>
+          <input value='{{province1}}-{{city1}}' bindfocus="open1" name="provice2"></input>
+          <image src="/images/jt.png" class="jt" mode='widthFix'></image>
+        </view> 
+        <view>
+          <label>七天无理由退货</label>
+          <switch checked name="switch"/>
+        </view>
+      </view>
+      <!-- <view class="foot"> -->
+        <button class="clear" formType="reset">清空</button>
+        <button form-type='submit' class="intodepot" id="intodepot">放入仓库</button>
+        <button form-type='submit' class="release" id="release">立即发布</button>
+      <!-- </view> -->
+  </form>
+  <!--发货地-->
+  <view wx:if="{{condition}}" class="citypicker">
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;background:white;" value="{{value}}" bindchange="bindChange" class="citybody">
+      <view class="cityheader">
+        <view bindtap="open" class="city-cancel">取消</view>
+        <view bindtap="open" class="city-true">确定</view>
+      </view>
+       <picker-view-column>
+        <view wx:for="{{provinces}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+      </picker-view-column> 
+      <picker-view-column>
+        <view wx:for="{{citys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+  <!--采货地-->
+  <view wx:if="{{condition1}}" class="citypicker">
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;background:white;" value="{{value}}" bindchange="bindChange1" class="citybody">
+      <view class="cityheader">
+        <view bindtap="open1" class="city-cancel">取消</view>
+        <view bindtap="open1" class="city-true">确定</view>
+      </view>
+       <picker-view-column>
+        <view wx:for="{{provinces1}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+      </picker-view-column> 
+      <picker-view-column>
+        <view wx:for="{{citys1}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+  <!--选择分类-->
+  <block wx:if="{{condition2}}">
+    <view class="selectCategory">
+       <view class="search">
+        <view class="top_search">
+          <input confirm-type="search" type="text" placeholder='请输入您要搜索的分类关键词' placeholder-style="color:#000"/>
+          <image src='/images/search1.png' mode='widthFix'></image>
+        </view>
+      </view>
+      <view class="bg"></view>
+      <view class="select">
+        <view class="category1">已有分类</view>
+        <view class="categorys">
+          <block wx:for="{{categorys}}" wx:key="index">
+            <view data-value="{{item}}" bindtap='hideSelect' class="{{currentTab==index?'on':''}}" data-current="{{index}}">
+              <text>{{item}}</text>
+               <image src="{{currentTab==index?'/images/assortment/dui.png':''}}"></image> 
+            </view>
+          </block>
+        </view>
+      </view>
+    </view> 
+  </block>
+  <!--商品描述-->
+  <block wx:if="{{condition3}}">
+    <view class="selectShopdetail">
+      <view class="top" bindtap="showRegular">
+        <text>上传详情页规范说明</text>
+        <image src="/images/jt.png" mode='widthFix'></image>
+      </view>
+      <view class="imglist">
+        <block wx:for="{{imglist}}">
+          <view class="imgone" wx:key="index">
+            <image src="{{item}}" mode='widthFix'></image>
+            <view class="operation">
+              <view class="del" bindtap="deleteImg" data-index="{{item}}">删除</view>
+              <view class="moveup" bindtap='moveUp' data-index="{{index}}">上移</view>
+              <view class="movedown" bindtap='moveDown' data-index="{{index}}">下移</view>
+            </view>
+          </view>
+        </block>
+      </view>
+      <view class="foot">
+        <view class="uploadimg" bindtap="chooseImg">上传图片</view>
+        <view class="save" bindtap='save'>保存</view>
+      </view>
+    </view>
+  </block>
+  <!--上传规范-->
+  <block wx:if="{{condition4}}">
+    <view class="regular">
+      <rich-text nodes="{{nodes}}">
+      </rich-text>
+      <view bindtap='hideRegular' class="hideregular">我知道了</view>
+    </view>
+  </block>
+</view>

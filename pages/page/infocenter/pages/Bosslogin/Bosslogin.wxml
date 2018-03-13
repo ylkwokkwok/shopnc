@@ -13,5 +13,5 @@
       </view>
     </form>
   </view>
-  <navigator url="../login/login" class="bosslogin">管理员登录</navigator>
+  <navigator url="../login/login" class="bosslogin" open-type='redirect'>管理员登录</navigator>
 </view>
