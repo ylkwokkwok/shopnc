@@ -1,0 +1,47 @@
+.container{
+  background: #f6f6f6;
+}
+.bindphone{
+  width: 750rpx;
+  background: white;
+  padding:20rpx 0;
+}
+.bindphone .same{
+  width: 100%;
+  border-bottom:1px solid #ccc;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding:0 20rpx;
+}
+.bindphone .same label{
+  width: 120rpx;
+  font-size: 30rpx;
+  float: left;
+  color: #333;
+}
+.bindphone .same input{
+  float: left;
+  margin-left: 10rpx;
+  font-size: 30rpx;
+  color: #999999;
+  height: 100%;
+  line-height: 100rpx;
+}
+.bindphone .same .getyzm{
+  float: right;
+  height:40rpx;
+  width:215rpx;
+  font-size: 24rpx;
+  background: #dcdcdc;
+  border-radius: 10rpx;
+  color: white;
+  line-height: 40rpx;
+  text-align: center;
+  margin-top:30rpx;
+  border:none;
+}
+.bindphone .submitbind{
+  width:710rpx;
+  margin:20rpx auto;
+  background: #568fdc;
+}

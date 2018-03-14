@@ -1,0 +1,7 @@
+alter table xunshi_member add column weixin_xcx_openid varchar(255) default null comment "微信小程序openid";
+alter table xunshi_member add column weixin_xcx_unionid varchar(255) default null comment "微信小程序unionid";
+alter table xunshi_member add column weixin_xcx_nickname varchar(255) default null comment "微信昵称";
+ALTER TABLE xunshi_member ADD unique(`weixin_xcx_openid`);
+
+alter table xunshi_store_joinin add column remark text(0) default null comment '备注信息';
+

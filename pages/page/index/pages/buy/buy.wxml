@@ -1,0 +1,43 @@
+<view class="container">
+  <view class="goods-list">
+    <view class="goods-item" wx:for="{{3}}" wx:key="key">
+      <view class="goods-img">
+        <image src="/images/shop3.png"/>
+      </view>
+      <view class="goods-info">
+        <view class="goods-name">
+          <text>phpStorm is ready to update.</text>
+        </view>
+        <view class="goods_price red">
+          <text>砍价后: ￥2000</text>
+        </view>
+        <view class="goods-notice">
+          <text>原价: <text style="text-decoration: line-through">￥2000</text></text>
+          <text>已有100人0元拿</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="buy-remarks">
+    <textarea name="" id=""  placeholder="请输入你需要备注的内容"></textarea>
+  </view>
+  <view class="buy-price">
+    <view>
+      <text>商品金额</text>
+      <text>￥300.00</text>
+    </view>
+    <view>
+      <text>运费</text>
+      <text>+ ￥30.00</text>
+    </view>
+    <view>
+      <text style="font-size: 30rpx;font-weight: bold;">总价:</text>
+      <text style="font-size: 30rpx;font-weight: bold;">￥330.00</text>
+    </view>
+  </view>
+  <view class="buy-btns">
+    <button style="background-color: #1aad19;">微信支付</button>
+    <button style="background-color: #568fdc;">余额支付</button>
+    <button style="background-color: #707070;">返回砍价</button>
+  </view>
+</view>

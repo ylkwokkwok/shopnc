@@ -1,0 +1,23 @@
+/**app.wxss**/
+.container {
+  width: 750rpx;
+  margin:0;
+  padding-bottom: 150rpx;
+} 
+view,navigator{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+/* flex */
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.red{
+  color: red;
+}

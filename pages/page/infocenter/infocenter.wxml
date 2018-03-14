@@ -1,0 +1,158 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="infotop">
+    <block wx:for="{{info}}" wx:key="*this">
+      <image src="{{item.tx}}" class="txbg"></image>
+      <view class="content">
+        <image class='tx' src="{{item.tx}}"></image>
+        <view class="right">
+          <text class="username">{{item.username}}</text>
+          <block wx:if="{{item.isVip}}">
+            <view style="overflow:hidden">
+              <image src="/images/infocenter/vip.png" mode='widthFix' class="vip"></image>
+              <text class="viptrue">VIP会员</text>
+              <span>已开通</span>
+            </view>
+          </block>
+          <block wx:else>
+            <view style="overflow:hidden">
+              <text class="normal">普通会员</text>
+              <navigator url="pages/openvip/openvip">成为VIP ></navigator>
+            </view>
+          </block>
+          <view class="jifen">我的积分：{{item.jifen}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="mymess">
+    <navigator>
+      <image src="/images/infocenter/payment.png"></image>
+      <text>待付款</text>
+      <span>1</span>
+    </navigator>
+    <navigator>
+      <image src="/images/infocenter/deliver.png" style="width:48rpx;height:42rpx;"></image>
+      <text>待发货</text>
+      <span>2</span>
+    </navigator>
+    <navigator>
+      <image src="/images/infocenter/receipt.png"></image>
+      <text>待收货</text>
+      <span>3</span>
+    </navigator>
+    <navigator>
+      <image src="/images/infocenter/evaluate.png"></image>
+      <text>待评价</text>
+      <span>1</span>
+    </navigator>
+    <navigator>
+      <image src="/images/infocenter/allorder.png"></image>
+      <text>全部订单</text>
+    </navigator>
+  </view>
+  <view class="mytab">
+    <navigator>
+      <text class="number">1</text>
+      <text class="name">我的拼团</text>
+    </navigator>
+    <navigator>
+      <text class="number">10</text>
+      <text class="name">我的砍价</text>
+    </navigator>
+    <navigator>
+      <text class="number">5</text>
+      <text class="name">我的试用</text>
+    </navigator>
+    <navigator>
+      <text class="number">0</text>
+      <text class="name">我的试吃</text>
+    </navigator>
+  </view>
+  <view class="elsetab">
+    <view class="top">
+      <navigator url="">
+        <image src="/images/infocenter/jfgl.png" style="width:61.33rpx"></image>
+        <text>积分管理</text>
+      </navigator>
+      <navigator url="pages/addressManage/addressManage">
+        <image src="/images/infocenter/dzgl.png" style="width:48rpx;"></image>
+        <text>地址管理</text>
+      </navigator>
+      <navigator url="pages/myCollect/myCollect">
+        <image src="/images/infocenter/wdsc.png" style='width:48rpx;'></image>
+        <text>我的收藏</text>
+      </navigator>
+      <navigator>
+        <image src="/images/infocenter/tcdd.png" style="width:45.76rpx;"></image>
+        <text>同城订单</text>
+      </navigator>
+    </view>
+    <view class="bottom">
+      <block wx:if="{{info[0].isVip}}">
+        <block wx:if="{{info[0].hasBranch}}">
+          <navigator url="pages/branchStoreManager/branchStoreManager">
+            <image src="/images/infocenter/wdfd.png" style="width:48rpx;"></image>
+            <text>我的分销店</text>
+          </navigator>
+        </block>
+        <block wx:else>
+          <navigator url="pages/noBranch/noBranch">
+            <image src="/images/infocenter/wdfd.png" style="width:48rpx;"></image>
+            <text>我的分销店</text>
+          </navigator>
+        </block>
+      </block>
+      <block wx:else>
+        <navigator url="pages/novip/novip">
+          <image src="/images/infocenter/wdfd.png" style="width:48rpx;"></image>
+          <text>我的分销店</text>
+        </navigator>
+      </block>
+      <navigator url="pages/login/login">
+        <image src="/images/infocenter/wddp.png" style="width:41.14rpx;"></image>
+        <text>我的店铺</text>
+      </navigator>
+      <navigator>
+        <image src="/images/infocenter/tksh.png" style="width:38rpx;"></image>
+        <text>退款/售后</text>
+      </navigator>
+    </view>
+  </view>
+  <view class="bindphone">
+    <block wx:if="{{info[0].entry}}">
+      <navigator url="pages/hasentry/hasentry">
+        <text>商家入驻</text>
+        <image src="/images/jt.png" mode='widthFix'></image>
+      </navigator>
+    </block>
+    <block wx:else>
+      <navigator url="pages/entry/entry">
+        <text>商家入驻</text>
+        <image src="/images/jt.png" mode='widthFix'></image>
+      </navigator>
+    </block>
+  </view>
+  <view class="bindphone">
+    <block wx:if="{{info[0].phone==''}}">
+      <navigator url="pages/bindPhone/bindPhone">
+        <text>绑定手机</text>
+        <image src="/images/jt.png" mode='widthFix'></image>
+      </navigator>
+    </block>
+    <block wx:else>
+      <navigator url="pages/alreadyBindPhone/alreadyBindPhone?phone={{info[0].phone}}">
+        <text>绑定手机</text>
+        <image src="/images/jt.png" mode='widthFix'></image>
+      </navigator>
+    </block>
+  </view>
+  <block wx:if="{{info[0].isVip}}">
+    <view class="tgewm">
+      <text>推广二维码</text>
+      <view class='right'>
+        <image class="erweima" src="{{info[0].erweima[0]}}" data-list="{{info[0].erweima}}" data-src="{{info[0].erweima[0]}}"  mode='widthFix' bindtap='imgyu'></image>
+        <image class="jt" src="/images/jt.png" mode='widthFix'></image>
+      </view>
+    </view>
+  </block>
+</view>

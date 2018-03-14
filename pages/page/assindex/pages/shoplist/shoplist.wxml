@@ -1,0 +1,51 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="top_search">
+    <input confirm-type="search" type="text" placeholder='请输入您要搜索的商品' placeholder-style='color:#666'/>
+    <image src='/images/assortment/search.png' mode='widthFix'></image>
+  </view>
+  <view class="shai">
+    <view class="first {{currentTab==0?'active':''}}"  data-current="0" bindtap="swichNav">
+      <text>{{selname}}</text>
+      <image src="{{currentTab==0?'/images/assortment/sjx_sel.png':'/images/assortment/sjx.png'}}" mode='widthFix' bindtap="click"></image>
+    </view>
+    <view class="second {{currentTab==1?'active':''}}"  data-current="1" bindtap="swichNav">
+      <text>销量</text>
+    </view>
+    <view class="thrid {{currentTab==2?'active':''}}"  data-current="2" bindtap="swichNav">
+      <text>评价</text>
+      <image src="{{currentTab==2?'/images/assortment/sjx_sel.png':'/images/assortment/sjx.png'}}" mode='widthFix'></image>
+    </view>
+    <view class="fourth {{currentTab==3?'active':''}}"  data-current="3" bindtap="swichNav">
+      <text>筛选</text>
+      <image src="{{currentTab==3?'/images/assortment/shai_sel.png':'/images/assortment/shai.png'}}" mode='widthFix'></image>
+    </view>
+  </view>
+  <view class="selectBar {{showview==true?'show':'hide'}}">
+    <block wx:for="{{shaiItem}}" wx:key="index">
+       <navigator class="{{curTab==index?'on':''}}" data-current='{{index}}' bindtap="selBar" data-val="{{item.text}}">
+        {{item.text}}
+        <image src="{{curTab==index?'/images/assortment/dui.png':''}}" mode='widthFix'></image>
+      </navigator>
+    </block>
+  </view>
+  <view class="shoplist">
+    <block wx:for="{{pros}}" wx:key="*this">
+      <navigator class="elme" url="{{item.link}}">
+        <view class="tit">{{item.title}}</view>
+        <image class="pro_img" src="{{item.img_url}}" mode='widthFix'></image>
+        <view class="jie">{{item.jie}}</view>
+        <view style="overflow:hidden;margin-top:10rpx;">
+          <view class="price">￥{{item.price}}</view>
+          <view class="tuan">
+            <image src="/images/bg.png" mode='widthFix'></image>
+            <view>{{item.tuan}}</view>
+          </view>
+        </view>
+        <view class="left">
+          <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
+          <view class="pinglun">评论:{{item.pinglun}}</view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,75 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="search">
+    <view class="top_search">
+      <input confirm-type="search" type="text" placeholder='请输入您要搜索的内容' placeholder-style="color:#000"/>
+      <image src='/images/search1.png' mode='widthFix'></image>
+    </view>
+  </view>
+  <view class="tabSwitch">
+    <view class="{{curTab==0?'on':''}}" data-current="0" bindtap='shaiTab'>出售中({{shoplist.length}})</view>
+    <view class="{{curTab==1?'on':''}}" data-current="1" bindtap='shaiTab'>仓库({{shoplist1.length}})</view>
+  </view>
+  <view class="bottom">
+    <view style="{{curTab==0?'display:block':'display:none'}}">
+      <view class="shoplist">
+        <block wx:for="{{shoplist}}">
+          <view class="shopone">
+            <view class="left">
+              <image src="{{item.img}}" mode='widthFix'></image>
+              <text>{{item.tit}}</text>
+            </view>
+            <view class="right">
+              <view class="jie">{{item.jie}}</view>
+              <view style="overflow:hidden;margin-top:10rpx;">
+                <view class="price">￥{{item.price}}</view>
+                <view class="tuan">
+                  <image src="/images/bg.png" mode='widthFix'></image>
+                  <view>{{item.tuan}}</view>
+                </view>
+              </view>
+              <view class="bottom">
+                <view class="ppleft">
+                  <view class="oldprice">库存: <text>￥{{item.surplus}}</text> </view>
+                  <view class="pinglun">总销量: <text>{{item.totalsales}}</text></view>
+                </view>
+                <view class="time">{{item.tiem}}</view>
+              </view>
+            </view>
+          </view> 
+        </block>
+      </view>
+    </view>
+    <view style="{{curTab==1?'display:block':'display:none'}}">
+      <view class="shoplist">
+        <block wx:for="{{shoplist1}}">
+          <view class="shopone">
+            <view class="left">
+              <image src="{{item.img}}" mode='widthFix'></image>
+              <text>{{item.tit}}</text>
+            </view>
+            <view class="right">
+              <view class="jie">{{item.jie}}</view>
+              <view style="overflow:hidden;margin-top:10rpx;">
+                <view class="price">￥{{item.price}}</view>
+                <view class="tuan">
+                  <image src="/images/bg.png" mode='widthFix'></image>
+                  <view>{{item.tuan}}</view>
+                </view>
+              </view>
+              <view class="bottom">
+                <view class="ppleft">
+                  <view class="oldprice">库存: <text>￥{{item.surplus}}</text> </view>
+                  <view class="pinglun">总销量: <text>{{item.totalsales}}</text></view>
+                </view>
+                <view class="time">{{item.tiem}}</view>
+              </view>
+            </view>
+          </view> 
+        </block>
+      </view>
+    </view>
+    <view class="foot">
+      <navigator url="../uploadPage/uploadPage">商品上传</navigator>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,336 @@
+.container{
+  background: #f6f6f6;
+}
+.address{
+  width: 750rpx;
+  background: white;
+  height: 100rpx;
+  padding-left: 20rpx;
+}
+.address>image{
+  width: 21rpx;
+  margin-top: 39.5rpx;
+  margin-right: 20rpx;
+}
+.address text{
+  font-size: 30rpx;
+  color: #999;
+}
+/* 购物车 s */
+.store-cart{
+  background:#ffffff;
+  color:#333333;
+}
+.store-info {
+  margin-top: 20rpx;
+  height: 75rpx;
+  line-height:75rpx;
+  border-bottom:1px solid #eeeeee;
+  padding:0 20rpx;
+}
+.store-info .store-icon {
+  width:30rpx;
+  height:30rpx;
+  vertical-align:middle;
+  margin: 0 20rpx;
+}
+.store-info .store-jt{
+  width: 16.5rpx;
+  height: 30rpx;
+}
+.store-info .store-name {
+  display:inline-block;
+  font-size: 30rpx;
+  vertical-align:middle;
+}
+.goods-list {
+  padding: 0 20rpx;
+}
+.goods-list .goods:last-child {
+  border-bottom:none;
+}
+.goods-list .goods {
+  padding: 15rpx 0;
+  display:flex;
+  flex-direction:row;
+}
+.goods-list .goods radio{
+  margin-top: 85rpx;
+}
+.goods-list .goods .goods-image-wrapper {
+  display:flex;
+  margin-right:5px;
+}
+.goods-list .goods .goods-image {
+  display:inline-block;
+  padding:5rpx;
+  vertical-align:middle;
+}
+.goods-list .goods .goods-image image{
+  width: 200rpx;
+  height: 200rpx;
+  vertical-align: middle;
+}
+.goods-list .goods .goods-infos-wrapper{
+  flex: 1;
+  flex-grow: 1;
+  overflow: hidden;
+}
+.goods-list .goods .goods-infos-wrapper .goods-name-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.goods-list .goods .goods-infos-wrapper .goods-name-wrapper .goods-name{
+  display: flex;
+  flex-grow: 1;
+  flex: 1;
+  height: 56rpx;
+  font-size: 28rpx;
+  padding-right: 5rpx;
+  line-height: 28rpx;
+  overflow: hidden;
+}
+.goods-list .goods .goods-infos-wrapper .goods-name-wrapper .goods-del{
+  width: 16px;
+  height: 16px;
+}
+.goods-list .goods .goods-infos-wrapper .goods-jingle{
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: #999999;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-top: 23rpx;
+}
+.goods-list .goods .goods-infos-wrapper .goods-work{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 35rpx;
+}
+.goods-list .goods .goods-infos-wrapper .goods-work .goods-price{
+  display: flex;
+  font-size: 30rpx;
+  color: red;
+}
+.goods-list .goods .goods-infos-wrapper .inc-num-dec-group{
+  display: inline-block;
+  float: right;
+}
+.goods-list .goods .goods-infos-wrapper .goods-amount{
+  float: right;
+  display: inline-block;
+  padding-right: 10px;
+  padding-top: 12px;
+  color: #333;
+}
+/* 购物车 e */
+
+/* 自增+数字+自减组 */
+/*
+<view class='inc-num-dec-group'>
+  <view class='dec'>-</view>
+  <view class='num'>20</view>
+  <view class='inc'>+</view>
+</view>
+*/
+.inc-num-dec-group{
+  line-height: 30px;
+  font-size: 14px;
+}
+
+.inc-num-dec-group .dec{
+  display: inline-block;
+  padding: 0 12px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: 1px solid #cccccc;
+  border-right: none;
+  color: #666666;
+}
+
+.inc-num-dec-group .num{
+  display: inline-block;
+  padding: 0px 12px;
+  border: 1px solid #cccccc;
+  color: #333333;
+  min-width: 20px;
+  text-align: center;
+}
+
+.inc-num-dec-group .inc{
+  display: inline-block;
+  padding: 0px 12px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 1px solid #cccccc;
+  border-left: none;
+  color: #666666;
+}
+
+.bottom_line {
+  width: 100%;
+  height: 2rpx;
+  background: lightgray;
+}
+.bottom_total {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: white;
+}
+.bottom_total .left{
+  width: 390rpx;
+  display: flex;
+  flex-direction: row;
+}
+.bottom_total .left .allsel{
+  display: flex;
+  flex-direction: row;
+}
+.bottom_total .left .item-allselect{
+  margin-top:30rpx;
+}
+.bottom_total .left .count{
+  font-size: 30rpx;
+}
+.button-red {
+  background-color: red;
+}
+.bottom_total .right{
+  display: flex;
+  flex-direction: row;
+  width: 360rpx;
+}
+.bottom_total .right>view{
+  width: 50%;
+  line-height: 100rpx;
+  text-align: center;
+  color: white;
+  font-size: 30rpx;
+}
+.bottom_total .right .collect{
+  background: #e8b223;
+}
+.bottom_total .right .pay{
+  background: #568fdc;
+}
+button {
+  position: fixed;
+  right: 0;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 30rpx;
+  border-radius: 0rpx;
+  width: 30%;
+  height: 120rpx;
+  line-height: 120rpx;
+}
+.price{
+  color: red;
+}
+/* address */
+.overflow-hidden{
+  overflow: hidden;
+}
+.overflow-auto{
+  overflow: auto;
+}
+.bg{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  background-color: rgba(0,0,0,.3);
+}
+.alert-box{
+  position: fixed;
+  width: 100%;
+  height: 60%;
+  left: 0;
+  bottom: 0;
+  z-index: 300;
+  background-color: #ffffff;
+  overflow: auto;
+  font-size: 30rpx;
+  color: #333333;
+}
+.alter-header{
+  height: 70rpx;
+  display: flex;
+  justify-content: center;
+  background-color: #eeeeee;
+  position: relative;
+}
+.alter-header text{
+  display: flex;
+  font-size: 36rpx;
+  line-height: 70rpx;
+}
+.alter-header image{
+  width: 36rpx;
+  height: 36rpx;
+  position:absolute;
+  right: 20rpx;
+  top: 22rpx;
+  vertical-align: middle;
+}
+.address-list{
+  display: flex;
+  flex-direction: column;
+}
+.address-item{
+  display: flex;
+  flex-direction: row;
+  height: 128rpx;
+  border-bottom: 1px solid #eeeeee;
+}
+.address-item radio{
+  margin-left: 20rpx;
+  margin-top: 50rpx;
+}
+.address-item-info{
+  width: 100%;
+  margin: 32rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+  line-height: 30rpx;
+}
+.address-item-icon{
+  display: flex;
+  justify-content: center;
+  margin-right: 20rpx;
+}
+.address-item-icon image{
+  display: flex;
+  width: 36rpx;
+  height: 36rpx;
+  margin-top: 46rpx;
+  vertical-align: middle;
+}
+.add-address image{
+  margin-left: 20rpx;
+  width: 36rpx;
+  height: 36rpx;
+  vertical-align: middle;
+}
+.add-address view{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 30rpx;
+}
+
+
+
+
+

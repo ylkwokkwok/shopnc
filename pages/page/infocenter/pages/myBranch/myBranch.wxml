@@ -1,0 +1,81 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="adtop">
+    <image src="/images/banner1.jpg" mode="widthFix" class="banner"></image>
+    <view class="top_search">
+      <input confirm-type="search" type="text" placeholder='请输入您要搜索的内容' placeholder-style="color:#000"/>
+      <image src='/images/search1.png' mode='widthFix'></image>
+    </view>
+  </view>
+  <view class="shopdetail">
+    <view class="left">
+      <image src="/images/tx.jpg" mode='widthFix'></image>
+      <text>双卡双待尽快把圣诞节</text>
+    </view>
+    <view class="right">
+      <view class="wel">
+        <text>8000</text>
+        <text>粉丝量</text>
+      </view>
+      <view class="collect" bindtap='collectClick'>
+        <image src="{{flag?'/images/collect_sel.png':'/images/collect.png'}}" mode='widthFix'></image>
+        <block wx:if="{{flag}}">
+          <text>已收藏</text>
+        </block>
+        <block wx:else>
+          <text>收藏</text>
+        </block>
+      </view>
+    </view>
+  </view>
+  <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+    <view class="tab-item {{currentTab==0?'active':''}}"  data-current="0" bindtap="swichNav">首页</view>
+    <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">休闲零食</view>
+    <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">特色生鲜</view>
+    <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">地方特产</view>
+    <view class="tab-item {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">粮油米面</view>
+    <view class="tab-item {{currentTab==5?'active':''}}" data-current="5" bindtap="swichNav">生活用品</view>
+    <view class="tab-item {{currentTab==6?'active':''}}" data-current="6" bindtap="swichNav">其他</view>
+  </scroll-view>
+  <swiper autoplay="true" interval="8000" duration="500" class="swpier">
+    <block wx:for="{{ads}}" wx:key='*this'>
+      <swiper-item>
+        <navigator>
+            <view class="text">{{item}}</view>
+        </navigator>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="shoplist">
+    <block wx:for="{{pros}}">
+      <navigator class="shopone" url="{{item.link}}">
+        <view class="left">
+          <image src="{{item.img}}" mode='widthFix'></image>
+          <text>{{item.tit}}</text>
+        </view>
+        <view class="right">
+          <view class="jie">{{item.jie}}</view>
+          <view style="overflow:hidden;margin-top:10rpx;">
+            <view class="price">￥{{item.price}}</view>
+            <view class="tuan">
+              <image src="/images/bg.png" mode='widthFix'></image>
+              <view>{{item.tuan}}</view>
+            </view>
+          </view>
+          <view class="bottom">
+            <view class="ppleft">
+              <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
+              <view class="pinglun">{{item.pinglun}}条评论</view>
+            </view>
+            <view class="addCart">
+              <navigator><image src="/images/infocenter/cart.png" mode='widthFix'></image></navigator>
+            </view>
+          </view>
+        </view>
+        <block wx:if="{{item.zhe}}">
+          <image class="zhe" src="/images/infocenter/zhe.png" mode='widthFix'></image>
+        </block>
+      </navigator> 
+    </block>
+  </view>
+</view>
+

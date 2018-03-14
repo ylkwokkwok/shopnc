@@ -1,0 +1,8 @@
+<view class="container">
+  <view class="center">
+    <image src="/images/infocenter/novip.png" mode='widthFix'></image>
+    <text>您还不是vip用户</text>
+    <text>请先开通vip获取更多权益</text>
+    <navigator url="../openvip/openvip">前往开通</navigator>
+  </view>
+</view>

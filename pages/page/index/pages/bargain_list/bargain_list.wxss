@@ -1,0 +1,90 @@
+.container{
+  background-color: #f6f6f6;
+}
+.top_search{
+  width:100%;
+  height: 90rpx;
+  margin:0;
+  position: relative;
+}
+.top_search input{
+  position: absolute;
+  width: 590rpx;
+  margin:0 auto;
+  height: 70rpx;
+  top: 10rpx;
+  left: 0;
+  right: 0;
+  background: #eeeeee;
+  color:white;
+  padding-left: 15rpx;
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+}
+.top_search image{
+  position: absolute;
+  right: 100rpx;
+  width:40rpx;
+  height: 40rpx;
+  z-index: 100;
+  top:25rpx;
+}
+.goods-list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.goods-item{
+  margin: 20rpx;
+  width: 345rpx;
+  height: 465rpx;
+  background-color: #ffffff;
+}
+.goods-item:nth-child(2n+2){
+  margin-left: 0;
+}
+.goods-item:nth-child(n+3){
+  margin-top: 0;
+}
+.goods-item .goods-img image{
+  width: 220rpx;
+  height: 220rpx;
+  vertical-align: middle;
+  margin: 20rpx 62.5rpx;
+}
+.goods-item .goods-name{
+  font-size: 28rpx;
+  line-height:28rpx;
+  color: #333333;
+  height: 56rpx;
+  overflow:hidden;
+}
+.goods-item .goods-price, .goods-item .goods-contro{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+.goods-item .goods-price .red{
+  color: red;
+  font-size: 30rpx;
+}
+.goods-item .goods-price .gray{
+  font-size: 24rpx;
+  line-height: 30rpx;
+  color: #999999;
+}
+.goods-item .goods-contro text{
+  font-size: 20rpx;
+  color: #666666;
+}
+.goods-item .goods-contro button{
+  border: 1px solid #ff0000;
+  width: 140rpx;
+  height: 45rpx;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  line-height: 45rpx;
+  color: #ff0000;
+  background-color: #ffffff;
+}

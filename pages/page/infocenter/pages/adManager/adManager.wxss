@@ -1,0 +1,81 @@
+.upload{
+  width:750rpx;
+}
+.uploadImg{
+  width: 100%;
+  height: 375rpx;
+  position: relative;
+  background: #f6f6f6;
+}
+.uploadImg .upload1{
+  position: absolute;
+  top: 135rpx;
+  left: 0;
+  right: 0;
+  margin:auto;
+  width:105rpx;
+}
+.uploadImg>text{
+  position: absolute;
+  top: 250rpx;
+  font-size: 36rpx;
+  text-align: center;
+  display: block;
+  width:100%;
+}
+.uploadImg .tabindex{
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+  font-size: 24rpx;
+  color: #333;
+}
+.uploadImg swiper{
+  width: 100%;
+  height: 100%;
+}
+.uploadImg swiper .img{
+  width: 100%;
+}
+.uploadImg .cha{
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  width: 40rpx;
+}
+.prompt{
+  padding:20rpx 0;
+  font-size: 20rpx;
+  color: #333;
+  letter-spacing: 2rpx;
+  padding-left: 20rpx;
+}
+.prompt text{
+  color: #568fdc;
+}
+.upload button{
+  width: 710rpx;
+  color: white;
+  background: #568fdc;
+ font-size: 30rpx;
+}
+.foot{
+  position: absolute;
+  bottom: 50rpx;
+  left: 0;
+  width: 710rpx;
+  right: 0;
+  margin: auto;
+}
+.foot>navigator{
+  color: #568fdc;
+  text-decoration: underline;
+  font-size: 24rpx;
+}
+.foot .left{
+  float: left;
+}
+.foot .right{
+  float: right;
+  text-align: right;
+}

@@ -1,0 +1,112 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="infotop">
+    <block wx:for="{{shopinfo}}">
+      <view class="content">
+        <block wx:if="{{isBoss==true}}">
+          <navigator class="addUser" url="../userList/userList">添加账号</navigator>
+        </block>
+        <image class='tx' src="{{item.tx}}"></image>
+        <view class="right">
+          <view style='overflow:hidden'>
+            <text class="shopname">{{item.shopname}}</text>
+            <navigator class="editshop" url="../entry/entry"><image src="/images/infocenter/shopedit.png" mode='widthFix'></image></navigator>
+          </view>
+          <text class="jie">店铺简介：{{item.jie}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+  <!--店铺数据-->
+  <view class="shopdata">
+    <view class="top">店铺数据</view>
+    <view class="bottom">
+      <view class="up">
+        <view class="one">
+          <text>0.0</text>
+          <text>昨日成交额</text>
+        </view>
+        <view class="two">
+          <text>0.0</text>
+          <text>今日成交额</text>
+        </view>
+        <view class="thrid">
+          <text>0</text>
+          <text>今日订单数</text>
+        </view>
+      </view>
+      <view class="down">
+        <view class="one">
+          <text>0</text>
+          <text>昨日访客量</text>
+        </view>
+        <view class="two">
+          <text>0</text>
+          <text>今日访客量</text>
+        </view>
+        <view class="thrid">
+          <text>0</text>
+          <text>我的收益</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--订单管理-->
+  <view class="order">
+    <view class="top">订单管理</view>
+    <view class="bottom">
+      <navigator url="../pendPayment/pendPayment?curTab=0">
+        <text>0</text>
+        <text>待付款</text>
+      </navigator>
+      <navigator url="../pendPayment/pendPayment?curTab=1">
+        <text>0</text>
+        <text>退款中</text>
+      </navigator>
+      <navigator url="../pendPayment/pendPayment?curTab=2">
+        <text>0</text>
+        <text>待发货</text>
+      </navigator>
+      <navigator url="../pendPayment/pendPayment?curTab=3">
+        <text>0</text>
+        <text>已完成订单</text>
+      </navigator>
+    </view>
+  </view>
+  <view class="shopdetail">
+    <view class="top">
+      <navigator url="../shopManager/shopManager">
+        <image src="/images/infocenter/allshop.png" style="width:42rpx;"></image>
+        <text>商品管理</text>
+      </navigator>
+      <navigator url="../shopUpload/shopUpload">
+        <image src="/images/infocenter/uploadicon.png" style="width:47.25rpx;"></image>
+        <text>商品上传</text>
+      </navigator>
+      <navigator>
+        <image src="/images/infocenter/jjicon.png" style="width:42rpx;"></image>
+        <text>竞价管理</text>
+      </navigator>
+      <navigator>
+        <image src="/images/infocenter/hdglicon.png" style="width:43rpx;"></image>
+        <text>活动管理</text>
+      </navigator>
+    </view>
+    <view class="bottom">
+       <navigator url="../message/message">
+        <image src="/images/infocenter/xxicon.png" style="width:42rpx;"></image>
+        <text>消息</text>
+        <block wx:if="{{mess.length!=0}}">
+          <view class="con">{{mess.length}}</view>
+        </block>
+      </navigator>
+      <navigator url="../adManager/adManager">
+        <image src="/images/infocenter/ggglicon.png" style="width:38.93rpx;"></image>
+        <text>广告管理</text>
+      </navigator>
+      <navigator url="../shopDecoration/shopDecoration">
+        <image src="/images/infocenter/dpzxicon.png" style="width:42rpx;"></image>
+        <text>店铺装修</text>
+      </navigator>
+    </view>
+  </view>
+</view>

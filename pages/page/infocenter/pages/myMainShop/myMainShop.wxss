@@ -1,0 +1,290 @@
+.container{
+  background: #f6f6f6;
+}
+.adtop{
+  width: 750rpx;
+  position: relative;
+  background: white;
+}
+.adtop .banner{
+  width: 100%;
+}
+.adtop .top_search{
+  position: absolute;
+  top: 10rpx;
+  left: 0;
+  right: 0;
+  margin:auto;
+  width: 710rpx;
+}
+.adtop .top_search input{
+  position: absolute;
+  width: 650rpx;
+  margin:0 auto;
+  height: 70rpx;
+  top: 10rpx;
+  left: 0;
+  right: 0;
+  background: #f6f6f6;
+  border-radius: 10rpx;
+  color:black;
+  padding-left: 15rpx;
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.adtop .top_search image{
+  position: absolute;
+  right: 70rpx;
+  width:40rpx;
+  height: 40rpx;
+  z-index: 100; 
+  top:25rpx;
+}
+.shopdetail{
+  background: white;
+  padding:20rpx 20rpx;
+  width:750rpx;
+  overflow: hidden;
+}
+.shopdetail .left{
+  float: left;
+  width: 500rpx;
+}
+.shopdetail .left image{
+  width: 60rpx;
+  float: left;
+  margin-right: 20rpx;
+}
+.shopdetail .left text{
+  float: left;
+  font-size: 24rpx;
+  line-height: 60rpx;
+}
+.shopdetail .right{
+  float: right;
+  display: flex;
+  flex-direction: row;
+  width:210rpx;
+}
+.shopdetail .right>view{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.shopdetail .right>view>text{
+  font-size: 24rpx;
+  text-align: center;
+  display: block;
+}
+.shopdetail .right .wel{
+  border-right: 1px solid #ccc;
+}
+.shopdetail .right .collect image{
+  width: 30rpx;
+  display: block;
+  margin:auto;
+}
+.tab-list{
+  width: 750rpx;
+  overflow: hidden;
+  background: white;
+  padding:20rpx 0;
+}
+.tab-list .center{
+  margin:auto;
+  box-shadow: 1px 1px 1px 3px #f0f0f0;
+  width:710rpx;
+  height: 130rpx;
+  display: flex;
+  flex-direction: row;
+}
+.tab-list .center>view{
+  width:25%;
+}
+.tab-list .center>view image{
+  height:38rpx;
+  display: block;
+  margin:auto;
+  margin-top: 20rpx;
+}
+.tab-list .center>view text{
+  text-align: center;
+  font-size: 30rpx;
+  display: block;
+  margin-top: 15rpx;
+}
+.tab-list .center>view.on{
+  border-bottom:4rpx solid #568fdc;
+}
+.tab-list .center>view.on text{
+  color: #568fdc;
+}
+.tabshow{
+  width: 750rpx;
+}
+.tabshow>view{
+  overflow: hidden;
+  width: 750rpx;
+  margin:auto;
+  padding-bottom: 20rpx;
+}
+.tabshow>view swiper{
+  width: 750rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  background: white;
+}
+.tabshow>view swiper .text{
+  width:710rpx;
+  height: 100%;
+  color: red;
+  margin:auto;
+  font-size: 24rpx;
+}
+.tabshow>view .dianpudetail{
+  width:710rpx;
+  display: block;
+  margin:auto;
+}
+.tabshow>view .shoplist{
+  width:710rpx;
+  margin:auto;  
+}
+.tabshow>view .shoplist .top{
+  position: relative;
+  width:100%;
+  height: 70rpx;
+}
+.tabshow>view .shai{
+  width: 750rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: white;
+  margin-top:20rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: row;
+}
+.tabshow>view .shai navigator{
+  width: 25%;
+  text-align: center;
+  color: black;
+}
+.tabshow>view .shai navigator text{
+  width: 80rpx;
+  display: block;
+  margin:auto;
+}
+.tabshow>view .shai navigator.on text{
+  color: #568fdc;
+  border-bottom: 4rpx solid #568fdc;
+}
+.tabshow>view .shoplist .top .xian{
+  width: 100%;
+  border-top:1px solid #666;
+  margin-top:50rpx;
+}
+.tabshow>view .shoplist .top>text{
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: #f6f6f6;
+  font-size: 24rpx;
+  top:-20rpx;
+  display:block;
+  width:130rpx;
+  text-align:center;
+  margin:auto;
+  height:40rpx;
+  line-height:40rpx;
+  letter-spacing:2rpx;
+}
+.shoplist .elme{
+  width: 345rpx;
+  margin-right: 20rpx;
+  background: white;
+  height: 480rpx;
+  float: left;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.shoplist .bottom .zhe{
+  position: absolute;
+  top:10rpx;
+  left: 10rpx;
+  width: 55rpx;
+}
+.shoplist .elme:nth-child(even){
+  margin-right: 0;
+}
+.shoplist .elme .tit{
+  font-size: 20rpx;
+  color: red;
+  text-align: right;
+  padding-right: 20rpx;
+  padding-top:10rpx;
+}
+.shoplist .elme .pro_img{
+  width: 218rpx;
+  display: block;
+  margin:auto;
+}
+.shoplist .elme .jie{
+  font-size: 28rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  padding:0rpx 12rpx;
+  margin-top:20rpx;
+}
+.shoplist .elme .price{
+  font-size: 30rpx;
+  color: red;
+  float: left;
+  padding-left: 12rpx;
+}
+.shoplist .elme .tuan{
+  width: 110rpx;
+  float: left;
+  position: relative;
+  margin-left: 20rpx;
+  margin-top:-5rpx;
+}
+.shoplist .elme .tuan image{
+  width: 100%;
+}
+.shoplist .elme .tuan view{
+  position: absolute;
+  width:100%;
+  text-align: center;
+  color: white;
+  top:15rpx;
+  left: 0;
+  right: 0;
+  font-size: 20rpx;
+}
+.shoplist .elme .left{
+  display: flex;
+  flex-direction: column;
+}
+.shoplist .elme .oldprice,.shoplist .elme .pinglun{
+  font-size: 24rpx;
+  color: #afafaf;
+  padding-left: 12rpx;
+  width:50%;
+}
+.shoplist .elme .oldprice text{
+  text-decoration: line-through;
+}
+.kf{
+  position: fixed;
+  right: 20rpx;
+  top: 500rpx;
+}
+.kf image{
+  width: 50rpx;
+  z-index: 100;
+}

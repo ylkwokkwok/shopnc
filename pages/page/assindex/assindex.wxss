@@ -1,0 +1,93 @@
+.top_search{
+  width:100%;
+  height: 90rpx;
+  margin:0;
+  position: relative;
+  border-bottom:2rpx solid #ccc;
+}
+.top_search input{
+  position: absolute;
+  width: 590rpx;
+  margin:0 auto;
+  height: 70rpx;
+  top: 10rpx;
+  left: 0;
+  right: 0;
+  background: #eeeeee;
+  border-radius: 30rpx;
+  color:white;
+  padding-left: 15rpx;
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+}
+.top_search image{
+  position: absolute;
+  right: 100rpx;
+  width:40rpx;
+  height: 40rpx;
+  z-index: 100; 
+  top:25rpx;
+}
+.show{
+  width: 750rpx;
+  margin-top:20rpx;
+  overflow: hidden;
+}
+.swiper-tab{
+  width:165rpx;
+  background: #eeeeee;
+  height: 100%;
+  float: left;
+  font-size: 32rpx;
+}
+.tab-item{
+  width: 100%;
+  text-align: center;
+  line-height: 70rpx;
+  height: 70rpx;
+}
+.tab-item.active{
+  background: white;
+  color: red;
+}
+.swiper{
+  width: 565rpx;
+  float: left;
+  margin-left: 10rpx;
+  margin-bottom: 100rpx;
+  overflow: hidden;
+}
+.swiper swiper{
+  height: auto;
+  overflow:hidden;
+}
+.swiper .top,.swiper .middle,.swiper .bottom{
+  overflow: hidden;
+}
+.swiper .top>navigator{
+  float: left;
+  height: 145rpx;
+  background: #eeeeee;
+  margin-bottom: 20rpx;
+}
+.swiper .top .left{
+  width: 210rpx;
+}
+.swiper .top .right{
+  width: 335rpx;
+}
+.swiper .top>navigator:nth-child(even),.swiper .middle>navigator:nth-child(even),.swiper .bottom>navigator:nth-child(even){
+  margin-left: 20rpx;
+}
+.swiper .best-new{
+  margin:20rpx 0;
+  font-size: 60rpx;
+  color: #898989;
+}
+.swiper .middle>navigator,.swiper .bottom>navigator{
+  width: 272.5rpx;
+  height: 145rpx;
+  background: #eee;
+  margin-bottom: 20rpx;
+  float: left;
+}

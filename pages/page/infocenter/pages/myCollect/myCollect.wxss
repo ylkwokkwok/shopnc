@@ -1,0 +1,127 @@
+.container{
+  background: #f6f6f6;
+}
+.tab-list{
+  height: 90rpx;
+  background: white;
+  width:750rpx;
+  display: flex;
+  flex-direction: row;
+}
+.tab-list>view{
+  width: 33.33%;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  color: black;
+}
+.tab-list>view.on{
+  color: #568fdc;
+  border-bottom: 4rpx solid #568fdc;
+}
+.tabshow{
+  width: 100%;
+}
+.tabshow .nocollect{
+  margin-top:100rpx;
+}
+.tabshow .nocollect image{
+  width: 397rpx;
+  display: block;
+  margin:auto;
+}
+.tabshow .nocollect text{
+  margin-top:20rpx;
+  text-align: center;
+  display: block;
+  font-size: 24rpx;
+}
+.tabshow .prompt{
+  height: 75rpx;
+  line-height: 75rpx;
+  width: 710rpx;
+  margin: auto;
+  font-size: 24rpx;
+  color: black;
+}
+.tabshow .prompt text{
+  color: #999;
+}
+.tabshow .item{
+    width: 100%;
+    position: relative; 
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    background: white;
+    padding:20rpx 20rpx;
+}
+.tabshow .item:last-child{
+  border-bottom: none;
+}
+.tabshow .item .sel{
+  width: 40rpx;
+  float: left;
+  margin-top:50rpx;
+}
+.tabshow .item .img{
+  width: 120rpx;
+  float: left;
+}
+.tabshow .item .number-wrapper{
+  float: left;
+  width: 590rpx;
+  margin-left: 20rpx;
+}
+.tabshow .item .number-wrapper text{
+  display: block;
+}
+.tabshow .item .number-wrapper .name{
+  font-size: 30rpx;
+  margin-top: 10rpx;
+}
+.tabshow .item .number-wrapper .detail{
+  font-size: 24rpx;
+  color: #999;
+  padding-top: 30rpx;
+}
+.tabshow .item .remove{
+    width: 60px;
+    height: 100%;
+    background-color: red;
+    position: absolute;
+    top: 0;
+    right: -60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.foot{
+  position: fixed;
+  bottom: 0;
+  width:750rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: white;
+  left: 0;
+}
+.foot .sel{
+  width: 40rpx;
+  float: left;
+  margin-top:25rpx;
+  margin-left: 20rpx;
+}
+.foot text{
+  float: left;
+  font-size: 24rpx;
+  margin-left: 20rpx;
+}
+.foot view{
+  float: right;
+  height: 100%;
+  width: 160rpx;
+  background: #568fdc;
+  color: white;
+  font-size: 30rpx;
+  text-align: center;
+}

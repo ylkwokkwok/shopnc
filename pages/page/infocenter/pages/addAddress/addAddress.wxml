@@ -1,0 +1,38 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <form class="form">
+    <view class="consignee same">
+      <label>收货人</label>
+      <input placeholder='姓名' placeholder-style='color:#b6b6b6'></input>
+    </view> 
+    <view class="phone same">
+      <label>联系电话</label>
+      <input placeholder='手机号码' placeholder-style='color:#b6b6b6' type='number'></input>
+    </view> 
+    <view class="provice same">
+      <label>所在地区</label>
+      <input value='{{province}}-{{city}}-{{county}}' bindfocus="open"></input>
+    </view> 
+    <view class="address same">
+      <label>详细地址</label>
+      <input placeholder='填写居住地址' placeholder-style='color:#b6b6b6'></input>
+    </view> 
+    <button class="save" type='primary'>保存该地址</button>
+  </form>
+  <view wx:if="{{condition}}" class="citypicker">
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange" class="citybody">
+      <view class="cityheader">
+        <view bindtap="open" class="city-cancel">取消</view>
+        <view bindtap="open" class="city-true">确定</view>
+      </view>
+      <picker-view-column>
+        <view wx:for="{{provinces}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{citys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{countys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>

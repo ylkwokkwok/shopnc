@@ -1,0 +1,14 @@
+<view  class="container">
+  <form catchsubmit="formSubmit">
+    <view class="same">
+      <label>账号</label>
+      <input name="username" bindblur="inputVal"></input>
+    </view>
+    <view class="same">
+      <label>邮箱</label>
+      <input name="email" bindblur='inputVal'></input>
+    </view>
+    <button type='defalut' class="sureBtn" hover-class="none" disabled='{{isDisabled}}' style="{{isDisabled?'background:#bfbfbf':'background:#568fdc'}}" form-type='submit'>确认发送到邮箱</button>
+  </form>
+</view>
+

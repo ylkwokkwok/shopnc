@@ -1,0 +1,83 @@
+.container{
+  padding-bottom: 0;
+  overflow: hidden;
+}
+.bg{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.login{
+  width: 520rpx;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 200rpx;
+  z-index: 100;
+}
+.login form{
+  width: 100%;
+  margin-top: 120rpx;
+  overflow:hidden;
+  display: block;
+}
+.login form .same{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90prx;
+  color: white;
+  padding-left: 50rpx;
+  border:1px solid white;
+  border-radius: 50rpx;
+  min-height: auto;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin-bottom: 20rpx;
+  font-size: 36rpx;
+}
+.login>text{
+  text-align: center;
+  color: white;
+  font-size: 36rpx;
+  display: block;
+  letter-spacing: 2rpx;
+}
+.login form .loginBtn{
+  width: 100%;
+  margin-top: 80rpx;
+  background: #568fdc;
+  color: white;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 36rpx;
+  border-radius: 50rpx;
+}
+.login form .passBar{
+  margin: auto;
+  margin-top:20rpx;
+  width:260rpx;
+  display: block;
+  color: white;
+}
+.login form .passBar>navigator{
+  float: left;
+  font-size: 24rpx;
+}
+.login form .passBar>text{
+  float: left;
+  display: block;
+  font-size: 24rpx;
+  margin:0 20rpx;
+}
+.bosslogin{
+  position: absolute;
+  bottom: 30rpx;
+  right: 20rpx;
+  z-index: 100;
+  color: white;
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+  text-decoration: underline;
+}

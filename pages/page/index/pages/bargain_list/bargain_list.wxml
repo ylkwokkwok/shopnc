@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="top_search">
+    <input confirm-type="search" type="text" placeholder="请输入您想搜索的商品"/>
+    <image src='/images/assortment/search.png' mode='widthFix'></image>
+  </view>
+  <view class="goods-list">
+    <view class="goods-item" wx:for="{{goodsList}}" wx:for-item="goodsItem" wx:key="key" data-goods-id="{{goodsItem.id}}" bindtap="toBargain">
+      <view class="goods-img">
+        <image src="/images/shop3.png" />
+      </view>
+      <view class="goods-name">
+        {{goodsItem.goods_name}}
+      </view>
+      <view class="goods-price">
+        <text class="red">原价: ￥{{goodsItem.goods_price}}</text>
+        <text class="gray">共{{goodsItem.goods_inventory}}份</text>
+      </view>
+      <view class="goods-contro">
+        <text>{{goods.sale_number}}人已0元拿</text>
+        <button>砍价0元拿</button>
+      </view>
+    </view>
+  </view>
+</view>

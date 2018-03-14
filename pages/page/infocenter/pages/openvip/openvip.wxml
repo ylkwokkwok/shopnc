@@ -1,0 +1,49 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="infotop">
+    <block wx:for="{{info}}" wx:key="*this">
+      <image src="{{item.tx}}" class="txbg"></image>
+      <view class="content">
+        <image class='tx' src="{{item.tx}}"></image>
+        <view class="right">
+          <text class="username">{{item.username}}</text>
+          <view style="overflow:hidden">
+            <text class="normal">vip会员</text>
+            <view class="novip">未开通</view>
+          </view>
+          <view class="jifen">我的积分：{{item.jifen}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="openvip">
+    <view class="tit">vip会员开通</view>
+    <form catchsubmit="formSubmit">
+      <view class="paytab">
+        <block wx:for="{{paytab}}" wx:key="index">
+          <view style="{{currentTab==index?'border:1px solid #568fdc':'border:1px solid #e3ecf9'}}" data-current="{{index}}" bindtap='swichNav'>
+            <text class="typename">{{item.type}}</text>
+            <text class="name">￥{{item.money}}</text>
+            <image src="{{currentTab==index?'/images/comment_select.png':''}}" mode='widthFix'></image>
+          </view>
+        </block>
+      </view>
+      <button type="primary" class="ljkt" formType="submit">立即开通</button>
+    </form>
+  </view>
+  <view class="prompt">
+    <view class="tit">vip会员特权</view>
+    <view class="privilege">
+      <block wx:for="{{privilege}}" wx:key="*this">
+        <view>
+          <image src="{{item.img}}" mode="widthFix"></image>
+          <text>{{item.text}}</text>
+        </view>
+      </block>
+    </view>
+    <view class="promptbegin">
+      <text>1.上岛咖啡哈是的疯狂拉升的看法是立</text>
+      <text>2.答复哈卡斯的斯达康反馈的是上岛咖啡</text>
+      <text>3.加多少积分短时间内防水等级首都南京</text>
+    </view>
+  </view>
+</view>

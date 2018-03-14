@@ -1,0 +1,28 @@
+.center{
+  width: 710rpx;
+  margin-top:255rpx;
+}
+.center>image{
+  width: 150rpx;
+  display: block;
+  margin:auto;
+}
+.center>text{
+  text-align: center;
+  display: block;
+  font-size: 30rpx;
+  margin-top:30rpx;
+  color: #b6b6b6;
+}
+.center navigator{
+  width: 300rpx;
+  height: 60rpx;
+  background: #568fdc;
+  color: white;
+  line-height: 60rpx;
+  margin:auto;
+  margin-top:30rpx;
+  text-align: center;
+  border-radius:10rpx;
+  font-size: 30rpx;
+}

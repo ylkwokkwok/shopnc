@@ -1,0 +1,98 @@
+{
+  "pages": [
+    "page/infocenter/infocenter",
+    "page/index/index",
+    "page/index/pages/pingtuan/pingtuan",
+    "page/index/pages/pintuan_detail/pintuan_detail",
+    "page/assindex/assindex",
+    "page/assindex/pages/shoplist/shoplist",
+    "page/assindex/pages/shopdetail/shopdetail",
+    "page/assindex/pages/evaluate/evaluate",
+    "page/assindex/pages/confirmorder/confirmorder",
+    "page/city/city",
+    "page/infocenter/pages/addAddress/addAddress",
+    "page/infocenter/pages/openvip/openvip",
+    "page/infocenter/pages/novip/novip",
+    "page/infocenter/pages/entry/entry",
+    "page/infocenter/pages/hasentry/hasentry",
+    "page/infocenter/pages/addressManage/addressManage",
+    "page/infocenter/pages/bindPhone/bindPhone",
+    "page/infocenter/pages/alreadyBindPhone/alreadyBindPhone",
+    "page/infocenter/pages/changPhone/changePhone",
+    "page/infocenter/pages/myCollect/myCollect",
+    "page/infocenter/pages/myMainShop/myMainShop",
+    "page/infocenter/pages/myBranch/myBranch",
+    "page/infocenter/pages/Bosslogin/Bosslogin",
+    "page/infocenter/pages/login/login",
+    "page/infocenter/pages/editPsw/editPsw",
+    "page/infocenter/pages/getBackPsw/getBackPsw",
+    "page/infocenter/pages/mainStoreManager/mainStoreManager",
+    "page/infocenter/pages/addUser/addUser",
+    "page/infocenter/pages/userList/userList",
+    "page/infocenter/pages/shopManager/shopManager",
+<<<<<<< HEAD
+    "page/infocenter/pages/shopManager1/shopManager1",
+    "page/infocenter/pages/shopUpload/shopUpload",
+    "page/infocenter/pages/uploadPage/uploadPage",
+    "page/infocenter/pages/message/message",
+    "page/infocenter/pages/adManager/adManager",
+    "page/infocenter/pages/shopDecoration/shopDecoration",
+    "page/infocenter/pages/pendPayment/pendPayment",
+    "page/infocenter/pages/changePrice/changePrice",
+    "page/infocenter/pages/noBranch/noBranch",
+    "page/infocenter/pages/branchStoreManager/branchStoreManager",
+    "page/infocenter/pages/buyBooth/buyBooth",
+    "page/infocenter/pages/staffProfit/staffProfit",
+    "page/shopcart/shopcart"
+=======
+    "page/shopcart/shopcart",
+    "page/index/pages/bargain/bargain",
+    "page/index/pages/bargain_list/bargain_list",
+    "page/index/pages/buy/buy"
+>>>>>>> fcc5e3378b28467211a9e794e81c08490a5cfd33
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#568fdc",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#568fdc",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "page/index/index",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_sel.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "page/assindex/assindex",
+        "iconPath": "images/fenlei.png",
+        "selectedIconPath": "images/fenlei_sel.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "page/city/city",
+        "iconPath": "images/samecity.png",
+        "selectedIconPath": "images/samecity_sel.png",
+        "text": "同城"
+      },
+      {
+        "pagePath": "page/shopcart/shopcart",
+        "iconPath": "images/gwc.png",
+        "selectedIconPath": "images/gwc_sel.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "page/infocenter/infocenter",
+        "iconPath": "images/info.png",
+        "selectedIconPath": "images/info_sel.png",
+        "text": "个人中心"
+      }
+    ]
+  }
+}

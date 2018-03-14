@@ -1,0 +1,42 @@
+<view class="container">
+  <form class="upload" catchsubmit="formSubmit">
+    <view class="uploadImg">
+      <block wx:if="{{img.length==0}}">
+        <image src="/images/infocenter/carmer.png" class="upload1" mode='widthFix' bindtap='chooseImage'></image>
+        <text class="postext">上传主图</text>
+        <view class="tabindex">0/1</view>
+      </block>
+      <block wx:else> 
+        <view>
+          <image src="{{img}}" class="img"></image>
+        </view>
+        <image class="cha" src="/images/assortment/del.png" mode='widthFix' data-index="{{current}}" bindtap='clearimgs'></image>
+        <view class="tabindex">
+          1/1
+        </view>
+      </block>
+    </view>
+    <view class="prompt">首页广告位图片审核标准 <text>【图片规范】</text></view>
+    <view class="uploadImg" style="margin-top:100rpx;height:auto;">
+      <view class="imageList">
+        <block wx:for="{{imageList}}" wx:key="index">
+          <view class="imageItem" style="height:375rpx;position:relative;border-bottom:1px solid white;">
+            <image src="{{item}}" bindtap="previewImage2" data-src="{{item}}" class="img" style='width:100%' mode='widthFix'></image>
+            <image class="cha" src="/images/assortment/del.png" mode='widthFix' data-index="{{item}}" bindtap='clearimgs2'></image>
+            <view class="tabindex">{{index+1}}/4</view>
+          </view>
+        </block>
+      </view>
+      <view class="tabindex">
+        {{current}}/4
+      </view>
+      <view class="uploadbtn" style="height:375rpx;background:#f6f6f6;position:relative;{{imageList.length!=4?'display:block':'display:none'}}">
+        <image src="/images/infocenter/carmer.png" class="upload1" mode='widthFix' bindtap='chooseImage2'></image>
+        <text class="postext">店铺广告图</text>
+        <view class="tabindex">0/4</view>
+      </view>
+    </view>
+    <view class="prompt">首页广告位图片审核标准 <text>【图片规范】</text></view>
+    <button form-type='submit'>保存</button>
+  </form>
+</view>
