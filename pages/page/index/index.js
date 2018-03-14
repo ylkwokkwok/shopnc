@@ -41,7 +41,7 @@ Page({
   onLoad: function () {
     var that = this;
     wx.request({
-      url: 'http://www.ushitong.cn/shopnc/shopnc/mobile/index.php?act=goods&op=goods_list',
+      url: 'http://demo.it9g.com/mobile/index.php?act=goods&op=goods_list',
       data: '',
       header: {
         'content-type': 'application/json' // 默认值
@@ -54,8 +54,20 @@ Page({
       }
     })
 
-
+    wx.request({
+      url: 'http://demo.it9g.com/mobile/index.php?act=goods&op=goods_commend',
+      data: '',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data);
+         that.setData({
+           goods_commend: res.data.datas.goods_commend_list
+         })
+      }
+    })
   }
-})
+ })
 
 

@@ -112,12 +112,7 @@
   margin-top:20rpx;
   display: flex;
   flex-direction: row;
-}
-.hotshow .left{
-  width:270rpx;
-  background: white;
-  height:230rpx;
-  position: relative;
+  overflow: hidden;
 }
 .hotshow view .tit{
   font-size: 30rpx;
