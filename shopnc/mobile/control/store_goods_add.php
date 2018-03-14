@@ -1,0 +1,56 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: wei gao
+ * Email:1225039937@qq.com
+ * Date: 2018/3/13
+ * Time: 11:03
+ */
+
+class store_goods_addControl extends mobileSellerControl
+{
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
+     * ajax 上传商品主图
+     */
+    public function image_uploadOp() {
+        $logic_goods = Logic('goods');
+        $result =  $logic_goods->uploadGoodsImage(
+            $_POST['name'],
+            $this->seller_info['store_id'],
+            $this->store_grade['sg_album_limit']
+        );
+
+        if(!$result['state']) {
+            output_error($result['msg']);
+        }
+        output_data($result['data']);
+    }
+
+    /**
+     * ajax获取商品分类的子级数据
+     */
+    public function ajax_goods_classOp() {
+        $gc_id = intval($_GET['gc_id']);
+        $deep = intval($_GET['deep']);
+        if ($gc_id < 0 || $deep <= 0 || $deep >= 4) {
+            output_error("非法请求");
+        }
+        $model_goodsclass = Model('goods_class');
+        $list = $model_goodsclass->getGoodsClass($this->seller_info['store_id'], $gc_id, $deep,$this->seller_group_info['seller_group_id'],$this->seller_group_info['seller_gc_limits']);
+        if (empty($list)) {
+            output_error("您还没有设置商品分类");
+        }
+        /**
+         * 转码
+         */
+        if (strtoupper ( CHARSET ) == 'GBK') {
+            $list = Language::getUTF8 ( $list );
+        }
+        output_data($list);
+    }
+}

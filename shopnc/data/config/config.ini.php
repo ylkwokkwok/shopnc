@@ -1,27 +1,29 @@
 <?php
 //by 33hao.com 好商城
 $config = array();
-$config['base_site_url'] 		= 'http://www.shopnc.com';
-$config['shop_site_url']        = 'http://www.shopnc.com/shop';
-$config['cms_site_url']         = 'http://www.shopnc.com/cms';
-$config['microshop_site_url']   = 'http://www.shopnc.com/microshop';
-$config['circle_site_url']      = 'http://www.shopnc.com/circle';
-$config['admin_site_url']       = 'http://www.shopnc.com/admin';
-$config['mobile_site_url']      = 'http://www.shopnc.com/mobile';
-$config['wap_site_url']         = 'http://www.shopnc.com/wap';
-$config['chat_site_url']        = 'http://www.shopnc.com/chat';
-$config['wechat_site_url']      = 'http://www.shopnc.com/wechat/ems';
-$config['node_site_url'] 		= 'http://www.shopnc.com:33'; //如果要启用IM，把www.shopnc.com修改为您的服务器IP
-$config['delivery_site_url']    = 'http://www.shopnc.com/delivery';
-$config['chain_site_url']       = 'http://www.shopnc.com/chain';
-$config['member_site_url']      = 'http://www.shopnc.com/member';
-$config['upload_site_url']      = 'http://www.shopnc.com/data/upload';
-$config['resource_site_url']    = 'http://www.shopnc.com/data/resource';
-$config['cms_modules_url']      = 'http://www.shopnc.com/admin/modules/cms';
-$config['microshop_modules_url']= 'http://www.shopnc.com/admin/modules/microshop';
-$config['circle_modules_url']   = 'http://www.shopnc.com/admin/modules/circle';
-$config['admin_modules_url']    = 'http://www.shopnc.com/admin/modules/shop';
-$config['mobile_modules_url']   = 'http://www.shopnc.com/admin/modules/mobile';
+$base_url = 'http://demo.it9g.com';
+$base_url = 'http://shop.xunshi.com';
+$config['base_site_url'] 		= $base_url;
+$config['shop_site_url']        = $base_url.'/shop';
+$config['cms_site_url']         = $base_url.'/cms';
+$config['microshop_site_url']   = $base_url.'/microshop';
+$config['circle_site_url']      = $base_url.'/circle';
+$config['admin_site_url']       = $base_url.'/admin';
+$config['mobile_site_url']      = $base_url.'/mobile';
+$config['wap_site_url']         = $base_url.'/wap';
+$config['chat_site_url']        = $base_url.'/chat';
+$config['wechat_site_url']      = $base_url.'/wechat/ems';
+$config['node_site_url'] 		= $base_url.':33'; //如果要启用IM，把v5.33hao.com修改为您的服务器IP
+$config['delivery_site_url']    = $base_url.'/delivery';
+$config['chain_site_url']       = $base_url.'/chain';
+$config['member_site_url']      = $base_url.'/member';
+$config['upload_site_url']      = $base_url.'/data/upload';
+$config['resource_site_url']    = $base_url.'/data/resource';
+$config['cms_modules_url']      = $base_url.'/admin/modules/cms';
+$config['microshop_modules_url']= $base_url.'/admin/modules/microshop';
+$config['circle_modules_url']   = $base_url.'/admin/modules/circle';
+$config['admin_modules_url']    = $base_url.'/admin/modules/shop';
+$config['mobile_modules_url']   = $base_url.'/admin/modules/mobile';
 $config['version']              = '201611251125';
 $config['setup_date']           = '2016-12-06 20:33:56';
 $config['gip']                  = 0;
@@ -57,4 +59,8 @@ $config['queue']['open'] = false;
 $config['queue']['host'] = '127.0.0.1';
 $config['queue']['port'] = 6379;
 $config['https'] = false;
+//小程序配置信息
+$config['xcx_appid'] = "wx3d1867534a7cebad";
+$config['xcx_appsecret'] = "1937eee61ef004eacbeef2f6cf2e9b1d";
+
 return $config;

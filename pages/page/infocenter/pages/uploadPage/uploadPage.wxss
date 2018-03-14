@@ -349,3 +349,26 @@ button:last-child{
   color: #568fdc;
   font-size: 24rpx;
 }
+/* select class list */
+.class-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10rpx 20rpx;
+  font-size: 28rpx;
+  color: #333333;
+}
+.class-item .class-item-value{
+  width: 70%;
+  text-align: right;
+}
+.class-btn{
+  width: 710rpx;
+  margin: 20rpx;
+  width: 710rpx;
+  height: 90rpx;
+  font-size: 30rpx;
+  color: #ffffff;
+  background-color: #1aad19;
+  border-radius: 10rpx;
+}

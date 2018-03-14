@@ -7,11 +7,11 @@
       </block>
       <block wx:else> 
         <swiper duration="1000" bindchange='changeSwiper'>
-          <block wx:for="{{imageList}}" wx:key="*this">
+          <block wx:for="{{imageList}}" wx:for-item="imageItem" wx:for-index="imageIndex" wx:key="*this">
             <swiper-item>
-              <image src="{{item}}" data-src="{{item}}" class="img"></image>
-              <image class="cha" src="/images/assortment/del.png" mode='widthFix' data-index="{{item}}" bindtap='clearimgs'></image>
-              <image src="/images/infocenter/carmer1.png" class="upload2" mode='widthFix' bindtap='chooseImage' data-index="current"></image>
+              <image src="{{imageItem.temp}}" class="img"></image>
+              <image class="cha" src="/images/assortment/del.png" mode='widthFix' data-index="{{imageIndex}}" bindtap='clearimgs'></image>
+              <image wx:if="{{imageList.length < 4}}" src="/images/infocenter/carmer1.png" class="upload2" mode='widthFix' bindtap='chooseImage' data-index="current"></image>
             </swiper-item>
           </block>
         </swiper> 
@@ -31,9 +31,7 @@
         </view>
         <view bindtap='openCategory'>
           <label>选择分类</label>
-          <view name="category">{{category}}</view>
-          <!-- <input value='{{category}}' style="display:none;"></input> -->
-          <image src="/images/jt.png" mode='widthFix' class="jt"></image>
+           <input value="{{gc_name1 + '  ' + gc_name2 + '  ' + gc_name3}}" readonly="readonly"></input>
         </view>
         <text>商品属性</text>
         <view>
@@ -66,16 +64,6 @@
           </block>
           <image src="/images/jt.png" class="jt" mode='widthFix'></image>
         </view>
-        <view class="provice same">
-          <label>发货地</label>
-          <input value='{{province}}-{{city}}' bindfocus="open" name="provice1"></input>
-          <image src="/images/jt.png" class="jt" mode='widthFix'></image>
-        </view> 
-        <view class="provice same">
-          <label>采货地</label>
-          <input value='{{province1}}-{{city1}}' bindfocus="open1" name="provice2"></input>
-          <image src="/images/jt.png" class="jt" mode='widthFix'></image>
-        </view> 
         <view>
           <label>七天无理由退货</label>
           <switch checked name="switch"/>
@@ -87,56 +75,48 @@
         <button form-type='submit' class="release" id="release">立即发布</button>
       <!-- </view> -->
   </form>
-  <!--发货地-->
-  <view wx:if="{{condition}}" class="citypicker">
-    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;background:white;" value="{{value}}" bindchange="bindChange" class="citybody">
-      <view class="cityheader">
-        <view bindtap="open" class="city-cancel">取消</view>
-        <view bindtap="open" class="city-true">确定</view>
-      </view>
-       <picker-view-column>
-        <view wx:for="{{provinces}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
-      </picker-view-column> 
-      <picker-view-column>
-        <view wx:for="{{citys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
-      </picker-view-column>
-    </picker-view>
-  </view>
-  <!--采货地-->
-  <view wx:if="{{condition1}}" class="citypicker">
-    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;background:white;" value="{{value}}" bindchange="bindChange1" class="citybody">
-      <view class="cityheader">
-        <view bindtap="open1" class="city-cancel">取消</view>
-        <view bindtap="open1" class="city-true">确定</view>
-      </view>
-       <picker-view-column>
-        <view wx:for="{{provinces1}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
-      </picker-view-column> 
-      <picker-view-column>
-        <view wx:for="{{citys1}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
-      </picker-view-column>
-    </picker-view>
-  </view>
   <!--选择分类-->
   <block wx:if="{{condition2}}">
-    <view class="selectCategory">
-       <view class="search">
-        <view class="top_search">
-          <input confirm-type="search" type="text" placeholder='请输入您要搜索的分类关键词' placeholder-style="color:#000"/>
-          <image src='/images/search1.png' mode='widthFix'></image>
-        </view>
-      </view>
-      <view class="bg"></view>
+    <view class="selectCategory" >
       <view class="select">
-        <view class="category1">已有分类</view>
-        <view class="categorys">
-          <block wx:for="{{categorys}}" wx:key="index">
-            <view data-value="{{item}}" bindtap='hideSelect' class="{{currentTab==index?'on':''}}" data-current="{{index}}">
-              <text>{{item}}</text>
-               <image src="{{currentTab==index?'/images/assortment/dui.png':''}}"></image> 
-            </view>
-          </block>
+        <view class="category1">选择分类</view>
+        <view class="class-item">
+          <view class="class-item-label">
+            一级分类
+          </view>
+          <view class="picker">
+            <picker bindchange="bindClassChange" data-deep="1" value="{{classList1Index}}" range="{{classList1}}" range-key="gc_name">
+              <view class="picker">
+                {{classList1[classList1Index].gc_name}}
+              </view>
+            </picker>
+          </view>
         </view>
+        <view class="class-item">
+          <view class="class-item-label">
+            二级分类
+          </view>
+          <view class="picker">
+            <picker bindchange="bindClassChange" data-deep="2" value="{{classList2Index}}" range="{{classList2}}" range-key="gc_name">
+              <view class="picker">
+                {{classList2[classList2Index].gc_name}}
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class="class-item">
+          <view class="class-item-label">
+            三级分类
+          </view>
+          <view class="class-item-value">
+            <picker bindchange="bindClassChange" data-deep="3" value="{{classList3Index}}" range="{{classList3}}" range-key="gc_name">
+              <view class="picker">
+                {{classList3[classList3Index].gc_name}}
+              </view>
+            </picker>
+          </view>
+        </view>
+        <button bindtap="hidecategory" class="class-btn">确认选择</button>
       </view>
     </view> 
   </block>
