@@ -114,11 +114,11 @@ class loginControl extends mobileHomeControl {
     public function xcx_loginOp()
     {
         if(empty($_POST['code'])) {
-            output_error('登录失败');
+            output_error('登录失败1');
         }
         $weixin_info = $this->weixin_login(trim($_POST['code']));
         if (!$weixin_info) {
-            output_error('登录失败');
+            output_error('登录失败2');
         }
         $member_model = Model('member');
         $member_info = $member_model->getMemberInfo(array(
@@ -130,7 +130,7 @@ class loginControl extends mobileHomeControl {
             if($token) {
                 output_data(array('username' => $member_info['member_name'], 'userid' => $member_info['member_id'], 'key' => $token));
             } else {
-                output_error('登录失败');
+                output_error('登录失败3');
             }
         }else{
             //auto register

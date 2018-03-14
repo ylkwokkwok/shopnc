@@ -1,7 +1,7 @@
 {
   "pages": [
-    "page/infocenter/infocenter",
     "page/index/index",
+    "page/infocenter/infocenter",
     "page/index/pages/pingtuan/pingtuan",
     "page/index/pages/pintuan_detail/pintuan_detail",
     "page/assindex/assindex",

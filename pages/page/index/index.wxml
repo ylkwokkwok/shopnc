@@ -101,37 +101,15 @@
     </view>
   </view>
   <view class='bigbrand hotshow'>
+  <block wx:for="{{goods_list}}">
       <view>
           <view class="sign2">大品牌</view>
-          <view class="tit">炫彩小推车</view>
-          <view class='jie'>当沙发客就大幅拉升</view>
+          <view class="tit">{{item.goods_name}}</view>
+          <view class='jie'>{{item.jingle}}</view>
           <view class="proimgs">
-            <image src="../../images/shop2.png" mode='widthFix'></image>
+            <image src="{{item.goods_image_url}}" mode='widthFix'></image>
           </view>
       </view>
-      <view>
-        <view class="sign2">大品牌</view>
-        <view class="tit">炫彩小推车</view>
-          <view class='jie'>当沙发客就大幅拉升</view>
-          <view class="proimgs">
-            <image src="../../images/shop2.png" mode='widthFix' stylle="width:180rpx;"></image>
-          </view>
-      </view>
-      <view>
-         <view class="sign2">大品牌</view>
-          <view class="tit">炫彩小推车</view>
-          <view class='jie'>当沙发客就大幅拉升</view>
-          <view class="proimgs">
-            <image src="../../images/shop2.png" mode='widthFix'></image>
-          </view>
-      </view>
-      <view>
-       <view class="sign2">大品牌</view>
-        <view class="tit">炫彩小推车</view>
-          <view class='jie'>当沙发客就大幅拉升</view>
-          <view class="proimgs">
-            <image src="../../images/shop2.png" mode='widthFix' stylle="width:180rpx;"></image>
-          </view>
-      </view>
+    </block>
     </view>
 </view>
