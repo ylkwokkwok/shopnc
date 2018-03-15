@@ -175,14 +175,24 @@ class goodsControl extends mobileHomeControl{
     /*
      * 精选（推荐商品）
      */
-        public function goods_commendOp(){
-            $condition['goods_commend']=1;
-            $model_goods_commend=Model('goods');
-            $model_goods_commend_list=$model_goods_commend->getGoodsCommend($condition);
-            //处理商品列表(抢购、限时折扣、商品图片)
-            $model_goods_commend_list = $this->_goods_list_extend($model_goods_commend_list);
-            output_data(array('goods_commend_list'=>$model_goods_commend_list));
+    public function goods_commendOp(){
+        $condition['goods_commend']=1;
+        $model_goods_commend=Model('goods');
+        $model_goods_commend_list=$model_goods_commend->getGoodsCommend($condition);
+        //处理商品列表(抢购、限时折扣、商品图片)
+        $model_goods_commend_list = $this->_goods_list_extend($model_goods_commend_list);
+        output_data(array('goods_commend_list'=>$model_goods_commend_list));
         }
+
+    /**
+     * 今日上新
+     */
+    public function today_new_goodsOp(){
+
+    }
+
+
+
     /**
      * 处理商品列表(抢购、限时折扣、商品图片)
      */

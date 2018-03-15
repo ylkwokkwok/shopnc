@@ -42,7 +42,6 @@
     "page/infocenter/pages/branchStoreManager/branchStoreManager",
     "page/infocenter/pages/buyBooth/buyBooth",
     "page/infocenter/pages/staffProfit/staffProfit",
-<<<<<<< HEAD
     "page/infocenter/pages/shelveShop/shelveShop",
     "page/infocenter/pages/branchGoodsManage/branchGoodsManage",
     "page/infocenter/pages/branchShopList/branchShopList",
@@ -52,8 +51,6 @@
     "page/infocenter/pages/evaluating/evaluating",
     "page/infocenter/pages/confirmAspectGoods/confirmAspectGoods",
     "page/infocenter/pages/waitPaymentDetail/waitPaymentDetail",
-=======
->>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
     "page/shopcart/shopcart",
     "page/index/pages/bargain/bargain",
     "page/index/pages/bargain_list/bargain_list",

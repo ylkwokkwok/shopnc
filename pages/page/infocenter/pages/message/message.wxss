@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .container{
   background: #f6f6f6;
 }
@@ -61,68 +60,4 @@
   justify-content: center;
   align-items: center;
   color:white;
-=======
-.container{
-  background: #f6f6f6;
-}
-.item{
-  width: 100%;
-  height: 110rpx;
-  position: relative; 
-  display: flex;
-  background: white;
-}
-.item .img{
-  width: 80rpx;
-  height: 80rpx;
-  margin-top: 15rpx;
-  float: left;
-  margin-left: 20rpx;
-}
-.item .number-wrapper{
-  width:650rpx;
-  float: left;
-  margin-left: 20rpx;
-  display: flex;
-  flex-direction: row;
-  padding-top: 20rpx;
-  border-bottom: 1px solid #ccc;
-}
-.item .number-wrapper .left{
-  width: 470rpx;
-  display: flex;
-  flex-direction: column;
-}
-.item .number-wrapper .left .name{
-  font-size: 30rpx;
-  color: black;
-}
-.item .number-wrapper .left .detail{
-  font-size: 24rpx;
-  color: #666;
-  padding-top:10rpx;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-.item .number-wrapper .right{
-  margin-left: 20rpx;
-  display: block;
-  font-size: 20rpx;
-  color: #999;
-  text-align: right;
-  padding-top: 10rpx;
-}
-.item .remove{
-  width: 60px;
-  height: 100%;
-  background-color: red;
-  position: absolute;
-  top: 0;
-  right: -60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color:white;
->>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
 }

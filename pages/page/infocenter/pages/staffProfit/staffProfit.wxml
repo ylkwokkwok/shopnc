@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <view class="container" style="min-height:{{winHeight}}px"> 
   <view class="tabList">
     <view class="{{currentTab==0?'on':''}}" data-current="0" bindtap='switchNav'><text>会员提成</text></view>
@@ -75,7 +74,3 @@
     </view>
   </view>
 </view>
-=======
-<!--page/infocenter/pages/staffProfit/staffProfit.wxml-->
-<text>page/infocenter/pages/staffProfit/staffProfit.wxml</text>
->>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a

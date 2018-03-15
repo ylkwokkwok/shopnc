@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .tabList{
   width: 750rpx;
   height: 85rpx;
@@ -99,6 +98,4 @@
   color: red;
   font-weight: normal;
 }
-=======
-/* page/infocenter/pages/staffProfit/staffProfit.wxss */
->>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
+

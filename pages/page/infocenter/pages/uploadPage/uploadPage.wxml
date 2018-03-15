@@ -7,19 +7,11 @@
       </block>
       <block wx:else> 
         <swiper duration="1000" bindchange='changeSwiper'>
-<<<<<<< HEAD
-          <block wx:for="{{imageList}}" wx:key="*this">
-            <swiper-item>
-              <image src="{{item}}" data-src="{{item}}" class="img"></image>
-              <image class="cha" src="/images/assortment/del.png" mode='widthFix' data-index="{{item}}" bindtap='clearimgs'></image>
-              <image src="/images/infocenter/carmer1.png" class="upload2" mode='widthFix' bindtap='chooseImage' data-index="current"></image>
-=======
           <block wx:for="{{imageList}}" wx:for-item="imageItem" wx:for-index="imageIndex" wx:key="*this">
             <swiper-item>
               <image src="{{imageItem.temp}}" class="img"></image>
               <image class="cha" src="/images/assortment/del.png" mode='widthFix' data-index="{{imageIndex}}" bindtap='clearimgs'></image>
               <image wx:if="{{imageList.length < 4}}" src="/images/infocenter/carmer1.png" class="upload2" mode='widthFix' bindtap='chooseImage' data-index="current"></image>
->>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
             </swiper-item>
           </block>
         </swiper> 
@@ -39,13 +31,10 @@
         </view>
         <view bindtap='openCategory'>
           <label>选择分类</label>
-<<<<<<< HEAD
           <view name="category">{{category}}</view>
           <!-- <input value='{{category}}' style="display:none;"></input> -->
           <image src="/images/jt.png" mode='widthFix' class="jt"></image>
-=======
            <input value="{{gc_name1 + '  ' + gc_name2 + '  ' + gc_name3}}" readonly="readonly"></input>
->>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
         </view>
         <text>商品属性</text>
         <view>
@@ -78,7 +67,6 @@
           </block>
           <image src="/images/jt.png" class="jt" mode='widthFix'></image>
         </view>
-<<<<<<< HEAD
         <view class="provice same">
           <label>发货地</label>
           <input value='{{province}}-{{city}}' bindfocus="open" name="provice1"></input>
@@ -89,8 +77,6 @@
           <input value='{{province1}}-{{city1}}' bindfocus="open1" name="provice2"></input>
           <image src="/images/jt.png" class="jt" mode='widthFix'></image>
         </view> 
-=======
->>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
         <view>
           <label>七天无理由退货</label>
           <switch checked name="switch"/>
@@ -102,7 +88,6 @@
         <button form-type='submit' class="release" id="release">立即发布</button>
       <!-- </view> -->
   </form>
-<<<<<<< HEAD
   <!--发货地-->
   <view wx:if="{{condition}}" class="citypicker">
     <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;background:white;" value="{{value}}" bindchange="bindChange" class="citybody">
@@ -133,27 +118,6 @@
       </picker-view-column>
     </picker-view>
   </view>
-  <!--选择分类-->
-  <block wx:if="{{condition2}}">
-    <view class="selectCategory">
-       <view class="search">
-        <view class="top_search">
-          <input confirm-type="search" type="text" placeholder='请输入您要搜索的分类关键词' placeholder-style="color:#000"/>
-          <image src='/images/search1.png' mode='widthFix'></image>
-        </view>
-      </view>
-      <view class="bg"></view>
-      <view class="select">
-        <view class="category1">已有分类</view>
-        <view class="categorys">
-          <block wx:for="{{categorys}}" wx:key="index">
-            <view data-value="{{item}}" bindtap='hideSelect' class="{{currentTab==index?'on':''}}" data-current="{{index}}">
-              <text>{{item}}</text>
-               <image src="{{currentTab==index?'/images/assortment/dui.png':''}}"></image> 
-            </view>
-          </block>
-        </view>
-=======
   <!--选择分类-->
   <block wx:if="{{condition2}}">
     <view class="selectCategory" >
@@ -196,7 +160,6 @@
           </view>
         </view>
         <button bindtap="hidecategory" class="class-btn">确认选择</button>
->>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
       </view>
     </view> 
   </block>

@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 var tcity = require("../../../../utils/citys.js");
-=======
 // page/infocenter/pages/pendPayment/pendPayment.js
->>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
+
 var id,hh;
 Page({
 
@@ -15,21 +13,16 @@ Page({
     curTab:0,
     currentTab:0,
     orderlist:[
-<<<<<<< HEAD
       {number:"123456789101112",time:"2018-03-10 16:54:38",img:"/images/shop2.png",title:"凯撒几号放假啊是是的饭卡数据库的啊是基范数据库里的",price:"300.00",count:1,color:"blue",size:"L",freight:"0.00",status:'待付款',username:"张三",address:"四川省绵阳市高新区留学人员创业园",id:1},
       { number: "123456789101112", time: "2018-03-10 16:54:38", img: "/images/shop2.png", title: "凯撒几号放假啊是是的饭卡数据库的啊是基范数据库里的", price: "300.00", count: 1, color: "blue", size: "L", freight: "0.00", status: '退货中', username: "张三", address: "四川省绵阳市高新区留学人员创业园", id: 2, refund:"山东矿机放声大哭"},
       { number: "123456789101112", time: "2018-03-10 16:54:38", img: "/images/shop2.png", title: "凯撒几号放假啊是是的饭卡数据库的啊是基范数据库里的", price: "300.00", count: 1, color: "blue", size: "L", freight: "0.00", status: '待发货', username: "张三", address: "四川省绵阳市高新区留学人员创业园", id: 3 },
       { number: "123456789101112", time: "2018-03-10 16:54:38", img: "/images/shop2.png", title: "凯撒几号放假啊是是的饭卡数据库的啊是基范数据库里的", price: "300.00", count: 1, color: "blue", size: "L", freight: "0.00", status: '交易成功', username: "张三", address: "四川省绵阳市高新区留学人员创业园", id: 4 },
-=======
-      {number:"123456789101112",time:"2018-03-10 16:54:38",img:"/images/shop2.png",title:"凯撒几号放假啊是是的饭卡数据库的啊是基范数据库里的",price:"300.00",count:1,color:"blue",size:"L",freight:"0.00",status:"待付款",username:"张三",address:"四川省绵阳市高新区留学人员创业园",id:1}
->>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
     ],
     reason:"请选择关闭交易的理由",
     reasons:["未及时付款","买家不想要了","买家信息填错，重新拍","恶意买家，同行捣乱","缺货"],
     isClose:false,
     isChangeFreight:false,
     isChangePrice:false,
-<<<<<<< HEAD
     isChangeAddress:false,
     isSellerNotes:false,
     provinces: [],
@@ -41,8 +34,6 @@ Page({
     value: [0, 0, 0],
     values: [0, 0, 0],
     condition: false
-=======
->>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
   },
   closeOrder:function(e){
     id=e.currentTarget.id;
@@ -50,7 +41,6 @@ Page({
       isClose:true
     });
   },
-<<<<<<< HEAD
   changeAddress:function(){
     this.setData({
       isChangeAddress:true,
@@ -71,8 +61,6 @@ Page({
       isSellerNotes:false,
     });
   },
-=======
->>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
   changeFreight:function(e){
     this.setData({
       isChangeFreight: true
@@ -120,7 +108,6 @@ Page({
       url: '../changePrice/changePrice?id='+idd,
     })
   },
-<<<<<<< HEAD
   bindChange: function (e) {
     //console.log(e);
     var val = e.detail.value
@@ -184,8 +171,6 @@ Page({
       condition: !this.data.condition
     })
   },
-=======
->>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
     /**
    * 生命周期函数--监听页面加载
    */
@@ -204,7 +189,6 @@ Page({
     this.setData({
       curTab:options.curTab
     });
-<<<<<<< HEAD
     tcity.init(that);
 
     var cityData = that.data.cityData;
@@ -234,8 +218,6 @@ Page({
       'city': cityData[0].sub[0].name,
       'county': cityData[0].sub[0].sub[0].name
     })
-=======
->>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
   },
   removeByValue: function (brr, val) {
     for (var i = 0; i < brr.length; i++) {
