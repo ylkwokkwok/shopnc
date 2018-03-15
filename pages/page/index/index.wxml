@@ -78,7 +78,7 @@
     </view>
   </view>
   <view class='bigbrand hotshow'>
-   <block wx:for="{{goods_commend}}"> 
+   <block wx:for="{{goods_commend}}" wx:key="commend"> 
       <view>
         <view class="tit">{{item.goods_name}}</view>
         <view class='jie'>{{item.goods_jingle}}</view>
@@ -103,11 +103,11 @@
     </view>
   </view>
   <view class='bigbrand hotshow'>
-  <block wx:for="{{goods_list}}">
+  <block wx:for="{{goods_list}}" wx:key="bigbrand">
       <view>
           <view class="sign2">大品牌</view>
           <view class="tit">{{item.goods_name}}</view>
-          <view class='jie'>{{item.goods_jingle}}</view>
+          <view class='jie'>{{item.jingle}}</view>
           <view class="proimgs">
             <image src="{{item.goods_image_url}}" mode='widthFix'></image>
           </view>
