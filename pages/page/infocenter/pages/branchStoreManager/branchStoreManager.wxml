@@ -49,11 +49,11 @@
     <image src='/images/jt.png' mode='widthFix'></image>
   </navigator>
   <view class="operation">
-    <navigator>
+    <navigator url="../shelveShop/shelveShop">
       <image src="/images/infocenter/uploadicon.png" style="width:36rpx;"></image>
       <text>上架商品</text>
     </navigator>
-    <navigator>
+    <navigator url="../branchGoodsManage/branchGoodsManage">
       <image src="/images/infocenter/allshop.png" style="width:40.5rpx;"></image>
       <text>商品管理</text>
     </navigator>

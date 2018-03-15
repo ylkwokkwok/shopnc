@@ -134,7 +134,8 @@ class goodsModel extends Model{
             $_field = "CONCAT(goods_commonid,',',color_id)";
             $_distinct = 'nc_distinct';
         }
-        
+
+
         // 只查询固定条数不分页时，不计算商品总数
         if ($limit == 0) {
             $count = $this->getGoodsOnlineCount($condition,"distinct ".$_field);
@@ -150,6 +151,13 @@ class goodsModel extends Model{
         return $goods_list;
     }
 
+    /**
+     * 查询推荐商品
+     */
+    public function getGoodsCommend($condition, $field = '*', $group = '',$order = '', $limit = 6, $page = 0, $count = 0){
+        $condition = $this->_getRecursiveClass($condition);
+        return $this->table('goods')->field($field)->where($condition)->group($group)->order($order)->limit($limit)->page($page, $count)->select();
+    }
     /**
      * 普通列表，即不包括虚拟商品、F码商品、预售商品、预定商品
      *

@@ -25,27 +25,27 @@
     </block>
   </view>
   <view class="mymess">
-    <navigator>
+    <navigator url="pages/orderPage/orderPage?current=1">
       <image src="/images/infocenter/payment.png"></image>
       <text>待付款</text>
       <span>1</span>
     </navigator>
-    <navigator>
+    <navigator url="pages/orderPage/orderPage?current=2">
       <image src="/images/infocenter/deliver.png" style="width:48rpx;height:42rpx;"></image>
       <text>待发货</text>
       <span>2</span>
     </navigator>
-    <navigator>
+    <navigator url='pages/orderPage/orderPage?current=3'>
       <image src="/images/infocenter/receipt.png"></image>
       <text>待收货</text>
       <span>3</span>
     </navigator>
-    <navigator>
+    <navigator url="pages/orderPage/orderPage?current=4">
       <image src="/images/infocenter/evaluate.png"></image>
       <text>待评价</text>
       <span>1</span>
     </navigator>
-    <navigator>
+    <navigator url='pages/orderPage/orderPage?current=0'>
       <image src="/images/infocenter/allorder.png"></image>
       <text>全部订单</text>
     </navigator>
@@ -116,10 +116,10 @@
         <image src="/images/infocenter/tksh.png" style="width:38rpx;"></image>
         <text>退款/售后</text>
       </navigator>
-      <navigator url="/page/infocenter/pages/uploadPage/uploadPage">
+      <!-- <navigator url="/page/infocenter/pages/uploadPage/uploadPage">
         <image src="/images/infocenter/tksh.png" style="width:38rpx;"></image>
         <text>测试直达</text>
-      </navigator>
+      </navigator> -->
     </view>
   </view>
   <view class="bindphone">

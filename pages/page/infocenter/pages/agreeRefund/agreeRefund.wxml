@@ -1,0 +1,33 @@
+<view class="container">
+  <view class="top">
+    <text class="one">退款成功</text>
+    <view>
+       <text class="date">{{date}}</text>
+       <text class="time">{{time}}</text>
+    </view>
+  </view>
+  <view class="money">
+    <text>退款总金额</text>
+    <text>￥0.00</text>
+  </view>
+  <view class="bg"></view>
+  <view class="refundMess">
+    <view class="up">退款信息</view>
+    <view class="center">
+      <view class="left">
+        <image src="/images/shop2.png" mode='widthFix'></image>
+      </view>
+      <view class="right">
+        <view class="title">是老款的法律势力扩大是否还能撒赖扩大发生撒旦的烦恼</view>
+        <text class="zi">产品详情</text>
+        <view class="detail">×1 、红色 、L</view>
+      </view>
+    </view>
+    <view class="down">
+      <view>退款原因： <text>刷卡积分是的</text></view>
+      <view>退款金额： <text>￥0.00</text></view>
+      <view>申请时间： <text>{{date}}</text><text style="padding-left:20rpx;">{{time}}</text></view>
+      <view>退款编号： <text>12455422</text></view>
+    </view>
+  </view>
+</view>

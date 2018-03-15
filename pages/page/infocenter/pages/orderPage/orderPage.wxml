@@ -1,0 +1,212 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="top_search">
+    <input confirm-type="search" type="text" placeholder='商品名称/商品编号/订单号' placeholder-style='color:#999'/>
+    <image src='/images/assortment/search.png' mode='widthFix'></image>
+  </view>
+  <view class="tablist">
+    <view class="{{currentTab==0?'on':''}}" data-current="0" bindtap='swichNav'><text>全部</text></view>
+    <view class="{{currentTab==1?'on':''}}" data-current="1" bindtap='swichNav'>
+      <text>待付款</text>
+      <span>1</span>
+    </view>
+    <view class="{{currentTab==2?'on':''}}" data-current="2" bindtap='swichNav'><text>待发货</text></view>
+    <view class="{{currentTab==3?'on':''}}" data-current="3" bindtap='swichNav'><text>待收货</text></view>
+    <view class="{{currentTab==4?'on':''}}" data-current="4" bindtap='swichNav'><text>待评价</text></view>
+  </view>
+  <view class="tabshow">
+    <!--全部-->
+    <view style="{{currentTab==0?'display:block':'display:none'}}">
+
+    </view>
+    <!--待付款-->
+    <view style="{{currentTab==1?'display:block':'display:none'}}">
+      <block wx:if="{{waitPayment.length==0}}">
+          <view class="noOrder">
+            <image src="/images/infocenter/nogoods.png" mode="widthFix"></image>
+            <text>您还没有相关信息的订单</text>
+          </view>
+      </block>
+      <block wx:else>
+        <block wx:for="{{waitPayment}}">
+          <view class="orderone">
+            <view class="top">
+              <view  class='left'>
+                <image src="/images/infocenter/note.png" mode='widthFix'></image>
+                <text class="ordernum">{{item.number}}</text>
+              </view>
+              <view class="right">
+                <view class="time"><image src="/images/infocenter/time.png" mode='widthFix'></image><text>支付剩余时间：{{item.hour}}时{{item.minute}}分</text></view>
+              </view>
+            </view>
+            <view class="statusItem">
+              <view class="left">
+                <view>支付状态：<text class="status">{{item.status}}</text></view>
+                <view class="paymoney">支付金额：<text class="money">￥{{item.money}}</text><text class="freight">（含运费{{item.freight}}）</text></view>
+              </view>
+              <view class="right">
+                <navigator url="../../../assindex/pages/confirmorder/confirmorder">付款</navigator>
+              </view>
+            </view>
+            <view class="shopnameItem">
+              <view><text>{{item.shopname}}</text><image src="/images/jt.png" mode='widthFix'></image></view>
+              <text>共计{{item.count}}件商品</text>
+            </view>
+            <navigator class="center" url="../waitPaymentDetail/waitPaymentDetail">
+              <view class="left">
+                <image src="{{item.img_url}}" mode='widthFix'></image>
+              </view>
+              <view class="right">
+                <view class="title">{{item.title}}</view>
+                <text class="zi">产品详情</text>
+                <view class="detail">×{{item.count}}</view>
+              </view>
+            </navigator>
+          </view>
+        </block>
+      </block>
+    </view>
+    <!--待发货-->
+    <view style="{{currentTab==2?'display:block':'display:none'}}">
+      <block wx:if="{{waitSendGoods.length==0}}">
+          <view class="noOrder">
+            <image src="/images/infocenter/nogoods.png" mode="widthFix"></image>
+            <text>您还没有相关信息的订单</text>
+          </view>
+      </block>
+      <block wx:else>
+        <block wx:for="{{waitSendGoods}}">
+          <view class="orderone">
+            <view class="top">
+              <view  class='left'>
+                <image src="/images/infocenter/note.png" mode='widthFix'></image>
+                <text class="ordernum">{{item.number}}</text>
+              </view>
+              <view class="right">
+                <view class="time"><image src="/images/infocenter/time.png" mode='widthFix'></image><text>支付剩余时间：{{item.hour}}时{{item.minute}}分</text></view>
+              </view>
+            </view>
+            <view class="statusItem">
+              <view class="left">
+                <view>支付状态：<text class="status">{{item.status}}</text></view>
+                <view class="paymoney">支付金额：<text class="money">￥{{item.money}}</text><text class="freight">（含运费{{item.freight}}）</text></view>
+              </view>
+              <view class="right">
+                <navigator url="/page/index/index" open-type='switchTab'>去逛逛</navigator>
+              </view>
+            </view>
+            <view class="shopnameItem">
+              <view><text>{{item.shopname}}</text><image src="/images/jt.png" mode='widthFix'></image></view>
+              <text>共计{{item.count}}件商品</text>
+            </view>
+            <navigator class="center">
+              <view class="left">
+                <image src="{{item.img_url}}" mode='widthFix'></image>
+              </view>
+              <view class="right">
+                <view class="title">{{item.title}}</view>
+                <text class="zi">产品详情</text>
+                <view class="detail">×{{item.count}}</view>
+              </view>
+            </navigator>
+          </view>
+        </block>
+      </block>
+    </view>
+    <!--待收货-->
+    <view style="{{currentTab==3?'display:block':'display:none'}}">
+      <block wx:if="{{waitAspectGoods.length==0}}">
+          <view class="noOrder">
+            <image src="/images/infocenter/nogoods.png" mode="widthFix"></image>
+            <text>您还没有相关信息的订单</text>
+          </view>
+      </block>
+      <block wx:else>
+        <block wx:for="{{waitAspectGoods}}">
+          <view class="orderone">
+            <view class="top">
+              <view  class='left'>
+                <image src="/images/infocenter/note.png" mode='widthFix'></image>
+                <text class="ordernum">{{item.number}}</text>
+              </view>
+              <view class="right">
+                <view class="time"><image src="/images/infocenter/time.png" mode='widthFix'></image><text>支付剩余时间：{{item.hour}}时{{item.minute}}分</text></view>
+              </view>
+            </view>
+            <view class="statusItem">
+              <view class="left" style="width:400rpx;">
+                <view>支付状态：<text class="status">{{item.status}}</text></view>
+                <view class="paymoney">支付金额：<text class="money">￥{{item.money}}</text><text class="freight">（含运费{{item.freight}}）</text></view>
+              </view>
+              <view class="right" style="width:310rpx;display:flex;flex-direction:row;">
+                <navigator url="../seeLogist/seeLogist">查看物流</navigator>
+                <navigator url='../confirmAspectGoods/confirmAspectGoods'>确认收货</navigator>
+              </view>
+            </view>
+            <view class="shopnameItem">
+              <view><text>{{item.shopname}}</text><image src="/images/jt.png" mode='widthFix'></image></view>
+              <text>共计{{item.count}}件商品</text>
+            </view>
+            <navigator class="center">
+              <view class="left">
+                <image src="{{item.img_url}}" mode='widthFix'></image>
+              </view>
+              <view class="right">
+                <view class="title">{{item.title}}</view>
+                <text class="zi">产品详情</text>
+                <view class="detail">×{{item.count}}</view>
+              </view>
+            </navigator>
+          </view>
+        </block>
+      </block>
+    </view>
+    <!--待评价-->
+    <view style="{{currentTab==4?'display:block':'display:none'}}">
+      <block wx:if="{{waitEvaluate.length==0}}">
+          <view class="noOrder">
+            <image src="/images/infocenter/nogoods.png" mode="widthFix"></image>
+            <text>您还没有相关信息的订单</text>
+          </view>
+      </block>
+      <block wx:else>
+        <block wx:for="{{waitEvaluate}}">
+          <view class="orderone">
+            <view class="top">
+              <view  class='left'>
+                <image src="/images/infocenter/note.png" mode='widthFix'></image>
+                <text class="ordernum">{{item.number}}</text>
+              </view>
+              <view class="right">
+                <view class="time"><image src="/images/infocenter/time.png" mode='widthFix'></image><text>支付剩余时间：{{item.hour}}时{{item.minute}}分</text></view>
+              </view>
+            </view>
+            <view class="statusItem">
+              <view class="left" style="width:400rpx;">
+                <view>支付状态：<text class="status">{{item.status}}</text></view>
+                <view class="paymoney">支付金额：<text class="money">￥{{item.money}}</text><text class="freight">（含运费{{item.freight}}）</text></view>
+              </view>
+              <view class="right" style="width:310rpx;display:flex;flex-direction:row;">
+                <navigator url="../seeLogist/seeLogist">查看物流</navigator>
+                <navigator url='../evaluating/evaluating'>评价</navigator>
+              </view>
+            </view>
+            <view class="shopnameItem">
+              <view><text>{{item.shopname}}</text><image src="/images/jt.png" mode='widthFix'></image></view>
+              <text>共计{{item.count}}件商品</text>
+            </view>
+            <navigator class="center">
+              <view class="left">
+                <image src="{{item.img_url}}" mode='widthFix'></image>
+              </view>
+              <view class="right">
+                <view class="title">{{item.title}}</view>
+                <text class="zi">产品详情</text>
+                <view class="detail">×{{item.count}}</view>
+              </view>
+            </navigator>
+          </view>
+        </block>
+      </block>
+    </view>
+  </view>
+</view>

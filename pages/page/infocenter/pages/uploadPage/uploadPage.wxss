@@ -330,7 +330,6 @@ button:last-child{
 .class-btn{
   width: 710rpx;
   margin: 20rpx;
-  width: 710rpx;
   height: 90rpx;
   font-size: 30rpx;
   color: #ffffff;

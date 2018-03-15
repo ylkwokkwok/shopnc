@@ -1,6 +1,6 @@
 <view class="container" style="min-height:{{winHeight}}px">
   <form class="entry" catchsubmit="formSubmit">
-    <view class="same one" style="display: none;">
+    <view class="same one">
       <view class="left">
         <label>商品标志</label>
         <block wx:for="{{imageList}}" wx:key="*this">

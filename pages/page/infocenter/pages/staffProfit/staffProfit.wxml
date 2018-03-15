@@ -1,2 +1,76 @@
-<!--page/infocenter/pages/staffProfit/staffProfit.wxml-->
-<text>page/infocenter/pages/staffProfit/staffProfit.wxml</text>
+<view class="container" style="min-height:{{winHeight}}px"> 
+  <view class="tabList">
+    <view class="{{currentTab==0?'on':''}}" data-current="0" bindtap='switchNav'><text>会员提成</text></view>
+    <view class="{{currentTab==1?'on':''}}" data-current="1" bindtap='switchNav'><text>分销提成</text></view>
+    <view class="{{currentTab==2?'on':''}}" data-current="2" bindtap='switchNav'><text>商户提成</text></view>
+  </view>
+  <view class="bg"></view>
+  <view class="tabshow">
+    <!--会员提成-->
+    <view style="{{currentTab==0?'display:block':'display:none'}}">
+      <view class="top">
+        <view class="{{curTab==0?'on':''}}" data-current="0" bindtap='switchNav2'>按月统计</view>
+        <view class="{{curTab==1?'on':''}}" data-current="1" bindtap='switchNav2'>按周统计</view>
+        <view class="{{curTab==2?'on':''}}" data-current="2" bindtap='switchNav2'>按日统计</view>
+      </view>
+      <view class="bottom">
+        <block wx:for="{{list}}">
+          <view class="census">
+            <view class="left">
+              <image src="{{item.img}}"></image>
+              <text>{{item.username}}</text>
+            </view>
+            <view class="right">
+              收益：<text>{{item.profit}}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+     <!--分销提成-->
+    <view style="{{currentTab==1?'display:block':'display:none'}}">
+      <view class="top">
+        <view class="{{curTab==0?'on':''}}" data-current="0" bindtap='switchNav2'>按月统计</view>
+        <view class="{{curTab==1?'on':''}}" data-current="1" bindtap='switchNav2'>按周统计</view>
+        <view class="{{curTab==2?'on':''}}" data-current="2" bindtap='switchNav2'>按日统计</view>
+      </view>
+      <view class="bottom">
+        <block wx:for="{{list2}}">
+          <view class="census">
+            <view class="left">
+              <image src="{{item.img}}"></image>
+              <text>{{item.username}}</text>
+            </view>
+            <view class="right">
+              收益：<text>{{item.profit}}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+     <!--商户提成-->
+    <view style="{{currentTab==2?'display:block':'display:none'}}">
+      <view class="top">
+        <view class="{{curTab==0?'on':''}}" data-current="0" bindtap='switchNav2'>按月统计</view>
+        <view class="{{curTab==1?'on':''}}" data-current="1" bindtap='switchNav2'>按周统计</view>
+        <view class="{{curTab==2?'on':''}}" data-current="2" bindtap='switchNav2'>按日统计</view>
+      </view>
+      <view class="bottom">
+        <block wx:for="{{list3}}">
+          <view class="census">
+            <view class="left">
+              <image src="{{item.img}}"></image>
+              <text>{{item.username}}</text>
+            </view>
+            <view class="right">
+              收益：<text>{{item.profit}}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="foot">
+      总收益：<text>0.00</text>
+    </view>
+  </view>
+</view>

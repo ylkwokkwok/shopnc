@@ -1,4 +1,6 @@
+var tcity = require("../../../../utils/citys.js");
 // page/infocenter/pages/pendPayment/pendPayment.js
+
 var id,hh;
 Page({
 
@@ -11,18 +13,52 @@ Page({
     curTab:0,
     currentTab:0,
     orderlist:[
-      {number:"123456789101112",time:"2018-03-10 16:54:38",img:"/images/shop2.png",title:"凯撒几号放假啊是是的饭卡数据库的啊是基范数据库里的",price:"300.00",count:1,color:"blue",size:"L",freight:"0.00",status:"待付款",username:"张三",address:"四川省绵阳市高新区留学人员创业园",id:1}
+      {number:"123456789101112",time:"2018-03-10 16:54:38",img:"/images/shop2.png",title:"凯撒几号放假啊是是的饭卡数据库的啊是基范数据库里的",price:"300.00",count:1,color:"blue",size:"L",freight:"0.00",status:'待付款',username:"张三",address:"四川省绵阳市高新区留学人员创业园",id:1},
+      { number: "123456789101112", time: "2018-03-10 16:54:38", img: "/images/shop2.png", title: "凯撒几号放假啊是是的饭卡数据库的啊是基范数据库里的", price: "300.00", count: 1, color: "blue", size: "L", freight: "0.00", status: '退货中', username: "张三", address: "四川省绵阳市高新区留学人员创业园", id: 2, refund:"山东矿机放声大哭"},
+      { number: "123456789101112", time: "2018-03-10 16:54:38", img: "/images/shop2.png", title: "凯撒几号放假啊是是的饭卡数据库的啊是基范数据库里的", price: "300.00", count: 1, color: "blue", size: "L", freight: "0.00", status: '待发货', username: "张三", address: "四川省绵阳市高新区留学人员创业园", id: 3 },
+      { number: "123456789101112", time: "2018-03-10 16:54:38", img: "/images/shop2.png", title: "凯撒几号放假啊是是的饭卡数据库的啊是基范数据库里的", price: "300.00", count: 1, color: "blue", size: "L", freight: "0.00", status: '交易成功', username: "张三", address: "四川省绵阳市高新区留学人员创业园", id: 4 },
     ],
     reason:"请选择关闭交易的理由",
     reasons:["未及时付款","买家不想要了","买家信息填错，重新拍","恶意买家，同行捣乱","缺货"],
     isClose:false,
     isChangeFreight:false,
     isChangePrice:false,
+    isChangeAddress:false,
+    isSellerNotes:false,
+    provinces: [],
+    province: "",
+    citys: [],
+    city: "",
+    countys: [],
+    county: '',
+    value: [0, 0, 0],
+    values: [0, 0, 0],
+    condition: false
   },
   closeOrder:function(e){
     id=e.currentTarget.id;
     this.setData({
       isClose:true
+    });
+  },
+  changeAddress:function(){
+    this.setData({
+      isChangeAddress:true,
+    });
+  },
+  confirmAddress:function(){
+    this.setData({
+      isChangeAddress:false,
+    });
+  },
+  sellerNotes:function(){
+    this.setData({
+      isSellerNotes:true,
+    });
+  },
+  confirmNotes:function(){
+    this.setData({
+      isSellerNotes:false,
     });
   },
   changeFreight:function(e){
@@ -72,6 +108,69 @@ Page({
       url: '../changePrice/changePrice?id='+idd,
     })
   },
+  bindChange: function (e) {
+    //console.log(e);
+    var val = e.detail.value
+    var t = this.data.values;
+    var cityData = this.data.cityData;
+
+    if (val[0] != t[0]) {
+      console.log('province no ');
+      const citys = [];
+      const countys = [];
+
+      for (let i = 0; i < cityData[val[0]].sub.length; i++) {
+        citys.push(cityData[val[0]].sub[i].name)
+      }
+      for (let i = 0; i < cityData[val[0]].sub[0].sub.length; i++) {
+        countys.push(cityData[val[0]].sub[0].sub[i].name)
+      }
+
+      this.setData({
+        province: this.data.provinces[val[0]],
+        city: cityData[val[0]].sub[0].name,
+        citys: citys,
+        county: cityData[val[0]].sub[0].sub[0].name,
+        countys: countys,
+        values: val,
+        value: [val[0], 0, 0]
+      })
+
+      return;
+    }
+    if (val[1] != t[1]) {
+      console.log('city no');
+      const countys = [];
+
+      for (let i = 0; i < cityData[val[0]].sub[val[1]].sub.length; i++) {
+        countys.push(cityData[val[0]].sub[val[1]].sub[i].name)
+      }
+
+      this.setData({
+        city: this.data.citys[val[1]],
+        county: cityData[val[0]].sub[val[1]].sub[0].name,
+        countys: countys,
+        values: val,
+        value: [val[0], val[1], 0]
+      })
+      return;
+    }
+    if (val[2] != t[2]) {
+      console.log('county no');
+      this.setData({
+        county: this.data.countys[val[2]],
+        values: val
+      })
+      return;
+    }
+
+
+  },
+  open: function () {
+    this.setData({
+      condition: !this.data.condition
+    })
+  },
     /**
    * 生命周期函数--监听页面加载
    */
@@ -90,6 +189,35 @@ Page({
     this.setData({
       curTab:options.curTab
     });
+    tcity.init(that);
+
+    var cityData = that.data.cityData;
+
+
+    const provinces = [];
+    const citys = [];
+    const countys = [];
+
+    for (let i = 0; i < cityData.length; i++) {
+      provinces.push(cityData[i].name);
+    }
+    console.log('省份完成');
+    for (let i = 0; i < cityData[0].sub.length; i++) {
+      citys.push(cityData[0].sub[i].name)
+    }
+    console.log('city完成');
+    for (let i = 0; i < cityData[0].sub[0].sub.length; i++) {
+      countys.push(cityData[0].sub[0].sub[i].name)
+    }
+
+    that.setData({
+      'provinces': provinces,
+      'citys': citys,
+      'countys': countys,
+      'province': cityData[0].name,
+      'city': cityData[0].sub[0].name,
+      'county': cityData[0].sub[0].sub[0].name
+    })
   },
   removeByValue: function (brr, val) {
     for (var i = 0; i < brr.length; i++) {
