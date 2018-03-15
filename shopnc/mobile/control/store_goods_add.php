@@ -53,7 +53,7 @@ class store_goods_addControl extends mobileSellerControl
             $tmp_insert = array();
             $tmp_insert['goods_commonid']   = $common_id;
             $tmp_insert['store_id']         = $this->store_info['store_id'];
-            $tmp_insert['color_id']         = $key;
+            $tmp_insert['color_id']         = 0;
             $tmp_insert['goods_image']      = $value;
             $tmp_insert['goods_image_sort'] = 0;
             $tmp_insert['is_default']       = $key == 0 ? 1 : 0;

@@ -116,10 +116,10 @@
         <image src="/images/infocenter/tksh.png" style="width:38rpx;"></image>
         <text>退款/售后</text>
       </navigator>
-      <!-- <navigator url="/page/infocenter/pages/uploadPage/uploadPage">
+      <navigator url="/page/infocenter/pages/uploadPage/uploadPage">
         <image src="/images/infocenter/tksh.png" style="width:38rpx;"></image>
         <text>测试直达</text>
-      </navigator> -->
+      </navigator>
     </view>
   </view>
   <view class="bindphone">
