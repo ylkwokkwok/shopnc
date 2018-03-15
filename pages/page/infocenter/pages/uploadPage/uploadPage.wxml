@@ -34,7 +34,7 @@
           <view name="category">{{category}}</view>
           <!-- <input value='{{category}}' style="display:none;"></input> -->
           <image src="/images/jt.png" mode='widthFix' class="jt"></image>
-           <input value="{{gc_name1 + '  ' + gc_name2 + '  ' + gc_name3}}" readonly="readonly"></input>
+          <input value="{{gc_name1 + '  ' + gc_name2 + '  ' + gc_name3}}" readonly="readonly" type='hidden'></input>
         </view>
         <text>商品属性</text>
         <view>

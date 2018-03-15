@@ -6,7 +6,7 @@
     <image src='../../images/search.png' mode='widthFix'></image>
   </view>
   <!--筛选-->
-  <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+  <scroll-view scroll-x="true" class="tab-h">
     <view class="tab-item {{currentTab==0?'active':''}}"  data-current="0" bindtap="swichNav">首页</view>
     <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">休闲零食</view>
     <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">特色生鲜</view>

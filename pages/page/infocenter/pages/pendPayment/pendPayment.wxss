@@ -362,7 +362,7 @@
   width: 100%;
   bottom: 0;
   background: white;
-  border-top: 1px solid black;
+  /* border-top: 1px solid black; */
   z-index: 100;
 }
 .citybody {

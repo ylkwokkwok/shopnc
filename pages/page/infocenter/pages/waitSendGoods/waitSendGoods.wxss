@@ -1,94 +1,99 @@
 .container{
   background: #f6f6f6;
 }
-.ordertop{
+.process{
   width: 100%;
+  height: 150rpx;
   background: white;
+  position: relative;
 }
-.ordertop .top{
-  width: 100%;
-  height: 80rpx;
-  line-height: 80rpx;
-  display: flex;
-  flex-direction: row;
-  padding:0 20rpx;
-}
-.ordertop .top .left{
+.process .processView{
+  width: 33.33%;
   float: left;
-  width: 55%;
 }
-.ordertop .top .left .status{
+.process .processView>text{
+  text-align: center;
+  display: block;
+  font-size: 28rpx;
+  padding-top: 20rpx;
+}
+.process .processView>image{
+  width: 43rpx;
+  height: 43rpx;
+  display: block;
+  margin:auto;
+  margin-top: 20rpx;
+}
+.process .xian1{
+  position: absolute;
+  bottom: 40rpx;
+  left: 20%;
+  width: 200rpx;
+}
+.process .xian1>image{
+  width: 100%;
+}
+.process .xian2{
+  position: absolute;
+  bottom: 40rpx;
+  right: 20%;
+  width: 200rpx;
+}
+.process .xian2>image{
+  width: 100%;
+}
+.logist{
+  width: 100%;
+  margin-top: 20rpx;
+  background: white;
+  overflow: hidden;
+}
+.logist .top{
+  width: 100%;
+  height: 75rpx;
+  line-height: 75rpx;
+  padding:0 20rpx;
+  border-bottom: 1px solid #ccc;
+}
+.logist .top .same{
   float: left;
   font-size: 28rpx;
   color: #797979;
 }
-.ordertop .top .left .status>text{
-  color: red;
+.logist .top .same>text{
+  color: #333;
 }
-.ordertop .top .right{
+.logist .same .status{
+  color: #568fdc;
+}
+.logist .top image{
   float: right;
-  width:45%;
+  width: 15rpx;
+  margin-top: 28rpx;
 }
-.ordertop .top .right image{
-  margin-right: 10rpx;
-  margin-top: 25rpx;
-  width: 30rpx;
-  float: left;
+.logist>.same{
+  width: 100%;
+  padding: 10rpx 20rpx;
+  color: #797979;
+  font-size: 28rpx;
 }
-.ordertop .top text{
-  font-size: 30rpx;
+.logist>.same>text{
   color: #333;
   margin-right: 20rpx;
 }
-.ordertop .top .right text{
-   text-align: right;
-   display: block;
-   font-size: 24rpx;
-   float: left;
-   margin-right: 0;
-}
-.ordertop .same{
-  padding-left: 20rpx;
-  font-size: 28rpx;
-  color: #797979;
-  padding-bottom: 20rpx;
-}
-.ordertop .same>text{
-  color: black;
-  padding-right:20rpx;
-}
-.ordertop .goPay{
+.logist navigator{
   width: 710rpx;
-  margin:auto;
-  display: block;
+  margin: auto;
+  margin-top:10rpx;
+  margin-bottom: 20rpx;
   height: 88rpx;
   line-height: 88rpx;
+  text-align: center;
+  font-size: 28rpx;
   background: #568fdc;
   color: white;
-  text-align: center;
+  letter-spacing: 2rpx;
   border-radius: 20rpx;
-}
-.ordertop .groupBtn{
-  width: 100%;
-  padding:20rpx;
-  display: flex;
-  flex-direction: row;
-}
-.ordertop .groupBtn>navigator{
-  width: 345rpx;
-  margin-right: 20rpx;
-  height: 88rpx;
-  line-height: 88rpx;
-  text-align: center;
-  border-radius: 20rpx;
-  background: #eeeeee;
-  border:1px solid  #ccc;
-}
-.ordertop .groupBtn>navigator:last-child{
-  margin-right: 0;
-  background: #e8b223;
-  color: white;
-  border:none;
 }
 .orderCenter{
   background: white;
@@ -103,54 +108,35 @@
   padding-bottom: 10rpx;
 }
 .orderCenter .same label{
-  width: 150rpx;
   float: left;
+  width: 150rpx;
 }
 .orderCenter .same>text{
   color: black;
+  margin-right: 20rpx;
 }
 .orderShop,.orderPrice{
+  width:100%;
   background: white;
   margin-top: 20rpx;
-  width: 100%;
   overflow: hidden;
 }
 .orderShop .top{
   width: 100%;
   border-bottom: 1px solid #ccc;
   height: 60rpx;
-  display: flex;
-  flex-direction: row;
   line-height: 60rpx;
   padding:0 20rpx;
 }
 .orderShop .top .left{
-  width: 60%;
-}
-.orderShop .top .house{
-  width: 35rpx;
   float: left;
-  margin-top: 14rpx;
-}
-.orderShop .top .left text{
-  float: left;
+  text-align: left;
   font-size: 28rpx;
-  margin-left: 20rpx;
-}
-.orderShop .top .left .jt{
-  width: 15rpx;
-  margin-top: 20rpx;
-  float: left;
-  margin-left: 20rpx;
 }
 .orderShop .top .right{
-  width: 40%;
-}
-.orderShop .top .right>text{
+  float: right;
   text-align: right;
-  display: block;
-  font-size: 24rpx;
-  color: #999;
+  font-size: 20rpx;
 }
 .orderShop .bottom{
   width: 100%;
@@ -162,7 +148,7 @@
   width: 130rpx;
 }
 .orderShop .bottom .center{
-  width: 420rpx;
+  width: 560rpx;
   float: left;
   margin-left: 20rpx;
 }
@@ -181,23 +167,10 @@
   padding-top: 20rpx;
 }
 .orderShop .bottom .right{
-  margin-left: 20rpx;
-  width: 120rpx;
-  float: left;
-}
-.orderShop .bottom .right .price{
-  padding-top: 30rpx;
+  text-align: right;
+  padding-top: 20rpx;
   color: red;
-  font-size: 28rpx;
-  text-align: right;
-  display: block;
-}
-.orderShop .bottom .right .count{
-  font-size: 24rpx;
-  color: #999;
-  text-align: right;
-  display: block;
-  padding-top: 10rpx;
+  font-size: 26rpx;
 }
 .orderPrice .same{
   width: 100%;
@@ -229,4 +202,12 @@
 }
 .orderPrice .bottom>text{
   color: red;
+}
+.delOrder{
+  margin-top: 20rpx;
+  width: 710rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #a0a0a0;
+  color: white;
 }

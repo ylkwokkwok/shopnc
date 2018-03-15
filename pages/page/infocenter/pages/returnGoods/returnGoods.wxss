@@ -1,0 +1,122 @@
+.container{
+  background: #f6f6f6;
+}
+.form{
+  width: 100%;
+}
+.orderShop{
+  width: 100%;
+  background: white;
+}
+.orderShop .bottom{
+  width: 100%;
+  padding:10rpx 20rpx 20rpx 20rpx;
+  overflow: hidden;
+}
+.orderShop .bottom>image{
+  float: left;
+  width: 130rpx;
+}
+.orderShop .bottom .center{
+  width: 560rpx;
+  float: left;
+  margin-left: 20rpx;
+}
+.orderShop .bottom .center .title{
+  font-size: 28rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  color: #333;
+  letter-spacing: 2rpx;
+}
+.orderShop .bottom .center .detail{
+  font-size: 20rpx;
+  color: #999;
+  padding-top: 20rpx;
+  display: block;
+}
+.orderShop .bottom .center .count{
+  font-size: 20rpx;
+  color: #999;
+  padding-top: 10rpx;
+  display: block;
+}
+.reasons,.money,.describe{
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: white;
+  margin-top: 20rpx;
+}
+.reasons>text{
+  text-align: left;
+  float: left;
+  font-size: 28rpx;
+  padding-left: 20rpx;
+}
+.reasons .right{
+  float: right;
+  text-align: right;
+  margin-right: 20rpx;
+}
+.reasons .right>text{
+  display: block;
+  text-align: right;
+  float: left;
+  margin-right: 10rpx;
+  font-size: 28rpx;
+}
+.reasons .right>image{
+  width: 15rpx;
+  margin-top: 30rpx;
+}
+.money label,.describe label{
+  float: left;
+  font-size: 28rpx;
+  width: 150rpx;
+  padding-left: 20rpx;
+}
+.money text{
+  color: red;
+  float: left;
+  font-size: 28rpx;
+}
+.describe input{
+  float: left;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 28rpx;
+}
+.uploadImg{
+  width: 100%;
+  overflow: hidden;
+  padding:20rpx;
+  background: white;
+  margin-top: 20rpx;
+}
+.uploadImg>text{
+  font-size: 28rpx;
+}
+.uploadImg .bottom{
+  width: 100%;
+  overflow: hidden;
+  padding-top: 20rpx;
+}
+.uploadImg .bottom image{
+  width: 120rpx;
+  height: 120rpx;
+  float: left;
+  margin-right: 20rpx;
+}
+.form button{
+  width: 710rpx;
+  margin: 20rpx auto;
+  background: #568fdc;
+  color: white;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 30rpx;
+  letter-spacing: 2rpx;
+}

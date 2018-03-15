@@ -98,7 +98,7 @@
               <view><text>{{item.shopname}}</text><image src="/images/jt.png" mode='widthFix'></image></view>
               <text>共计{{item.count}}件商品</text>
             </view>
-            <navigator class="center">
+            <navigator class="center" url="../waitSendGoods/waitSendGoods">
               <view class="left">
                 <image src="{{item.img_url}}" mode='widthFix'></image>
               </view>
