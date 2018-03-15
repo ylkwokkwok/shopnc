@@ -123,5 +123,5 @@ let wsAPI = new Proxy(services, {
     }
   }
 })
-export let apiBaseUrl =  apiBase
+export let apiBaseUrl =  apiBase;
 export default wsAPI

@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 // page/infocenter/pages/uploadPage/uploadPage.js
 // var imglist =new Array(4);
 var imglist=[];
 var imageList=[];
 var tcity = require("../../../../utils/citys.js");
+=======
+import shop from '../../../../utils/shop'
+import { apiBaseUrl } from '../../../../utils/wsAPI'
+>>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
 Page({
 
   /**
@@ -12,6 +17,7 @@ Page({
     winHeight:0,
     imageList:[],
     current:1,
+<<<<<<< HEAD
     provinces: [],
     province: "",
     citys: [],
@@ -28,6 +34,8 @@ Page({
     values: [0, 0, 0],
     value1: [0, 0, 0],
     values1: [0, 0, 0],
+=======
+>>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
     condition: false,
     condition1:false,
     condition2:false,
@@ -40,7 +48,25 @@ Page({
     chosen: '',
     nodes:'<h1 style="text-align:center;font-size:28rpx;">上传规范</h1><p style="text-indent:2em;font-size:20rpx;">是快乐的分厘卡似的收到了开放式可怜的数量可能对方尼可拉斯的舍得离开南非</p>',
     imglist:[],
+<<<<<<< HEAD
     imageList:[],
+=======
+    // class
+    classList1: [],
+    classList2: [],
+    classList3: [],
+    classList1Index: 0,
+    classList2Index: 0,
+    classList3Index: 0,
+    gc_id1: 0,
+    gc_name1: '',
+    gc_id2: 0,
+    gc_name2: '',
+    gc_id3: 0,
+    gc_name3: '',
+    // goods index image
+    imageList:[]
+>>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
   },
   formReset:function(e){
     console.log(e);
@@ -116,6 +142,7 @@ Page({
       condition2:false
     });
   },
+<<<<<<< HEAD
   bindChange: function (e) {
     //console.log(e);
     var val = e.detail.value
@@ -239,6 +266,8 @@ Page({
       condition1: !this.data.condition1
     })
   },
+=======
+>>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
   openCategory:function(){
     this.setData({
       condition2:true
@@ -246,6 +275,7 @@ Page({
   },
   chooseImage: function () {
     var that = this;
+<<<<<<< HEAD
     wx.chooseImage({
       count: 4,
       success: function (res) {
@@ -255,6 +285,45 @@ Page({
         that.setData({
           imageList: that.data.imageList
         });
+=======
+    var maxCount = 4 - that.data.imageList.length;
+    if (maxCount < 1){
+      return
+    }
+    wx.chooseImage({
+      count: maxCount,
+      success: function (res) {
+        console.log(res)
+        for (var i in res.tempFilePaths) {
+          var imageItem = {}
+          imageItem.temp = res.tempFilePaths[i]
+          wx.uploadFile({
+            url: apiBaseUrl + '?act=store_goods_add&op=image_upload&upload_type=uploadfile', //仅为示例，非真实的接口地址
+            filePath: res.tempFilePaths[i],
+            name: 'goods_image',
+            formData:{
+              'name': 'goods_image',
+              'key': wx.getStorageSync('TOKEN-NAME')
+            },
+            success: function(res){
+              console.log('upload success：',res)
+              var data = res.data
+              data = JSON.parse(data)
+              if (data.code == 200){
+                imageItem.name = data.datas.name
+                imageItem.thumb_name = data.datas.thumb_name
+                that.data.imageList.push(imageItem)
+                that.setData({
+                  imageList: that.data.imageList
+                })
+              }
+            },
+            fail: function (res) {
+              console.log('upload fail：',res)
+            }
+          })
+        }
+>>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
       }
     })
   },
@@ -338,6 +407,7 @@ Page({
         });
       }
     });
+<<<<<<< HEAD
     tcity.init(that);
 
     var cityData = that.data.cityData;
@@ -399,5 +469,38 @@ Page({
   swapItems: function (arr, index1, index2){
     arr[index1] = arr.splice(index2, 1, arr[index1])[0];
     return arr;
+=======
+    // 获取店铺顶级商品分类
+    that.getStoreGoodsClass(0, 1)
+  },
+  getStoreGoodsClass: function(gc_id, deep){
+    let that = this
+    shop.getStoreGoodsClass(gc_id, deep).then(res => {
+      var classList = {}
+      classList['classList' + deep] = res.datas
+      that.setData(classList)
+      let selectedData = {}
+      selectedData['gc_id' + deep] = res.datas[0].gc_id
+      selectedData['gc_name' + deep] = res.datas[0].gc_name
+      selectedData['classList' + deep + 'Index'] = 0
+      that.setData(selectedData)
+      if (deep < 3){
+        that.getStoreGoodsClass(res.datas[0].gc_id, parseInt(deep) + 1)
+      }
+    })
+  },
+  bindClassChange: function (e) {
+    let that = this
+    let deep  = e.currentTarget.dataset.deep
+    let selectedClass = that.data['classList' + deep][e.detail.value]
+    let selectedData = {}
+    selectedData['gc_id' + deep] = selectedClass.gc_id
+    selectedData['gc_name' + deep] = selectedClass.gc_name
+    selectedData['classList' + deep + 'Index'] = e.detail.value
+    that.setData(selectedData)
+    if (deep < 3){
+      that.getStoreGoodsClass(selectedClass.gc_id, parseInt(deep) + 1)
+    }
+>>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
   }
 })

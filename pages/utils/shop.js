@@ -139,5 +139,19 @@ export default {
     data.key = wx.getStorageSync(TOKEN_NAME)
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=seller_center&op=index', data))
+  },
+  /**
+   *
+   * @param gc_id
+   * @param deep
+   * @returns {boolean}
+   */
+  getStoreGoodsClass: function (gc_id, deep) {
+    let data = {}
+    data.key = wx.getStorageSync(TOKEN_NAME)
+    data.gc_id = gc_id
+    data.deep = deep
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.get('?act=store_goods_add&op=ajax_goods_class', data))
   }
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .form{
   width: 460rpx;
   margin:auto;
@@ -78,4 +79,86 @@
   background: #568fdc;
   margin-top: 20rpx;
   color: white;
+=======
+.form{
+  width: 460rpx;
+  margin:auto;
+  margin-top: 260rpx;
+  overflow: hidden;
+  display: block;
+}
+.form .top>image{
+  width: 290rpx;
+  margin:auto;
+  display: block;
+}
+.form .top .number{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+}
+.form .top .number>view{
+  width: 40rpx;
+  float: left;
+  border:1px solid #ccc;
+  height: 40rpx;
+}
+.form .top .number>view:first-child{
+  margin-left: 115rpx;
+}
+.form .top .number>view>image{
+  width: 30rpx;
+  display: block;
+  margin:auto;
+  margin-top: 5rpx;
+}
+.form .top .number>input{
+  width: 100rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border:1px solid #ccc;
+  float: left;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  min-height: auto;
+  text-align: center;
+  font-size: 26rpx;
+}
+.form .top>text{
+  text-align: center;
+  display: block;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+}
+.form .top .total{
+  color: red;
+  font-size: 36rpx;
+}
+.form .top rich-text{
+  font-size: 20rpx;
+  color: #999;
+  margin-top: 20rpx;
+}
+.form .top rich-text>p{
+  text-align: center;
+  padding-top: 20rpx;
+}
+.form .bottom{
+  margin-top: 100rpx;
+  text-align: center;
+  font-size: 24rpx;
+}
+.form .bottom>text{
+  color: red;
+}
+.form button{
+  width: 290rpx;
+  display: block;
+  margin:auto;
+  height: 80rpx;
+  background: #568fdc;
+  margin-top: 20rpx;
+  color: white;
+>>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
 }

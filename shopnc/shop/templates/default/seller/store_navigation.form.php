@@ -44,7 +44,7 @@
           <input type="text" class="w300 text" name="sn_url" value="<?php echo $output['sn_info']['sn_url'];?>" />
         </p>
         <p class="hint"><?php echo $lang['store_navigation_url_tip']; ?></p>
-        </td>
+        </dd>
     </dl>
     <dl>
       <dt><?php echo $lang['store_navigation_new_open'].$lang['nc_colon']; ?></dt>

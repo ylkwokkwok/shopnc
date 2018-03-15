@@ -6,7 +6,11 @@
   </view>
   <view class="tabdetail">
     <!--待付款-->
+<<<<<<< HEAD
     <view style="{{curTab==0?'display:block':'display:none'}}">
+=======
+    <view style="curTab==0?'display:block':'display:none'">
+>>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
       <block wx:for="{{orderlist}}">
         <block wx:if="{{item.status=='待付款'}}">
           <view class="orderone">
@@ -52,6 +56,7 @@
       </block>
     </view>
     <!--退货中-->
+<<<<<<< HEAD
     <view style="{{curTab==1?'display:block':'display:none'}}">
       <block wx:for="{{orderlist}}">
         <block wx:if="{{item.status=='退货中'}}">
@@ -222,6 +227,15 @@
         </view>
       </block>
     </view>
+=======
+    <view style="curTab==1?'display:block':'display:none'"></view>
+    <!--待发货-->
+    <view style="curTab==2?'display:block':'display:none'"></view>
+    <!--已完成订单-->
+    <view style="curTab==3?'display:block':'display:none'"></view>
+    <!--全部订单-->
+    <view style="curTab==4?'display:block':'display:none'"></view>
+>>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
   </view>
   <!--待付款关闭-->
   <block wx:if="{{isClose}}">
@@ -254,6 +268,7 @@
       </form>
     </view>
   </block>
+<<<<<<< HEAD
   <!--待发货更改地址-->
   <block wx:if="{{isChangeAddress}}">
     <view class="samePage changeAddress">
@@ -310,4 +325,6 @@
       </picker-view-column>
     </picker-view>
   </view>
+=======
+>>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
 </view>

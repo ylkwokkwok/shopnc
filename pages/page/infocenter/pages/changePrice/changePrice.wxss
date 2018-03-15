@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .container{
   background: #f6f6f6;
 }
@@ -144,4 +145,152 @@
   margin:auto;
   background: #568fdc;
   color: white;
+=======
+.container{
+  background: #f6f6f6;
+}
+.tabdetail{
+  width:750rpx;
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+.tabdetail .orderone{
+  width: 100%;
+}
+.tabdetail .orderone .top{
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  padding:0 20rpx;
+  background: white;
+}
+.tabdetail .orderone .top image{
+  width: 30rpx;
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+}
+.tabdetail .orderone .top text{
+  font-size: 30rpx;
+  color: #333;
+  margin-right: 20rpx;
+}
+.tabdetail .orderone .center{
+  padding:10rpx 20rpx;
+  width: 100%;
+}
+.tabdetail .orderone .center .up{
+  overflow: hidden;
+}
+.tabdetail .orderone .center .up image{
+  width: 120rpx;
+  float: left;
+}
+.tabdetail .orderone .center .up .right{
+  float: left;
+  width: 550rpx;
+  margin-left: 30rpx;
+}
+.tabdetail .orderone .center .up .title{
+  font-size: 28rpx;
+  color: #333;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  letter-spacing: 2rpx;
+}
+.tabdetail .orderone .center .middle{
+  overflow: hidden;
+  padding-top: 10rpx;
+}
+.tabdetail .orderone .center .middle .zi{
+  font-size: 24rpx;
+  color: #999;
+  float: left;
+  display: block;
+}
+.tabdetail .orderone .center .middle .price{
+  color: red;
+  float: right;
+  text-align: right;
+  font-size: 30rpx;
+}
+.tabdetail .orderone .center .detail{
+  font-size: 24rpx;
+  color: #bfbfbf;
+}
+.priceform{
+  position: fixed;
+  bottom:0;
+  background: white;
+  width:750rpx;
+  left: 0;
+  overflow: hidden;
+  padding-bottom: 20rpx;
+}
+.priceform .sameview{
+  display: flex;
+  flex-direction: row;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding:0 20rpx;
+}
+.priceform .top{
+  border-bottom: 1px solid #ccc;
+}
+.priceform .sameview .left{
+  width: 400rpx;
+  display: flex;
+  flex-direction: row;
+}
+.priceform .sameview input{
+  width: 280rpx;
+  height: 60rpx;
+  border:1px solid #7d7d7d;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  color: #000;
+}
+.priceform .sameview input:focus{
+  border:1px solid #7d7d7d;
+  color: black;
+}
+.priceform .sameview label{
+  font-size: 30rpx;
+  width: 100rpx;
+  text-align: center;
+}
+.priceform .sameview .right{
+  width:310rpx;
+  display: flex;
+  flex-direction: row;
+}
+.priceform .top .right{
+  margin-left: 60rpx;
+}
+.priceform .sameview .right>view{
+  font-size: 30rpx;
+}
+.priceform .bottom .right{
+  border-left: 1px solid black;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-top: 20rpx;
+  padding-left: 10rpx;
+}
+.priceform .sameview .right>view>text{
+  color: red;
+}
+.priceform button{
+  width: 580rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin:auto;
+  background: #568fdc;
+  color: white;
+>>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
 }

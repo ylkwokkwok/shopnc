@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <view class="container" style="min-height:{{winHeight}}px">
   <view class="infotop">
     <block wx:for="{{branchList}}">
@@ -67,4 +68,75 @@
       <image class="jt" src="/images/jt.png" mode='widthFix'></image>
     </view>
   </view>
+=======
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="infotop">
+    <block wx:for="{{branchList}}">
+      <view class="content">
+        <image class='tx' src="{{item.tx}}"></image>
+        <view class="right">
+          <view style='overflow:hidden'>
+            <text class="shopname">{{item.shopname}}</text>
+            <navigator class="editshop" url="../noBranch/noBranch"><image src="/images/infocenter/shopedit.png" mode='widthFix'></image></navigator>
+          </view>
+          <view class="jie">店铺简介：{{item.jie}}</view>
+          <text class="referee">推荐人: {{item.referee}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="showmess">
+    <view class="center">
+      <view>
+        <text>0</text>
+        <text>在售商品</text>
+      </view>
+      <view>
+        <text>0</text>
+        <text>我的员工</text>
+      </view>
+      <view>
+        <text>0</text>
+        <text>今日访客</text>
+      </view>
+      <view>
+        <text>0</text>
+        <text>被收藏</text>
+      </view>
+    </view>
+  </view>
+  <navigator class="sameView">
+    <view class="tit">本店收益</view>
+    <view class="money">￥0.00</view>
+    <image src='/images/jt.png' mode='widthFix'></image>
+  </navigator>
+   <navigator class="sameView" url="../staffProfit/staffProfit">
+    <view class="tit">员工收益</view>
+    <view class="money">￥0.00</view>
+    <image src='/images/jt.png' mode='widthFix'></image>
+  </navigator>
+   <navigator class="sameView" url="../buyBooth/buyBooth">
+    <view class="tit">购买展位</view>
+    <image src='/images/jt.png' mode='widthFix'></image>
+  </navigator>
+  <view class="operation">
+    <navigator>
+      <image src="/images/infocenter/uploadicon.png" style="width:36rpx;"></image>
+      <text>上架商品</text>
+    </navigator>
+    <navigator>
+      <image src="/images/infocenter/allshop.png" style="width:40.5rpx;"></image>
+      <text>商品管理</text>
+    </navigator>
+  </view>
+  <view class="tgewm">
+    <text>推广二维码</text>
+    <view class='right'>
+      <block wx:for="{{erweima}}" wx:key="*this">
+        <image class="erweima" src="{{item}}" data-src="{{item}}"  mode='widthFix' bindtap='imgyu'></image>
+      </block>
+      <image class="jt" src="/images/jt.png" mode='widthFix'></image>
+    </view>
+  </view>
+>>>>>>> 7b9ca17ebe4413f483da5f727f69dbee69a4f65a
 </view>
