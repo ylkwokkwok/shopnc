@@ -163,4 +163,9 @@ export default {
      return wsAPI.taskSequence()
        .then(() => wsAPI.post('?act=goods&op=today_new_goods', data))
   },
+  },
+  storeAddGoods: function (data) {
+    data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=store_goods_add&op=save_goods', data))
 }

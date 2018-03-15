@@ -174,7 +174,6 @@ class store_goods_addControl extends BaseSellerControl {
      */
     public function save_goodsOp() {
         $logic_goods = Logic('goods');
-
         $result =  $logic_goods->saveGoods(
             $_POST,
             $_SESSION['store_id'], 
