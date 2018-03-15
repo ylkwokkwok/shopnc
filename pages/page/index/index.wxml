@@ -45,12 +45,12 @@
         <navigator url="">更多新品 ></navigator>
       </view>
       <view class="prolist">
-        <block wx:for="{{pros}}" wx:key="*this">
+        <block wx:for="{{today_new_goods}}" wx:key="*this">
           <view class="pro">
             <navigator url="{{item.link}}">
-              <image class="entry_img" src="{{item.img_url}}" mode='widthFix'></image>
-              <view class="newprice">￥{{item.newprice}}</view>
-              <view class="oldprice">￥{{item.oldprice}}</view>
+              <image class="entry_img" src="{{item.goods_image_url}}" mode='widthFix'></image>
+              <view class="newprice">{{item.goods_name}}</view>
+              <view class="oldprice">{{item.goods_price}}</view>
             </navigator>
           </view>
         </block>
@@ -60,11 +60,11 @@
   <!--精彩快报-->
   <view class="advert">
     <image src="../../images/kuaibao.png" mode='widthFix'></image>
-    <swiper autoplay="true" interval="8000" duration="500">
-      <block wx:for="{{ads}}" wx:key='*this'>
+    <swiper autoplay="true" interval="3000" duration="500">
+      <block wx:for="{{fast_news}}" wx:key='*this'>
         <swiper-item>
            <navigator>
-              <view>{{item.shopname}}<text>店铺今日收益{{item.profit}}元</text></view>
+              <view><text>{{item.adv_content}}</text></view>
            </navigator>
         </swiper-item>
       </block>

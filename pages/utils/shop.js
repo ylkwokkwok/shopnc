@@ -153,5 +153,19 @@ export default {
     data.deep = deep
     return wsAPI.taskSequence()
       .then(() => wsAPI.get('?act=store_goods_add&op=ajax_goods_class', data))
-  }
-}
+  },
+
+  /**
+   * 获取今日上新
+   */
+    getTodayNewGoods: function () {
+      let data={};
+     return wsAPI.taskSequence()
+       .then(() => wsAPI.post('?act=goods&op=today_new_goods', data))
+  },
+
+  storeAddGoods: function (data) {
+    data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=store_goods_add&op=save_goods', data))
+}}

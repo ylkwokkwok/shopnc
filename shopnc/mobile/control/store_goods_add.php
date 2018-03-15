@@ -13,7 +13,55 @@ class store_goods_addControl extends mobileSellerControl
     {
         parent::__construct();
     }
+    /**
+     * 保存商品（商品发布第二步使用）
+     */
+    public function save_goodsOp() {
+        $logic_goods = Logic('goods');
+        $result =  $logic_goods->saveGoods(
+            $_POST,
+            $this->store_info['store_id'],
+            $this->store_info['store_name'],
+            $this->store_info['store_state'],
+            $this->seller_info['seller_id'],
+            $this->seller_info['seller_name'],
+            (bool) $this->store_info['bind_all_gc']
+        );
 
+        if(!$result['state']) {
+            output_error($result['msg']);
+        }
+        $common_id = $result['data'];
+        // 保存图片
+        $insert_array = array();
+        $model_goods = Model('goods');
+        $image_list = explode(',', $_POST['imageList']);
+        foreach ($image_list as $key => $value) {
+            // 商品默认主图
+            $update_array = array();        // 更新商品主图
+            $update_where = array();
+            $update_array['goods_image']    = $value;
+            $update_where['goods_commonid'] = $common_id;
+            $update_where['color_id']       = 0;
+            if ($key == 0) {
+                $update_array['goods_image']    = $value;
+                $update_where['goods_commonid'] = $common_id;
+                $update_where['color_id']       = $key;
+                // 更新商品主图
+                $model_goods->editGoods($update_array, $update_where);
+            }
+            $tmp_insert = array();
+            $tmp_insert['goods_commonid']   = $common_id;
+            $tmp_insert['store_id']         = $this->store_info['store_id'];
+            $tmp_insert['color_id']         = 0;
+            $tmp_insert['goods_image']      = $value;
+            $tmp_insert['goods_image_sort'] = 0;
+            $tmp_insert['is_default']       = $key == 0 ? 1 : 0;
+            $insert_array[] = $tmp_insert;
+        }
+        $rs = $model_goods->addGoodsImagesAll($insert_array);
+        output_data($result);
+    }
     /**
      * ajax 上传商品主图
      */

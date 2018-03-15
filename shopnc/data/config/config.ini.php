@@ -2,7 +2,7 @@
 //by 33hao.com 好商城
 $config = array();
 $base_url = 'http://demo.it9g.com';
-$base_url = 'http://shop.xunshi.com';
+//$base_url = 'http://shop.xunshi.com'; // 本地测试域名，提交时请注释
 $config['base_site_url'] 		= $base_url;
 $config['shop_site_url']        = $base_url.'/shop';
 $config['cms_site_url']         = $base_url.'/cms';
