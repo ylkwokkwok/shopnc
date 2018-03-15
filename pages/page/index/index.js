@@ -1,3 +1,4 @@
+import shop from '../../utils/shop.js'
 //index.js
 //获取应用实例
 Page({
@@ -65,6 +66,33 @@ Page({
          that.setData({
            goods_commend: res.data.datas.goods_commend_list
          })
+      }
+    })
+
+    wx.request({
+      url: 'http://demo.it9g.com/mobile/index.php?act=index&op=fast_news_adv',
+      data: '',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data);
+        that.setData({
+          fast_news: res.data.datas.fast_news_adv_list
+        })
+      }
+    })
+    //获取每日上新
+    shop.getTodayNewGoods().then(res => {
+      if (res.code == 200) {
+        //success
+        console.log(res.datas);
+        that.setData({
+          today_new_goods: res.datas.today_new_goods_list
+        })
+      } else {
+        //error
+      console.log('今日上新获取失败');
       }
     })
   }

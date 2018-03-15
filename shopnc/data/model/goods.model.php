@@ -154,10 +154,18 @@ class goodsModel extends Model{
     /**
      * 查询推荐商品
      */
-    public function getGoodsCommend($condition, $field = '*', $group = '',$order = '', $limit = 6, $page = 0, $count = 0){
+    public function getGoodsCommend($condition, $field = '*', $group = '',$order = '', $limit = 4, $page = 0, $count = 0){
         $condition = $this->_getRecursiveClass($condition);
         return $this->table('goods')->field($field)->where($condition)->group($group)->order($order)->limit($limit)->page($page, $count)->select();
     }
+
+    /**
+     * 今日上新产品
+     */
+    public function today_new_goods($field = '*', $group = '',$order = 'goods_id desc', $limit = 6, $page = 0, $count = 0){
+        return $this->table('goods')->field($field)->where()->group($group)->order($order)->limit($limit)->page($page, $count)->select();
+    }
+
     /**
      * 普通列表，即不包括虚拟商品、F码商品、预售商品、预定商品
      *
@@ -327,6 +335,8 @@ class goodsModel extends Model{
      * @param int $store_id 店铺
      * @param int $limit 限制
      * @return array
+     *
+     *
      */
     public function getGoodsCommendList($store_id, $limit = 5) {
             $goods_commend_list = $this->getGoodsOnlineList(array('store_id' => $store_id, 'goods_commend' => 1), 'goods_id,goods_name,goods_jingle,goods_image,store_id,goods_promotion_price', 0, 'rand()', $limit, 'goods_commonid');

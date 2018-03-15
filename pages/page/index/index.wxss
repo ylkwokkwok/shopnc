@@ -250,7 +250,7 @@
 }
 .advert swiper-item view text{
   font-size: 24rpx;
-  color: red;
+  color: 	#FF2222;
   margin-left: 20rpx;
 }
 .newprice,.oldprice{
@@ -258,11 +258,15 @@
   text-align: center;
 }
 .newprice{
-  color: red;
+  color: #000000;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 90%;
 }
 .oldprice{
-  color: #999999;
-  text-decoration: line-through;
+  color: red;
+  /* text-decoration: line-through; */
 }
 .choicepro .left{
   width:345rpx;

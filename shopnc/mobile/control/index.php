@@ -150,4 +150,13 @@ class indexControl extends mobileHomeControl{
 		}    	
     }
 
+    /**
+     * 首页中部精彩快报广告
+     */
+    public function fast_news_advOp(){
+        $condition['ap_id']=1;
+        $fast_news_adv=Model('adv');
+        $fast_news_adv_list=$fast_news_adv->getFastNews($condition);
+        output_data(array('fast_news_adv_list'=>$fast_news_adv_list));
+    }
 }
