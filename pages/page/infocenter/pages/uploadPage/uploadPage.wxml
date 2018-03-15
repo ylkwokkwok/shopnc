@@ -9,7 +9,7 @@
         <swiper duration="1000" bindchange='changeSwiper'>
           <block wx:for="{{imageList}}" wx:for-item="imageItem" wx:for-index="imageIndex" wx:key="*this">
             <swiper-item>
-              <image src="{{imageItem.temp}}" class="img"></image>
+              <image src="{{imageItem.thumb_name}}" class="img"></image>
               <image class="cha" src="/images/assortment/del.png" mode='widthFix' data-index="{{imageIndex}}" bindtap='clearimgs'></image>
               <image wx:if="{{imageList.length < 4}}" src="/images/infocenter/carmer1.png" class="upload2" mode='widthFix' bindtap='chooseImage' data-index="current"></image>
             </swiper-item>
@@ -22,12 +22,8 @@
      </view>
       <view class="shopdetail">
         <view>
-          <label>商品标题</label>
-          <input placeholder='请输入商品标题，不超过10个字' name="title"></input>
-        </view>
-        <view>
-          <label>商品编码</label>
-          <input maxlength="10" placeholder='请输入商品编码，不超过10个字' name="shopcode"></input>
+          <label>商品名称</label>
+          <input placeholder='请输入商品名称' bindinput="bindKeyInput" data-key="g_name" value="{{g_name}}"></input>
         </view>
         <view bindtap='openCategory'>
           <label>选择分类</label>
@@ -36,19 +32,23 @@
         <text>商品属性</text>
         <view>
           <label>商品价格</label>
-          <input placeholder='请输入商品价格' name="price"></input>
+          <input placeholder='请输入商品价格' bindinput="bindKeyInput" data-key="g_price" data-type="float" value="{{g_price}}"></input>
+        </view>
+        <view>
+          <label>市场售价</label>
+          <input placeholder='请输入市场售价' bindinput="bindKeyInput" data-key="g_costprice" data-type="float" value="{{g_costprice}}"></input>
         </view>
         <view>
           <label>VIP价格</label>
-          <input placeholder='请输入VIP价格' name="vipPrice"></input>
+          <input placeholder='请输入VIP价格' bindinput="bindKeyInput" data-key="g_vipprice" data-type="float" value="{{g_vipprice}}"></input>
         </view>
         <view>
           <label>库存</label>
-          <input placeholder='请输入库存' name="stock"></input>
+          <input placeholder='请输入库存' bindinput="bindKeyInput" data-key="g_storage" data-type="int" value="{{g_storage}}"></input>
         </view>
         <view>
           <label>运费</label>
-          <input placeholder='请输入运费' name="freight"></input>
+          <input placeholder='请输入运费' bindinput="bindKeyInput" data-key="g_freight" data-type="float" value="{{g_freight}}"></input>
         </view>
          <view bindtap='selectShopDetail'>
           <label>商品描述</label>
@@ -57,22 +57,22 @@
           </block>
           <block wx:else>
             <view>
-              <block wx:for="{{imglist}}">
-                <image src="{{item}}"></image>
+              <block wx:for="{{imgList}}" wx:key="key" wx:for-item="imgItem">
+                <image src="{{imgItem.thumb_name}}" class="img-item"></image>
               </block>
+              <text wx:if="{{imgList.length > 4}}">...</text>
             </view>
           </block>
           <image src="/images/jt.png" class="jt" mode='widthFix'></image>
         </view>
-        <view>
-          <label>七天无理由退货</label>
-          <switch checked name="switch"/>
-        </view>
+        <!--<view>-->
+          <!--<label>七天无理由退货</label>-->
+          <!--<switch checked name="switch"/>-->
+        <!--</view>-->
       </view>
       <!-- <view class="foot"> -->
-        <button class="clear" formType="reset">清空</button>
-        <button form-type='submit' class="intodepot" id="intodepot">放入仓库</button>
-        <button form-type='submit' class="release" id="release">立即发布</button>
+        <button form-type='submit' class="intodepot" data-type="intodepot">放入仓库</button>
+        <button form-type='submit' class="release" data-type="release">立即发布</button>
       <!-- </view> -->
   </form>
   <!--选择分类-->
@@ -128,13 +128,13 @@
         <image src="/images/jt.png" mode='widthFix'></image>
       </view>
       <view class="imglist">
-        <block wx:for="{{imglist}}">
+        <block wx:for="{{imgList}}" wx:key="key" wx:for-index="imgIndex" wx:for-item="imgItem">
           <view class="imgone" wx:key="index">
-            <image src="{{item}}" mode='widthFix'></image>
+            <image src="{{imgItem.thumb_name}}" mode='widthFix'></image>
             <view class="operation">
-              <view class="del" bindtap="deleteImg" data-index="{{item}}">删除</view>
-              <view class="moveup" bindtap='moveUp' data-index="{{index}}">上移</view>
-              <view class="movedown" bindtap='moveDown' data-index="{{index}}">下移</view>
+              <view class="del" bindtap="deleteImg" data-index="{{imgIndex}}">删除</view>
+              <view class="moveup" bindtap='moveUp' data-index="{{imgIndex}}">上移</view>
+              <view class="movedown" bindtap='moveDown' data-index="{{imgIndex}}">下移</view>
             </view>
           </view>
         </block>

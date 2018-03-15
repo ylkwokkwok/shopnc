@@ -108,7 +108,7 @@
   bottom: 0;
 }
 button{
-  width: 33.33%;
+  width: 50%;
   border:none;
   border-right:1px solid #ccc;
   height: 80rpx;
@@ -125,45 +125,10 @@ button{
   z-index: 20;
 }
 button.intodepot{
-  left: 33%;
-}
-button.release{
-  left: 66%;
+  left: 50%;
 }
 button:last-child{
   border-right: none;
-}
-.citypicker{
-  position: fixed;
-  height: 500rpx;
-  width: 100%;
-  bottom: 0;
-  background: white;
-  border-top: 1px solid black;
-  z-index: 100;
-}
-.citybody {
-  position: fixed;
-  bottom: 0px;
-}
-
-.cityheader {
-  position: absolute;
-  top:0px;
-  width: 100%;
-  z-index: 5;
-}
-
-.city-cancel {
-  float: left;
-  margin: 20rpx;
-  color: #000;
-}
-
-.city-true {
-  float: right;
-  margin: 20rpx;
-  color: #568fdc;
 }
 
 .section .picker {
@@ -305,7 +270,7 @@ button:last-child{
   color: white;
   background: #999999;
   z-index: 200;
-  margin-left: 40rpx;
+  margin: 0 20rpx;
 }
 .selectShopdetail .foot{
   position: fixed;
@@ -371,4 +336,7 @@ button:last-child{
   color: #ffffff;
   background-color: #1aad19;
   border-radius: 10rpx;
+}
+.img-item:nth-child(n+5){
+  display: none;
 }
