@@ -5,9 +5,42 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    currentTab:0,
+    curTab:0,
+    list:[
+      {img:"/images/tx.jpg",username:"张三",profit:"0.00"},
+      { img: "/images/tx.jpg", username: "张三", profit: "0.00" },
+      { img: "/images/tx.jpg", username: "张三", profit: "0.00" },
+    ],
+    list2: [
+      { img: "/images/tx.jpg", username: "李四", profit: "0.00" },
+      { img: "/images/tx.jpg", username: "李四", profit: "0.00" },
+      { img: "/images/tx.jpg", username: "李四", profit: "0.00" },
+    ],
+    list3: [
+      { img: "/images/tx.jpg", username: "王五", profit: "0.00" },
+      { img: "/images/tx.jpg", username: "王五", profit: "0.00" },
+      { img: "/images/tx.jpg", username: "王五", profit: "0.00" },
+    ]
   },
-
+  switchNav:function(e){
+    var cur = e.currentTarget.dataset.current;
+    if (this.data.currentTab == cur) { return false; }
+    else {
+      this.setData({
+        currentTab: cur
+      })
+    }
+  },
+  switchNav2: function (e) {
+    var cur = e.currentTarget.dataset.current;
+    if (this.data.curTab == cur) { return false; }
+    else {
+      this.setData({
+        curTab: cur
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */

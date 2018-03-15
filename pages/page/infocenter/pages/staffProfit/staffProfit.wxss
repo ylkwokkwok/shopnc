@@ -1,1 +1,100 @@
-/* page/infocenter/pages/staffProfit/staffProfit.wxss */
+.tabList{
+  width: 750rpx;
+  height: 85rpx;
+  line-height: 85rpx;
+  display: flex;
+  flex-direction: row;
+}
+.tabList>view{
+  width: 33.33%;
+  text-align: center;
+  font-size: 28rpx;
+}
+.tabList>view>text{
+  width: 80%;
+  height: 100%;
+  display: block;
+  margin: auto;
+}
+.tabList>view.on>text{
+  color: #568fdc;
+  border-bottom: 4rpx solid #568fdc;
+}
+.bg{
+  width: 100%;
+  height: 20rpx;
+  background: #f6f6f6;
+}
+.tabshow{
+  width: 100%;
+}
+.tabshow .top{
+  height: 85rpx;
+  width:100%;
+  line-height: 85rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #ccc;
+  padding-left: 30rpx;
+}
+.tabshow .top>view{
+  font-size: 24rpx;
+  margin-right: 100rpx;
+}
+.tabshow .top>view.on{
+  color: #568fdc;
+}
+.tabshow .bottom{
+  width: 100%;
+}
+.tabshow .bottom .census{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  flex-direction: row;
+  padding:0 20rpx;
+}
+.tabshow .bottom .census .left{
+  width: 540rpx;
+}
+.tabshow .bottom .census .left image{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  float: left;
+  display: block;
+  margin-top: 15rpx;
+}
+.tabshow .bottom .census .left text{
+  float: left;
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+.tabshow .bottom .census .right{
+  width: 170rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+.tabshow .bottom .census .right text{
+  color: red;
+}
+.tabshow .foot{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #eee;
+  text-align: right;
+  font-size: 30rpx;
+  font-weight: bold;
+  width: 100%;
+  padding-right: 20rpx;
+}
+.tabshow .foot>text{
+  color: red;
+  font-weight: normal;
+}

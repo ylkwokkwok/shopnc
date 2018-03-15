@@ -6,7 +6,7 @@
   </view>
   <view class="tabdetail">
     <!--待付款-->
-    <view style="curTab==0?'display:block':'display:none'">
+    <view style="{{curTab==0?'display:block':'display:none'}}">
       <block wx:for="{{orderlist}}">
         <block wx:if="{{item.status=='待付款'}}">
           <view class="orderone">
@@ -52,13 +52,176 @@
       </block>
     </view>
     <!--退货中-->
-    <view style="curTab==1?'display:block':'display:none'"></view>
+    <view style="{{curTab==1?'display:block':'display:none'}}">
+      <block wx:for="{{orderlist}}">
+        <block wx:if="{{item.status=='退货中'}}">
+          <view class="orderone">
+            <view class="top">
+              <image src="/images/infocenter/note.png" mode='widthFix' class="{{item.status}}"></image>
+              <text class="ordernum">{{item.number}}</text>
+              <text class="time">{{item.time}}</text>
+            </view>
+            <view class="center">
+              <view  class="up">
+                <image class="shopimg" src="{{item.img}}" mode='widthFix'></image>
+                <view class='right'>
+                  <view class="title">{{item.title}}</view>
+                  <view class="middle">
+                    <text class="zi">产品详情</text>
+                    <text class="price">￥{{item.price}}</text>
+                  </view>
+                  <view class="detail">×{{item.count}} 、{{item.color}} 、{{item.size}}</view>
+                </view>
+              </view>
+              <view class="down">
+                <view class="left"><text>退款原因：{{item.refund}}</text></view>
+                <view class="status">{{item.status}}</view>
+              </view>
+            </view>
+            <view class="userinfo">
+              <view class="userchart">
+                <navigator><image src="/images/infocenter/kf.png" mode='widthFix'></image></navigator>
+                <text>{{item.username}}</text>
+              </view>
+              <view class="address">
+                <image src="/images/pos.png" mode='widthFix'></image>
+                <view>{{item.address}}</view>
+              </view>
+            </view>
+            <view class="operation operation2">
+              <view class="changeprice" id="{{item.id}}" bindtap="refuseRefund">拒绝退款</view>
+              <view class="changefreight" id="{{item.id}}"> <navigator url="../agreeRefund/agreeRefund">同意退款</navigator> </view>
+            </view>
+          </view>
+        </block>
+      </block>
+    </view>
     <!--待发货-->
-    <view style="curTab==2?'display:block':'display:none'"></view>
+    <view style="{{curTab==2?'display:block':'display:none'}}">
+      <block wx:for="{{orderlist}}">
+        <block wx:if="{{item.status=='待发货'}}">
+          <view class="orderone">
+            <view class="top">
+              <image src="/images/infocenter/note.png" mode='widthFix'></image>
+              <text class="ordernum">{{item.number}}</text>
+              <text class="time">{{item.time}}</text>
+            </view>
+            <view class="center">
+              <view  class="up">
+                <image class="shopimg" src="{{item.img}}" mode='widthFix'></image>
+                <view class='right'>
+                  <view class="title">{{item.title}}</view>
+                  <view class="middle">
+                    <text class="zi">产品详情</text>
+                    <text class="price">￥{{item.price}}</text>
+                  </view>
+                  <view class="detail">×{{item.count}} 、{{item.color}} 、{{item.size}}</view>
+                </view>
+              </view>
+              <view class="down">
+                <view class="left">共计{{item.count}}件，实收<text>￥{{item.price}}</text>(含邮费{{item.freight}})</view>
+                <view class="status">{{item.status}}</view>
+              </view>
+            </view>
+            <view class="userinfo">
+              <view class="userchart">
+                <navigator><image src="/images/infocenter/kf.png" mode='widthFix'></image></navigator>
+                <text>{{item.username}}</text>
+              </view>
+              <view class="address">
+                <image src="/images/pos.png" mode='widthFix'></image>
+                <view>{{item.address}}</view>
+              </view>
+            </view>
+            <view class="operation">
+              <view class="changeprice" id="{{item.id}}" bindtap="changeAddress">更改地址</view>
+              <view class="changefreight" bindtap='sellerNotes'>卖家备注</view>
+              <view class="close" bindtap='sendGoods' id="{{item.id}}">发货</view>
+            </view>
+          </view>
+        </block>
+      </block>
+    </view>
     <!--已完成订单-->
-    <view style="curTab==3?'display:block':'display:none'"></view>
+    <view style="{{curTab==3?'display:block':'display:none'}}">
+      <block wx:for="{{orderlist}}">
+        <block wx:if="{{item.status=='交易成功'}}">
+          <view class="orderone">
+            <view class="top">
+              <image src="/images/infocenter/note.png" mode='widthFix'></image>
+              <text class="ordernum">{{item.number}}</text>
+              <text class="time">{{item.time}}</text>
+            </view>
+            <view class="center">
+              <view  class="up">
+                <image class="shopimg" src="{{item.img}}" mode='widthFix'></image>
+                <view class='right'>
+                  <view class="title">{{item.title}}</view>
+                  <view class="middle">
+                    <text class="zi">产品详情</text>
+                    <text class="price">￥{{item.price}}</text>
+                  </view>
+                  <view class="detail">×{{item.count}} 、{{item.color}} 、{{item.size}}</view>
+                </view>
+              </view>
+              <view class="down">
+                <view class="left">共计{{item.count}}件，实收<text>￥{{item.price}}</text>(含邮费{{item.freight}})</view>
+                <view class="status">{{item.status}}</view>
+              </view>
+            </view>
+            <view class="userinfo">
+              <view class="userchart">
+                <navigator><image src="/images/infocenter/kf.png" mode='widthFix'></image></navigator>
+                <text>{{item.username}}</text>
+              </view>
+              <view class="address">
+                <image src="/images/pos.png" mode='widthFix'></image>
+                <view>{{item.address}}</view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </block>
+    </view>
     <!--全部订单-->
-    <view style="curTab==4?'display:block':'display:none'"></view>
+    <view style="{{curTab==4?'display:block':'display:none'}}">
+      <block wx:for="{{orderlist}}">
+        <view class="orderone">
+          <view class="top">
+            <image src="/images/infocenter/note.png" mode='widthFix'></image>
+            <text class="ordernum">{{item.number}}</text>
+            <text class="time">{{item.time}}</text>
+          </view>
+          <view class="center">
+            <view  class="up">
+              <image class="shopimg" src="{{item.img}}" mode='widthFix'></image>
+              <view class='right'>
+                <view class="title">{{item.title}}</view>
+                <view class="middle">
+                  <text class="zi">产品详情</text>
+                  <text class="price">￥{{item.price}}</text>
+                </view>
+                <view class="detail">×{{item.count}} 、{{item.color}} 、{{item.size}}</view>
+              </view>
+            </view>
+            <view class="down">
+              <view class="left">共计{{item.count}}件，实收<text>￥{{item.price}}</text>(含邮费{{item.freight}})</view>
+              <view class="status">{{item.status}}</view>
+            </view>
+          </view>
+          <view class="userinfo">
+            <view class="userchart">
+              <navigator><image src="/images/infocenter/kf.png" mode='widthFix'></image></navigator>
+              <text>{{item.username}}</text>
+            </view>
+            <view class="address">
+              <image src="/images/pos.png" mode='widthFix'></image>
+              <view>{{item.address}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
   </view>
   <!--待付款关闭-->
   <block wx:if="{{isClose}}">
@@ -91,4 +254,60 @@
       </form>
     </view>
   </block>
+  <!--待发货更改地址-->
+  <block wx:if="{{isChangeAddress}}">
+    <view class="samePage changeAddress">
+      <form class="form" catchsubmit="submitAddress">
+        <view class="same">
+          <label>收货人</label>
+          <input value='张三'></input>
+        </view>
+        <view class="same">
+          <label>手机</label>
+          <input value='1544524522' type="number" maxlength='11'></input>
+        </view>
+        <view class="provice same">
+          <label>省市区</label>
+          <input value='{{province}}-{{city}}-{{county}}' bindfocus="open"></input>
+          <image src="/images/jt.png" mode='widthFix'></image>
+        </view> 
+        <view class="nosame same">
+          <label>街道</label>
+          <textarea></textarea>
+        </view> 
+        <view class="same">
+          <label>邮政编码</label>
+          <input value='444444' type="number" maxlength='6'></input>
+        </view>
+        <button class="sure" bindtap='confirmAddress'>确认</button>
+      </form>
+    </view>
+  </block>
+  <!--卖家备注-->
+  <block wx:if="{{isSellerNotes}}">
+    <view class="samePage sellerNotes">
+      <form class="form" catchsubmit="submitAddress">
+        <textarea placeholder='填写备注' placeholder-style='color:black'></textarea>
+        <button class="sure" bindtap='confirmNotes'>确认</button>
+      </form>
+    </view>
+  </block>
+  <!--地址选择-->
+  <view wx:if="{{condition}}" class="citypicker">
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange" class="citybody">
+      <view class="cityheader">
+        <view bindtap="open" class="city-cancel">取消</view>
+        <view bindtap="open" class="city-true">确定</view>
+      </view>
+      <picker-view-column>
+        <view wx:for="{{provinces}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{citys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{countys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
 </view>

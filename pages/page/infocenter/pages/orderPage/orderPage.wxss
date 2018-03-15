@@ -1,0 +1,238 @@
+.container{
+  background: #f6f6f6;
+}
+.top_search{
+  width:100%;
+  height: 90rpx;
+  margin:0;
+  position: relative;
+  border-bottom:2rpx solid #ccc;
+}
+.top_search input{
+  position: absolute;
+  width: 710rpx;
+  margin:0 auto;
+  height: 70rpx;
+  top: 10rpx;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 30rpx;
+  color:#999;
+  padding-left: 15rpx;
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+}
+.top_search image{
+  position: absolute;
+  right: 40rpx;
+  width:40rpx;
+  height: 40rpx;
+  z-index: 100; 
+  top:25rpx;
+  background: white;
+}
+.tablist{
+  background: white;
+  height: 90rpx;
+  line-height: 90rpx;
+  width:750rpx;
+  display: flex;
+  flex-direction: row;
+}
+.tablist>view{
+  position: relative;
+  width: 20%;
+  text-align: center;
+  height: 100%;
+  font-size: 30rpx;
+  display: block;
+}
+.tablist>view.on{
+  color: #568fdc;
+  border-bottom: 2rpx solid #568fdc;
+}
+.tablist>view>span{
+  position:absolute;
+  width: 30rpx;
+  height: 30rpx;
+  border-radius:50%;
+  border:2rpx solid white;
+  background:red;
+  color:white;
+  font-size:20rpx;
+  right:0;
+  top:5rpx;
+  display: block;
+  line-height: 30rpx;
+}
+.tabshow .noOrder{
+  width: 100%;
+  margin-top: 135rpx;
+}
+.tabshow .noOrder image{
+  width: 310rpx;
+  margin:auto;
+  display: block;
+}
+.tabshow .noOrder text{
+  text-align: center;
+  padding-top: 20rpx;
+  color: black;
+  font-size: 24rpx;
+  display: block;
+}
+.tabshow .orderone{
+  margin-top: 20rpx;
+  background: white;
+  width: 100%;
+  padding-bottom: 20rpx;
+}
+.tabshow .orderone .top{
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  padding:0 20rpx;
+}
+.tabshow .orderone .top .left{
+  float: left;
+  width: 55%;
+}
+.tabshow .orderone .top image{
+  width: 30rpx;
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+  float: left;
+}
+.tabshow .orderone .top .right{
+  float: right;
+  width:45%;
+}
+.tabshow .orderone .top .right image{
+  margin-right: 10rpx;
+  margin-top: 25rpx;
+}
+.tabshow .orderone .top text{
+  font-size: 30rpx;
+  color: #333;
+  margin-right: 20rpx;
+}
+.tabshow .orderone .top .right text{
+   text-align: right;
+   display: block;
+   font-size: 24rpx;
+   float: left;
+   margin-right: 0;
+}
+.tabshow .statusItem{
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  padding:20rpx 0;
+  overflow: hidden;
+}
+.tabshow .statusItem .left{
+  float: left;
+  width: 520rpx;
+  margin-left: 20rpx;
+}
+.tabshow .statusItem .left>view{
+  font-size: 24rpx;
+}
+.tabshow .statusItem .left .paymoney{
+  padding-top: 20rpx;
+}
+.tabshow .statusItem .left .paymoney .money{
+  color: red;
+  font-size: 30rpx;
+}
+.tabshow .statusItem .left .paymoney .freight{
+  font-size: 20rpx;
+}
+.tabshow .statusItem .left .status{
+  font-size: 28rpx;
+  color: #568fdc;
+}
+.tabshow .statusItem .right{
+  float: left;
+  width: 190rpx;
+}
+.tabshow .statusItem .right navigator{
+  width: 150rpx;
+  height: 40rpx;
+  display: block;
+  margin:auto;
+  margin-top: 45rpx;
+  background: #568fdc;
+  color: white;
+  border-radius: 20rpx;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 26rpx;
+  margin-left: 20rpx;
+}
+.tabshow .statusItem .right navigator:first-child{
+  margin-left: 0;
+}
+.tabshow .orderone .shopnameItem{
+  padding:20rpx;
+  overflow: hidden;
+}
+.tabshow .orderone .shopnameItem>view{
+  float: left;
+  font-size:30rpx;
+  font-weight: bold;
+  width: 510rpx;
+}
+.tabshow .orderone .shopnameItem>view text{
+  float: left;
+}
+.tabshow .orderone .shopnameItem image{
+  width: 15rpx;
+  float: left;
+  margin-left: 20rpx;
+  margin-top: 8rpx;
+}
+.tabshow .orderone .shopnameItem>text{
+  float: right;
+  display: block;
+  font-size: 20rpx;
+  color: #999;
+  text-align: right;
+  width: 200rpx;
+}
+.tabshow .orderone .center{
+  width: 100%;
+  padding:10rpx 20rpx 20rpx 20rpx;
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: row;
+}
+.tabshow .orderone .center .left{
+  width: 150rpx;
+}
+.tabshow .orderone .center .left image{
+  width: 100%;
+}
+.tabshow .orderone .center .right{
+  width: 540rpx;
+  margin-left: 20rpx;
+}
+.tabshow .orderone .center .right .title{
+  font-size: 30rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.tabshow .orderone .center .right .zi{
+  font-size: 24rpx;
+  color: #999;
+}
+.tabshow .orderone .center .right .detail{
+  font-size: 20rpx;
+  color: #999;
+  padding-top: 20rpx;
+}

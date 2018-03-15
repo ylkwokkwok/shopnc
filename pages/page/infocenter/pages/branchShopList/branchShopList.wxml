@@ -1,0 +1,58 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+    <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">休闲零食</view>
+    <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">特色生鲜</view>
+    <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">地方特产</view>
+    <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">粮油米面</view>
+    <view class="tab-item {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">生活用品</view>
+    <view class="tab-item {{currentTab==5?'active':''}}" data-current="5" bindtap="swichNav">其他</view>
+  </scroll-view>
+  <view class='swiper'>
+    <swiper indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+      <block wx:for="{{ads}}">
+        <swiper-item>
+          <image src="{{item.img_url}}" mode='widthFix'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="shops">
+    <view class="shoplist">
+      <block wx:for="{{shoplist}}">
+        <view class="shopone">
+          <image class="sel" bindtap="selBtn" src="{{item.isSelected?'/images/comment_select.png':'/images/comment_normal.png'}}" mode="widthFix" data-index="{{index}}" data-id="{{index}}" data-group="{{item.shopgroup}}"></image>
+          <view class="left">
+            <image src="{{item.img}}" mode='widthFix'></image>
+            <text>{{item.tit}}</text>
+          </view>
+          <view class="right">
+            <view class="jie">{{item.jie}}</view>
+            <view style="overflow:hidden;margin-top:10rpx;">
+              <view class="price">￥{{item.price}}</view>
+              <view class="tuan">
+                <image src="/images/bg.png" mode='widthFix'></image>
+                <view>{{item.tuan}}</view>
+              </view>
+            </view>
+            <view class="bottom">
+              <view class="ppleft">
+                <view class="oldprice">库存: <text>￥{{item.surplus}}</text> </view>
+                <view class="pinglun">总销量: <text>{{item.totalsales}}</text></view>
+              </view>
+            </view>
+          </view>
+        </view> 
+      </block>
+    </view>
+    <view class="foot">
+      <view class="left">
+        <image class="sel" src="{{isAllSelected?'/images/comment_select.png':'/images/comment_normal.png'}}" mode='widthFix' bindtap='allSelect' data-group="{{shoplist[0].shopgroup}}"></image>
+        <text>全选</text>
+      </view>
+      <view class="right">
+        <view bindtap='del'>删除</view>
+        <view class="savedepot">上架</view>
+      </view>
+    </view>
+  </view>
+</view>
