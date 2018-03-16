@@ -54,6 +54,7 @@
     "page/infocenter/pages/cancelOrder/cancelOrder",
     "page/infocenter/pages/waitSendGoods/waitSendGoods",
     "page/infocenter/pages/returnGoods/returnGoods",
+    "page/infocenter/pages/returnGdDetail/returnGdDetail",
     "page/shopcart/shopcart",
     "page/index/pages/bargain/bargain",
     "page/index/pages/bargain_list/bargain_list",

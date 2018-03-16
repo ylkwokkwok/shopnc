@@ -36,7 +36,7 @@
         </view>
       </view>
     </view>
-    <button>提交申请</button>
+    <button form-type='submit'>提交申请</button>
   </form>
   <!--退款原因-->
   <block wx:if="{{isReasons}}">
@@ -44,7 +44,19 @@
     <view class="optionBar">
       <view class="top">
         <text>退款原因</text>
-        <image class="cha" src="/images/assortment/cha.png" mode='widthFix'></image>
+        <image class="cha" src="/images/infocenter/cancel.png" mode='widthFix'></image>
+      </view>
+      <view class="bottom">
+        <block wx:for="{{reasons}}" wx:key="index">
+          <view bindtap='switchNav' data-current="{{index}}" data-value="{{item}}">
+            <text style="{{currentTab==index?'color:#568fdc;':'color:#333'}}">{{item}}</text>
+            <image src="{{currentTab==index?'/images/assortment/dui.png':''}}"></image>
+          </view>
+        </block>
+      </view>
+      <view class="foot">
+        <view class="cancel" bindtap='cancel'>取消</view>
+        <view class="confirm" bindtap="confirm">确定</view>
       </view>
     </view>
   </block>

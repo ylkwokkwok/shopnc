@@ -9,6 +9,8 @@ Page({
     isReasons:false,
     reason:"其他",
     imageList: [],
+    currentTab:0,
+    reasons: ["重复下单/误下单", "其他渠道价格更低", "不想买了", "其他原因"],
   },
   reasonTap:function(){
     this.setData({
@@ -33,6 +35,31 @@ Page({
     wx.previewImage({
       current: current,
       urls: this.data.imageList
+    })
+  },
+  switchNav:function(e){
+    var cur = e.currentTarget.dataset.current;
+    if (this.data.currentTab == cur) { return false; }
+    else {
+      this.setData({
+        currentTab: cur,
+        reason:e.currentTarget.dataset.value,
+      })
+    }
+  },
+  cancel:function(){
+    this.setData({
+      isReasons:false
+    });
+  },
+  confirm:function(){
+    this.setData({
+      isReasons:false,
+    });
+  },
+  formSubmit:function(){
+    wx.navigateTo({
+      url: '../returnGdDetail/returnGdDetail',
     })
   },
   /**

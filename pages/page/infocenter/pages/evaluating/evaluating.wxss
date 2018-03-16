@@ -1,1 +1,105 @@
-/* page/infocenter/pages/evaluating/evaluating.wxss */
+.container{
+  background: #f6f6f6;
+}
+.top{
+  background: white;
+  padding:20rpx;
+  width: 100%;
+}
+.top .orderList{
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
+  padding-bottom: 20rpx;
+}
+.top .orderList image{
+  float: left;
+  width: 120rpx;
+}
+.top .orderList view{
+  float: left;
+  margin-left: 20rpx;
+  width: 560rpx;
+}
+.top .orderList .tit{
+  font-size: 30rpx;
+  padding-top: 20rpx;
+  color: #333;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.top .textarea{
+  width: 100%;
+  height: 300rpx;
+  position: relative;
+}
+.top textarea{
+  width: 100%;
+  height: 100%;
+  font-size: 24rpx;
+  resize: none;
+}
+.top .textarea text{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 20rpx;
+  color: #797979;
+}
+.uploadImg{
+  width: 100%;
+  overflow: hidden;
+  padding-top: 20rpx;
+}
+.uploadImg image{
+  width: 120rpx;
+  height: 120rpx;
+  float: left;
+  margin-right: 20rpx;
+}
+.form{
+  width: 100%;
+  overflow: hidden;
+}
+.form button{
+  width: 710rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #568fdc;
+  color: white;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+.form .bottom{
+  width: 100%;
+  background: white;
+  margin-top: 20rpx;
+}
+.form .bottom .same{
+  width: 710rpx;
+  margin:auto;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+.form .bottom .same label{
+  float: left;
+  width: 100rpx;
+}
+.form .bottom .same .star-image{
+  width: 43rpx;
+  height: 43rpx;
+  float: left;
+  margin-right: 20rpx;
+  margin-top: 28.5rpx;
+}
+.form .bottom .same text{
+  float: left;
+  color: red;
+  font-size: 24rpx;
+  display: block;
+  margin-left: 20rpx;
+}
