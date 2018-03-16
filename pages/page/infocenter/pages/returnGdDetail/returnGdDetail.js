@@ -1,31 +1,37 @@
-// page/infocenter/pages/seeLogist/seeLogist.js
+// page/infocenter/pages/returnGdDetail/returnGdDetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    winHeight:0,
-  },  
-
+    success:false,
+    isOrder:true,
+    isSend:false,
+    isAspect:false,
+  },
+  cancelApplay:function(){
+    wx.showModal({
+      content: '您将撤销本次申请，如果问题未解决，您还可以再次发起。确定继续吗？',
+      showCancel:true,
+      cancelText:'取消',
+      cancelColor:"black",
+      confirmText:"确认",
+      confirmColor:"#568fdc",
+      // success:(res){
+      //   if(res.confirm){
+      //     this.setData({
+            
+      //     });
+      //   }
+      // },
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    /** 
-     * 获取系统信息 
-     */
-    wx.getSystemInfo({
-      success: function (res) {
-        that.setData({
-          winHeight: res.windowHeight
-        });
-      }
-    });
-    this.setData({
-      currentTab: options.current
-    });
+  
   },
 
   /**

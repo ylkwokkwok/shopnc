@@ -1,2 +1,51 @@
-<!--page/infocenter/pages/evaluating/evaluating.wxml-->
-<text>page/infocenter/pages/evaluating/evaluating.wxml</text>
+<view class="container" style="min-height:{{winHeight}}px">
+  <form bindsubmit='formSubmit' class="form">
+    <view class="top">
+      <view class="orderList">
+        <image src="/images/shop2.png" mode='widthFix'></image>
+        <view class='right'>
+          <text class="tit">离开此地离开你的收到了可能发生的手法来看的书房里看书地方人的手法来看你看来是分开</text>
+        </view>
+      </view>
+      <view class="textarea">
+        <textarea placeholder='您的评价...' style="padding-top:20rpx;" maxlength='500' bindinput='inputVal'></textarea>
+        <text>{{count}}/500</text>
+      </view>
+      <view class="uploadImg">
+        <image src="/images/addphoto.jpg" bindtap='chooseImage'></image>
+        <view class="imglist">
+          <block wx:for="{{imageList}}">
+            <image src="{{item}}" data-src='{{item}}' bindtap='previewImage'></image>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view class="bottom">
+      <view class="same">
+        <label>快递</label>
+        <block wx:for="{{stars}}">
+          <image class="star-image" style="left: {{item*150}}rpx" src="{{key > item ?selectedSrc:normalSrc}}" bindtap="selectStar" data-key="{{item+1}}" data-id="0">
+          </image>
+        </block>
+        <text>{{evalute}}</text>
+      </view>
+      <view class="same">
+        <label>客服</label>
+        <block wx:for="{{stars}}">
+          <image class="star-image" style="left: {{item*150}}rpx" src="{{key1 > item ?selectedSrc:normalSrc}}" bindtap="selectStar" data-key="{{item+1}}" data-id="1">
+          </image>
+        </block>
+        <text>{{evalute1}}</text>
+      </view>
+      <view class="same">
+        <label>商品</label>
+        <block wx:for="{{stars}}">
+          <image class="star-image" style="left: {{item*150}}rpx" src="{{key2 > item ?selectedSrc:normalSrc}}" bindtap="selectStar" data-key="{{item+1}}" data-id="2">
+          </image>
+        </block>
+        <text>{{evalute2}}</text>
+      </view>
+    </view>
+    <button form-type='submit'>提交</button>
+  </form>
+</view>

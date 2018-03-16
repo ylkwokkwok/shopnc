@@ -1,0 +1,79 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="process">
+    <view class="processView">
+      <text style="{{isOrder?'color:#568fdc':'color:#333'}}">提交订单</text>
+      <image src="{{isOrder?'/images/select.png':'/images/noselect.png'}}"></image>
+    </view>
+    <view class="processView">
+      <text style="{{isSend?'color:#568fdc':'color:#333'}}">配送中</text>
+      <image src="{{isSend?'/images/select.png':'/images/noselect.png'}}"></image>
+    </view>
+    <view class="processView">
+      <text style="{{isAspect?'color:#568fdc':'color:#333'}}">确认收货</text>
+      <image src="{{isAspect?'/images/select.png':'/images/noselect.png'}}"></image>
+    </view>
+    <view class="xian1">
+      <image src="/images/process.png" mode='widthFix'></image>
+    </view>
+    <view class="xian2">
+      <image src="/images/process.png" mode='widthFix'></image>
+    </view>
+  </view>
+  <view class="logist">
+    <view class="top">
+      <view class="same">物流信息：<text>【顺丰快递】快递员正在前往懒货</text></view>
+      <image src="/images/jt.png" mode='widthFix'></image>
+    </view>
+    <view class="same">订单状态：<text class="status">已支付</text></view>
+    <view class="same">订单管理：<text>12354678910</text></view>
+    <view class="same">下单时间：<text>2018-03-15</text><text>15:30</text></view>
+    <navigator>再次购买</navigator>
+  </view>
+  <view class="orderCenter">
+    <view class="same"><label>商品金额：</label><text>￥50.00</text></view>
+    <view class="same"><label>收货地址：</label><text>四川省绵阳市涪城区翠花街001号</text></view>
+    <view class="same"><label>收 货 人：</label><text>张三</text></view>
+    <view class="same"><label>配送方式：</label><text>普通快递</text></view>
+    <view class="same"><label>邮    箱：</label><text>46432112@qq.com</text></view>
+    <view class="same"><label>发货时间：</label><text>2018-03-15</text><text>15:41</text></view>
+  </view>
+  <view class="orderShop">
+    <view class='top'>
+      <view class="left">店铺名称</view>
+      <view class="right">共计1件商品</view>
+    </view>
+    <view class="bottom">
+      <image src="/images/shop2.png" mode='widthFix'></image>
+      <view class="center">
+        <text class="title">啊是分开你还能上来看到士大夫立刻你多少了你的三鹿奶粉的懒散的圣诞快乐和</text>
+        <text class="detail">产品详情</text>
+      </view>
+      <view class="right">
+        <block wx:if="{{isReturnGoods}}">
+          <navigator url="../returnGoods/returnGoods">退货/退款</navigator>
+        </block>
+        <block wx:else>
+          <navigator>售后服务</navigator>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class="orderPrice">
+    <view class="same">
+      <text class="left">商品总额</text>
+      <text class="right">￥300.00</text>
+    </view> 
+    <view class="same">
+      <text class="left">折扣</text>
+      <text class="right">-￥0.00</text>
+    </view> 
+    <view class="same">
+      <text class="left">运费</text>
+      <text class="right">+￥0.00</text>
+    </view> 
+    <view class="bottom">
+      实付金额：<text>￥300.00</text>
+    </view>
+  </view>
+  <button class="delOrder">删除订单</button>
+</view>

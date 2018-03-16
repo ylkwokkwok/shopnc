@@ -50,7 +50,6 @@
 }
 .tab-item{margin:0 36rpx;display: inline-block;height: 98rpx;}
 .tab-item.active{color: #568fdc;border-bottom: 2px solid #568fdc;}
-.tab-item.active:after{ content: "";display: block;height: 8rpx;width: 52rpx;background: #4675F9;position: absolute; bottom: 0;left: 5rpx;border-radius: 16rpx;}
 .entry{
   flex-direction:row;
   display: flex;

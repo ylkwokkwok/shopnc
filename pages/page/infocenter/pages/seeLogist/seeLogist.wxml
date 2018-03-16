@@ -1,2 +1,27 @@
-<!--page/infocenter/pages/seeLogist/seeLogist.wxml-->
-<text>page/infocenter/pages/seeLogist/seeLogist.wxml</text>
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="top">
+    <label>订单编号：</label>
+    <text>123456789</text>
+  </view>
+  <view class="bottom">
+    <view class="same">
+      <image class="select" src='/images/select.png'></image>
+      <view class="right">
+        <text class='title'>是多久发货速度</text>
+        <view><text class='date'>2018-3-16</text><text style="padding-left:20rpx;">9：36</text></view>
+      </view>
+      <image class="process" src='/images/process.png' mode='widthFix'></image>
+    </view>
+    <view class="same">
+      <image class="select" src='/images/select.png'></image>
+      <view class="right">
+        <text class='title'>是多久发货速度</text>
+        <view><text class='date'>2018-3-16</text><text style="padding-left:20rpx;">9：36</text></view>
+      </view>
+      <image class="process" src='/images/process.png' mode='widthFix'></image>
+    </view>
+    <view class="last">
+      <image src="/images/noselect.png" mode="widthFix"></image>
+    </view>
+  </view>
+</view>

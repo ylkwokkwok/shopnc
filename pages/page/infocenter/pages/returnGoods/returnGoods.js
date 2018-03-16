@@ -1,33 +1,27 @@
-// page/infocenter/pages/evaluating/evaluating.js
+// page/infocenter/pages/returnGoods/returnGoods.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    winHeight:0,  
-    count:0,
+    winHeight:0,
+    isReasons:false,
+    reason:"其他",
     imageList: [],
-    stars: [0, 1, 2, 3, 4],
-    normalSrc: '/images/star1.png',
-    selectedSrc: '/images/star1_sel.png',
-    key: 0,//评分
-    key1:0,
-    key2:0,
-    evalute:"",
-    evalute1:"",
-    evalute2:""
+    currentTab:0,
+    reasons: ["重复下单/误下单", "其他渠道价格更低", "不想买了", "其他原因"],
   },
-  inputVal:function(e){
+  reasonTap:function(){
     this.setData({
-      count:e.detail.value.length
+      isReasons:true
     });
   },
   chooseImage: function () {
     var that = this;
     wx.chooseImage({
       success: function (res) {
-        for (var i in res.tempFilePaths) {
+        for(var i in res.tempFilePaths){
           that.data.imageList.push(res.tempFilePaths[i]);
         }
         that.setData({
@@ -43,28 +37,30 @@ Page({
       urls: this.data.imageList
     })
   },
-  selectStar: function (e) {
-    var key = e.currentTarget.dataset.key;
-    var id=parseInt(e.currentTarget.dataset.id);
-    var arr=["一","二","三","四","五"];
-    if(id==0){
+  switchNav:function(e){
+    var cur = e.currentTarget.dataset.current;
+    if (this.data.currentTab == cur) { return false; }
+    else {
       this.setData({
-        key: key,
-        evalute: arr[key - 1] + "星"
-      });
-    }else if(id==1){
-      this.setData({
-        key1: key,
-        evalute1: arr[key - 1] + "星"
-      });
-    }else if(id==2){
-      this.setData({
-        key2: key,
-        evalute2: arr[key - 1] + "星"
-      });
+        currentTab: cur,
+        reason:e.currentTarget.dataset.value,
+      })
     }
-    
-    // }
+  },
+  cancel:function(){
+    this.setData({
+      isReasons:false
+    });
+  },
+  confirm:function(){
+    this.setData({
+      isReasons:false,
+    });
+  },
+  formSubmit:function(){
+    wx.navigateTo({
+      url: '../returnGdDetail/returnGdDetail',
+    })
   },
   /**
    * 生命周期函数--监听页面加载

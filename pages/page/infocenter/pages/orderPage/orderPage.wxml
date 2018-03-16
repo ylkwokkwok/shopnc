@@ -91,14 +91,14 @@
                 <view class="paymoney">支付金额：<text class="money">￥{{item.money}}</text><text class="freight">（含运费{{item.freight}}）</text></view>
               </view>
               <view class="right">
-                <navigator url="/page/index/index" open-type='switchTab'>去逛逛</navigator>
+                <navigator url="/page/index/index" open-type='switchTab' style="margin-left:20rpx;">去逛逛</navigator>
               </view>
             </view>
             <view class="shopnameItem">
               <view><text>{{item.shopname}}</text><image src="/images/jt.png" mode='widthFix'></image></view>
               <text>共计{{item.count}}件商品</text>
             </view>
-            <navigator class="center">
+            <navigator class="center" url="../waitSendGoods/waitSendGoods">
               <view class="left">
                 <image src="{{item.img_url}}" mode='widthFix'></image>
               </view>
@@ -128,18 +128,28 @@
                 <image src="/images/infocenter/note.png" mode='widthFix'></image>
                 <text class="ordernum">{{item.number}}</text>
               </view>
-              <view class="right">
-                <view class="time"><image src="/images/infocenter/time.png" mode='widthFix'></image><text>支付剩余时间：{{item.hour}}时{{item.minute}}分</text></view>
+              <view class="right" style="position:relative;">
+                <block wx:if="{{isAspect}}">
+                  <image src="/images/delete.png" mode='widthFix' style="width:30rpx;margin-top:25rpx;right:0;position:absolute;" bindtap="deleteOrder"></image>
+                </block>
+                <block wx:else>
+                  <view class="time"><image src="/images/infocenter/time.png" mode='widthFix'></image><text>支付剩余时间：{{item.hour}}时{{item.minute}}分</text></view>
+                </block>
               </view>
             </view>
             <view class="statusItem">
               <view class="left" style="width:400rpx;">
-                <view>支付状态：<text class="status">{{item.status}}</text></view>
+                <view>支付状态：<text class="status">{{item.status}}<block wx:if="{{isAspect}}">(已签收)</block></text></view>
                 <view class="paymoney">支付金额：<text class="money">￥{{item.money}}</text><text class="freight">（含运费{{item.freight}}）</text></view>
               </view>
               <view class="right" style="width:310rpx;display:flex;flex-direction:row;">
-                <navigator url="../seeLogist/seeLogist">查看物流</navigator>
-                <navigator url='../confirmAspectGoods/confirmAspectGoods'>确认收货</navigator>
+                <block wx:if="{{isAspect}}">
+                  <navigator style="margin-left:160rpx" url="/page/index/index" open-type='switchTab'>再逛逛</navigator>
+                </block>
+                <block wx:else>
+                  <navigator url="../seeLogist/seeLogist">查看物流</navigator>
+                  <view bindtap="confirmAspect">确认收货</view>
+                </block>
               </view>
             </view>
             <view class="shopnameItem">
