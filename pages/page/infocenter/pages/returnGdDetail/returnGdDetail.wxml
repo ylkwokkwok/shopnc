@@ -1,0 +1,103 @@
+<view class="container">
+  <block wx:if="{{success}}">
+    <view class="top">
+      <text class="one">退款成功</text>
+      <view>
+        <text class="date">2018-03-15</text>
+        <text class="time">17:42</text>
+      </view>
+    </view>
+    <view class="money">
+      <text>退款总金额</text>
+      <text>￥0.00</text>
+    </view>
+    <view class="process">
+      <view class="processView">
+        <image src="{{isOrder?'/images/select.png':'/images/noselect.png'}}"></image>
+        <text>买家退款</text>
+        <text>2018-3-7 10:00</text>
+      </view>
+      <view class="processView">
+        <image src="{{isSend?'/images/select.png':'/images/noselect.png'}}"></image>
+        <text>银行受理</text>
+        <text>2018-3-7 10:00</text>
+      </view>
+      <view class="processView">
+        <image src="{{isAspect?'/images/select.png':'/images/noselect.png'}}"></image>
+        <text>退款成功</text>
+        <text>2018-3-7 10:00</text>
+      </view>
+      <view class="xian1">
+        <image src="/images/process.png" mode='widthFix'></image>
+      </view>
+      <view class="xian2">
+        <image src="/images/process.png" mode='widthFix'></image>
+      </view>
+    </view>
+    <view class="bg"></view>
+    <view class="refundMess">
+      <view class="up">退款信息</view>
+      <view class="center">
+        <view class="left">
+          <image src="/images/shop2.png" mode='widthFix'></image>
+        </view>
+        <view class="right">
+          <view class="title">是老款的法律势力扩大是否还能撒赖扩大发生撒旦的烦恼</view>
+          <text class="zi">产品详情</text>
+          <view class="detail">×1 、红色 、L</view>
+        </view>
+      </view>
+      <view class="down">
+        <view>退款原因： <text>刷卡积分是的</text></view>
+        <view>退款金额： <text>￥0.00</text></view>
+        <view>申请时间： <text>{{date}}</text><text style="padding-left:20rpx;">{{time}}</text></view>
+        <view>退款编号： <text>12455422</text></view>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="top">
+      <text class="one">请等待商家处理</text>
+      <view>
+        <text class="date">剩余时间：24:00:00</text>
+      </view>
+    </view>
+    <view class="money" style="font-size:28rpx;">
+      您已成功发起退款申请，请耐心等待商家处理
+    </view>
+    <view class="prompt">
+      <view class="same">
+        <span></span>
+        商家同意或者超时未处理，系统将退款给您。
+      </view>
+      <view class="same">
+        <span></span>
+        如果商家拒绝，您可以修改退款申请后再次发起，商家会重新处理
+      </view>
+      <view class="btngroup">
+        <view bindtap='cancelApplay'>撤销申请</view>
+        <view>修改申请</view>
+      </view>
+    </view>
+    <view class="bg"></view>
+    <view class="refundMess">
+      <view class="up">退款信息</view>
+      <view class="center">
+        <view class="left">
+          <image src="/images/shop2.png" mode='widthFix'></image>
+        </view>
+        <view class="right">
+          <view class="title">是老款的法律势力扩大是否还能撒赖扩大发生撒旦的烦恼</view>
+          <text class="zi">产品详情</text>
+          <view class="detail">×1 、红色 、L</view>
+        </view>
+      </view>
+      <view class="down">
+        <view>退款原因： <text>刷卡积分是的</text></view>
+        <view>退款金额： <text>￥0.00</text></view>
+        <view>申请时间： <text>2018-03-15</text><text style="padding-left:20rpx;">17:40</text></view>
+        <view>退款编号： <text>12455422</text></view>
+      </view>
+    </view> 
+  </block>
+</view>

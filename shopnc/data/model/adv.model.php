@@ -337,4 +337,13 @@ class advModel extends Model
             dkcache("adv/{$apId}");
         }
     }
+
+    /**
+     * 获取小程序首页精彩快报
+     */
+
+    public function getFastNews($condition){
+        $field = '*';$group = '';$order = '';$limit = 6; $page = 0; $count = 0;
+        return $this->table('adv')->field($field)->where($condition)->group($group)->order($order)->limit($limit)->page($page, $count)->select();
+    }
 }

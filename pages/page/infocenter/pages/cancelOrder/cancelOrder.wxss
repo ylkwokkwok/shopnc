@@ -1,0 +1,52 @@
+.container{
+  background: #f6f6f6;
+}
+.top{
+  width: 100%;
+  background: white;
+  padding:20rpx;
+  font-size: 30rpx;
+  color: #333;
+  border-bottom: 1px solid #ccc;
+}
+.reasons{
+  width: 100%;
+  padding:20rpx;
+  background: white;
+  overflow: hidden;
+}
+.reasons>view{
+  overflow: hidden;
+  padding-bottom: 20rpx;
+}
+.reasons>view image{
+  width: 35rpx;
+  height: 35rpx;
+  float: left;
+}
+.reasons>view text{
+  float: left;
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+.btnGroup{
+  width: 710rpx;
+  margin:20rpx auto;
+  display: flex;
+  flex-direction: row;
+}
+.btnGroup>button{
+  width: 345rpx;
+  margin-right: 20rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  letter-spacing: 2rpx;
+  background: #dcdcdc;
+}
+.btnGroup>button:last-child{
+  margin-right: 0;
+  background: #568fdc;
+  color: white;
+}

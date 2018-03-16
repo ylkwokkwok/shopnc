@@ -1,0 +1,63 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <form bindsubmit='formSubmit' class="form">
+    <view class="orderShop">
+      <view class="bottom">
+        <image src="/images/shop2.png" mode='widthFix'></image>
+        <view class="center">
+          <text class="title">啊是分开你还能上来看到士大夫立刻你多少了你的三鹿奶粉的懒散的圣诞快乐和</text>
+          <text class="detail">产品详情</text>
+          <text class="count">×1</text>
+        </view>
+      </view>
+    </view>
+    <view class="reasons" bindtap='reasonTap'>
+      <text>退款原因</text>
+      <view class="right">
+        <text>{{reason}}</text>
+        <image src="/images/jt.png" mode='widthFix'></image>
+      </view>
+    </view>
+    <view class="money">
+      <label>退款金额：</label>
+      <text>￥300.00</text>
+    </view>
+    <view class="describe">
+      <label>退款说明：</label>
+      <input placeholder='选填' placeholder-style='color:#999'></input>
+    </view>
+    <view class="uploadImg">
+      <text>上传凭证</text>
+      <view class="bottom">
+        <image src="/images/addphoto.jpg" bindtap='chooseImage'></image>
+        <view class="imglist">
+          <block wx:for="{{imageList}}">
+            <image src="{{item}}" data-src='{{item}}' bindtap='previewImage'></image>
+          </block>
+        </view>
+      </view>
+    </view>
+    <button form-type='submit'>提交申请</button>
+  </form>
+  <!--退款原因-->
+  <block wx:if="{{isReasons}}">
+    <view class="bg"></view>
+    <view class="optionBar">
+      <view class="top">
+        <text>退款原因</text>
+        <image class="cha" src="/images/infocenter/cancel.png" mode='widthFix'></image>
+      </view>
+      <view class="bottom">
+        <block wx:for="{{reasons}}" wx:key="index">
+          <view bindtap='switchNav' data-current="{{index}}" data-value="{{item}}">
+            <text style="{{currentTab==index?'color:#568fdc;':'color:#333'}}">{{item}}</text>
+            <image src="{{currentTab==index?'/images/assortment/dui.png':''}}"></image>
+          </view>
+        </block>
+      </view>
+      <view class="foot">
+        <view class="cancel" bindtap='cancel'>取消</view>
+        <view class="confirm" bindtap="confirm">确定</view>
+      </view>
+    </view>
+  </block>
+</view>

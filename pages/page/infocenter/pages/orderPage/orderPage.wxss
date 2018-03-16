@@ -159,7 +159,7 @@
   float: left;
   width: 190rpx;
 }
-.tabshow .statusItem .right navigator{
+.tabshow .statusItem .right navigator,.tabshow .statusItem .right view{
   width: 150rpx;
   height: 40rpx;
   display: block;
@@ -173,7 +173,7 @@
   font-size: 26rpx;
   margin-left: 20rpx;
 }
-.tabshow .statusItem .right navigator:first-child{
+.tabshow .statusItem .right navigator{
   margin-left: 0;
 }
 .tabshow .orderone .shopnameItem{

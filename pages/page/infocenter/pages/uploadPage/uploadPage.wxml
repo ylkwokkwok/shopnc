@@ -27,7 +27,7 @@
         </view>
         <view bindtap='openCategory'>
           <label>选择分类</label>
-           <input value="{{gc_name1 + '  ' + gc_name2 + '  ' + gc_name3}}" readonly="readonly"></input>
+          <input value="{{gc_name1 + '  ' + gc_name2 + '  ' + gc_name3}}" readonly="readonly" type='hidden'></input>
         </view>
         <text>商品属性</text>
         <view>

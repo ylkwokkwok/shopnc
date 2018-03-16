@@ -1,1 +1,70 @@
-/* page/infocenter/pages/seeLogist/seeLogist.wxss */
+.container{
+  background: #f6f6f6;
+}
+.top{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1px solid #ccc;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  font-size: 28rpx;
+  padding:0 20rpx;
+}
+.top label{
+  color: #a1a1a1;
+}
+.top text{
+  color: #333;
+}
+.bottom{
+  width: 100%;
+  margin: 20rpx auto;
+}
+.bottom .same{
+  width: 710rpx;
+  position: relative;
+  height: 200rpx;
+  margin:auto;
+}
+.bottom .same .select{
+  width: 43rpx;
+  height: 43rpx;
+  float: left;
+  margin-top: 30rpx;
+}
+.bottom .same .right{
+  float: left;
+  margin-left: 20rpx;
+}
+.bottom .same .right .title{
+  font-size: 30rpx;
+  color: #333;
+}
+.bottom .same .right>view{
+  color: #797979;
+  font-size: 24rpx;
+  padding-top: 20rpx;
+}
+.bottom .same .process{
+  position:absolute;
+  -webkit-transform: rotateZ(90deg);
+  -moz-transform: rotateZ(90deg);
+  -ms-transform: rotateZ(90deg);
+  -o-transform: rotateZ(90deg);
+  transform:rotateZ(90deg);
+  width:150rpx;
+  top:148rpx;
+  left:-54rpx;
+}
+.bottom .last{
+  width: 710rpx;
+  margin:auto;
+  height: 200rpx;
+}
+.bottom .last image{
+  width: 43rpx;
+  height: 43rpx;
+  margin-top: 30rpx;
+}

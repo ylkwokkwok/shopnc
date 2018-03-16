@@ -1,3 +1,65 @@
 <view class="container" style="min-height:{{winHeight}}px">
-  
+  <view class="ordertop">
+    <view class="top">
+      <view  class='left'>
+        <view class="status">订单状态：<text>待支付</text></view>
+      </view>
+      <view class="right">
+        <view class="time"><image src="/images/infocenter/time.png" mode='widthFix'></image><text>支付剩余时间：23时58分</text></view>
+      </view>
+    </view>
+    <view class="same">订单编号：<text>12345678910</text></view>
+    <view class="same">下单时间：<text>2018-03-15</text><text>11:50:36</text></view>
+    <navigator class="goPay" url="../../../assindex/pages/confirmorder/confirmorder">去支付</navigator>
+    <view class="groupBtn">
+      <navigator class="cancelOrder" url="../cancelOrder/cancelOrder">申请取消订单</navigator>
+      <navigator class="reorder">重新下单</navigator>
+    </view>
+  </view>
+  <view class="orderCenter">
+    <view class="same"><label>商品金额：</label><text>￥50.00</text></view>
+    <view class="same"><label>收货地址：</label><text>四川省绵阳市涪城区翠花街001号</text></view>
+    <view class="same"><label>收 货 人：</label><text>张三</text></view>
+    <view class="same"><label>邮    箱：</label><text>46432112@qq.com</text></view>
+  </view>
+  <view class="orderShop">
+    <view class="top">
+      <view class="left">
+        <image src='/images/house.png' class="house" mode='widthFix'></image>
+        <text>店铺名称</text>
+        <image class="jt" src="/images/jt.png" mode='widthFix'></image>
+      </view>
+      <view class="right">
+        <text>共计1件商品</text>
+      </view>
+    </view>
+    <view class="bottom">
+      <image src="/images/shop2.png" mode='widthFix'></image>
+      <view class="center">
+        <text class="title">啊是分开你还能上来看到士大夫立刻你多少了你的三鹿奶粉的懒散的圣诞快乐和</text>
+        <text class="detail">产品详情</text>
+      </view>
+      <view class="right">
+        <text class="price">￥300.00</text>
+        <text class="count">×1</text>
+      </view>
+    </view>
+  </view>
+  <view class="orderPrice">
+    <view class="same">
+      <text class="left">商品总额</text>
+      <text class="right">￥300.00</text>
+    </view> 
+    <view class="same">
+      <text class="left">折扣</text>
+      <text class="right">-￥0.00</text>
+    </view> 
+    <view class="same">
+      <text class="left">运费</text>
+      <text class="right">+￥0.00</text>
+    </view> 
+    <view class="bottom">
+      实付金额：<text>￥300.00</text>
+    </view>
+  </view>
 </view>

@@ -19,6 +19,7 @@ Page({
     waitEvaluate:[
       { number: "123456789101112", hour: 23, minute: 59, status: "待评价", money: "300.00", freight: "3.00", shopname: "sails的糖果", count: 1, img_url: "/images/shop2.png", title: "就是发十多年开发商哎说多了可能发生的阿斯利康看到你发啊手动阀你卡上",id:4}
     ],
+    isAspect:false,
   },
   swichNav: function (e) {
     var cur = e.currentTarget.dataset.current;
@@ -28,6 +29,24 @@ Page({
         currentTab: cur
       })
     }
+  },
+  confirmAspect:function(e){
+    var that=this;
+    wx.showModal({
+      title: '确认收货',
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: "black",
+      confirmText: "确认",
+      confirmColor: "#568fdc",
+      success:function(res){
+        if(res.confirm){
+          that.setData({
+            isAspect:true,
+          });
+        }
+      },
+    })
   },
   /**
    * 生命周期函数--监听页面加载

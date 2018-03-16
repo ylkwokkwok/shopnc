@@ -188,7 +188,12 @@ class goodsControl extends mobileHomeControl{
      * 今日上新
      */
     public function today_new_goodsOp(){
-
+        //$condition['goods_commend']=1;
+        $today_new_goods=Model('goods');
+        $today_new_goods_list=$today_new_goods->today_new_goods();
+        //处理商品列表(抢购、限时折扣、商品图片)
+        $model_goods_commend_list = $this->_goods_list_extend($today_new_goods_list);
+        output_data(array('today_new_goods_list'=>$model_goods_commend_list));
     }
 
 

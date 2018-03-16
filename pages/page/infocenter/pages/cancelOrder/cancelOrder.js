@@ -1,4 +1,4 @@
-// page/infocenter/pages/seeLogist/seeLogist.js
+// page/infocenter/pages/cancelOrder/cancelOrder.js
 Page({
 
   /**
@@ -6,8 +6,19 @@ Page({
    */
   data: {
     winHeight:0,
-  },  
-
+    isSelected:false,
+    currentTab:0,
+    reasons:["订单不能按时送达","操作有误（商品、地址等选错）","重复下单/误下单","其他渠道价格更低","不想买了","其他原因"]
+  },
+  swichNav:function(e){
+    var cur=e.currentTarget.dataset.current;
+    if (this.data.currentTab == cur) { return false; }
+    else {
+      this.setData({
+        currentTab: cur
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -22,9 +33,6 @@ Page({
           winHeight: res.windowHeight
         });
       }
-    });
-    this.setData({
-      currentTab: options.current
     });
   },
 

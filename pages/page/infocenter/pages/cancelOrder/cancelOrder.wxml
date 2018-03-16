@@ -1,0 +1,15 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class='top'>请选择取消订单的原因（必选）:</view>
+  <view class="reasons">
+    <block wx:for="{{reasons}}">
+      <view>
+        <image src="{{currentTab==index?'/images/comment_select.png':'/images/comment_normal.png'}}" bindtap="swichNav" data-current="{{index}}"></image>
+        <text>{{item}}</text>
+      </view>
+    </block>
+  </view>
+  <view class="btnGroup">
+    <button class="cancel">取消</button>
+    <button class="cofirm">确定</button>
+  </view>
+</view>

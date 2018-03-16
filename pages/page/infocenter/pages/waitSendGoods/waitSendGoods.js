@@ -1,4 +1,4 @@
-// page/infocenter/pages/seeLogist/seeLogist.js
+// page/infocenter/pages/waitSendGoods/waitSendGoods.js
 Page({
 
   /**
@@ -6,7 +6,11 @@ Page({
    */
   data: {
     winHeight:0,
-  },  
+    isOrder:true,
+    isSend:false,
+    isAspect:false,
+    isReturnGoods:true,
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -22,9 +26,6 @@ Page({
           winHeight: res.windowHeight
         });
       }
-    });
-    this.setData({
-      currentTab: options.current
     });
   },
 
