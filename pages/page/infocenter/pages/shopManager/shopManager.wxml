@@ -18,26 +18,26 @@
       <!--全部-->
       <view class="all"  style="{{curTab==0?'display:block':'display:none'}}" >
         <view class="shoplist">
-          <block wx:for="{{shoplist}}">
+          <block wx:for="{{goodsList}}" wx:for-index="goodsIndex" wx:for-item="goodsItem" wx:key="key">
             <view class="shopone">
-              <image class="sel" bindtap="selBtn" src="{{item.isSelected?'/images/comment_select.png':'/images/comment_normal.png'}}" mode="widthFix" data-index="{{index}}" data-id="{{index}}" data-group="{{item.shopgroup}}"></image>
+              <image class="sel" bindtap="selBtn" src="{{goodsItem.isSelected?'/images/comment_select.png':'/images/comment_normal.png'}}" mode="widthFix" data-goods_commonid="{{goodsItem.goods_commonid}}" data-index="{{goodsIndex}}"></image>
               <view class="left">
-                <image src="{{item.img}}" mode='widthFix'></image>
-                <text>{{item.tit}}</text>
+                <image src="{{goodsItem.goods_image_url}}" mode='widthFix'></image>
+                <text>{{goodsItem.titel}}</text>
               </view>
               <view class="right">
-                <view class="jie">{{item.jie}}</view>
+                <view class="jie">{{goodsItem.goods_name}}</view>
                 <view style="overflow:hidden;margin-top:10rpx;">
-                  <view class="price">￥{{item.price}}</view>
+                  <view class="price">￥{{goodsItem.goods_price}}</view>
                   <view class="tuan">
                     <image src="/images/bg.png" mode='widthFix'></image>
-                    <view>{{item.tuan}}</view>
+                    <view>活动标题</view>
                   </view>
                 </view>
                 <view class="bottom">
                   <view class="ppleft">
-                    <view class="oldprice">库存: <text>￥{{item.surplus}}</text> </view>
-                    <view class="pinglun">总销量: <text>{{item.totalsales}}</text></view>
+                    <!--<view class="oldprice">库存: <text>{{goodsItem.goods_storage}}</text> </view>-->
+                    <!--<view class="pinglun">总销量: <text>{{goodsItem.goods_salenum}}</text></view>-->
                   </view>
                 </view>
               </view>

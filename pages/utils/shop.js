@@ -128,12 +128,27 @@ export default {
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=store_joininc&op=apply', data))
   },
+  /**
+   * 店铺分类
+   * @returns {boolean}
+   */
   getStoreClassList: function () {
     let data = {}
     data.key = wx.getStorageSync(TOKEN_NAME)
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=store_joininc&op=get_store_class', data))
   },
+  /**
+   * 经营类目
+   * @returns {boolean}
+   */
+  getStoreClasses: function () {
+    let data = {}
+    data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=store_joininc&op=get_class_list', data))
+  },
+
   getSellerInfo: function () {
     let data = {}
     data.key = wx.getStorageSync(TOKEN_NAME)
@@ -158,5 +173,10 @@ export default {
     data.key = wx.getStorageSync(TOKEN_NAME)
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=store_goods_add&op=save_goods', data))
+  },
+  getStoreGoodsListOnline: function (data) {
+    data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.get('?act=store_goods_online&op=goods_list', data))
   }
 }

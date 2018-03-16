@@ -124,8 +124,10 @@ class store_joinincControl extends mobileMemberControl {
         output_data(array());
     }
 
+    /**
+     * 店铺分类
+     */
     public function get_store_classOp(){
-        //店铺分类
         $model_store = Model('store_class');
         $store_class = $model_store->getStoreClassList(array(),'',false);
         $model_store_joinin = Model('store_joinin');
@@ -147,9 +149,20 @@ class store_joinincControl extends mobileMemberControl {
         ));
     }
 
+    /**
+     * 经营类目
+     */
     public function get_class_listOp(){
-        $gc	= Model('goods_class');
-        $gc_list	= $gc->getGoodsClassListByParentId(0);
+        $gc_model	= Model('goods_class');
+        $gc_list	= $gc_model->getGoodsClassListByParentId(0);
+        foreach ($gc_list as &$gc){
+            $sons = $gc_model->getGoodsClassListByParentId($gc['gc_id']);
+            foreach ($sons as &$gc_1){
+                $sons_1 = $gc_model->getGoodsClassListByParentId($gc_1['gc_id']);
+                $gc_1['children'] = $sons_1;
+            }
+            $gc['children'] = $sons;
+        }
         output_data($gc_list);
     }
 
