@@ -1,3 +1,4 @@
+import shop from '../../utils/shop.js'
 Page({
 
   /**
@@ -38,5 +39,20 @@ Page({
         });
       }
     });
+    /**
+     * 获取分类
+     */
+    shop.getGoodsClass().then(res => {
+      if (res.code == 200) {
+        //success
+        console.log(res.datas);
+        that.setData({
+          goods_list: res.datas.class_list
+        })
+      } else {
+        //error
+        console.log('分类获取失败');
+      }
+    })
   } 
 })

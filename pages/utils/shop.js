@@ -168,4 +168,11 @@ export default {
     data.key = wx.getStorageSync(TOKEN_NAME)
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=store_goods_add&op=save_goods', data))
-}}
+},
+  getGoodsClass:function(){
+    let data = {};
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=goods_class&op=index', data))
+  }
+
+}
