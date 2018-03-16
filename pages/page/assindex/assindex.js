@@ -1,4 +1,4 @@
-import shop from '../../utils/shop.js'
+import shop from '../../utils/shop.js';
 Page({
 
   /**
@@ -7,15 +7,9 @@ Page({
   data: {
     winHeight:0,
     currentTab:0,
-    category:[
-      {id:"0",name:"热销产品"},
-      { id: "1", name: "家用电器" },
-      { id: "2", name: "运动户外" },
-      { id: "3", name: "电脑办公" },
-      { id: "4", name: "生活美食" },
-      { id: "5", name: "鞋靴箱包" }
-    ],
-    imgs:["1","2","3","4","5","6"]
+    arrText:[],
+    brr:[],
+    color:"#fcb213",
   },
   swichNav: function (e) {
     var cur = e.target.dataset.current;
@@ -44,15 +38,20 @@ Page({
      */
     shop.getGoodsClass().then(res => {
       if (res.code == 200) {
-        //success
-        console.log(res.datas);
+        var arr=[];
+        for(var i in res.datas.class_list){
+          arr.push(res.datas.class_list[i].text.split("/"));
+        }
         that.setData({
-          goods_list: res.datas.class_list
+          goods_list: res.datas.class_list,
+          arrText:arr,
         })
       } else {
-        //error
         console.log('分类获取失败');
       }
     })
-  } 
+  },
+ getRandomColor:function () {
+    return '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).substr(-6);
+  }
 })

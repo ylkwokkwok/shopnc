@@ -11,26 +11,22 @@
     </view>
     <scroll-view class="swiper" style="height:{{winHeight-45}}px;" scroll-y="true">
       <view>
-        <block wx:for="{{goods_list}}" wx:key="index">
-          <view class="{{item}}" style="{{currentTab==index?'display:block':'display:none'}}">
-            <view class="top">
-              <navigator class="left" url="pages/shoplist/shoplist">{{index}}</navigator>
-              <navigator class="right"></navigator>
-              <navigator class="right"></navigator>
-              <navigator class="left"></navigator>
-            </view>
-            <view class="best-new">新品上市</view>
-            <view class="middle">
-              <navigator></navigator>
-              <navigator></navigator>
-              <navigator></navigator>
-              <navigator></navigator>
-            </view>
-            <view class="best-new">所有产品</view>
-            <view class="bottom">
-              <navigator></navigator>
-              <navigator></navigator>
-            </view>
+        <block wx:for="{{arrText}}" wx:key="index" wx:for-index="itemIndex">
+          <view class="{{item}}" style="{{currentTab==itemIndex?'display:block':'display:none'}}">
+            <block wx:for="{{arrText[itemIndex]}}" wx:for-item="itemNum">
+              <view class="category">
+                <view class="top">
+                  <view class="left">
+                    <span style="background:{{color}}"></span>
+                    <text>{{itemNum}}</text>
+                  </view>
+                  <image src="/images/jt.png" mode='widthFix'></image>
+                </view>
+                <view class="bottom">
+                  
+                </view>
+              </view>
+            </block> 
           </view>
         </block>
       </view>
