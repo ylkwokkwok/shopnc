@@ -1,0 +1,73 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="address" bindtap='selectAdd'>
+    <view class="left">
+      <image src="/images/pos.png" mode='widthFix' class="pos"></image>
+      <text>{{address}}</text>
+    </view>
+    <image src="/images/jt.png" mode='widthFix' class="jt"></image>
+  </view>
+  <!--订单详情-->
+  <view class="orderDetail">
+    <view class="top">
+      <span></span>
+      <text>{{shopname}}</text>
+    </view>
+    <view class="bottom">
+      <view class="left">
+        <image src="{{shops[0].img}}" mode='widthFix'></image>
+      </view>
+      <view class='right'>
+        <view class="jie">{{shops[0].jie}}</view>
+        <view class="center">
+          <text class="detail">{{shops[0].detail}}</text>
+          <view class="number">
+            <view bindtap="reduce" style="{{shops[0].num==1?'border:1px solid #dedede':'border:1px solid #999'}}">
+              <image src="{{shops[0].num==1?'/images/assortment/reduce_no.png':'/images/assortment/reduce.png'}}" mode='widthFix'></image>
+            </view>
+            <input value='{{shops[0].num}}' bindchange="inputChange"/>
+            <view bindtap="add">
+              <image src="/images/assortment/add.png" mode='widthFix'></image>
+            </view>
+          </view>
+        </view>
+        <view class="money">{{totalMoney}}积分</view>
+      </view>
+    </view>
+    <view class="remarks">
+      <textarea placeholder='请输入您要备注的内容' placeholder-style='color:#aeaeae'></textarea>
+    </view>
+  </view>
+  <!--支付详情-->
+  <view class="paydetail">
+    <view class="count">
+      <text class="name">积分总额</text>
+      <text class="money">{{totalMoney}}积分</text>
+    </view>
+    <view class="freight">
+      <text class="name">人民币</text>
+      <text class="money">+ ￥{{shops[0].freight}}</text>
+    </view>
+    <view class="countprice">总价: <text>￥{{payMoney}} ({{integral}}积分) </text> </view>
+    <button class="balance" bindtap="" style="background-color:#568fdc">确认支付</button>
+  </view>
+  <!--选择地址-->
+  <view class="bg" style="{{showSel?'display:block':'display:none'}};height:{{winHeight}}px"></view>
+  <view style="{{showSel?'display:block':'display:none'}}" class="addList">
+    <view class="top">
+      <view>选择地址</view>
+      <image src="/images/assortment/del.png" mode='widthFix' bindtap="hideSel"></image>
+    </view>
+    <view class="addList-tab">
+      <block wx:for="{{addList}}" wx:key="index">
+        <view bindtap="swichNav" class="tab-item" data-val="{{item}}" data-current="{{index}}">
+          <image src="{{currentTab==index?'/images/comment_select.png':'/images/comment_normal.png'}}" class="sel" mode='widthFix'></image>
+          <view>{{item}}</view>
+          <navigator url="/page/infocenter/pages/addAddress/addAddress?address={{item}}"><image src="/images/assortment/edit.png" class="edit" mode='widthFix'></image></navigator>
+        </view>
+      </block>
+      <view class="addNew">
+        <navigator url="/page/infocenter/pages/addAddress/addAddress"> <text> 新增收货地址 </text><view><image src="/images/assortment/add.png" mode='widthFix'></image></view></navigator>
+      </view>
+    </view>  
+  </view>
+</view>

@@ -1,0 +1,272 @@
+.container{
+  background: #f6f6f6;
+}
+.address{
+  width: 750rpx;
+  background: white;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.address .left{
+  float: left;
+}
+.address .pos{
+  margin-left: 20rpx;
+  width: 25rpx;
+  margin-top:35rpx;
+  float: left;
+}
+.address text{
+  font-size: 30rpx;
+  color: #999;
+  margin-left: 20rpx;
+  float: left;
+}
+.address .jt{
+  float: right;
+  width: 20rpx;
+  margin-right: 20rpx;
+  margin-top:32rpx;
+}
+.orderDetail{
+  width: 750rpx;
+  margin-top:20rpx;
+  background: white;
+  padding:20rpx 0;
+}
+.orderDetail .top{
+  padding-left: 20rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-bottom: 1px solid #ccc;
+}
+.orderDetail .top>span{
+  width: 10rpx;
+  height: 40rpx;
+  background: #aaaaaa;
+  display: block;
+  float: left;
+  margin-top:15rpx;
+}
+.orderDetail .top>text{
+  float: left;
+  margin-left: 20rpx;
+  font-size:30rpx; 
+}
+.orderDetail .bottom{
+  margin-top:20rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #ccc;
+}
+.orderDetail .bottom .left{
+  width: 180rpx;
+  float: left;
+  margin-left: 20rpx;
+}
+.orderDetail .bottom .left>image{
+  width: 100%;
+}
+.orderDetail .bottom .right{
+  width: 500rpx;
+  float: left;
+  margin-left: 30rpx;
+}
+.orderDetail .bottom .right .jie{
+  font-size: 28rpx;
+  color:#8d8d8d;
+}
+.orderDetail .bottom .right .center{
+  margin-top:20rpx;
+  overflow: hidden;
+}
+.orderDetail .bottom .right .detail{
+  font-size: 24rpx;
+  color: #666;
+  float: left;
+}
+.orderDetail .bottom .right .number{
+  float: right;
+  width: 115rpx;
+  display: flex;
+  flex-direction: row;
+  height: 50rpx;
+}
+.orderDetail .bottom .right .number view{
+  width: 35rpx;
+  height: 35rpx;
+  border:1px solid #999;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+}
+.orderDetail .bottom .right .number view>image{
+  width: 24rpx;
+  margin-top:5.5rpx;
+}
+.orderDetail .bottom .right .number input{
+  width: 40rpx;
+  height: 40rpx;
+  font-size: 30rpx;
+  color: #999;
+  text-align: center;
+  min-height: auto;
+  margin-left: 5rpx;
+  margin-top:-5rpx;
+}
+.orderDetail .bottom .right .money{
+  color: red;
+  float: right;
+  margin-top: 10rpx;
+}
+.orderDetail .remarks{
+  margin-top:20rpx;
+}
+.orderDetail .remarks textarea{
+  width:710rpx;
+  border:1px solid #ccc;
+  height: 180rpx;
+  resize: none;
+  border-radius: 10rpx;
+  background: #eeeeee;
+  margin:auto;
+  padding-left: 10rpx;
+  font-size: 30rpx;
+  padding-top:5rpx;
+  color: #aeaeae;
+}
+.paydetail{
+  margin-top:20rpx;
+  background: white;
+  padding:20rpx 0;
+  width:750rpx;
+}
+.paydetail>view{
+  width: 710rpx;
+  margin:auto;
+  overflow: hidden;
+  font-size: 24rpx;
+}
+.paydetail .freight{
+  margin-top:35rpx;
+}
+.paydetail .name{
+  float: left;
+}
+.paydetail .money{
+  float: right;
+  color: red;
+}
+.paydetail .countprice{
+  text-align: right;
+  margin-top:35rpx;
+  font-size: 30rpx;
+}
+.paydetail .countprice text{
+  color: red;
+  font-size: 24rpx;
+}
+.paydetail button{
+  width: 710rpx;
+  margin:auto;
+}
+.paydetail .weChat{
+  margin-top:40rpx;
+}
+.paydetail .balance{
+  margin-top: 20rpx;
+  color: white;
+}
+.bg{
+  width: 100%;
+  background: #a1a1a1;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index: 10;
+}
+.addList{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 740rpx;
+  left: 0;
+  background: white;
+  z-index: 20;
+}
+.addList .top{
+  width: 100%;
+  height: 70rpx;
+  background: #eeeeee;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.addList .top>view{
+  text-align: center;
+  width: 100%;
+  line-height: 70rpx;
+  display: block;
+  font-size: 30rpx;
+  color: 939393;
+}
+.addList .top>image{
+  position: absolute;
+  top:20rpx;
+  width: 30rpx;
+  right: 20rpx;
+}
+.addList .addList-tab{
+  margin-top:70rpx;
+  height: 670rpx;
+}
+.addList .addList-tab .tab-item{
+  width: 710rpx;
+  overflow: hidden;
+  margin:auto;
+  display: flex;
+  flex-direction: row;
+  padding:50rpx 0;
+  border-bottom: 1px solid #ccc;
+}
+.addList .addList-tab .tab-item .sel{
+  width: 35rpx;
+  margin-top:10rpx;
+}
+.addList .addList-tab .tab-item view{
+  width: 600rpx;
+  margin-left: 20rpx;
+  font-size:30rpx;
+  margin-top:10rpx;
+}
+.addList .addList-tab .tab-item navigator{
+  width: 50rpx;
+  margin-left: 20rpx;
+}
+.addList .addList-tab .tab-item navigator>image{
+  width: 100%;
+}
+.addList .addNew{
+  margin:auto;
+  margin-top:30rpx;
+  width:240rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+.addList .addNew view{
+  width: 40rpx;
+  height: 40rpx;
+  border:1px solid #999;
+  margin-left: 20rpx;
+}
+.addList .addNew navigator{
+  display: flex;
+  flex-direction: row;
+}
+.addList .addNew view image{
+  width: 30rpx;
+  margin-top:5rpx;
+  margin-left: 5rpx;
+}
