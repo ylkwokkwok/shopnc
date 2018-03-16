@@ -47,5 +47,6 @@ Page({
     that.setData({
       userInfo: shop.getUserInfo()
     })
+    console.log(that.data.userInfo);
   },
 })
