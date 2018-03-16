@@ -81,7 +81,7 @@
   float: left;
   text-align: left;
   margin-left: 10rpx;
-  font-size: 20rpx;
+  font-size: 26rpx;
   color: #666;
 }
 .swiper .category .top image{
