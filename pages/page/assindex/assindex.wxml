@@ -11,9 +11,9 @@
     </view>
     <scroll-view class="swiper" style="height:{{winHeight-45}}px;" scroll-y="true">
       <view>
-        <block wx:for="{{arrText}}" wx:key="index" wx:for-index="itemIndex">
-          <view class="{{item}}" style="{{currentTab==itemIndex?'display:block':'display:none'}}">
-            <block wx:for="{{arrText[itemIndex]}}" wx:for-item="itemNum">
+        <block wx:for="{{arrText}}" wx:key="index">
+          <view class="{{item}}" style="{{currentTab==index?'display:block':'display:none'}}">
+            <block wx:for="{{arrText[index]}}" wx:for-item="itemNum">
               <view class="category">
                 <view class="top">
                   <view class="left">

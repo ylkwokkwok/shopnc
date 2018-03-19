@@ -1,0 +1,84 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="top">
+    <image src="/images/jifen.png" mode='widthFix'></image>
+    <view class="right">
+      我的积分：<text style="padding-left:20rpx">0.00</text>
+    </view>
+  </view>
+  <view class="swiper">
+    <swiper indicator-dots='true' indicator-color='#d7d7d7' indicator-active-color='#ffffff' autoplay="true" >
+      <block wx:for="{{imgs}}">
+        <swiper-item>
+          <image src="{{item}}" mode='widthFix'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="tablist">
+    <view class="{{currentTab==0?'on':''}}" data-current="0" bindtap='switchNav'>
+      <text>商品兑换</text>
+    </view>
+    <view class="{{currentTab==1?'on':''}}" data-current="1" bindtap='switchNav'>
+      <text>VIP兑换</text>
+    </view>
+  </view>
+  <view class="tabshow">
+  <!--商品兑换-->
+    <view style="{{currentTab==0?'display:block':'display:none'}}">
+      <block wx:for="{{shoplist}}">
+        <view class="shopone">
+          <navigator url="../../../assindex/pages/shopdetail/shopdetail?isExchange=true" class="lft">
+            <view class="left">
+              <image src="{{item.img}}" mode='widthFix'></image>
+            </view>
+            <view class="middle">
+              <text class="tit">{{item.tit}}</text>
+              <text class="jifen">{{item.jifen}}积分</text>
+            </view>
+          </navigator>
+          <view class="right">
+            <navigator url="../../../assindex/pages/confirmorder2/confirmorder2">兑换</navigator>
+            <text>库存{{item.stock}}件</text>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view style="{{currentTab==1?'display:block':'display:none'}}">
+      <view class="vip">
+        <view class="left">
+          <text class="tit">VIP会员</text>
+          <view class="prompt2" bindtap='show'>
+            <text>VIP会员特权</text>
+            <image src="/images/qtmark.png" mode='widthFix'></image>
+          </view>
+        </view>
+        <view class="right">
+          <text class="jifen">20积分</text>
+          <view class="exchange" bindtap='exchange'>兑换</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <block wx:if="{{isShow}}">
+    <view class="bg"></view>
+    <view class="prompt">
+      <view class="tit">
+        <text>vip会员特权</text>
+        <image src="/images/infocenter/cancel.png" mode='widthFix' bindtap='hide'></image>
+      </view>
+      <view class="privilege">
+        <block wx:for="{{privilege}}" wx:key="*this">
+          <view>
+            <image src="{{item.img}}" mode="widthFix"></image>
+            <text>{{item.text}}</text>
+          </view>
+        </block>
+      </view>
+      <view class="promptbegin">
+        <text>1.上岛咖啡哈是的疯狂拉升的看法是立</text>
+        <text>2.答复哈卡斯的斯达康反馈的是上岛咖啡</text>
+        <text>3.加多少积分短时间内防水等级首都南京</text>
+      </view>
+    </view>
+  </block>
+</view>

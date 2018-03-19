@@ -69,5 +69,11 @@ Page({
         currentTab: e.target.dataset.current
       })
     }
+  },
+  onLoad:function(options){
+    this.setData({
+      isExchange:options.isExchange
+    })
   }
+
 })

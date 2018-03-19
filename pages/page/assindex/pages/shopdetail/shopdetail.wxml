@@ -120,27 +120,32 @@
     </swiper-item>  
   </swiper> 
   <view class="foot">
-    <view class="left">
-      <navigator class="first">
-        <image src="/images/assortment/customer.png" ></image>
-        <view>客服</view>
-      </navigator>
-      <navigator class="first" url="../../../infocenter/pages/myMainShop/myMainShop">
-        <image src="/images/assortment/intoStore.png"></image>
-        <view>进店</view>
-      </navigator>
-      <navigator class="first">
-        <image src="/images/assortment/complaint.png" ></image>
-        <view>投诉</view>
-      </navigator>
-    </view>
-    <view class="right">
-      <navigator class="second" url="">
-        <view class="money">加入购物车</view>
-      </navigator>
-      <navigator class="thrid" url="../confirmorder/confirmorder">
-        <view class="money">确认订单</view>
-      </navigator> 
-    </view>
+    <block wx:if="{{isExchange}}">
+      <navigator class="nosame" url="../confirmorder2/confirmorder2">立即兑换</navigator>
+    </block>
+    <block wx:else>
+      <view class="left">
+        <navigator class="first">
+          <image src="/images/assortment/customer.png" ></image>
+          <view>客服</view>
+        </navigator>
+        <navigator class="first" url="../../../infocenter/pages/myMainShop/myMainShop">
+          <image src="/images/assortment/intoStore.png"></image>
+          <view>进店</view>
+        </navigator>
+        <navigator class="first">
+          <image src="/images/assortment/complaint.png" ></image>
+          <view>投诉</view>
+        </navigator>
+      </view>
+      <view class="right">
+        <navigator class="second" url="">
+          <view class="money">加入购物车</view>
+        </navigator>
+        <navigator class="thrid" url="../confirmorder/confirmorder">
+          <view class="money">确认订单</view>
+        </navigator> 
+      </view>
+    </block>
   </view>
 </view>
