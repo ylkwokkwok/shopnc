@@ -6,6 +6,27 @@ Page({
    */
   data: {
     winHeight:0,
+    money: "2000",
+    money2: "1500",
+    current: 1,
+    imgs: ["/images/shop3.png", "/images/shop3.png", "/images/shop3.png", "/images/shop3.png"],
+    info: { tit: "收到卡里的解放啦可是那是大幅拉升泛滥是对方", price: "2000", oldprice: "2500", salesvolumn: "1500", stock: "1000" },
+    collage_list: [
+      { tx: "/images/tx.jpg", username: "深刻的" },
+      { tx: "/images/tx.jpg", username: "都可能" }
+    ],
+    countDownHour: "24",
+    countDownMinute: "00",
+    countDownSecond: "00",
+    evalutes: [
+      { username: "是的那份", date: "2018-01-22", content: "思考的风流快活是开发商的法律开始独立开发哈斯收到客户flak速度上单你发烧了的那份士大夫哈拉省的", star: [0, 1, 2, 3, 4], starimg: "/images/star.png", shopimgs: ["/images/shop1.png", "/images/shop2.png", "/images/shop3.png"] },
+      { username: "是的那份", date: "2018-01-22", content: "思考的风流快活是开发商的法律开始独立开发哈斯收到客户flak速度上单你发烧了的那份士大夫哈拉省的", star: [0, 1, 2, 3, 4], starimg: "/images/star.png", shopimgs: [] }
+    ],
+    currentTab: 0,
+    collect: false,
+    collectImg: "/images/collect.png",
+    collectText: "收藏",
+    isCollect: false
   },
 
   /**

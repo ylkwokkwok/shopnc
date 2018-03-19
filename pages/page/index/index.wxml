@@ -44,7 +44,7 @@
         <view class="tit">今日上新</view>
         <navigator url="">更多新品 ></navigator>
       </view>
-      <view class="prolist">
+      <scroll-view class="prolist">
         <block wx:for="{{today_new_goods}}" wx:key="*this">
           <view class="pro">
             <navigator url="{{item.link}}">
@@ -54,7 +54,7 @@
             </navigator>
           </view>
         </block>
-      </view>
+      </scroll-view>
     </view>
   </view>
   <!--精彩快报-->

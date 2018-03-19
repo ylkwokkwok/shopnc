@@ -1,3 +1,125 @@
 <view class="container" style="min-height:{{winHeight}}px">
-  
+    <!--商品图片轮播-->
+  <view class="swiper">
+    <swiper duration="1000" circular="true" bindchange='changeSwiper'>
+      <block wx:for="{{imgs}}" wx:key="*this">
+        <swiper-item>
+          <image src="{{item}}" mode='widthFix'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view>
+        {{current}}/{{imgs.length}}
+    </view>
+  </view>
+  <!--商品信息-->
+  <view class="shops">
+    <view class="top">
+      <view class="tit">{{info.tit}}</view>
+      <view class="collect {{collect}}">
+        <image src="{{collectImg}}" mode='widthFix' bindtap='changeCollect'></image>
+        <text>{{collectText}}</text>      
+      </view>
+    </view>
+    <view class="middle">
+      <view class="price">￥{{info.price}}</view>
+    </view>
+    <view class="bottom">
+      <view class="left">
+        <view class="oldprice">原价：<text>￥{{info.oldprice}}</text></view>
+        <view class="salesvolumn">销量：{{info.salesvolumn}}件</view>
+        <view class="stock">库存{{info.stock}}件</view>
+      </view>
+      <view class="right">
+        <navigator url="">我要分销</navigator>
+      </view>
+    </view>
+    <view class="returnGoods">
+      <image src="/images/assortment/default.png" mode='widthFix'></image>
+      <text>7天无理由退货</text>
+    </view>
+  </view>
+  <!--订单详情-->
+  <view class="orderDetail">
+    <view>送至 <text>四川省绵阳市高新区留学人员创业园</text></view>
+    <view>颜色 <text>红色</text></view>
+    <view>尺码 <text>L</text></view>
+    <view>数量 <text>1</text></view>
+  </view>
+  <!--店铺-->
+  <view class="shopName">
+    <text>店铺名称</text>
+    <view class="middle">
+      <ul class="left">
+        <li>
+          <text class="shuliang">1000</text>
+          <text class="name">收藏人数</text>
+        </li>
+        <li>
+          <text class="shuliang">1000</text>
+          <text class="name">全部商品</text>
+        </li>
+        <li>
+          <text class="shuliang">9.00</text>
+          <text class="name">综合评价</text>
+        </li>
+      </ul>
+      <view class="right">
+        <view>服务 9.5 | 高</view>
+        <view>商品 9.5 | 高</view>
+        <view>物流 9.5 | 高</view>
+      </view>
+    </view>
+    <view class="bottom">
+      <block wx:if="{{isCollect}}">
+        <view bindtap='collectSel'>收藏店铺</view>
+      </block>
+      <block wx:else>
+        <view bindtap='collectSel'>已收藏该店铺</view>
+      </block>
+      <navigator class="joinstore" url="../../../infocenter/pages/myMainShop/myMainShop">进入店铺</navigator>
+    </view>
+  </view> 
+  <!--评价-->
+  <view class="evaluate">
+    <view class="top">评价 <text>评价量1000+</text></view>
+     <block wx:for="{{evalutes}}" wx:key="*this">
+        <view class="evaluate_one">
+          <view class="up">
+            <view class="username">{{item.username}}</view>
+            <view class="date">{{item.date}}</view>
+            <view class="star">
+              <block wx:for="{{item.star}}" wx:for-item="itemName">
+                <image src="{{item.starimg}}" mode='widthFix'></image>
+              </block>
+            </view>
+          </view>
+          <view class="bottom">
+            <view class="content">{{item.content}}</view>
+            <view class="shopsimg">
+              <block wx:for="{{item.shopimgs}}" wx:for-item="itemName">
+                <image src="{{itemName}}"></image>
+              </block>
+            </view>
+          </view>
+        </view>
+      </block>
+      <navigator url="../evaluate/evaluate">查看全部</navigator>
+  </view>
+  <!--产品参数-->
+  <view class="swiper-tab">  
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">产品详情</view>  
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">产品参数</view>  
+  </view>  
+  <swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange">  
+    <swiper-item>  
+      <view>产品详情</view>  
+    </swiper-item>  
+    <swiper-item>  
+      <view>产品参数</view>  
+    </swiper-item>  
+  </swiper> 
+  <view class="foot">
+    
+  </view>
 </view>
