@@ -57,6 +57,8 @@
     "page/infocenter/pages/returnGoods/returnGoods",
     "page/infocenter/pages/returnGdDetail/returnGdDetail",
     "page/infocenter/pages/integralManager/integralManager",
+    "page/infocenter/pages/myFightGroup/myFightGroup",
+    "page/infocenter/pages/myCartPrice/myCartPrice",
     "page/shopcart/shopcart",
     "page/index/pages/bargain/bargain",
     "page/index/pages/bargain_list/bargain_list",

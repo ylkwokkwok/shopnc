@@ -94,15 +94,11 @@
   <view class="swiper-tab">  
     <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">产品详情</view>  
     <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">产品参数</view>  
+  </view>
+  <view class="swiper-box">
+    <view style="{{currentTab==0?'display:block':'display:none'}}">产品详情</view>
+    <view style="{{currentTab==1?'display:block':'display:none'}}">产品参数</view>
   </view>  
-  <swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange">  
-    <swiper-item>  
-      <view>产品详情</view>  
-    </swiper-item>  
-    <swiper-item>  
-      <view>产品参数</view>  
-    </swiper-item>  
-  </swiper> 
   <view class="foot">
     <navigator class="first">
       <image src="/images/mypintuan.png" mode='widthFix'></image>

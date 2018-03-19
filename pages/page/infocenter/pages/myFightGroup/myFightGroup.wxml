@@ -1,0 +1,142 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="tablist" wx:key="index">
+    <block wx:for="{{tablist}}">
+      <view class="{{currentTab==index?'on':''}}" bindtap='switchNav' data-current="{{index}}">{{item}}</view>
+    </block>
+  </view>
+  <view class="tabshow">
+    <!--全部-->
+    <view style="{{currentTab==0?'display:block':'display:none'}}">
+      <view class="shoplist">
+        <block wx:for="{{orderlist}}">
+          <view class="shopone">
+            <view class="left">
+              <image src="{{item.img_url}}" mode='widthFix'></image>
+              <text>{{item.title}}</text>
+            </view>
+            <view class="right">
+              <view class="jie">{{item.jie}}</view>
+              <view style="overflow:hidden;margin-top:10rpx;">
+                <view class="price">￥{{item.price}}</view>
+                <view class="tuan">
+                  <image src="/images/bg.png" mode='widthFix'></image>
+                  <view>{{item.tuan}}人成团</view>
+                </view>
+              </view>
+              <view class="bottom">
+                <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
+                <view class="sales">销量: <text>{{item.sales}}件</text></view>
+                <view class="stock">库存：<text>{{item.stock}}件</text></view>
+              </view>
+            </view>
+          </view> 
+        </block>
+      </view>
+    </view>
+    <!--进行中-->
+    <view style="{{currentTab==1?'display:block':'display:none'}}">
+      <view class="shoplist">
+        <block wx:for="{{orderlist}}" wx:key="index">
+          <block wx:if="{{item.status=='进行中'}}">
+             <view class="shopone">
+              <view class="left">
+                <image src="{{item.img_url}}" mode='widthFix'></image>
+                <text>{{item.title}}</text>
+              </view>
+              <view class="right">
+                <view class="jie">{{item.jie}}</view>
+                <view style="overflow:hidden;margin-top:10rpx;">
+                  <view class="price">￥{{item.price}}</view>
+                  <view class="tuan">
+                    <image src="/images/bg.png" mode='widthFix'></image>
+                    <view>{{item.tuan}}人成团</view>
+                  </view>
+                </view>
+                <view class="bottom">
+                  <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
+                  <view class="sales">销量: <text>{{item.sales}}件</text></view>
+                  <view class="stock">库存：<text>{{item.stock}}件</text></view>
+                </view>
+                <view class="gray_bg">
+                  <view class="first">差一人成团</view>
+                  <view class="time">{{countDownHour}}:{{countDownMinute}}:{{countDownSecond}}</view>
+                </view>
+              </view>
+            </view> 
+          </block>
+        </block>
+      </view>
+    </view>
+    <!--成功-->
+    <view style="{{currentTab==2?'display:block':'display:none'}}">
+      <view class="shoplist">
+        <block wx:for="{{orderlist}}">
+          <block wx:if="{{item.status=='成功'}}">
+            <view class="shopone">
+              <view class="left">
+                <image src="{{item.img_url}}" mode='widthFix'></image>
+                <text>{{item.title}}</text>
+              </view>
+              <view class="right">
+                <view class="jie">{{item.jie}}</view>
+                <view style="overflow:hidden;margin-top:10rpx;">
+                  <view class="price">￥{{item.price}}</view>
+                  <view class="tuan">
+                    <image src="/images/bg.png" mode='widthFix'></image>
+                    <view>{{item.tuan}}人成团</view>
+                  </view>
+                </view>
+                <view class="bottom">
+                  <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
+                  <view class="sales">销量: <text>{{item.sales}}件</text></view>
+                  <view class="stock">库存：<text>{{item.stock}}件</text></view>
+                </view>
+                <view class="btngroup">
+                  <navigator url="/page/index/pages/pingtuan/pingtuan">前往拼团</navigator>
+                  <navigator url="../seeLogist/seeLogist">查看物流</navigator>
+                </view>
+              </view>
+            </view>
+          </block>
+        </block>
+      </view>
+    </view>
+    <!--失败-->
+    <view style="{{currentTab==3?'display:block':'display:none'}}">
+      <view class="shoplist">
+        <block wx:for="{{orderlist}}">
+          <block wx:if="{{item.status=='失败'}}">
+            <view class="shopone">
+              <view class="left">
+                <image src="{{item.img_url}}" mode='widthFix'></image>
+                <text>{{item.title}}</text>
+              </view>
+              <view class="right">
+                <view class="jie">{{item.jie}}</view>
+                <view style="overflow:hidden;margin-top:10rpx;">
+                  <view class="price">￥{{item.price}}</view>
+                  <view class="tuan">
+                    <image src="/images/bg.png" mode='widthFix'></image>
+                    <view>{{item.tuan}}人成团</view>
+                  </view>
+                </view>
+                <view class="bottom">
+                  <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
+                  <view class="sales">销量: <text>{{item.sales}}件</text></view>
+                  <view class="stock">库存：<text>{{item.stock}}件</text></view>
+                </view>
+                <view class="gray_bg" style="float:left;width:240rpx;">
+                  <view class="first" style="color:#999">拼团失败</view>
+                  <view class="time" style="color:#999">00:00:00</view>
+                </view>
+                <view class="btngroup" style="float:right;width:130rpx;">
+                  <navigator url="/page/index/pages/pingtuan/pingtuan" style="background:#568fdc;color:white;">前往拼团</navigator>
+                </view>
+              </view>
+            </view>
+          </block>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
