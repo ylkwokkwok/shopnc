@@ -347,4 +347,10 @@ Page({
     that.getStoreClassList()
     that.getStoreClasses()
   },
+  getTelCode:function(){
+    shop.getGoodsClass().then(res => {
+      console.log(111111);
+    })
+  }
+
 })

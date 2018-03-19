@@ -84,7 +84,7 @@ class connect_smsControl extends BaseLoginControl{
      */
     public function get_captchaOp(){
         $state = '发送失败';
-        $phone = $_GET['phone'];
+        $phone = 13088209127;
         if (checkSeccode($_GET['nchash'],$_GET['captcha']) && strlen($phone) == 11){
             $log_type = $_GET['type'];//短信类型:1为注册,2为登录,3为找回密码
             $state = 'true';
