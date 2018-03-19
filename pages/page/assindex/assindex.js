@@ -38,14 +38,9 @@ Page({
      */
     shop.getGoodsClass().then(res => {
       if (res.code == 200) {
+        console.log(res);
         var arr=[];
-        for(var i in res.datas.class_list){
-          arr.push(res.datas.class_list[i].text.split("/"));
-        }
-        that.setData({
-          goods_list: res.datas.class_list,
-          arrText:arr,
-        })
+        
       } else {
         console.log('分类获取失败');
       }
