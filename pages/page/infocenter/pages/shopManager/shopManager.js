@@ -1,4 +1,4 @@
-// page/infocenter/pages/shopManager/shopManager.js
+import shop from '../../../../utils/shop'
 Page({
 
   /**
@@ -18,7 +18,30 @@ Page({
     isAllSelected: false,
     totalsel: 0,
     isAllSelected1: false,
-    totalsel1: 0
+    totalsel1: 0,
+    //
+    curpage: 0,
+    page: 20,
+    hasMore: true,
+    goodsList: []
+  },
+  getStoreGoodsList: function () {
+    let that = this
+    let curpage = that.data.curpage
+    let page = that.data.page
+    const params = { curpage: ++curpage, page: page }
+    if (that.data.hasMore) {
+      shop.getStoreGoodsListOnline(params).then(res => {
+        console.log("goodsListres", res)
+        if (res.code == 200) {
+          that.setData({
+            goodsList: that.data.goodsList.concat(res.datas.goods_list),
+            hasMore: res.datas.hasMore,
+            curpage: curpage
+          })
+        }
+      })
+    }
   },
   /**
    * 选择
@@ -149,6 +172,7 @@ Page({
         });
       }
     });
+    that.getStoreGoodsList()
   },
   shaiTab:function(e){
     var cur = e.currentTarget.dataset.current;
@@ -158,5 +182,11 @@ Page({
         curTab: cur
       })
     }
-  }
+  },
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function() {
+    this.getStoreGoodsList()
+  },
 })

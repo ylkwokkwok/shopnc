@@ -28,7 +28,7 @@
       <image src="/images/assortment/del.png" mode='widthFix' class="del" bindtap='clearInput' data-key="contacts_idcard"></image>
     </view>
     <view class="same">
-      <label>经营行业</label>
+      <label>店铺分类</label>
       <picker bindchange="bindPickerChange" value="{{classListIndex}}" range="{{classList}}" range-key="sc_name">
         <view class="picker">
           {{classList[classListIndex].sc_name}}
@@ -55,6 +55,20 @@
       <input placeholder='请输入您的邮箱' placeholder-style='color:#999' bindinput="bindKeyInput" data-key="contacts_email" value='{{contacts_email}}'></input>
       <image src="/images/assortment/del.png" mode='widthFix' class="del" bindtap='clearInput' data-key="contacts_email"></image>
     </view>
+    <view class="same">
+      <label>经营类目</label>
+      <view wx:for="{{storeClasses}}" wx:for-index="storeClassIndex" wx:for-key="storeClassItem" wx:key="key">
+        <text>{{storeClassItem.name}}</text>
+      </view>
+    </view>
+    <view class="same">
+      <label>多列选择器</label>
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <view class="picker">
+          当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
+        </view>
+      </picker>
+    </view>
     <text class="prompt">请仔细填写联系方式，保证我们能尽快联系到您</text>
     <view class="read">
       <checkbox checked='true'></checkbox>
@@ -72,5 +86,19 @@
     <view class="addList-tab">
       <view>{{xieyi}}</view>
     </view>  
+  </view>
+</view>
+<view wx:if="{{selectStoreClaassStatus}}">
+  <view class="bg" bindtap="cancelEditAddress"></view>
+  <view class="alert-box">
+    <view class="alter-header">
+      <text>选择经营类目</text>
+      <image src="/images/infocenter/cancel.png" bindtap="cancelEditAddress"/>
+    </view>
+    <view class="class-list">
+      <view wx:for="{{storeClasses}}" wx:for-index="storeClassIndex" wx:for-key="storeClassItem" wx:key="key">
+
+      </view>
+    </view>
   </view>
 </view>
