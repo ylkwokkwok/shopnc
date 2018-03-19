@@ -57,17 +57,7 @@
     </view>
     <view class="same">
       <label>经营类目</label>
-      <view wx:for="{{storeClasses}}" wx:for-index="storeClassIndex" wx:for-key="storeClassItem" wx:key="key">
-        <text>{{storeClassItem.name}}</text>
-      </view>
-    </view>
-    <view class="same">
-      <label>多列选择器</label>
-      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-        <view class="picker">
-          当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
-        </view>
-      </picker>
+      <input bindtap="showSelectStoreClass" disabled="disabled" type="text" value="{{storeClassSelects.length == 0 ? '未选择经营类目' : '已选择' + storeClassSelects.length + '类' }}"/>
     </view>
     <text class="prompt">请仔细填写联系方式，保证我们能尽快联系到您</text>
     <view class="read">
@@ -89,15 +79,26 @@
   </view>
 </view>
 <view wx:if="{{selectStoreClaassStatus}}">
-  <view class="bg" bindtap="cancelEditAddress"></view>
+  <view class="bg1" bindtap="hiddenSelectStoreClass"></view>
   <view class="alert-box">
     <view class="alter-header">
       <text>选择经营类目</text>
-      <image src="/images/infocenter/cancel.png" bindtap="cancelEditAddress"/>
+      <image src="/images/infocenter/cancel.png" bindtap="hiddenSelectStoreClass"/>
     </view>
     <view class="class-list">
-      <view wx:for="{{storeClasses}}" wx:for-index="storeClassIndex" wx:for-key="storeClassItem" wx:key="key">
-
+      <view class="class-item" wx:for="{{storeClassSelects}}" wx:for-index="storeClassSelectIndex" wx:for-item="storeClassSelectItem" wx:key="key">
+        <view class="class-item-text">{{storeClassSelectItem.gc_name_1}}, {{storeClassSelectItem.gc_name_2}}, {{storeClassSelectItem.gc_name_3}}</view>
+        <view class="class-item-del" data-index="{{storeClassSelectIndex}}" bintap="delStoreClassSelect">
+          <image src="/images/infocenter/cancel.png"/>
+        </view>
+      </view>
+      <picker mode="multiSelector" bindchange="bindStoreClassPickerChange" bindcolumnchange="bindStoreClassPickerColumnChange" value="{{storeClassIndex}}" range="{{storeClassArray}}">
+        <view class="class-add-btn">
+          <button>点击添加</button>
+        </view>
+      </picker>
+      <view class="class-add-btn" bindtap="hiddenSelectStoreClass" wx:if="{{storeClassSelects.length > 0}}">
+        <button>确定</button>
       </view>
     </view>
   </view>

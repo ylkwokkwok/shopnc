@@ -25,52 +25,14 @@ Page({
     classListIndex: 0,
     classList: [],
     applyStatus: 0, // 0 未申请 1 待审核
+    //经营类目
+    selectStoreClaassStatus: false,
     storeClasses: [], // 经营类目
-    //
-    multiArray: [['无脊柱动物', '脊柱动物'], ['扁性动物', '线形动物', '环节动物', '软体动物', '节肢动物'], ['猪肉绦虫', '吸血虫']],
-    objectMultiArray: [
-      [
-        {
-          id: 0,
-          name: '无脊柱动物'
-        },
-        {
-          id: 1,
-          name: '脊柱动物'
-        }
-      ], [
-        {
-          id: 0,
-          name: '扁性动物'
-        },
-        {
-          id: 1,
-          name: '线形动物'
-        },
-        {
-          id: 2,
-          name: '环节动物'
-        },
-        {
-          id: 3,
-          name: '软体动物'
-        },
-        {
-          id: 3,
-          name: '节肢动物'
-        }
-      ], [
-        {
-          id: 0,
-          name: '猪肉绦虫'
-        },
-        {
-          id: 1,
-          name: '吸血虫'
-        }
-      ]
-    ],
-    multiIndex: [1, 2, 3],
+    storeClassArray: [],
+    objectStoreClassArray: [],
+    storeClassIndex: [0,0,0],
+    storeClassId: [0,0,0],
+    storeClassSelects: []
   },
   bindPickerChange: function (e) {
     let selectedClass = this.data.classList[e.detail.value]
@@ -80,12 +42,40 @@ Page({
       classListIndex: e.detail.value
     })
   },
+  showSelectStoreClass: function () {
+    this.setData({
+      selectStoreClaassStatus: true
+    })
+  },
+  hiddenSelectStoreClass: function () {
+    this.setData({
+      selectStoreClaassStatus: false
+    })
+  },
   // 经营类目
   getStoreClasses: function () {
     let that = this
     shop.getStoreClasses().then(res => {
       if (res.code == 200) {
-        that.setData({storeClasses: res.datas})
+        var storeClasses = res.datas
+        var objectStoreClassArray = []
+        var storeClassArray = []
+        var csca1 = []
+        var sca1 = []
+        for (var i in storeClasses){
+          csca1.push(storeClasses[i])
+          sca1.push(storeClasses[i].gc_name)
+        }
+        objectStoreClassArray.push(csca1)
+        storeClassArray.push(sca1)
+        that.setData({
+          storeClasses: storeClasses,
+          objectStoreClassArray: objectStoreClassArray,
+          storeClassArray: storeClassArray
+        })
+        that.setStoreClassSelected(0, 1)
+        that.setStoreClassSelected(0, 2)
+        that.setStoreClassSelected(0, 3)
       }else{
         wx.showToast({
           title: "获取信息失败",
@@ -94,6 +84,86 @@ Page({
         })
       }
     })
+  },
+  setStoreClassSelected: function (index, deep) {
+    console.log("deep: " + deep, "value: " + index)
+    let that = this
+    deep = parseInt(deep)
+    var storeClassIndex = that.data.storeClassIndex //
+    var storeClassId = that.data.storeClassId //
+    var objectStoreClassArray = that.data.objectStoreClassArray //
+    var storeClassArray = that.data.storeClassArray //
+    var storeClasses = that.data.storeClasses
+    if (deep == 3){
+      storeClassIndex[2] =  index
+      storeClassId[2] =  storeClasses[storeClassIndex[0]].children[storeClassIndex[1]].children[index].gc_id
+      that.setData({
+        storeClassIndex: storeClassIndex,
+        storeClassId: storeClassId
+      })
+      return
+    }
+    var  sonArray = []
+    if (deep == 1){
+      sonArray = storeClasses[index].children
+      storeClassId[deep - 1] = storeClasses[index].gc_id
+    }
+    if (deep == 2){
+      sonArray = storeClasses[storeClassIndex[0]].children[index].children
+      storeClassId[deep - 1] = storeClasses[storeClassIndex[0]].children[index].gc_id
+    }
+    var sonNameArray = []
+    for (var i in sonArray){
+      sonNameArray.push(sonArray[i].gc_name)
+    }
+    storeClassArray[deep] = sonNameArray
+    objectStoreClassArray[deep] = sonArray
+    storeClassIndex[deep - 1] = index
+    that.setData({
+      objectStoreClassArray: objectStoreClassArray,
+      storeClassArray: storeClassArray,
+      storeClassIndex: storeClassIndex,
+      storeClassId: storeClassId
+    })
+  },
+  bindStoreClassPickerChange: function (e) {
+    let storeClassSelects = this.data.storeClassSelects
+    let storeClassIndex = this.data.storeClassIndex
+    let storeClassId = this.data.storeClassId
+    let storeClassArray = this.data.storeClassArray
+    for (var i in storeClassSelects ) {
+      if (storeClassSelects[i].gc_id_3 == storeClassId[2]) {
+        return
+      }
+    }
+    storeClassSelects.push({
+      gc_id_1: storeClassId[0],
+      gc_name_1: storeClassArray[0][storeClassIndex[0]],
+      gc_id_2: storeClassId[1],
+      gc_name_2: storeClassArray[1][storeClassIndex[1]],
+      gc_id_3: storeClassId[2],
+      gc_name_3: storeClassArray[2][storeClassIndex[2]]
+    })
+    this.setData({storeClassSelects: storeClassSelects})
+    this.setStoreClassSelected(0, 1)
+    this.setStoreClassSelected(0, 2)
+    this.setStoreClassSelected(0, 3)
+  },
+  bindStoreClassPickerColumnChange: function (e) {
+    this.setStoreClassSelected(e.detail.value, e.detail.column + 1)
+    if (e.detail.column == 0){
+      this.setStoreClassSelected(0, 2)
+      this.setStoreClassSelected(0, 3)
+    }
+    if (e.detail.column == 1){
+      this.setStoreClassSelected(0, 3)
+    }
+  },
+  delStoreClassSelect: function (e) {
+    var index = e.currentTarget.dataset.index
+    var storeClassSelects = this.data.storeClassSelects
+    storeClassSelects = storeClassSelects.splice(index, 1)
+    this.setData({storeClassSelects: storeClassSelects})
   },
   // 店铺分类
   getStoreClassList: function () {
@@ -156,9 +226,26 @@ Page({
       }
       data[key] = that.data[key]
     }
+    if (that.data.storeClassSelects.length < 1){
+      wx.showToast({
+        title: "请选择至少一个经营类目",
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    var store_class_ids = []
+    var store_class_names = []
+    for (var i in that.data.storeClassSelects){
+      store_class_ids.push(that.data.storeClassSelects[i].gc_id_1 + '|' + that.data.storeClassSelects[i].gc_id_2 + '|' + that.data.storeClassSelects[i].gc_id_3 + '|')
+      store_class_names.push(that.data.storeClassSelects[i].gc_name_1 + '|' + that.data.storeClassSelects[i].gc_name_2 + '|' + that.data.storeClassSelects[i].gc_name_3 + '|')
+    }
     console.log('validate success')
     data.sc_id = that.data.sc_id
+    data.store_class_ids = store_class_ids
+    data.store_class_names = store_class_names
     shop.applyStore(data).then(res => {
+      console.log(res)
       if(res.code == 200){
         //success
         wx.showToast({
@@ -166,6 +253,7 @@ Page({
           icon: 'success',
           duration: 2000
         })
+        that.getStoreClassList()
       }else{
         //error
         wx.showToast({
@@ -206,7 +294,7 @@ Page({
       }
     }, 1000)
   },
-  getVerificationCode() {
+  getVerificationCode: function () {
     this.getCode();
     var that = this
     that.setData({
@@ -250,73 +338,4 @@ Page({
     that.getStoreClassList()
     that.getStoreClasses()
   },
-  bindMultiPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      multiIndex: e.detail.value
-    })
-  },
-  bindMultiPickerColumnChange: function (e) {
-    console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
-    var data = {
-      multiArray: this.data.multiArray,
-      multiIndex: this.data.multiIndex
-    };
-    data.multiIndex[e.detail.column] = e.detail.value;
-    switch (e.detail.column) {
-      case 0:
-        switch (data.multiIndex[0]) {
-          case 0:
-            data.multiArray[1] = ['扁性动物', '线形动物', '环节动物', '软体动物', '节肢动物'];
-            data.multiArray[2] = ['猪肉绦虫', '吸血虫'];
-            break;
-          case 1:
-            data.multiArray[1] = ['鱼', '两栖动物', '爬行动物'];
-            data.multiArray[2] = ['鲫鱼', '带鱼'];
-            break;
-        }
-        data.multiIndex[1] = 0;
-        data.multiIndex[2] = 0;
-        break;
-      case 1:
-        switch (data.multiIndex[0]) {
-          case 0:
-            switch (data.multiIndex[1]) {
-              case 0:
-                data.multiArray[2] = ['猪肉绦虫', '吸血虫'];
-                break;
-              case 1:
-                data.multiArray[2] = ['蛔虫'];
-                break;
-              case 2:
-                data.multiArray[2] = ['蚂蚁', '蚂蟥'];
-                break;
-              case 3:
-                data.multiArray[2] = ['河蚌', '蜗牛', '蛞蝓'];
-                break;
-              case 4:
-                data.multiArray[2] = ['昆虫', '甲壳动物', '蛛形动物', '多足动物'];
-                break;
-            }
-            break;
-          case 1:
-            switch (data.multiIndex[1]) {
-              case 0:
-                data.multiArray[2] = ['鲫鱼', '带鱼'];
-                break;
-              case 1:
-                data.multiArray[2] = ['青蛙', '娃娃鱼'];
-                break;
-              case 2:
-                data.multiArray[2] = ['蜥蜴', '龟', '壁虎'];
-                break;
-            }
-            break;
-        }
-        data.multiIndex[2] = 0;
-        console.log(data.multiIndex);
-        break;
-    }
-    this.setData(data);
-  }
 })

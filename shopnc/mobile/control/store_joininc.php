@@ -25,11 +25,14 @@ class store_joinincControl extends mobileMemberControl {
         $param = array();
         $store_class_ids = array();
         $store_class_names = array();
-        // test
-        $_POST['store_class'] = 1;
-        $_POST['store_class_ids'] = array(1,5,35);
-        $_POST['store_class_names'] = array("服饰鞋帽", "男装", "衬衫");
-
+        $_POST['store_class_ids'] = explode(',', $_POST['store_class_ids']);
+        $_POST['store_class_names'] = explode(',', $_POST['store_class_names']);
+        foreach ($_POST['store_class_ids'] as &$scid){
+            $scid = str_replace('|', ',', $scid);
+        }
+        foreach ($_POST['store_class_names'] as &$scname){
+            $scname = str_replace('|', ',', $scname);
+        }
         if(!empty($_POST['store_class_ids'])) {
             foreach ($_POST['store_class_ids'] as $value) {
                 $store_class_ids[] = $value;
@@ -78,7 +81,7 @@ class store_joinincControl extends mobileMemberControl {
         $param['joinin_year'] = 1;
         $param['joinin_state'] = STORE_JOIN_STATE_NEW;
         $param['remark'] = $_POST['remark'];
-//        $param['store_class_commis_rates'] = implode(',', $store_class_commis_rates);
+        $param['store_class_commis_rates'] = implode(',', $store_class_commis_rates);
         //店铺应付款
         $param['paying_amount'] = 0.00;
 
@@ -95,7 +98,6 @@ class store_joinincControl extends mobileMemberControl {
         $param['sg_name'] = "钻石店铺";
         $param['sg_id'] = 3;
         $param['sg_info'] = 'a:1:{s:8:"sg_price";s:7:"1000.00";}';
-        $param['store_class_commis_rates'] = 0;
         $param['paying_money_certificate'] = 1;
         $param['paying_amount'] = 2000;
 
@@ -112,7 +114,6 @@ class store_joinincControl extends mobileMemberControl {
         if ($error != ''){
             output_error($error);
         }
-
         $model_store_joinin = Model('store_joinin');
         $joinin_info = $model_store_joinin->getOne(array('member_id' => $this->member_info['member_id']));
         if(empty($joinin_info)) {
