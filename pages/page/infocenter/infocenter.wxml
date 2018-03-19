@@ -59,7 +59,7 @@
       <text class="number">10</text>
       <text class="name">我的砍价</text>
     </navigator>
-    <navigator>
+    <navigator url="pages/myProbation/myProbation">
       <text class="number">5</text>
       <text class="name">我的试用</text>
     </navigator>

@@ -1,4 +1,4 @@
-import shop from '../../../../utils/shop'
+// page/index/pages/probation/probation.js
 Page({
 
   /**

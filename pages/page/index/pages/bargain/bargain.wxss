@@ -1,7 +1,6 @@
 .container{
   background-color: #f6f6f6;
 }
-
 .goods{
   background-color: #ffffff;
   padding: 18rpx 25rpx 26rpx 66rpx;

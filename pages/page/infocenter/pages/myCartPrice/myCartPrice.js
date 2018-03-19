@@ -8,13 +8,17 @@ Page({
     winHeight:0,
     tablist: ["全部", "进行中", "成功", "失败"],
     currentTab: 0,
-    orderlist: [
-      { img_url: "/images/shop3.png", title: "cpu:ingds", jie: "和覅身份is电话覅改阿斯卡都好损的阿斯蒂可打发士大夫", price: "2000", tuan: 2, oldprice: "3000", pinglun: "3000", sales: 1000, stock: 1000, status: "成功" },
-      { img_url: "/images/shop3.png", title: "cpu:ingds", jie: "和覅身份is电话覅改阿斯卡都好损的阿斯蒂可打发士大夫", price: "2000", tuan: 2, oldprice: "3000", pinglun: "3000", sales: 1000, stock: 1000, status: "失败" },
-      { img_url: "/images/shop3.png", title: "cpu:ingds", jie: "和覅身份is电话覅改阿斯卡都好损的阿斯蒂可打发士大夫", price: "2000", tuan: 2, oldprice: "3000", pinglun: "3000", sales: 1000, stock: 1000, status: "失败" },
-      { img_url: "/images/shop3.png", title: "cpu:ingds", jie: "和覅身份is电话覅改阿斯卡都好损的阿斯蒂可打发士大夫", price: "2000", tuan: 2, oldprice: "3000", pinglun: "3000", sales: 1000, stock: 1000, status: "成功" },
-      { img_url: "/images/shop3.png", title: "cpu:ingds", jie: "和覅身份is电话覅改阿斯卡都好损的阿斯蒂可打发士大夫", price: "2000", tuan: 2, oldprice: "3000", pinglun: "3000", sales: 1000, stock: 1000, status: "失败" },
-      { img_url: "/images/shop3.png", title: "cpu:ingds", jie: "和覅身份is电话覅改阿斯卡都好损的阿斯蒂可打发士大夫", price: "2000", tuan: 2, oldprice: "3000", pinglun: "3000", sales: 1000, stock: 1000, status: "成功" },
+    orderlist1: [
+      { img_url: "/images/shop3.png", title: "cpu:ingds", jie: "和覅身份is电话覅改阿斯卡都好损的阿斯蒂可打发士大夫", price: "2000", tuan: 2, oldprice: "3000", pinglun: "3000", sales: 1000, stock: 1000 },
+      { img_url: "/images/shop3.png", title: "cpu:ingds", jie: "和覅身份is电话覅改阿斯卡都好损的阿斯蒂可打发士大夫", price: "2000", tuan: 2, oldprice: "3000", pinglun: "3000", sales: 1000, stock: 1000 },
+    ],
+    orderlist2:[
+      { img_url: "/images/shop3.png", title: "cpu:ingds", jie: "和覅身份is电话覅改阿斯卡都好损的阿斯蒂可打发士大夫", price: "2000", tuan: 2, oldprice: "3000", pinglun: "3000", sales: 1000, stock: 1000},
+      { img_url: "/images/shop3.png", title: "cpu:ingds", jie: "和覅身份is电话覅改阿斯卡都好损的阿斯蒂可打发士大夫", price: "2000", tuan: 2, oldprice: "3000", pinglun: "3000", sales: 1000, stock: 1000},
+    ],
+    orderlist3:[
+      { img_url: "/images/shop3.png", title: "cpu:ingds", jie: "和覅身份is电话覅改阿斯卡都好损的阿斯蒂可打发士大夫", price: "2000", tuan: 2, oldprice: "3000", pinglun: "3000", sales: 1000, stock: 1000},
+      { img_url: "/images/shop3.png", title: "cpu:ingds", jie: "和覅身份is电话覅改阿斯卡都好损的阿斯蒂可打发士大夫", price: "2000", tuan: 2, oldprice: "3000", pinglun: "3000", sales: 1000, stock: 1000},
     ],
   },
   switchNav: function (e) {

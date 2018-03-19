@@ -10,28 +10,19 @@
   flex-direction: row;
 }
 .tablist>view{
-  width: 25%;
+  width: 33.33%;
   text-align: center;
   font-size: 30rpx;
 }
-.tablist>view.on{
-  border-bottom: 5rpx solid #568fdc;
-}
-.tabshow .noOrder{
-  width: 100%;
-  margin-top: 135rpx;
-}
-.tabshow .noOrder image{
-  width: 310rpx;
+.tablist>view>text{
+  width: 60%;
   margin:auto;
+  text-align: center;
+  height: 100%;
   display: block;
 }
-.tabshow .noOrder text{
-  text-align: center;
-  padding-top: 20rpx;
-  color: black;
-  font-size: 24rpx;
-  display: block;
+.tablist>view.on>text{
+  border-bottom: 5rpx solid #568fdc;
 }
 .shoplist{
   margin-top:20rpx;
@@ -56,16 +47,16 @@
   width: 200rpx;
   position: relative;
 }
-.shoplist .shopone .left>image{
+.shoplist .shopone .left .shopimg{
   width: 100%;
   margin-top:20rpx;
 }
-.shoplist .shopone .left>text{
+.shoplist .shopone .left .alertimg{
   position: absolute;
-  right: 0;
-  top: 10rpx;
-  color: red;
-  font-size: 20rpx;
+  left: 0rpx;
+  top: 20rpx;
+  width: 85rpx;
+  height: 85rpx;
 }
 .shoplist .shopone .right{
   float: left;
@@ -88,21 +79,20 @@
   margin-top:20rpx;
   color: #333;
 }
-.shoplist .shopone .right .price{
+.shoplist .shopone .right .shopname{
+  float: left;
   font-size: 30rpx;
   color: red;
-  float: left;
-  padding-left: 12rpx;
+  padding-left: 20rpx;
 }
-.shoplist .shopone .right .tuan{
-  width: 110rpx;
-  float: left;
-  position: relative;
-  margin-left: 20rpx;
-  margin-top:-5rpx;
+.shoplist .shopone .right .count{
+  float: right;
+  color: #666;
+  font-size: 20rpx;
+  padding-right: 20rpx;
 }
-.shoplist .shopone .right .tuan image{
-  width: 100%;
+.shoplist .shopone .right .count text{
+  color: red;
 }
 .shoplist .shopone .right .bottom{
   width: 100%;
@@ -110,46 +100,26 @@
 }
 .shoplist .shopone .right .bottom>view{
   float: left;
-  font-size:30rpx;
-  display:block;
-  color:red;
-  padding-left:20rpx;
-  font-weight:bold;
-}
-.shoplist .shopone .right .oldprice{
-  float: right;
-  text-align: right;
   font-size: 20rpx;
-  color: #666;
+  text-align: center;
+  display: block;
+  color:#666;
 }
-.shoplist .shopone .right .tishi{
-  font-size:24rpx;
-  padding-left:20rpx;
-  color:#999;
+.shoplist .shopone .right .bottom .oldprice{
+  padding-left: 20rpx;
+  float: left;
 }
-.shoplist .shopone .right .oldprice text{
+.shoplist .shopone .right .bottom .oldprice text{
   font-size: 24rpx;
   text-decoration: line-through;
 }
-.shoplist .shopone .right .tuan view{
-  position: absolute;
-  width:100%;
-  text-align: center;
-  color: white;
-  top:15rpx;
-  left: 0;
-  right: 0;
-  font-size: 20rpx;
-}
 .shoplist .shopone .right .bottom navigator{
-  width:120rpx;
-  height:40rpx;
-  float:right;
-  display:block;
-  background:#568fdc;
-  font-size:24rpx;
-  text-align:center;
-  color:white;
-  line-height:40rpx;
-  border-radius:20rpx;
+  float: right;
+  height: 40rpx;
+  line-height: 40rpx;
+  color: white;
+  font-size: 24rpx;
+  background: #568fdc;
+  border-radius: 20rpx;
+  padding:0 20rpx;
 }

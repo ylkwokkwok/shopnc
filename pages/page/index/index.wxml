@@ -104,7 +104,7 @@
   </view>
   <view class='bigbrand hotshow'>
   <block wx:for="{{goods_list}}" wx:key="bigbrand">
-      <view>
+      <view style="padding-top:0rpx;padding-left:0rpx;">
           <view class="sign2">大品牌</view>
           <view class="tit">{{item.goods_name}}</view>
           <view class='jie'>{{item.jingle}}</view>

@@ -1,0 +1,104 @@
+page{
+  background: #f6f6f6;
+}
+.search_input{
+  width: 750rpx;
+  height: 70rpx;
+  margin-top: 20rpx;
+}
+.search_input .center{
+  width: 655rpx;
+  margin:auto;
+  height: 100%;
+  background: #dfdede;
+  position: relative;
+}
+.search_input .center input{
+  width: 590rpx;
+  height: 100%;
+  min-height: auto;
+  padding-left: 20rpx;
+  font-size: 24rpx;
+}
+.search_input .center image{
+  position: absolute;
+  right: 20rpx;
+  width: 30rpx;
+  top: 20rpx;
+}
+.shoplist{
+  width: 710rpx;
+  margin:20rpx auto;
+}
+.shoplist .shopone{
+  float: left;
+  width: 345rpx;
+  margin-right: 20rpx;
+  background: white;
+  padding:20rpx;
+  margin-bottom: 20rpx;
+}
+.shoplist .shopone:nth-child(even){
+  margin-right: 0;
+}
+.shoplist .shopone .top{
+  width: 100%;
+  position: relative;
+}
+.shoplist .shopone .top image{
+  width: 300rpx;
+  margin:auto;
+}
+.shoplist .shopone .top .name{
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: red;
+  font-size: 24rpx;
+}
+.shoplist .shopone .jie{
+  color: #333;
+  font-size: 28rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  overflow: hidden;
+  padding-top: 10rpx;
+}
+.shoplist .shopone .middle{
+  overflow: hidden;
+  padding-top: 20rpx;
+}
+.shoplist .shopone .middle .shopname{
+  float: left;
+  font-size: 24rpx;
+  color: red;
+}
+.shoplist .shopone .middle .count{
+  font-size: 20rpx;
+  color: #999;
+  float: right;
+}
+.shoplist .shopone .middle .count text{
+  color: red;
+}
+.shoplist .shopone .bottom{
+  overflow: hidden;
+  padding-top: 20rpx;
+}
+.shoplist .shopone .bottom view{
+  float: left;
+  font-size: 20rpx;
+  color: #999;
+}
+.shoplist .shopone .bottom navigator{
+  padding:0 5rpx;
+  border:1px solid red;
+  color: red;
+  border-radius: 10rpx;
+  background: white;
+  float: right;
+  font-size: 24rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+}

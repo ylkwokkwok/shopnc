@@ -13,7 +13,7 @@ Page({
     entrys: [
       { img_url: '/images/pingtuan.png', text: '拼团', link: "/page/index/pages/pingtuan/pingtuan" },
       { img_url: '/images/shichi.png', text: '试吃', link: "" },
-      { img_url: '/images/shiyong.png', text: '试用', link: "" },
+      { img_url: '/images/shiyong.png', text: '试用', link: "/page/index/pages/probation_list/probation_list" },
       { img_url: '/images/kanjia.png', text: '砍价', link: "/page/index/pages/bargain_list/bargain_list" },
     ],
     pros: [

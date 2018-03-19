@@ -8,14 +8,38 @@
     <!--全部-->
     <view style="{{currentTab==0?'display:block':'display:none'}}">
       <view class="shoplist">
-        <block wx:if="{{orderlist.length==0}}">
+        <block wx:if="{{orderlist1.length==0&&orderlist2.length==0&&orderlist3.length==0}}">
           <view class="noOrder">
             <image src="/images/infocenter/nogoods.png" mode="widthFix"></image>
             <text>暂无订单记录</text>
           </view>
         </block>
         <block wx:else>
-          <block wx:for="{{orderlist}}">
+          <block wx:for="{{orderlist1}}">
+            <view class="shopone">
+              <view class="left">
+                <image src="{{item.img_url}}" mode='widthFix'></image>
+                <text>{{item.title}}</text>
+              </view>
+              <view class="right">
+                <view class="jie">{{item.jie}}</view>
+                <view style="overflow:hidden;margin-top:10rpx;">
+                  <view class="price">￥{{item.price}}</view>
+                  <view class="tuan">
+                    <image src="/images/bg.png" mode='widthFix'></image>
+                    <view>砍价中</view>
+                  </view>
+                  <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
+                </view>
+                <view class="tishi">剩余砍价时间：</view>
+                <view class="bottom">
+                  <view  class="time">22:23:45</view>
+                  <navigator url="../../../index/pages/bargain/bargain">砍一下</navigator>
+                </view>
+              </view>
+            </view> 
+          </block>
+          <block wx:for="{{orderlist2}}">
             <view class="shopone">
               <view class="left">
                 <image src="{{item.img_url}}" mode='widthFix'></image>
@@ -29,11 +53,36 @@
                     <image src="/images/bg.png" mode='widthFix'></image>
                     <view>砍价成功</view>
                   </view>
-                </view>
-                <view class="bottom">
                   <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
-                  <view class="sales">销量: <text>{{item.sales}}件</text></view>
-                  <view class="stock">库存：<text>{{item.stock}}件</text></view>
+                </view>
+                <view class="tishi">剩余砍价时间：</view>
+                <view class="bottom">
+                  <view  class="time">22:23:45</view>
+                  <navigator url="../seeLogist/seeLogist">查看物流</navigator>
+                </view>
+              </view>
+            </view> 
+          </block>
+          <block wx:for="{{orderlist3}}">
+            <view class="shopone">
+              <view class="left">
+                <image src="{{item.img_url}}" mode='widthFix'></image>
+                <text>{{item.title}}</text>
+              </view>
+              <view class="right">
+                <view class="jie">{{item.jie}}</view>
+                <view style="overflow:hidden;margin-top:10rpx;">
+                  <view class="price">￥{{item.price}}</view>
+                  <view class="tuan">
+                    <image src="/images/bg2.png" mode='widthFix'></image>
+                    <view>砍价失败</view>
+                  </view>
+                  <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
+                </view>
+                <view class="tishi">剩余砍价时间：</view>
+                <view class="bottom">
+                  <view  class="time" style="color:#999">00:00:00</view>
+                  <navigator url="../../../index/pages/bargain_list/bargain_list">前往砍价</navigator>
                 </view>
               </view>
             </view> 
@@ -44,50 +93,51 @@
     <!--进行中-->
     <view style="{{currentTab==1?'display:block':'display:none'}}">
       <view class="shoplist">
-        <block wx:for="{{orderlist}}" wx:key="index">
-          <block wx:if="{{item.status=='进行中'}}">
-             <block wx:if="{{item.length==0}}">
-              <view class="noOrder">
-                <image src="/images/infocenter/nogoods.png" mode="widthFix"></image>
-                <text>暂无订单记录</text>
+        <block wx:if="{{orderlist1.length==0}}">
+          <view class="noOrder">
+            <image src="/images/infocenter/nogoods.png" mode="widthFix"></image>
+            <text>暂无订单记录</text>
+          </view>
+        </block> 
+        <block wx:else>
+          <block wx:for="{{orderlist1}}" wx:key="index">
+            <view class="shopone">
+              <view class="left">
+                <image src="{{item.img_url}}" mode='widthFix'></image>
+                <text>{{item.title}}</text>
               </view>
-            </block> 
-             <block wx:else> 
-              <view class="shopone">
-                <view class="left">
-                  <image src="{{item.img_url}}" mode='widthFix'></image>
-                  <text>{{item.title}}</text>
+              <view class="right">
+                <view class="jie">{{item.jie}}</view>
+                <view style="overflow:hidden;margin-top:10rpx;">
+                  <view class="price">￥{{item.price}}</view>
+                  <view class="tuan">
+                    <image src="/images/bg.png" mode='widthFix'></image>
+                    <view>砍价中</view>
+                  </view>
+                  <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
                 </view>
-                <view class="right">
-                  <view class="jie">{{item.jie}}</view>
-                  <view style="overflow:hidden;margin-top:10rpx;">
-                    <view class="price">￥{{item.price}}</view>
-                    <view class="tuan">
-                      <image src="/images/bg.png" mode='widthFix'></image>
-                      <view>砍价中</view>
-                    </view>
-                  </view>
-                  <view class="bottom">
-                    <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
-                    <view class="sales">销量: <text>{{item.sales}}件</text></view>
-                    <view class="stock">库存：<text>{{item.stock}}件</text></view>
-                  </view>
-                  <view class="gray_bg">
-                    <view class="first">差一人成团</view>
-                    <view class="time">{{countDownHour}}:{{countDownMinute}}:{{countDownSecond}}</view>
-                  </view>
+                <view class="tishi">剩余砍价时间：</view>
+                <view class="bottom">
+                  <view  class="time">22:23:45</view>
+                  <navigator url="../../../index/pages/bargain/bargain">砍一下</navigator>
                 </view>
-              </view> 
-            </block>
-           </block> 
+              </view>
+            </view> 
+          </block>
         </block>
       </view>
     </view>
     <!--成功-->
     <view style="{{currentTab==2?'display:block':'display:none'}}">
       <view class="shoplist">
-        <block wx:for="{{orderlist}}">
-          <block wx:if="{{item.status=='成功'}}">
+        <block wx:if="{{orderlist2.length==0}}">
+          <view class="noOrder">
+            <image src="/images/infocenter/nogoods.png" mode="widthFix"></image>
+            <text>暂无订单记录</text>
+          </view>
+        </block> 
+        <block wx:else>
+          <block wx:for="{{orderlist2}}" wx:key="index">
             <view class="shopone">
               <view class="left">
                 <image src="{{item.img_url}}" mode='widthFix'></image>
@@ -101,18 +151,15 @@
                     <image src="/images/bg.png" mode='widthFix'></image>
                     <view>砍价成功</view>
                   </view>
-                </view>
-                <view class="bottom">
                   <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
-                  <view class="sales">销量: <text>{{item.sales}}件</text></view>
-                  <view class="stock">库存：<text>{{item.stock}}件</text></view>
                 </view>
-                <view class="btngroup">
-                  <navigator url="/page/index/pages/pingtuan/pingtuan">前往拼团</navigator>
+                <view class="tishi">剩余砍价时间：</view>
+                <view class="bottom">
+                  <view  class="time">22:23:45</view>
                   <navigator url="../seeLogist/seeLogist">查看物流</navigator>
                 </view>
               </view>
-            </view>
+            </view> 
           </block>
         </block>
       </view>
@@ -120,8 +167,14 @@
     <!--失败-->
     <view style="{{currentTab==3?'display:block':'display:none'}}">
       <view class="shoplist">
-        <block wx:for="{{orderlist}}">
-          <block wx:if="{{item.status=='失败'}}">
+        <block wx:if="{{orderlist3.length==0}}">
+          <view class="noOrder">
+            <image src="/images/infocenter/nogoods.png" mode="widthFix"></image>
+            <text>暂无订单记录</text>
+          </view>
+        </block> 
+        <block wx:else>
+          <block wx:for="{{orderlist3}}" wx:key="index">
             <view class="shopone">
               <view class="left">
                 <image src="{{item.img_url}}" mode='widthFix'></image>
@@ -132,24 +185,18 @@
                 <view style="overflow:hidden;margin-top:10rpx;">
                   <view class="price">￥{{item.price}}</view>
                   <view class="tuan">
-                    <image src="/images/bg.png" mode='widthFix'></image>
+                    <image src="/images/bg2.png" mode='widthFix'></image>
                     <view>砍价失败</view>
                   </view>
-                </view>
-                <view class="bottom">
                   <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
-                  <view class="sales">销量: <text>{{item.sales}}件</text></view>
-                  <view class="stock">库存：<text>{{item.stock}}件</text></view>
                 </view>
-                <view class="gray_bg" style="float:left;width:240rpx;">
-                  <view class="first" style="color:#999">拼团失败</view>
-                  <view class="time" style="color:#999">00:00:00</view>
-                </view>
-                <view class="btngroup" style="float:right;width:130rpx;">
-                  <navigator url="/page/index/pages/pingtuan/pingtuan" style="background:#568fdc;color:white;">前往拼团</navigator>
+                <view class="tishi">剩余砍价时间：</view>
+                <view class="bottom">
+                  <view  class="time" style="color:#999">00:00:00</view>
+                  <navigator url="../../../index/pages/bargain_list/bargain_list">前往砍价</navigator>
                 </view>
               </view>
-            </view>
+            </view> 
           </block>
         </block>
       </view>

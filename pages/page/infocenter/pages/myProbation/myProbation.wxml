@@ -1,0 +1,84 @@
+<view class="container" style="min-height:{{winHeight}}px">
+   <view class="tablist" wx:key="index">
+    <block wx:for="{{tablist}}">
+      <view class="{{currentTab==index?'on':''}}" bindtap='switchNav' data-current="{{index}}"><text>{{item}}</text></view>
+    </block>
+  </view>
+  <view class="tabshow">
+    <!--申请中-->
+    <view style="{{currentTab==0?'display:block':'display:none'}}">
+      <view class="shoplist">
+        <block wx:for="{{orderlist}}" wx:key="index">
+          <block wx:if="{{item.status=='申请中'}}">
+            <view class="shopone">
+              <view class="left">
+                <image src="{{item.img}}" mode='widthFix' class="shopimg"></image>
+              </view>
+              <view class="right">
+                <view class="jie">{{item.tit}}</view>
+                <view style="overflow:hidden;margin-top:10rpx;">
+                  <view class="shopname">{{item.shopname}}提供</view>
+                  <view class="count">提供<text>{{item.count}}</text>份</view>
+                </view>
+                <view class="bottom">
+                  <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
+                  <navigator>等待审核中...</navigator>
+                </view>
+              </view>
+            </view> 
+          </block>
+        </block>
+      </view>
+    </view>
+    <!--申请成功-->
+    <view style="{{currentTab==1?'display:block':'display:none'}}">
+      <view class="shoplist">
+        <block wx:for="{{orderlist}}" wx:key="index">
+          <block wx:if="{{item.status=='申请成功'}}">
+            <view class="shopone">
+              <view class="left">
+                <image src="{{item.img}}" mode='widthFix' class="shopimg"></image>
+                <image src="/images/success.png" class="alertimg"></image>
+              </view>
+              <view class="right">
+                <view class="jie">{{item.tit}}</view>
+                <view style="overflow:hidden;margin-top:10rpx;">
+                  <view class="shopname">申请成功，记得填写试用报告哦！</view>
+                </view>
+                <view class="bottom">
+                  <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
+                  <navigator url="/page/index/pages/probation/probation">查看详情</navigator>
+                </view>
+              </view>
+            </view> 
+          </block>
+        </block>
+      </view>
+    </view>
+    <!--申请失败-->
+    <view style="{{currentTab==2?'display:block':'display:none'}}">
+      <view class="shoplist">
+        <block wx:for="{{orderlist}}" wx:key="index">
+          <block wx:if="{{item.status=='申请失败'}}">
+            <view class="shopone">
+              <view class="left">
+                <image src="{{item.img}}" mode='widthFix' class="shopimg"></image>
+                <image src="/images/fail.png" class="alertimg"></image>
+              </view>
+              <view class="right">
+                <view class="jie">{{item.tit}}</view>
+                <view style="overflow:hidden;margin-top:10rpx;">
+                  <view class="shopname">很遗憾，您未获得试用资格。期待您的下次申请！</view>
+                </view>
+                <view class="bottom">
+                  <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
+                  <navigator url='/pages/index/pages/probation_list/probation_list'>查看更多试用</navigator>
+                </view>
+              </view>
+            </view> 
+          </block>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

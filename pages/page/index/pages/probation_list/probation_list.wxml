@@ -1,0 +1,27 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="search_input">
+    <view class="center">
+      <input type="text" placeholder='请输入您要搜索的商品' placeholder-style='color:#666'></input>
+      <image src="/images/search1.png" mode='widthFix'></image>
+    </view>
+  </view>
+  <view class="shoplist">
+    <block wx:for="{{shoplist}}" wx:key="index">
+      <view class="shopone">
+        <view class="top">
+          <image class="shopimg" src="{{item.img}}" mode='widthFix'></image>
+          <text class="name">{{item.name}}</text>
+        </view>
+        <view class="jie">{{item.jie}}</view>
+        <view class="middle">
+          <view class="shopname">{{item.shopname}}提供</view>
+          <view class="count">提供{{item.count}}份</view>
+        </view>
+        <view class="bottom">
+          <view>目前申请人数{{item.people}}人</view>
+          <navigator url="../probation/probation">免费申请</navigator>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
