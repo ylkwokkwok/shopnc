@@ -6,18 +6,21 @@
   <view class="show" style="height:{{winHeight-45}}px;">
     <view class="swiper-tab" style="height:{{winHeight-45}}px"> 
       <block wx:for="{{goods_list}}" wx:key="index">
-        <view class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" bindtap="swichNav">{{item.gc_name}}</view>
+        <view class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" bindtap="swichNav">{{item}}</view>
       </block> 
     </view>
     <scroll-view class="swiper" style="height:{{winHeight-45}}px;" scroll-y="true">
       <view>
-        <block wx:for="{{arrText}}" wx:key="index">
+        <block wx:for="{{category}}" wx:key="index">
+          <!-- <block wx:if="{{}}"> -->
           <view class="{{item}}" style="{{currentTab==index?'display:block':'display:none'}}">
-            <block wx:for="{{arrText[index]}}" wx:for-item="itemNum">
+            <!-- <block wx:if="{" wx:for-item="itemNum"> -->
               <view class="category">
                 <view class="top">
                   <view class="left">
                     <span style="background:{{color}}"></span>
+                    <text>{{itemNum}}</text>
+                    <text>{{itemNum}}</text>
                     <text>{{itemNum}}</text>
                   </view>
                   <image src="/images/jt.png" mode='widthFix'></image>
@@ -26,7 +29,7 @@
                   
                 </view>
               </view>
-            </block> 
+            <!-- </block>  -->
           </view>
         </block>
       </view>
