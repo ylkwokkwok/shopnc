@@ -205,6 +205,15 @@ Page({
         })
       }
     }, 1000)
+    shop.getTelCode().then(res => {
+      if (res.code == 200) {
+        console.log(res);
+        var arr = [];
+
+      } else {
+        console.log('验证码获取失败');
+      }
+    })
   },
   getVerificationCode() {
     this.getCode();
