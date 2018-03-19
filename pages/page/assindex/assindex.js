@@ -1,4 +1,7 @@
 import shop from '../../utils/shop.js';
+var arr = [];
+var brr=[];
+var crr=[];
 Page({
 
   /**
@@ -39,8 +42,22 @@ Page({
     shop.getGoodsClass().then(res => {
       if (res.code == 200) {
         console.log(res);
-        var arr=[];
-        
+        for(var i in res.datas.data){
+          if(parseInt(res.datas.data[i].gc_parent_id)==0){
+            arr.push(res.datas.data[i].gc_name);
+          }
+        }
+        for(var i=1;i<res.datas.children.length;i++){
+          for(var j in res.datas.data){
+            if(res.datas.children[i]==res.datas.data[j].gc_parent_id){
+              console.log(res.datas.data[j].gc_name);
+            }
+          }
+        }
+        that.setData({
+          goods_list: arr,
+          category:res.datas.data
+        });
       } else {
         console.log('分类获取失败');
       }
