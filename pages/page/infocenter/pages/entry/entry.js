@@ -348,7 +348,7 @@ Page({
     that.getStoreClasses()
   },
   getTelCode:function(){
-    shop.getGoodsClass().then(res => {
+    shop.getTelCode().then(res => {
       console.log(111111);
     })
   }
