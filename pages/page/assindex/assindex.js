@@ -1,7 +1,4 @@
 import shop from '../../utils/shop.js';
-var arr = [];
-var brr=[];
-var crr=[];
 Page({
 
   /**
