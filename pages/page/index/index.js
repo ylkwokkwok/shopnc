@@ -41,45 +41,34 @@ Page({
   },
   onLoad: function () {
     var that = this;
-    wx.request({
-      url: 'http://demo.it9g.com/mobile/index.php?act=goods&op=goods_list',
-      data: '',
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function (res) {
-        console.log(res.data);
+    // 获取首页 goods_list
+    shop.getIndexGoodsList().then(res => {
+      if (res.code == 200) {
         that.setData({
-          goods_list: res.data.datas.goods_list
+          goods_list: res.datas.goods_list
         })
+      }else{
+      console.log('首页goods_list获取失败')
       }
     })
-
-    wx.request({
-      url: 'http://demo.it9g.com/mobile/index.php?act=goods&op=goods_commend',
-      data: '',
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function (res) {
-        console.log(res.data);
-         that.setData({
-           goods_commend: res.data.datas.goods_commend_list
-         })
+    // 获取首页 goods_commend
+    shop.getIndexGoodsCommend().then(res => {
+      if (res.code == 200) {
+        that.setData({
+          goods_commend: res.datas.goods_commend_list
+        })
+      }else{
+      console.log('首页goods_commend获取失败')
       }
     })
-
-    wx.request({
-      url: 'http://demo.it9g.com/mobile/index.php?act=index&op=fast_news_adv',
-      data: '',
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function (res) {
-        console.log(res.data);
+    // 获取首页广告
+    shop.getFastNewsAdvs().then(res => {
+      if (res.code == 200) {
         that.setData({
-          fast_news: res.data.datas.fast_news_adv_list
+          fast_news: res.datas.fast_news_adv_list
         })
+      }else{
+      console.log('首页广告获取失败')
       }
     })
     //获取每日上新
