@@ -114,12 +114,13 @@
   overflow: hidden;
 }
 .hotshow view .tit{
-  font-size: 30rpx;
+  font-size: 28rpx;
   padding-left: 20rpx;
-  padding-top: 15rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
   overflow: hidden;
-  white-space: nowrap;
-  width:195rpx;
+  width:100%;
 }
 .hotshow view .jie{
   font-size: 24rpx;
@@ -131,6 +132,7 @@
   -webkit-line-clamp: 3;
   overflow: hidden;
   padding-top: 5rpx;
+  float: left;
 }
 .hotshow view .sign{
   width: 35rpx;
@@ -208,11 +210,12 @@
   font-size: 24rpx;
 }
 .todaynew .center .prolist{
-  display: flex;
-  flex-direction: row;
+  overflow:hidden;
 }
 .todaynew .center .prolist .pro{
   width:25%;
+  float: left;
+  margin-bottom: 20rpx;
 }
 .todaynew .center .prolist .pro image{
   width: 100rpx;
@@ -276,9 +279,11 @@
 }
 .choicepro .proimgs,.bigbrand .proimgs{
   width: 100rpx;
-  position: absolute;
+  float: left;
+  /* margin-left: 20rpx; */
+  /* position: absolute;
   top:10rpx;
-  right:20rpx;
+  right:20rpx; */
 }
 .choicepro .proimgs image,.bigbrand .proimgs image{
   width: 100rpx;
@@ -290,7 +295,7 @@
 .bigbrand>view{
   width: 345rpx;
   position: relative;
-  height: 230rpx;
+  padding:20rpx 10rpx;
   background: white;
   float: left;
   margin-right: 20rpx;

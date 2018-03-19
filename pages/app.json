@@ -57,10 +57,15 @@
     "page/infocenter/pages/returnGoods/returnGoods",
     "page/infocenter/pages/returnGdDetail/returnGdDetail",
     "page/infocenter/pages/integralManager/integralManager",
+    "page/infocenter/pages/myFightGroup/myFightGroup",
+    "page/infocenter/pages/myCartPrice/myCartPrice",
+    "page/infocenter/pages/myProbation/myProbation",
     "page/shopcart/shopcart",
     "page/index/pages/bargain/bargain",
     "page/index/pages/bargain_list/bargain_list",
-    "page/index/pages/buy/buy"
+    "page/index/pages/buy/buy",
+    "page/index/pages/probation/probation",
+    "page/index/pages/probation_list/probation_list"
   ],
   "window": {
     "backgroundTextStyle": "light",

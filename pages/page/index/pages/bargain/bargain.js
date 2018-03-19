@@ -6,6 +6,7 @@ Page({
    */
   data: {
     showRulesStatus: false,
+    winHeight:0,
     goods: {
       goods_name: '力拔山兮气盖世, 时不利兮骓不逝。 骓不逝兮可奈何, 虞兮虞兮奈若何!',
       goods_img: '/images/shop3.png',
@@ -51,6 +52,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+    /** 
+     * 获取系统信息 
+     */
+    wx.getSystemInfo({
+
+      success: function (res) {
+        that.setData({
+          winHeight: res.windowHeight
+        });
+      }
+    });
   },
 
   /**
