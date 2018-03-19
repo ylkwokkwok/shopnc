@@ -44,7 +44,7 @@
         <view class="tit">今日上新</view>
         <navigator url="">更多新品 ></navigator>
       </view>
-      <view class="prolist">
+      <scroll-view class="prolist">
         <block wx:for="{{today_new_goods}}" wx:key="*this">
           <view class="pro">
             <navigator url="{{item.link}}">
@@ -54,7 +54,7 @@
             </navigator>
           </view>
         </block>
-      </view>
+      </scroll-view>
     </view>
   </view>
   <!--精彩快报-->
@@ -104,7 +104,7 @@
   </view>
   <view class='bigbrand hotshow'>
   <block wx:for="{{goods_list}}" wx:key="bigbrand">
-      <view>
+      <view style="padding-top:0rpx;padding-left:0rpx;">
           <view class="sign2">大品牌</view>
           <view class="tit">{{item.goods_name}}</view>
           <view class='jie'>{{item.jingle}}</view>

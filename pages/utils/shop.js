@@ -213,7 +213,7 @@ export default {
   getGoodsClass:function(){
     let data = {};
     return wsAPI.taskSequence()
-      .then(() => wsAPI.post('?act=goods_class&op=index', data))
+      .then(() => wsAPI.post('?act=goods_class&op=getGoodsClass', data))
   },
   /**
    * 获取今日上新

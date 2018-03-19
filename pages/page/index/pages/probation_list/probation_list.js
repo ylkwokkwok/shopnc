@@ -1,4 +1,4 @@
-import shop from '../../../../utils/shop'
+// page/index/pages/probation_list/probation_list.js
 Page({
 
   /**
@@ -6,6 +6,11 @@ Page({
    */
   data: {
     winHeight:0,
+    shoplist:[
+      { img: "/images/shop3.png", name:"cpu:ingds ",jie:"大师傅似的啊手动阀卡萨丁发射点立刻你发",shopname:"是佳能单反",count:10,people:100},
+      { img: "/images/shop3.png", name: "cpu:ingds ",jie:"快捷施法就是丹诺夫卡罚款了你多少三年免费",shopname: "是佳能单反", count: 10, people: 100 },
+      { img: "/images/shop3.png", name: "cpu:ingds ",jie:"的开发商地方卢卡斯的法律看到你发的书房里卡迪夫看i",shopname: "是佳能单反", count: 10, people: 100 }
+    ],
   },
 
   /**

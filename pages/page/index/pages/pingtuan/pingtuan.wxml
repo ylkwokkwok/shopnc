@@ -1,7 +1,7 @@
 <view class="container" style="min-height:{{winHeight}}px">
   <view class="top_search">
     <input confirm-type="search" type="text" placeholder='请输入您要搜索的内容' placeholder-style="color:#666666"/>
-    <image src='../../images/search1.png' mode='widthFix'></image>
+    <image src='/images/search1.png' mode='widthFix'></image>
   </view>
   <view class="shoplist">
     <block wx:for="{{pros}}" wx:key="*this">

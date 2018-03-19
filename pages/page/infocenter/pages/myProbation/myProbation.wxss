@@ -1,0 +1,125 @@
+.container{
+  background: #f6f6f6;
+}
+.tablist{
+  width: 100%;
+  height: 88rpx;
+  background: white;
+  line-height: 88rpx;
+  display: flex;
+  flex-direction: row;
+}
+.tablist>view{
+  width: 33.33%;
+  text-align: center;
+  font-size: 30rpx;
+}
+.tablist>view>text{
+  width: 60%;
+  margin:auto;
+  text-align: center;
+  height: 100%;
+  display: block;
+}
+.tablist>view.on>text{
+  border-bottom: 5rpx solid #568fdc;
+}
+.shoplist{
+  margin-top:20rpx;
+  width: 750rpx;
+}
+.shoplist .shopone{
+  width:100%;
+  margin:auto;
+  position: relative;
+  overflow: hidden;
+  background: white;
+  margin-bottom: 20rpx;
+  padding:0 20rpx;
+}
+.shoplist .shopone .sel{
+  width: 40rpx;
+  float: left;
+  margin-top:50rpx;
+}
+.shoplist .shopone .left{
+  float: left;
+  width: 200rpx;
+  position: relative;
+}
+.shoplist .shopone .left .shopimg{
+  width: 100%;
+  margin-top:20rpx;
+}
+.shoplist .shopone .left .alertimg{
+  position: absolute;
+  left: 0rpx;
+  top: 20rpx;
+  width: 85rpx;
+  height: 85rpx;
+}
+.shoplist .shopone .right{
+  float: left;
+  width: 490rpx;
+  margin-left: 20rpx;
+  overflow: hidden;
+  padding-bottom: 40rpx;
+}
+.shoplist .shopone:last-child .right{
+  border-bottom: none;
+}
+.shoplist .shopone .right .jie{
+  width: 100%;
+  font-size: 28rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  padding:0rpx 12rpx;
+  margin-top:20rpx;
+  color: #333;
+}
+.shoplist .shopone .right .shopname{
+  float: left;
+  font-size: 30rpx;
+  color: red;
+  padding-left: 20rpx;
+}
+.shoplist .shopone .right .count{
+  float: right;
+  color: #666;
+  font-size: 20rpx;
+  padding-right: 20rpx;
+}
+.shoplist .shopone .right .count text{
+  color: red;
+}
+.shoplist .shopone .right .bottom{
+  width: 100%;
+  padding-top: 20rpx;
+}
+.shoplist .shopone .right .bottom>view{
+  float: left;
+  font-size: 20rpx;
+  text-align: center;
+  display: block;
+  color:#666;
+}
+.shoplist .shopone .right .bottom .oldprice{
+  padding-left: 20rpx;
+  float: left;
+}
+.shoplist .shopone .right .bottom .oldprice text{
+  font-size: 24rpx;
+  text-decoration: line-through;
+}
+.shoplist .shopone .right .bottom navigator{
+  float: right;
+  height: 40rpx;
+  line-height: 40rpx;
+  color: white;
+  font-size: 24rpx;
+  background: #568fdc;
+  border-radius: 20rpx;
+  padding:0 20rpx;
+}
