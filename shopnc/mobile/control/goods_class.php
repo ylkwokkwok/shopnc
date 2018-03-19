@@ -101,4 +101,11 @@ class goods_classControl extends mobileHomeControl{
         }
         output_data($data);
     }
+
+    //小程序获取商品分类
+    public function getGoodsClassOp(){
+        $gc_model   = Model('goods_class');
+        $gc_list = $gc_model->getCache();
+        output_data($gc_list);
+    }
 }
