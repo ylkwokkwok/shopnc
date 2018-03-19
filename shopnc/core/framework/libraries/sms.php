@@ -101,9 +101,9 @@ class Sms {
 		$yunpian='yunpian';
 		$plugin = str_replace('\\', '', str_replace('/', '', str_replace('.', '',$yunpian)));
         if (!empty($plugin)) {
-            define('PLUGIN_ROOT', BASE_DATA_PATH . DS .'api/smsapi');
-            require_once(PLUGIN_ROOT . DS . $plugin . DS . 'Send.php');
-            return send_sms($content, $mobile);
+            define('PLUGIN_ROOT', BASE_DATA_PATH . DS .'api/alimsg/aliyun-dysms-php-sdk/api_demo/');
+            require_once(PLUGIN_ROOT . DS . $plugin . DS . 'SmsDemo.php');
+            return sendSms($content, $mobile);
         }
 		else
 		{
