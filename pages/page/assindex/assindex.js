@@ -45,6 +45,7 @@ Page({
         for(var i in res.datas.data){
           if(parseInt(res.datas.data[i].gc_parent_id)==0){
             arr.push(res.datas.data[i].gc_name);
+            console.log(arr);
           }
         }
         for(var i=1;i<res.datas.children.length;i++){
@@ -55,7 +56,7 @@ Page({
           }
         }
         that.setData({
-          goods_list: arr,
+          goods_list: arr, 
           category:res.datas.data
         });
       } else {
