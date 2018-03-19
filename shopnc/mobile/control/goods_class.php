@@ -105,7 +105,15 @@ class goods_classControl extends mobileHomeControl{
     //小程序获取商品分类
     public function getGoodsClassOp(){
         $gc_model   = Model('goods_class');
-        $gc_list = $gc_model->getCache();
+        $gc_list   = $gc_model->getGoodsClassListByParentId(0);
+        foreach ($gc_list as &$gc){
+            $sons = $gc_model->getGoodsClassListByParentId($gc['gc_id']);
+            foreach ($sons as &$gc_1){
+                $sons_1 = $gc_model->getGoodsClassListByParentId($gc_1['gc_id']);
+                $gc_1['children'] = $sons_1;
+            }
+            $gc['children'] = $sons;
+        }
         output_data($gc_list);
     }
 }
