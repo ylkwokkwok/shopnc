@@ -165,6 +165,13 @@ class goodsModel extends Model{
     public function today_new_goods($field = '*', $group = '',$order = 'goods_id desc', $limit = 6, $page = 0, $count = 0){
         return $this->table('goods')->field($field)->where()->group($group)->order($order)->limit($limit)->page($page, $count)->select();
     }
+    ///手机验证
+    public function sendCaptcha(){
+        require_once('../../data/api/alimsg/aliyun-dysms-php-sdk/api_demo/SmsDemo.php');
+        $b=new SmsDemo();
+        $b::sendSms(13088209127);
+        return 123;
+    }
 
     /**
      * 普通列表，即不包括虚拟商品、F码商品、预售商品、预定商品
