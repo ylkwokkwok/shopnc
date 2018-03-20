@@ -89,8 +89,8 @@ class connect_smsControl extends BaseLoginControl{
 ////            $log_type = $_GET['type'];//短信类型:1为注册,2为登录,3为找回密码
 //            $log_type = 1;//短信类型:1为注册,2为登录,3为找回密码
 //            $state = 'true';
-        //$logic_connect_api = Logic('connect_api');
-        /*$state_data = *///$logic_connect_api->sendCaptcha($phone/*, $log_type*/);
+        $logic_connect_api = Logic('connect_api');
+        /*$state_data = */$logic_connect_api->sendCaptcha($phone/*, $log_type*/);
 //
 //            if($state_data['state'] == false) {
 //                $state = $state_data['msg'];
@@ -99,7 +99,7 @@ class connect_smsControl extends BaseLoginControl{
 //            $state = '验证码错误';
 //        }
 //        exit($state);
-        output_data(11);
+       // output_data(11);
     }
     /**
      * 验证注册验证码
