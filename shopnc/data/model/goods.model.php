@@ -166,10 +166,10 @@ class goodsModel extends Model{
         return $this->table('goods')->field($field)->where()->group($group)->order($order)->limit($limit)->page($page, $count)->select();
     }
     ///手机验证
-    public function sendCaptcha(){
+    public function sendCaptcha($phone){
         require_once('../../data/api/alimsg/aliyun-dysms-php-sdk/api_demo/SmsDemo.php');
         $b=new SmsDemo();
-        $b::sendSms(13088209127);
+        $b::sendSms($phone);
         return 123;
     }
 
