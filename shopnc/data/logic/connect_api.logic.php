@@ -50,102 +50,102 @@ class connect_apiLogic {
         $model_sms_log = Model('sms_log');
         $state = true;
         $msg = '手机验证码发送成功';
-        $sms_log = $this->ipCaptcha($log_type);
-        if(!empty($sms_log) && ($sms_log['add_time'] > TIMESTAMP-DEFAULT_CONNECT_SMS_TIME)) {//同一IP[n]秒内只能发一条短信
-            $state = false;
-            $msg = '同一IP地址'.DEFAULT_CONNECT_SMS_TIME.'秒内，请勿多次获取验证码！';
-        }
-        $condition = array();
-        $condition['log_phone'] = $phone;
-        $condition['log_type'] = $log_type;
-        $sms_log = $model_sms_log->getSmsInfo($condition);
-        if($state && !empty($sms_log) && ($sms_log['add_time'] > TIMESTAMP-DEFAULT_CONNECT_SMS_TIME)) {//同一手机号IP[n]秒内只能发一条短信
-            $state = false;
-            $msg = '同一手机号'.DEFAULT_CONNECT_SMS_TIME.'秒内，请勿多次获取验证码！';
-        }
-        $time24 = TIMESTAMP-60*60*24;
-        $condition = array();
-        $condition['log_phone'] = $phone;
-        $condition['add_time'] = array('egt',$time24);
-        $num = $model_sms_log->getSmsCount($condition);
-        if($state && $num >= DEFAULT_CONNECT_SMS_PHONE) {//同一手机号24小时内只能发5条短信
-            $state = false;
-            $msg = '同一手机号24小时内，请勿多次获取验证码！';
-        }
-        $condition = array();
-        $condition['log_ip'] = getIp();
-        $condition['add_time'] = array('egt',$time24);
-        $num = $model_sms_log->getSmsCount($condition);
-        if($state && $num >= DEFAULT_CONNECT_SMS_IP) {//同一IP24小时内只能发20条短信
-            $state = false;
-            $msg = '同一IP24小时内，请勿多次获取验证码！';
-        }
-        if($state == true) {
-            $log_array = array();
-            $model_member = Model('member');
-            $member = $model_member->getMemberInfo(array('member_mobile'=> $phone));
-            $captcha = rand(100000, 999999);
-            $log_msg = '【'.C('site_name').'】您于'.date("Y-m-d");
-            switch ($log_type) {
-                case '1':
-                    if(C('sms_register') != 1) {
-                        $state = false;
-                        $msg = '系统没有开启手机注册功能';
-                    }
-                    if(!empty($member)) {//检查手机号是否已被注册
-                        $state = false;
-                        $msg = '当前手机号已被注册，请更换其他号码。';
-                    }
-                    $log_msg .= '申请注册会员，验证码：'.$captcha.'。';
-                    break;
-                case '2':
-                    if(C('sms_login') != 1) {
-                        $state = false;
-                        $msg = '系统没有开启手机登录功能';
-                    }
-                    if(empty($member)) {//检查手机号是否已绑定会员
-                        $state = false;
-                        $msg = '当前手机号未注册，请检查号码是否正确。';
-                    }
-                    $log_msg .= '申请登录，验证码：'.$captcha.'。';
-                    $log_array['member_id'] = $member['member_id'];
-                    $log_array['member_name'] = $member['member_name'];
-                    break;
-                case '3':
-                    if(C('sms_password') != 1) {
-                        $state = false;
-                        $msg = '系统没有开启手机找回密码功能';
-                    }
-                    if(empty($member)) {//检查手机号是否已绑定会员
-                        $state = false;
-                        $msg = '当前手机号未注册，请检查号码是否正确。';
-                    }
-                    $log_msg .= '申请重置登录密码，验证码：'.$captcha.'。';
-                    $log_array['member_id'] = $member['member_id'];
-                    $log_array['member_name'] = $member['member_name'];
-                    break;
-                default:
-                    $state = false;
-                    $msg = '参数错误';
-                    break;
-            }
-            if($state == true){
+//        $sms_log = $this->ipCaptcha($log_type);
+//        if(!empty($sms_log) && ($sms_log['add_time'] > TIMESTAMP-DEFAULT_CONNECT_SMS_TIME)) {//同一IP[n]秒内只能发一条短信
+//            $state = false;
+//            $msg = '同一IP地址'.DEFAULT_CONNECT_SMS_TIME.'秒内，请勿多次获取验证码！';
+//        }
+//        $condition = array();
+//        $condition['log_phone'] = $phone;
+//        $condition['log_type'] = $log_type;
+//        $sms_log = $model_sms_log->getSmsInfo($condition);
+//        if($state && !empty($sms_log) && ($sms_log['add_time'] > TIMESTAMP-DEFAULT_CONNECT_SMS_TIME)) {//同一手机号IP[n]秒内只能发一条短信
+//            $state = false;
+//            $msg = '同一手机号'.DEFAULT_CONNECT_SMS_TIME.'秒内，请勿多次获取验证码！';
+//        }
+//        $time24 = TIMESTAMP-60*60*24;
+//        $condition = array();
+//        $condition['log_phone'] = $phone;
+//        $condition['add_time'] = array('egt',$time24);
+//        $num = $model_sms_log->getSmsCount($condition);
+//        if($state && $num >= DEFAULT_CONNECT_SMS_PHONE) {//同一手机号24小时内只能发5条短信
+//            $state = false;
+//            $msg = '同一手机号24小时内，请勿多次获取验证码！';
+//        }
+//        $condition = array();
+//        $condition['log_ip'] = getIp();
+//        $condition['add_time'] = array('egt',$time24);
+//        $num = $model_sms_log->getSmsCount($condition);
+//        if($state && $num >= DEFAULT_CONNECT_SMS_IP) {//同一IP24小时内只能发20条短信
+//            $state = false;
+//            $msg = '同一IP24小时内，请勿多次获取验证码！';
+//        }
+//        if($state == true) {
+//            $log_array = array();
+//            $model_member = Model('member');
+//            $member = $model_member->getMemberInfo(array('member_mobile'=> $phone));
+//            $captcha = rand(100000, 999999);
+//            $log_msg = '【'.C('site_name').'】您于'.date("Y-m-d");
+//            switch ($log_type) {
+//                case '1':
+//                    if(C('sms_register') != 1) {
+//                        $state = false;
+//                        $msg = '系统没有开启手机注册功能';
+//                    }
+//                    if(!empty($member)) {//检查手机号是否已被注册
+//                        $state = false;
+//                        $msg = '当前手机号已被注册，请更换其他号码。';
+//                    }
+//                    $log_msg .= '申请注册会员，验证码：'.$captcha.'。';
+//                    break;
+//                case '2':
+//                    if(C('sms_login') != 1) {
+//                        $state = false;
+//                        $msg = '系统没有开启手机登录功能';
+//                    }
+//                    if(empty($member)) {//检查手机号是否已绑定会员
+//                        $state = false;
+//                        $msg = '当前手机号未注册，请检查号码是否正确。';
+//                    }
+//                    $log_msg .= '申请登录，验证码：'.$captcha.'。';
+//                    $log_array['member_id'] = $member['member_id'];
+//                    $log_array['member_name'] = $member['member_name'];
+//                    break;
+//                case '3':
+//                    if(C('sms_password') != 1) {
+//                        $state = false;
+//                        $msg = '系统没有开启手机找回密码功能';
+//                    }
+//                    if(empty($member)) {//检查手机号是否已绑定会员
+//                        $state = false;
+//                        $msg = '当前手机号未注册，请检查号码是否正确。';
+//                    }
+//                    $log_msg .= '申请重置登录密码，验证码：'.$captcha.'。';
+//                    $log_array['member_id'] = $member['member_id'];
+//                    $log_array['member_name'] = $member['member_name'];
+//                    break;
+//                default:
+//                    $state = false;
+//                    $msg = '参数错误';
+//                    break;
+//            }
+//            if($state == true){
                 $sms = new Sms();
-                $result = $sms->send($phone,$log_msg);
-                if($result){
-                    $log_array['log_phone'] = $phone;
-                    $log_array['log_captcha'] = $captcha;
-                    $log_array['log_ip'] = getIp();
-                    $log_array['log_msg'] = $log_msg;
-                    $log_array['log_type'] = $log_type;
-                    $log_array['add_time'] = TIMESTAMP;
-                    $model_sms_log->addSms($log_array);
-                } else {
-                    $state = false;
-                    $msg = '手机短信发送失败';
-                }
-            }
-        }
+                $result = $sms->send($phone);
+//                if($result){
+//                    $log_array['log_phone'] = $phone;
+//                    $log_array['log_captcha'] = $captcha;
+//                    $log_array['log_ip'] = getIp();
+//                    $log_array['log_msg'] = $log_msg;
+//                    $log_array['log_type'] = $log_type;
+//                    $log_array['add_time'] = TIMESTAMP;
+//                    $model_sms_log->addSms($log_array);
+//                } else {
+//                    $state = false;
+//                    $msg = '手机短信发送失败';
+//                }
+//            }
+//        }
         $state_data = array(
             'state' => $state,
             'sms_time' => DEFAULT_CONNECT_SMS_TIME,
