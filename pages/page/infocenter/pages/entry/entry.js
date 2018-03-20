@@ -356,7 +356,6 @@ Page({
         'Accept': 'application/json'
       },
       success: function (res) {
-        get_captcha
         console.log(res.data)
       }
 
