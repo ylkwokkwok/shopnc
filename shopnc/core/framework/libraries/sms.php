@@ -23,7 +23,7 @@ class Sms {
 //			return $this->mysend_smsbao($mobile,$content);
 //		}
 //		if($hao_sms_type==2)
-//		{require_once('../../../data/api/alimsg/aliyun-dysms-php-sdk/api_demo/SmsDemo.php');
+require_once('../../../data/api/alimsg/aliyun-dysms-php-sdk/api_demo/SmsDemo.php');
         $b=new SmsDemo();
         $b ->sendSms(/*$content,*/ $mobile);
         return 123;
