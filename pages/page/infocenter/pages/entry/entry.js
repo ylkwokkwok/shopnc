@@ -350,10 +350,9 @@ Page({
   getTelCode:function(){
     wx.request({
       url: 'http://demo.it9g.com/member/index.php?act=connect_sms&op=get_captcha',
-      method:'POST',
+      data:'',
       header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'Accept': 'application/json'
+        'content-type': 'application/json',
       },
       success: function (res) {
         console.log(res.data)
