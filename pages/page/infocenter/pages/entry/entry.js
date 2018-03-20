@@ -349,7 +349,7 @@ Page({
   },
   getTelCode:function(){
     shop.getTelCode().then(res => {
-      console.log(111111);
+      console.log(res);
     })
   }
 
