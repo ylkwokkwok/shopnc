@@ -99,7 +99,7 @@ class connect_smsControl extends BaseLoginControl{
 //            $state = '验证码错误';
 //        }
 //        exit($state);
-        output_data(11);
+        output_data(array('code'=>[11]));
     }
     /**
      * 验证注册验证码
