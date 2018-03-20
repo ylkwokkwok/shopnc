@@ -1,7 +1,7 @@
 <?php
 defined('In33hao') or exit('Access Invalid!');
 
-class connectapi extends Model{
+class connectapiModel extends Model{
     public function sendCaptcha($phone){
         $sms = new Sms();
         $result = $sms->send($phone);
