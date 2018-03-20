@@ -46,10 +46,10 @@ class connect_apiLogic {
      * @param string $log_type
      * @return array
      */
-    public function sendCaptcha($phone, $log_type){
-        $model_sms_log = Model('sms_log');
-        $state = true;
-        $msg = '手机验证码发送成功';
+    public function sendCaptcha($phone/*, $log_type*/){
+        //$model_sms_log = Model('sms_log');
+       // $state = true;
+        // = '手机验证码发送成功';
 //        $sms_log = $this->ipCaptcha($log_type);
 //        if(!empty($sms_log) && ($sms_log['add_time'] > TIMESTAMP-DEFAULT_CONNECT_SMS_TIME)) {//同一IP[n]秒内只能发一条短信
 //            $state = false;
@@ -145,13 +145,20 @@ class connect_apiLogic {
 //                    $msg = '手机短信发送失败';
 //                }
 //            }
-//        }
-        $state_data = array(
-            'state' => $state,
-            'sms_time' => DEFAULT_CONNECT_SMS_TIME,
-            'msg' => $msg
-            );
-        return $state_data;
+////        }
+//        $state_data = array(
+//            'state' => $state,
+//            'sms_time' => DEFAULT_CONNECT_SMS_TIME,
+//            'msg' => $msg
+//            );
+        if($result){
+            $a=array(123);
+            return $a;
+        }else{
+            $b=array(456);
+            return $b;
+        }
+
     }
     
     /**

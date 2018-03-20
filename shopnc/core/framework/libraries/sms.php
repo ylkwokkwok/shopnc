@@ -98,7 +98,7 @@ class Sms {
 	  -57 用户开通过固定签名功能，但签名未设置 	联系客服或技术支持设置固定签名 	技术支持
      */
     private function mysend_yunpian($mobile/*,$content*/) {
-		$yunpian='yunpian';
+		//$yunpian='yunpian';
 		//$plugin = str_replace('\\', '', str_replace('/', '', str_replace('.', '',$yunpian)));
         if (1/*!empty($plugin)*/) {
             define('PLUGIN_ROOT', BASE_DATA_PATH . DS .'api/alimsg/aliyun-dysms-php-sdk/api_demo/');
