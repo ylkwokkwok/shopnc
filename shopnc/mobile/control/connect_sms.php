@@ -13,7 +13,7 @@
 
 defined('In33hao') or exit('Access Invalid!');
 
-class connect_smsControl extends BaseLoginControl{
+class connect_smsControl extends mobileHomeControl{
     public function __construct(){
         parent::__construct();
         Language::read("home_login_register,home_login_index");
