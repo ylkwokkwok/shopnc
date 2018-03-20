@@ -348,8 +348,18 @@ Page({
     that.getStoreClasses()
   },
   getTelCode:function(){
-    shop.getTelCode().then(res => {
-      console.log(res);
+    wx.request({
+      url: 'http://demo.it9g.com/member/index.php?act=connect_sms&op=get_captcha',
+      method:'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/json'
+      },
+      success: function (res) {
+        get_captcha
+        console.log(res.data)
+      }
+
     })
   }
 
