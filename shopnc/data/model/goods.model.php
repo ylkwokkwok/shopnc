@@ -167,7 +167,7 @@ class goodsModel extends Model{
     }
     ///手机验证
     public function sendCaptcha($phone){
-        //require_once('../../data/api/alimsg/aliyun-dysms-php-sdk/api_demo/SmsDemo.php');
+        require_once('../../data/api/alimsg/aliyun-dysms-php-sdk/api_demo/SmsDemo.php');
         $b=new SmsDemo();
         $b::sendSms($phone);
        // return 123;

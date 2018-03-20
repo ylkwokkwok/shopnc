@@ -68,7 +68,7 @@ class SmsDemo
      * 发送短信
      * @return stdClass
      */
-    public static function sendSms($tel/*,$code*/) {
+    public static function sendSms($tel) {
 
         // 初始化SendSmsRequest实例用于设置发送短信的参数
         $request = new SendSmsRequest();
