@@ -349,7 +349,7 @@ Page({
   },
   getTelCode:function(){
     wx.request({
-      url: 'http://www.shopnc.com/member/index.php?act=connect_sms&op=get_captcha',
+      url: 'http://www.shopnc.com/mobile/index.php?act=connect_sms&op=get_captcha',
       method: "POST",
       header: {
         "content-type": "application/x-www-form-urlencoded"
