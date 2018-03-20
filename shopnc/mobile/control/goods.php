@@ -42,7 +42,7 @@ class goodsControl extends mobileHomeControl{
 //            $state = '验证码错误';
 //        }
 //        exit($state);
-        output_data(array('code'=>11));
+        //output_data(array('code'=>11));
     }
     /**
      * 商品列表
