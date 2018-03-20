@@ -351,9 +351,9 @@ Page({
     wx.request({
       url: 'http://demo.it9g.com/member/index.php?act=connect_sms&op=get_captcha',
       method: "POST",
-      header: {
-        "content-type": "application/x-www-form-urlencoded"
-      },
+      // header: {
+      //   "content-type": "application/x-www-form-urlencoded"
+      // },
       data: '',
       success: function (res) {
         console.log(res.data)
