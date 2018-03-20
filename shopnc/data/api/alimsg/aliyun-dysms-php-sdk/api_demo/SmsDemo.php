@@ -2,7 +2,7 @@
 
 ini_set("display_errors", "on");
 
-require_once dirname( '../api_sdk/vendor/autoload.php');
+require_once dirname(__DIR__) . '/api_sdk/vendor/autoload.php';
 
 use Aliyun\Core\Config;
 use Aliyun\Core\Profile\DefaultProfile;
