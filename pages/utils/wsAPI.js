@@ -1,5 +1,5 @@
 // 请求服务器地址
-const serverPath = 'http://demo.it9g.com'
+const serverPath = 'http://www.shopnc.com'
 // const serverPath = 'http://shop.xunshi.com'
 const apiBase = serverPath + '/mobile/index.php'
 
