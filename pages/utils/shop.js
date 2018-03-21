@@ -264,6 +264,6 @@ export default {
   getSellerInfo:function(){
     let data = {};
     return wsAPI.taskSequence()
-      .then(() => wsAPI.post('?act=seller_center&op=index', data))
+      .then(() => wsAPI.post('?act=seller_center&op=index', { key: wx.getStorageSync(TOKEN_NAME) }))
   }
 }
