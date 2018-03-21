@@ -261,6 +261,11 @@ export default {
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=store_goods_add&op=get_spec_list', data))
   },
+  /**
+   * 添加商品spec
+   * @param data
+   * @returns {boolean}
+   */
   addSpec: function (data) {
     data.key = wx.getStorageSync(TOKEN_NAME)
     return wsAPI.taskSequence()
