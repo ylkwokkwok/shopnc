@@ -270,5 +270,25 @@ export default {
     data.key = wx.getStorageSync(TOKEN_NAME)
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=store_goods_add&op=ajax_add_spec', data))
+  },
+  // /**
+// * 获取短信验证码
+// */
+// getTelCode: function (){
+// let data = {};
+// return wsAPI.taskSequence()
+// .then(() => wsAPI.post('?act=connect_sms&op=get_captcha', data))
+// }
+//获取卖家信息
+getSellerInfo: function () {
+    let data = {};
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=seller_center&op=index', { key: wx.getStorageSync(TOKEN_NAME) }))
+  },
+  //获取店铺信息
+  getShopInfo: function () {
+    let data = {};
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=seller_center&op=getShopInfoOp', { key: wx.getStorageSync(TOKEN_NAME) }))
   }
 }
