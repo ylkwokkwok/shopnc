@@ -311,7 +311,7 @@ Page({
     })
 
     wx.request({
-      url: 'http://demo.it9g.com/mobile/index.php?act=ali_msgControl&op=sendCode',
+      url: 'http://demo.it9g.com/mobile/index.php?act=ali_msg&op=sendCode',
       method: "POST",
       header: {
         "content-type": "application/x-www-form-urlencoded"
