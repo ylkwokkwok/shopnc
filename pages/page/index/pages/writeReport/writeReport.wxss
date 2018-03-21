@@ -1,0 +1,122 @@
+page{
+  background: #f6f6f6;
+}
+.top{
+  background: white;
+  width: 100%;
+  padding:0 20rpx;
+}
+.xq{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  overflow: hidden;
+}
+.xq text{
+  float: left;
+  padding-left: 20rpx;
+  font-size: 30rpx;
+}
+.xq image{
+  width: 15rpx;
+  margin-top: 30rpx;
+  float: right;
+  margin-right: 20rpx;
+}
+.same{
+  width: 100%;
+  margin-bottom: 20rpx;
+  padding:10rpx 0rpx;
+  overflow: hidden;
+}
+.same span{
+  width: 20rpx;
+  height: 20rpx;
+  background: #568fdc;
+  border-radius: 50%;
+  display: block;
+  float: left;
+  margin-top: 10rpx;
+}
+.same text{
+  display: block;
+  color: #999;
+  font-size: 24rpx;
+  float: left;
+  margin-left: 20rpx;
+  width: 670rpx;
+}
+.same:last-child{
+  padding-bottom: 20rpx;
+}
+.bottom{
+  width: 100%;
+  background: white;
+  margin-top: 20rpx;
+  padding:20rpx;
+}
+.bottom .shopone{
+  width:100%;
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+}
+.bottom .shopone .left{
+  float: left;
+  width: 120rpx;
+}
+.bottom .shopone .left image{
+  width: 100%;
+}
+.bottom .shopone .right{
+  margin-left: 20rpx;
+  width: 570rpx;
+  float: left;
+}
+.bottom .shopone .right .tit{
+  width: 100%;
+  color: #333;
+  font-size: 28rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.bottom .textarea{
+  width: 100%;
+  height: 220rpx;
+  margin-top: 20rpx;
+}
+.bottom .textarea textarea{
+  font-size: 24rpx;
+  color: #333;
+}
+.uploadImg{
+  width: 100%;
+  overflow: hidden;
+  padding-top: 20rpx;
+}
+.uploadImg image{
+  width: 120rpx;
+  height: 120rpx;
+  float: left;
+  margin-right: 20rpx;
+}
+.uploadImg .del{
+  position: absolute;
+  right: -32rpx;
+  top: -12rpx;
+  width: 28rpx;
+  height: 28rpx;
+  z-index: 100;
+}
+.form button{
+  width: 710rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-radius: 20rpx;
+  background: #568fdc;
+  color: white;
+  font-size: 28rpx;
+  text-align: center;
+  margin: 20rpx auto;
+}

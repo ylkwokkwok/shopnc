@@ -15,7 +15,7 @@
         <view class="jie">{{item.jie}}</view>
         <view class="middle">
           <view class="shopname">{{item.shopname}}提供</view>
-          <view class="count">提供{{item.count}}份</view>
+          <view class="count">提供<text>{{item.count}}</text>份</view>
         </view>
         <view class="bottom">
           <view>目前申请人数{{item.people}}人</view>

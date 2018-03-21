@@ -25,10 +25,43 @@ Page({
     currentTab: 0,
     collect: false,
     collectImg: "/images/collect.png",
-    collectText: "收藏",
-    isCollect: false
+    collectText: "收藏"
   },
+  changeSwiper: function (e) {
+    this.setData({
+      current: e.detail.current + 1,
+    })
+  },
+  changeCollect: function (e) {
+    if (this.data.collect == false) {
+      this.setData({
+        collectImg: "/images/collect_sel.png",
+        collectText: "已收藏"
+      })
+    } else {
+      this.setData({
+        collectImg: "/images/collect.png",
+        collectText: "收藏"
+      })
+    }
+    this.setData({
+      collect: !(this.data.collect)
+    });
+  },
+  /** 
+   * 点击tab切换 
+   */
+  swichNav: function (e) {
 
+    var that = this;
+    if (this.data.currentTab === e.target.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        currentTab: e.target.dataset.current
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */

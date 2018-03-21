@@ -1,3 +1,6 @@
+.container{
+  padding-bottom: 0;
+}
 .top_search{
   width:100%;
   height: 90rpx;
@@ -88,8 +91,27 @@
   width: 15rpx;
   margin-top: 15rpx;
   float: right;
+  margin-right: 20rpx;
 }
 .swiper .category .bottom{
   padding:20rpx;
   background: white;
+  overflow: hidden;
+}
+.swiper .category .bottom navigator{
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  font-size: 20rpx;
+  width: 20%;
+  float: left;
+  height: 100rpx;
+  text-align: center;
+  padding-top: 30rpx;
+  color: #568fdc;
+}
+.swiper .category .bottom navigator:nth-child(5n+1){
+  border-left: 1px solid #eee;
+}
+.swiper .category .bottom navigator:nth-child(-n+5){
+  border-top: 1px solid #eee;
 }

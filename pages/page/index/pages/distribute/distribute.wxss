@@ -1,0 +1,211 @@
+page{
+  background: #f6f6f6;
+}
+.address{
+  width: 750rpx;
+  background: white;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.address .left{
+  float: left;
+}
+.address .pos{
+  margin-left: 20rpx;
+  width: 25rpx;
+  margin-top:35rpx;
+  float: left;
+}
+.address text{
+  font-size: 30rpx;
+  color: #999;
+  margin-left: 20rpx;
+  float: left;
+}
+.address .jt{
+  float: right;
+  width: 20rpx;
+  margin-right: 20rpx;
+  margin-top:32rpx;
+}
+.shopone{
+  width: 100%;
+  background: white;
+  margin-top: 20rpx;
+  overflow: hidden;
+  padding:20rpx;
+}
+.shopone .left{
+  float: left;
+  width: 180rpx;
+}
+.shopone .left image{
+  width: 100%;
+}
+.shopone .right{
+  width: 510rpx;
+  float: right;
+  margin-left: 20rpx;
+}
+.shopone .right .tit{
+  font-size: 28rpx;
+  color: #333;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.shopone .right .shopname{
+  color: red;
+  font-size: 30rpx;
+  padding-top: 10rpx;
+}
+.shopone .right .bottom{
+  overflow: hidden;
+  width: 100%;
+  padding-top: 20rpx;
+}
+.shopone .right .bottom .price{
+  font-size: 24rpx;
+  float: left;
+  color: #999;
+}
+.shopone .right .bottom .price text{
+  text-decoration: line-through;
+}
+.shopone .right .bottom .count{
+  font-size: 20rpx;
+  float: right;
+  color: #999;
+}
+.shopone .right .bottom .count text{
+  color: red;
+}
+.xq{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: white;
+  margin-top: 20rpx;
+  overflow: hidden;
+}
+.xq navigator{
+  width: 100%;
+  overflow: hidden;
+  display: block;
+}
+.xq navigator text{
+  float: left;
+  padding-left: 20rpx;
+  font-size: 30rpx;
+}
+.xq navigator image{
+  width: 15rpx;
+  margin-top: 30rpx;
+  float: right;
+  margin-right: 20rpx;
+}
+.sure{
+  width: 710rpx;
+  margin:20rpx auto;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #568fdc;
+  color: white;
+  border-radius: 20rpx;
+  font-size: 30rpx;
+  text-align: center;
+}
+.bg{
+  width: 100%;
+  background: #a1a1a1;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index: 10;
+}
+.addList{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 740rpx;
+  left: 0;
+  background: white;
+  z-index: 20;
+}
+.addList .top{
+  width: 100%;
+  height: 70rpx;
+  background: #eeeeee;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.addList .top>view{
+  text-align: center;
+  width: 100%;
+  line-height: 70rpx;
+  display: block;
+  font-size: 30rpx;
+  color: 939393;
+}
+.addList .top>image{
+  position: absolute;
+  top:20rpx;
+  width: 30rpx;
+  right: 20rpx;
+}
+.addList .addList-tab{
+  margin-top:70rpx;
+  height: 670rpx;
+}
+.addList .addList-tab .tab-item{
+  width: 710rpx;
+  overflow: hidden;
+  margin:auto;
+  display: flex;
+  flex-direction: row;
+  padding:50rpx 0;
+  border-bottom: 1px solid #ccc;
+}
+.addList .addList-tab .tab-item .sel{
+  width: 35rpx;
+  margin-top:10rpx;
+}
+.addList .addList-tab .tab-item view{
+  width: 600rpx;
+  margin-left: 20rpx;
+  font-size:30rpx;
+  margin-top:10rpx;
+}
+.addList .addList-tab .tab-item navigator{
+  width: 50rpx;
+  margin-left: 20rpx;
+}
+.addList .addList-tab .tab-item navigator>image{
+  width: 100%;
+}
+.addList .addNew{
+  margin:auto;
+  margin-top:30rpx;
+  width:240rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+.addList .addNew view{
+  width: 40rpx;
+  height: 40rpx;
+  border:1px solid #999;
+  margin-left: 20rpx;
+}
+.addList .addNew navigator{
+  display: flex;
+  flex-direction: row;
+}
+.addList .addNew view image{
+  width: 30rpx;
+  margin-top:5rpx;
+  margin-left: 5rpx;
+}
