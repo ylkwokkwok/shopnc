@@ -24,14 +24,14 @@ class seller_centerControl extends mobileSellerControl
 //        if ($store_id <= 0) {
 //            output_error('参数错误');
 //        }
-//        $store_online_info = Model('store')->getStoreOnlineInfoByID($store_id);
+        $store_online_info = Model('store')->getStoreOnlineInfoByID($store_id);
 //        if (empty($store_online_info)) {
 //            output_error('店铺不存在或未开启');
 //        }
 //
-//        $store_info = array();
+      $store_info = array();
 //        $store_info['store_id'] = $store_online_info['store_id'];
-//        $store_info['store_name'] = $store_online_info['store_name'];
+      $store_info['store_name'] = $store_online_info['store_name'];
 //        $store_info['member_id'] = $store_online_info['member_id'];
 //        //33hao v5.2 添加QQ IM
 //        $store_info['store_qq'] = $store_online_info['store_qq'];
@@ -97,10 +97,8 @@ class seller_centerControl extends mobileSellerControl
 //        $goods_fields = $this->getGoodsFields();
 //        $goods_list = $model_goods->getGoodsListByColorDistinct($where, $goods_fields, 'goods_id desc', 0, 20);
 //        $goods_list = $this->_goods_list_extend($goods_list);
-        output_data(/*array(
-            'store_info' => $store_info,
-            'rec_goods_list_count' => count($goods_list),
-            'rec_goods_list' => $goods_list,
-        )*/$store_id);
+        output_data(array(
+            'store_info' => $store_info
+        ));
     }
 }
