@@ -20,6 +20,13 @@ Page({
         });
       }
     });
+    shop.getSellerInfo.then(res => {
+      if (res.code == 200) {
+        console.log(res)
+      } else {
+        console.log('获取买家信息失败')
+      }
+    })
   },
   formSubmit:function(e){
     var username=e.detail.value.username;

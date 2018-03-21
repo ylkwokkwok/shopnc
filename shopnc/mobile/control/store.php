@@ -478,4 +478,7 @@ class storeControl extends mobileHomeControl
         }
         output_data(array('promotion' => $promotion_arr));
     }
+
+    //获取店铺信息
+
 }

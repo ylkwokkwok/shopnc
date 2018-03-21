@@ -1,6 +1,6 @@
 <view class="container" style="min-height:{{winHeight}}px">
   <form class="entry" catchsubmit="formSubmit">
-    <view class="same one">
+    <!-- <view class="same one">
       <view class="left">
         <label>商品标志</label>
         <block wx:for="{{imageList}}" wx:key="*this">
@@ -11,7 +11,7 @@
         <image src="/images/infocenter/upload.png" mode='widthFix' class="upload" bindtap='chooseImage'></image>
         <image src="/images/jt.png" mode='widthFix' class="jt"></image>
       </view>
-    </view>
+    </view> -->
     <view class="same">
       <label>商户名称</label>
       <input placeholder='您的店铺名称' placeholder-style='color:#999' bindinput="bindKeyInput" data-key="store_name" value="{{store_name}}"></input>

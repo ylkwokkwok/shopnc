@@ -255,9 +255,15 @@ export default {
   // /**
   //  * 获取短信验证码
   //  */
-  // getTelCode: function(){
+  // getTelCode: function (){
   //   let data = {};
   //   return wsAPI.taskSequence()
   //     .then(() => wsAPI.post('?act=connect_sms&op=get_captcha', data))
   // }
+  //获取卖家信息
+  getSellerInfo:function(){
+    let data = {};
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=seller_center&op=index', data))
+  }
 }
