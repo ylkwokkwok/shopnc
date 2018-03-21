@@ -65,7 +65,11 @@
     "page/index/pages/bargain_list/bargain_list",
     "page/index/pages/buy/buy",
     "page/index/pages/probation/probation",
-    "page/index/pages/probation_list/probation_list"
+    "page/index/pages/probation_list/probation_list",
+    "page/index/pages/distribute/distribute",
+    "page/index/pages/confirmProbation/confirmProbation",
+    "page/index/pages/writeReport/writeReport",
+    "page/index/pages/report/report"
   ],
   "window": {
     "backgroundTextStyle": "light",

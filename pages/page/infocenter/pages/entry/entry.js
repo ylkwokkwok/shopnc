@@ -293,15 +293,6 @@ Page({
         })
       }
     }, 1000)
-    // shop.getTelCode().then(res => {
-    //   if (res.code == 200) {
-    //     console.log(res);
-    //     var arr = [];
-
-    //   } else {
-    //     console.log('验证码获取失败');
-    //   }
-    // })
   },
   getVerificationCode: function () {
     this.getCode();
@@ -309,7 +300,6 @@ Page({
     that.setData({
       disabled: true
     })
-
     wx.request({
       url: 'http://demo.it9g.com/mobile/index.php?act=ali_msg&op=sendCode',
       method: "POST",
@@ -321,7 +311,6 @@ Page({
         console.log(1)
 
       }
-
     })
   },
   entryprompt:function(e){
@@ -338,9 +327,6 @@ Page({
   chooseImage:function(e){
     var that = this
     wx.chooseImage({
-      // sourceType: sourceType[this.data.sourceTypeIndex],
-      // sizeType: sizeType[this.data.sizeTypeIndex],
-      // count: this.data.count[this.data.countIndex],
       success: function (res) {
         console.log(res)
         that.setData({
