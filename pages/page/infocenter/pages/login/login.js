@@ -25,7 +25,7 @@ Page({
       if (res.code == 200) {
         console.log(res)
       } else {
-        console.log('获取买家信息失败')
+        console.log(res)
       }
     })
   },

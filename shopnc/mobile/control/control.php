@@ -78,14 +78,14 @@ class mobileMemberControl extends mobileControl{
             }
             $mb_user_token_info = $model_mb_user_token->getMbUserTokenInfoByToken($key);
             if(empty($mb_user_token_info)) {
-                output_error('请登录', array('login' => '0'));
+                output_error('请登录1', array('login' => '0'));
             }
 
             $model_member = Model('member');
             $this->member_info = $model_member->getMemberInfoByID($mb_user_token_info['member_id']);
 
             if(empty($this->member_info)) {
-                output_error('请登录', array('login' => '0'));
+                output_error('请登录2', array('login' => '0'));
 			} else {
 				$this->member_info['client_type'] = $mb_user_token_info['client_type'];
 				$this->member_info['openid'] = $mb_user_token_info['openid'];
