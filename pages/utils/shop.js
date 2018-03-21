@@ -265,5 +265,11 @@ export default {
     let data = {};
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=seller_center&op=index', { key: wx.getStorageSync(TOKEN_NAME) }))
+  },
+  //获取店铺信息
+  getShopInfo:function(){
+    let data = {};
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=seller_center&op=getShopInfoOp', { key: wx.getStorageSync(TOKEN_NAME) }))
   }
 }
