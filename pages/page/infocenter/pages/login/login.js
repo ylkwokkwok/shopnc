@@ -1,3 +1,4 @@
+import shop from '../../../../utils/shop'
 // page/infocenter/pages/login/login.js
 Page({
 
@@ -20,7 +21,7 @@ Page({
         });
       }
     });
-    shop.getSellerInfo.then(res => {
+    shop.getSellerInfo().then(res => {
       if (res.code == 200) {
         console.log(res)
       } else {
