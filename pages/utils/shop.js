@@ -272,4 +272,3 @@ export default {
       .then(() => wsAPI.post('?act=store_goods_add&op=ajax_add_spec', data))
   }
 }
-}
