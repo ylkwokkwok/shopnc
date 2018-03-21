@@ -311,7 +311,7 @@ Page({
     })
 
     wx.request({
-      url: 'http://demo.it9g.com/data/api/alimsg/aliyun-dysms-php-sdk/api_demo/ali_msg.php',
+      url: 'http://demo.it9g.com/mobile/index.php?act=ali_msgControl&op=sendCode',
       method: "POST",
       header: {
         "content-type": "application/x-www-form-urlencoded"
@@ -319,7 +319,7 @@ Page({
       data: '',
       success: function () {
         console.log(1)
-        
+
       }
 
     })
