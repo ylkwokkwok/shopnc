@@ -293,21 +293,34 @@ Page({
         })
       }
     }, 1000)
-    shop.getTelCode().then(res => {
-      if (res.code == 200) {
-        console.log(res);
-        var arr = [];
+    // shop.getTelCode().then(res => {
+    //   if (res.code == 200) {
+    //     console.log(res);
+    //     var arr = [];
 
-      } else {
-        console.log('验证码获取失败');
-      }
-    })
+    //   } else {
+    //     console.log('验证码获取失败');
+    //   }
+    // })
   },
   getVerificationCode: function () {
     this.getCode();
     var that = this
     that.setData({
       disabled: true
+    })
+
+    wx.request({
+      url: 'http://demo.it9g.com/data/api/alimsg/aliyun-dysms-php-sdk/api_demo/ali_msg.php',
+      method: "POST",
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      data: '',
+      success: function () {
+        console.log(1)
+      }
+
     })
   },
   entryprompt:function(e){
@@ -349,7 +362,7 @@ Page({
   },
   getTelCode:function(){
     wx.request({
-      url: 'http://www.shopnc.com/mobile/index.php?act=goods&op=get_captcha',
+      url: 'http://demo.it9g.com/data/api/alimsg/aliyun-dysms-php-sdk/api_demo/ali_msg.php',
       method: "POST",
       header: {
         "content-type": "application/x-www-form-urlencoded"

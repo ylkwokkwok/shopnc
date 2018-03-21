@@ -44,7 +44,7 @@
     <view class="same">
       <label>电话号码</label>
       <input placeholder='您的手机号码' type='number' placeholder-style='color:#999' maxlength="11" bindinput="bindKeyInput" data-key="contacts_phone" value="{{contacts_phone}}" ></input>
-      <button class="getyzm" disabled='{{disabled}}' data-key="contacts_phone" bindtap="getTelCode">{{time}}</button>
+      <button class="getyzm" disabled='{{disabled}}' data-key="contacts_phone" bindtap="getVerificationCode">{{time}}</button>
     </view>
     <view class="same">
       <label>验证码</label>
