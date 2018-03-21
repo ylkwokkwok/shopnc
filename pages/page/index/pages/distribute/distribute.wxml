@@ -1,0 +1,49 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="address" bindtap='selectAdd'>
+    <view class="left">
+      <image src="/images/pos.png" mode='widthFix' class="pos"></image>
+      <text>{{address}}</text>
+    </view>
+    <image src="/images/jt.png" mode='widthFix' class="jt"></image>
+  </view>
+  <view class="shopone">
+    <view class="left">
+      <image src="/images/shop3.png" mode='widthFix'></image>
+    </view>
+    <view class="right">
+      <view class="tit">到了第三方多少撒旦反阿斯顿上的飞机喀什的发撒旦反</view>
+      <view class="shopname">史蒂夫和提供</view>
+      <view class="bottom">
+        <view class="price">原价：<text>￥3000</text></view>
+        <view class="count">提供<text>10</text>份</view>
+      </view>
+    </view>
+  </view>
+  <view class="xq">
+    <navigator url="/page/index/pages/report/report">
+      <text>试用玩法规则</text>
+      <image src="/images/jt.png" mode='widthFix'></image>
+    </navigator>
+  </view>
+  <navigator class="sure" url="../confirmProbation/confirmProbation">确认试用</navigator>
+  <!--选择地址-->
+  <view class="bg" style="{{showSel?'display:block':'display:none'}};height:{{winHeight}}px"></view>
+  <view style="{{showSel?'display:block':'display:none'}}" class="addList">
+    <view class="top">
+      <view>选择地址</view>
+      <image src="/images/assortment/del.png" mode='widthFix' bindtap="hideSel"></image>
+    </view>
+    <view class="addList-tab">
+      <block wx:for="{{addList}}" wx:key="index">
+        <view bindtap="swichNav" class="tab-item" data-val="{{item}}" data-current="{{index}}">
+          <image src="{{currentTab==index?'/images/comment_select.png':'/images/comment_normal.png'}}" class="sel" mode='widthFix'></image>
+          <view>{{item}}</view>
+          <navigator url="/page/infocenter/pages/addAddress/addAddress?address={{item}}"><image src="/images/assortment/edit.png" class="edit" mode='widthFix'></image></navigator>
+        </view>
+      </block>
+      <view class="addNew">
+        <navigator url="/page/infocenter/pages/addAddress/addAddress"> <text> 新增收货地址 </text><view><image src="/images/assortment/add.png" mode='widthFix'></image></view></navigator>
+      </view>
+    </view>  
+  </view>
+</view>

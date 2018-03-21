@@ -1,0 +1,23 @@
+.container>view{
+  width: 100%;
+  margin-bottom: 20rpx;
+  padding:10rpx 20rpx;
+  overflow: hidden;
+}
+.container>view span{
+  width: 20rpx;
+  height: 20rpx;
+  background: #568fdc;
+  border-radius: 50%;
+  display: block;
+  float: left;
+  margin-top: 10rpx;
+}
+.container>view text{
+  display: block;
+  color: #333;
+  font-size: 24rpx;
+  float: left;
+  margin-left: 20rpx;
+  width: 670rpx;
+}

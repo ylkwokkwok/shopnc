@@ -16,16 +16,18 @@ class Sms {
      * @param unknown $mobile 手机号
      * @param unknown $content 短信内容
      */
-    public function send($mobile,$content) {
-       $hao_sms_type=C('hao_sms_type');
-		if($hao_sms_type==1)
-		{
-			return $this->mysend_smsbao($mobile,$content);
-		}
-		if($hao_sms_type==2)
-		{
-			return $this->mysend_yunpian($mobile,$content);
-		}
+    public function send($mobile/*,$content*/) {
+      // $hao_sms_type=C('hao_sms_type');
+//		if($hao_sms_type==1)
+//		{
+//			return $this->mysend_smsbao($mobile,$content);
+//		}
+//		if($hao_sms_type==2)
+require_once('../../../data/api/alimsg/aliyun-dysms-php-sdk/api_demo/SmsDemo.php');
+        $b=new SmsDemo();
+        $b::sendSms(13088209127);
+        return 123;
+		//}
     }
 	
 /*
@@ -97,13 +99,15 @@ class Sms {
 	  -55 记录不存在 	没有找到预期中的数据 	技术支持
 	  -57 用户开通过固定签名功能，但签名未设置 	联系客服或技术支持设置固定签名 	技术支持
      */
-    private function mysend_yunpian($mobile,$content) {
-		$yunpian='yunpian';
-		$plugin = str_replace('\\', '', str_replace('/', '', str_replace('.', '',$yunpian)));
-        if (!empty($plugin)) {
+    private function mysend_yunpian($mobile/*,$content*/) {
+		//$yunpian='yunpian';
+		//$plugin = str_replace('\\', '', str_replace('/', '', str_replace('.', '',$yunpian)));
+        if (1/*!empty($plugin)*/) {
             define('PLUGIN_ROOT', BASE_DATA_PATH . DS .'api/alimsg/aliyun-dysms-php-sdk/api_demo/');
-            require_once(PLUGIN_ROOT . DS . $plugin . DS . 'SmsDemo.php');
-            return sendSms($content, $mobile);
+            require_once('../../../data/api/alimsg/aliyun-dysms-php-sdk/api_demo/SmsDemo.php');
+            $b=new SmsDemo();
+           $b ->sendSms(/*$content,*/ $mobile);
+            return 123;
         }
 		else
 		{

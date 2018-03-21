@@ -1,0 +1,40 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="shopone">
+    <view class="left">
+      <image src="/images/shop3.png" mode='widthFix'></image>
+    </view>
+    <view class="right">
+      <view class="tit">到了第三方多少撒旦反阿斯顿上的飞机喀什的发撒旦反</view>
+      <view class="shopname">史蒂夫和提供</view>
+      <view class="bottom">
+        <view class="price">原价：<text>￥3000</text></view>
+        <view class="count">提供<text>10</text>份</view>
+      </view>
+    </view>
+  </view>
+  <view class="address">
+    <text>配送地址:</text>
+    <view>四川省 绵阳市 高新区 留学人员创业园 绵兴东路133号</view>
+  </view>
+  <view class="xq">
+    <navigator url="/page/index/pages/report/report">
+      <text>试用玩法规则</text>
+      <image src="/images/jt.png" mode='widthFix'></image>
+    </navigator>
+  </view>
+  <view class="logist">
+    <navigator>
+      <text>物流详细</text>
+      <view class="right">
+        <text>商家正在准备</text>
+        <image src="/images/jt.png" mode='widthFix'></image>
+      </view>
+    </navigator>
+  </view>
+  <block wx:if="{{isAspect}}">
+    <navigator url="../writeReport/writeReport" class="btn">前往填写试用报告</navigator>
+  </block>
+  <block wx:else>
+    <view bindtap='changeAspect' class="btn">确认收货</view>
+  </block>
+</view>

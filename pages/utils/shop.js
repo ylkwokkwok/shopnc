@@ -251,15 +251,6 @@ export default {
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=goods&op=goods_commend', data))
   },
-
-  /**
-   * 获取短信验证码
-   */
-  getTelCode: function(){
-    let data = {};
-    return wsAPI.taskSequence()
-      .then(() => wsAPI.post('?act=connect_sms&op=get_captcha', data))
-  },
   /**
    * 获取店铺商品类型的规格
    * @param data
@@ -275,4 +266,5 @@ export default {
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=store_goods_add&op=ajax_add_spec', data))
   }
+}
 }

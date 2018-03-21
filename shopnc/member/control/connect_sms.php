@@ -52,15 +52,15 @@ class connect_smsControl extends BaseLoginControl{
             if($state_data['state'] == false) {
                 showDialog('验证码错误或已过期，重新输入','','error');
             }
-            
+
             $member = array();
             $member['member_name'] = $member_name;
             $member['member_passwd'] = $_POST['password'];
             $member['member_email'] = $_POST['email'];
             $member['member_mobile'] = $phone;
             $member['member_mobile_bind'] = 1;
-			//添加奖励积分v5.1.1
-			$member['inviter_id'] = intval(base64_decode($_COOKIE['uid']))/1;
+            //添加奖励积分v5.1.1
+            $member['inviter_id'] = intval(base64_decode($_COOKIE['uid']))/1;
             $result = $model_member->addMember($member);
             if($result) {
                 $member = $model_member->getMemberInfo(array('member_name'=> $member_name));
@@ -84,20 +84,22 @@ class connect_smsControl extends BaseLoginControl{
      */
     public function get_captchaOp(){
         $state = '发送失败';
-        $phone = $_GET['phone'];
-        if (checkSeccode($_GET['nchash'],$_GET['captcha']) && strlen($phone) == 11){
-            $log_type = $_GET['type'];//短信类型:1为注册,2为登录,3为找回密码
-            $state = 'true';
-            $logic_connect_api = Logic('connect_api');
-            $state_data = $logic_connect_api->sendCaptcha($phone, $log_type);
-            
-            if($state_data['state'] == false) {
-                $state = $state_data['msg'];
-            }
-        } else {
-            $state = '验证码错误';
-        }
-        exit($state);
+        $phone = 13088209127;
+//        if (checkSeccode($_GET['nchash'],$_GET['captcha']) && strlen($phone) == 11){
+////            $log_type = $_GET['type'];//短信类型:1为注册,2为登录,3为找回密码
+//            $log_type = 1;//短信类型:1为注册,2为登录,3为找回密码
+//            $state = 'true';
+        $logic_connect_api = Logic('connect_api');
+        /*$state_data = */$logic_connect_api->sendCaptcha($phone/*, $log_type*/);
+//
+//            if($state_data['state'] == false) {
+//                $state = $state_data['msg'];
+//            }
+//        } else {
+//            $state = '验证码错误';
+//        }
+//        exit($state);
+       //output_data(11);
     }
     /**
      * 验证注册验证码
@@ -162,7 +164,7 @@ class connect_smsControl extends BaseLoginControl{
             $member = $model_member->getMemberInfo(array('member_mobile'=> $phone));//检查手机号是否已被注册
             if(!empty($member)) {
                 $new_password = md5($_POST['password']);
-				$model_member->editMember(array('member_id'=> $member['member_id']),array('member_passwd'=> $new_password,'member_mobile'=> $phone,'member_mobile_bind'=> 1));
+                $model_member->editMember(array('member_id'=> $member['member_id']),array('member_passwd'=> $new_password,'member_mobile'=> $phone,'member_mobile_bind'=> 1));
                 $model_member->createSession($member);//自动登录
                 showDialog('密码修改成功',urlMember('member_information', 'member'),'succ');
             }

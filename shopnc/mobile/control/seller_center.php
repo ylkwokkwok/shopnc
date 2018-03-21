@@ -17,5 +17,4 @@ class seller_centerControl extends mobileSellerControl
     public function indexOp(){
         output_data($this->seller_info);
     }
-
 }

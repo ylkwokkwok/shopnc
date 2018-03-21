@@ -1,0 +1,134 @@
+page{
+  background: #f6f6f6;
+}
+.shopone{
+  width: 100%;
+  background: white;
+  overflow: hidden;
+  padding:20rpx;
+}
+.shopone .left{
+  float: left;
+  width: 180rpx;
+}
+.shopone .left image{
+  width: 100%;
+}
+.shopone .right{
+  width: 510rpx;
+  float: right;
+  margin-left: 20rpx;
+}
+.shopone .right .tit{
+  font-size: 28rpx;
+  color: #333;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.shopone .right .shopname{
+  color: red;
+  font-size: 30rpx;
+  padding-top: 10rpx;
+}
+.shopone .right .bottom{
+  overflow: hidden;
+  width: 100%;
+  padding-top: 20rpx;
+}
+.shopone .right .bottom .price{
+  font-size: 24rpx;
+  float: left;
+  color: #999;
+}
+.shopone .right .bottom .price text{
+  text-decoration: line-through;
+}
+.shopone .right .bottom .count{
+  font-size: 20rpx;
+  float: right;
+  color: #999;
+}
+.shopone .right .bottom .count text{
+  color: red;
+}
+.address{
+  margin-top: 20rpx;
+  background: white;
+  width: 100%;
+  padding:20rpx;
+  font-size: 30rpx;
+  overflow: hidden;
+}
+.address text{
+  float: left;
+  display: block;
+  width:140rpx; 
+}
+.address view{
+  float: left;
+  margin-left: 20rpx;
+  width: 550rpx;
+}
+.xq{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: white;
+  margin-top: 20rpx;
+  overflow: hidden;
+}
+.xq navigator{
+  width: 100%;
+  overflow: hidden;
+  display: block;
+}
+.xq navigator text{
+  float: left;
+  padding-left: 20rpx;
+  font-size: 30rpx;
+}
+.xq navigator image{
+  width: 15rpx;
+  margin-top: 30rpx;
+  float: right;
+  margin-right: 20rpx;
+}
+.logist{
+  width: 100%;
+  margin-top: 20rpx;
+  background: white;
+  padding:20rpx;
+}
+.logist>text{
+  float: left;
+  color: #333;
+  font-size: 30rpx;
+}
+.logist .right{
+  float: right;
+}
+.logist .right>text{
+  float: left;
+  font-size: 24rpx;
+  color: #999;
+  margin-right: 10rpx;
+  padding-top: 17rpx;
+}
+.logist .right>image{
+  width: 15rpx;
+  margin-top: 20rpx;
+  float: left;
+}
+.btn{
+  width: 710rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-radius: 20rpx;
+  margin: 20rpx auto;
+  background: #568fdc;
+  color: white;
+  font-size: 30rpx;
+  text-align: center;
+}

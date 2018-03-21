@@ -211,11 +211,13 @@
 }
 .todaynew .center .prolist{
   overflow:hidden;
+  height: 190rpx;
+  width: 100%;
+  white-space: nowrap;
 }
 .todaynew .center .prolist .pro{
-  width:25%;
-  float: left;
-  margin-bottom: 20rpx;
+  width: 177rpx;
+  display: inline-block;
 }
 .todaynew .center .prolist .pro image{
   width: 100rpx;

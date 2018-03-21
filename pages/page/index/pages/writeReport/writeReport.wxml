@@ -1,0 +1,53 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="top">
+    <view class="xq" bindtap='changeShow'>
+      <text>试用报告规范</text>
+      <image src="/images/jt.png" mode='widthFix'></image>
+    </view>
+    <block wx:if="{{isShow}}">
+      <view class="same">
+        <span></span>
+        <text>落地后发生的发射点立刻发生的法拉盛的矿难发生地方卢卡斯的法兰克手动阀是地方卢卡斯的法律思考的那份</text>
+      </view>
+      <view class="same">
+        <span></span>
+        <text>落地后发生的发射点立刻发生的法拉盛的矿难发生地方卢卡斯的法兰克手动阀是地方卢卡斯的法律思考的那份</text>
+      </view>
+      <view class="same">
+        <span></span>
+        <text>落地后发生的发射点立刻发生的法拉盛的矿难发生地方卢卡斯的法兰克手动阀是地方卢卡斯的法律思考的那份</text>
+      </view>
+      <view class="same">
+        <span></span>
+        <text>落地后发生的发射点立刻发生</text>
+      </view>
+    </block>
+  </view>
+  <form bindsubmit='formSubmit' class="form">
+    <view class="bottom">
+      <view class="shopone">
+        <view class="left">
+          <image src="/images/shop3.png" mode='widthFix'></image>
+        </view>
+        <view class="right">
+          <view class="tit">i上的覅是保守打法的法律开发商的法律看到发撒旦拉萨的发生了的开发商大幅拉升的发生的发散开来的发生地方卢卡斯的</view>
+        </view>
+      </view>
+      <view class="textarea">
+        <textarea placeholder='填写你要输入的内容' placeholder-style='color:#333'></textarea>
+      </view>
+      <view class="uploadImg">
+        <view class="imglist">
+          <block wx:for="{{imageList}}" wx:key="index">
+            <view style="position:relative;width:120rpx;height:120rpx;float:left;margin-right:20rpx;">
+              <image src="{{item}}" data-src='{{item}}' bindtap='previewImage'></image>
+              <image class="del" src="/images/infocenter/cancel.png" bindtap='delImg' data-value="{{item}}"></image>
+            </view>
+          </block>
+        </view>
+        <image src="/images/addphoto.jpg" bindtap='chooseImage'></image>
+      </view>
+    </view>
+    <button form-type='submit'>提交</button>
+  </form>
+</view>
