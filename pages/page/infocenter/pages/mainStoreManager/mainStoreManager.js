@@ -42,7 +42,7 @@ Page({
         console.log(res);
        
       } else {
-        console.log('获取店铺信息失败')
+        console.log(res)
       }
     })
 

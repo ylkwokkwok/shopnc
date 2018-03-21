@@ -289,6 +289,6 @@ getSellerInfo: function () {
   getShopInfo: function () {
     let data = {};
     return wsAPI.taskSequence()
-      .then(() => wsAPI.post('?act=store&op=store_info', { key: wx.getStorageSync(TOKEN_NAME) }))
+      .then(() => wsAPI.post('?act=seller_center&op=getShopInfo', { key: wx.getStorageSync(TOKEN_NAME) }))
   }
 }

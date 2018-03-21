@@ -19,7 +19,7 @@ class seller_centerControl extends mobileSellerControl
     }
     //获取店铺详细信息
     public function getShopInfoOp(){
-//        $store_id=$this->seller_info['store_id'];
+      $store_id=$this->seller_info['store_id'];
 //        //$store_id = (int) $_REQUEST['store_id'];
 //        if ($store_id <= 0) {
 //            output_error('参数错误');
@@ -101,6 +101,6 @@ class seller_centerControl extends mobileSellerControl
             'store_info' => $store_info,
             'rec_goods_list_count' => count($goods_list),
             'rec_goods_list' => $goods_list,
-        )*/11);
+        )*/$store_id);
     }
 }
