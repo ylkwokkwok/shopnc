@@ -319,6 +319,7 @@ Page({
       data: '',
       success: function () {
         console.log(1)
+        
       }
 
     })
