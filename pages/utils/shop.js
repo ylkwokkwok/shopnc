@@ -8,7 +8,7 @@ const USER_INFO = 'USER_INFO'
 
 /* API相关接口 */
 export default {
-  login: function(){
+  login: function () {
     // 执行登录操作
     wsAPI.taskSequence()
       .then(() => wsAPI.login())
@@ -16,10 +16,10 @@ export default {
         let code = res.code
         return new Promise((resolve) => {
           let authed = wx.getStorageSync(AUTHED)
-          if(authed !== false) {
+          if (authed !== false) {
             authed = true
           }
-          if(authed) {
+          if (authed) {
             wx.getUserInfo({
               withCredentials: false,
               success: function (res) {
@@ -92,18 +92,18 @@ export default {
     wsAPI.getUserInfo()
       .then(res => {
         wx.setStorageSync(USER_INFO, res.userInfo)
-    })
+      })
   },
-  getToken: function() {
+  getToken: function () {
     return wx.getStorageSync(TOKEN_NAME)
   },
-  getSessionKey: function() {
+  getSessionKey: function () {
     return wx.getStorageSync(SESSION_KEY)
   },
-  setMobile: function(mobile) {
+  setMobile: function (mobile) {
     return wx.setStorageSync(MOBILE, mobile)
   },
-  getMobile: function() {
+  getMobile: function () {
     return wx.getStorageSync(MOBILE)
   },
   getUserInfo: function () {
@@ -210,7 +210,7 @@ export default {
    * 获取所有商品分类
    * @returns {boolean}
    */
-  getGoodsClass:function(){
+  getGoodsClass: function () {
     let data = {};
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=goods_class&op=getGoodsClass', data))
@@ -220,16 +220,16 @@ export default {
    * @returns {boolean}
    */
   getTodayNewGoods: function () {
-      let data={};
-     return wsAPI.taskSequence()
-         .then(() => wsAPI.post('?act=goods&op=today_new_goods', data))
+    let data = {};
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=goods&op=today_new_goods', data))
   },
   /**
    * 获取首页广告
    * @returns {boolean}
    */
   getFastNewsAdvs: function () {
-    let data={};
+    let data = {};
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=index&op=fast_news_adv', data))
   },
@@ -238,7 +238,7 @@ export default {
    * @returns {boolean}
    */
   getIndexGoodsList: function () {
-    let data={};
+    let data = {};
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=goods&op=goods_list', data))
   },
@@ -247,29 +247,28 @@ export default {
    * @returns {boolean}
    */
   getIndexGoodsCommend: function () {
-    let data={};
+    let data = {};
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=goods&op=goods_commend', data))
   },
-
-  // /**
-  //  * 获取短信验证码
-  //  */
-  // getTelCode: function (){
-  //   let data = {};
-  //   return wsAPI.taskSequence()
-  //     .then(() => wsAPI.post('?act=connect_sms&op=get_captcha', data))
-  // }
-  //获取卖家信息
-  getSellerInfo:function(){
-    let data = {};
+  /**
+   * 获取店铺商品类型的规格
+   * @param data
+   * @returns {boolean}
+   */
+  getStoreGoodsSpecByClassId: function (data) {
+    data.key = wx.getStorageSync(TOKEN_NAME)
     return wsAPI.taskSequence()
-      .then(() => wsAPI.post('?act=seller_center&op=index', { key: wx.getStorageSync(TOKEN_NAME) }))
+      .then(() => wsAPI.post('?act=store_goods_add&op=get_spec_list', data))
   },
-  //获取店铺信息
-  getShopInfo:function(){
-    let data = {};
+  /**
+   * 添加商品spec
+   * @param data
+   * @returns {boolean}
+   */
+  addSpec: function (data) {
+    data.key = wx.getStorageSync(TOKEN_NAME)
     return wsAPI.taskSequence()
-      .then(() => wsAPI.post('?act=seller_center&op=getShopInfoOp', { key: wx.getStorageSync(TOKEN_NAME) }))
+      .then(() => wsAPI.post('?act=store_goods_add&op=ajax_add_spec', data))
   }
 }

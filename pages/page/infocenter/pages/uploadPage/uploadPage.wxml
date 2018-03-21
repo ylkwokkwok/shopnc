@@ -23,32 +23,71 @@
       <view class="shopdetail">
         <view>
           <label>商品名称</label>
-          <input placeholder='请输入商品名称' bindinput="bindKeyInput" data-key="g_name" value="{{g_name}}"></input>
+          <input placeholder='请输入商品名称' bindblur="bindKeyInput" data-key="g_name" value="{{g_name}}"></input>
         </view>
         <view bindtap='openCategory'>
           <label>选择分类</label>
           <input value="{{gc_name1 + '  ' + gc_name2 + '  ' + gc_name3}}" readonly="readonly" type='hidden'></input>
         </view>
         <text>商品属性</text>
+        <view class="goods-spec">
+          <view class="spec-list">
+            <view class="spec-item" wx:for="{{spec_list}}" wx:for-index="specIndex" wx:for-item="specItem" wx:key="key">
+              <text>{{specItem.sp_name}}</text>
+              <view class="spec-values">
+                <view class="spec-value" wx:for="{{specItem.value}}" wx:for-index="specValueIndex" wx:for-item="specValueItem" wx:key="key2">
+                  <radio bindtap="specValueChange" color="#568FDC" data-spec-index="{{specIndex}}" data-spec-value-index="{{specValueIndex}}" data-sp-value-id="{{specValueItem.sp_value_id}}" value="{{specValueItem.sp_value_name}}" checked="{{specValueItem.checked}}"/>{{specValueItem.sp_value_name}}
+                </view>
+                <view class="spec-value" style="width:160rpx;">
+                  <button bindtap="addSpec" data-spec-index="{{specIndex}}">添加规格</button>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="goods-list" wx:if="{{goods_list.length > 0}}">
+          <view class="goods-header">
+            <view>
+              规格
+            </view>
+            <view>
+              售价
+            </view>
+            <view>
+              库存
+            </view>
+          </view>
+          <view class="goods-item" wx:for="{{goods_list}}" wx:for-index="goodsIndex" wx:for-item="goodsItem" wx:key="key">
+            <view class="goods-item-specs">
+              <text wx:for="{{goodsItem.sp_name}}" wx:for-item="spNameItem" wx:for-index="spNameIndex" data-key="{{spNameIndex}}" wx:key="key2">{{spNameItem.sp_value_name}} </text>
+            </view>
+            <view class="goods-item-price">
+              <input type="digit" value="{{goodsItem.price}}" data-goods-index="{{goodsIndex}}" data-key="price" bindblur="bindGoodsInput"/>
+            </view>
+            <view class="goods-item-stock">
+              <input type="number" value="{{goodsItem.stock}}" data-goods-index="{{goodsIndex}}" data-key="stock" bindblur="bindGoodsInput"/>
+            </view>
+          </view>
+        </view>
         <view>
           <label>商品价格</label>
-          <input placeholder='请输入商品价格' bindinput="bindKeyInput" data-key="g_price" data-type="float" value="{{g_price}}"></input>
+          <input placeholder='请输入商品价格' type="digit" bindblur="bindKeyInput" data-key="g_price" data-type="float" value="{{g_price}}"></input>
         </view>
         <view>
           <label>市场售价</label>
-          <input placeholder='请输入市场售价' bindinput="bindKeyInput" data-key="g_costprice" data-type="float" value="{{g_costprice}}"></input>
+          <input placeholder='请输入市场售价' type="digit" bindblur="bindKeyInput" data-key="g_costprice" data-type="float" value="{{g_costprice}}"></input>
         </view>
         <view>
           <label>VIP价格</label>
-          <input placeholder='请输入VIP价格' bindinput="bindKeyInput" data-key="g_vipprice" data-type="float" value="{{g_vipprice}}"></input>
+          <input placeholder='请输入VIP价格' type="digit" bindblur="bindKeyInput" data-key="g_vipprice" data-type="float" value="{{g_vipprice}}"></input>
         </view>
         <view>
           <label>库存</label>
-          <input placeholder='请输入库存' bindinput="bindKeyInput" data-key="g_storage" data-type="int" value="{{g_storage}}"></input>
+          <input placeholder='请输入库存' type="number" bindblur="bindKeyInput" data-key="g_storage" data-type="int" value="{{g_storage}}"></input>
         </view>
         <view>
           <label>运费</label>
-          <input placeholder='请输入运费' bindinput="bindKeyInput" data-key="g_freight" data-type="float" value="{{g_freight}}"></input>
+          <input placeholder='请输入运费' type="digit" bindblur="bindKeyInput" data-key="g_freight" data-type="float" value="{{g_freight}}"></input>
         </view>
          <view bindtap='selectShopDetail'>
           <label>商品描述</label>
@@ -153,4 +192,25 @@
       <view bindtap='hideRegular' class="hideregular">我知道了</view>
     </view>
   </block>
+</view>
+  <!--弹出层-->
+<view wx:if="{{addSpecStatus}}">
+<view class="bg" bindtap="cancelAddSpec"></view>
+<view class="alert-box">
+  <view class="alter-header">
+    <text>添加规格</text>
+    <image src="/images/infocenter/cancel.png" bindtap="cancelAddSpec"/>
+  </view>
+  <view class="add-spec">
+    <view class="add-spec-label">
+      {{add_spec_name}}:
+    </view>
+    <view class="add-spec-input">
+      <input type="text" bindinput="bindKeyInput" data-key="add_spec_value" data-type="string" value="{{add_spec_value}}"/>
+    </view>
+  </view>
+  <view class="add-spec-btn">
+    <button bindtap="addSpecSubmit">添加规格</button>
+  </view>
+</view>
 </view>

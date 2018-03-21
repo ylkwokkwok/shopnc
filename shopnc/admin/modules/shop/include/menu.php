@@ -32,9 +32,9 @@ $_menu['shop'] = array(
                                 'goods_class' => $lang['nc_class_manage'],
                                 'brand' => $lang['nc_brand_manage'],
                            // 'test'=>'测试',
-//                                'type' => $lang['nc_type_manage'],
-//                                'spec' => $lang['nc_spec_manage'],
-//                                'goods_album' => $lang['nc_album_manage'],
+                                'type' => $lang['nc_type_manage'],
+                                'spec' => $lang['nc_spec_manage'],
+                                'goods_album' => $lang['nc_album_manage'],
                                 'goods_recommend' => '商品推荐'
                         )),
                 //入驻商家管理
