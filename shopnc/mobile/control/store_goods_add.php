@@ -18,6 +18,44 @@ class store_goods_addControl extends mobileSellerControl
      */
     public function save_goodsOp() {
         $logic_goods = Logic('goods');
+        if (isset($_POST['sp_val']) && isset($_POST['spec'])){
+            // 多规格商品
+            $sp_val_str = $_POST['sp_val'];
+            $spec_str = $_POST['spec'];
+            $sp_val_str = htmlspecialchars_decode($sp_val_str);
+            $spec_str = htmlspecialchars_decode($spec_str);
+            $sp_val_obj = json_decode($sp_val_str);
+            $spec_obj = json_decode($spec_str);
+            $sp_name = array();
+            $sp_val = array();
+            $spec = array();
+            foreach ($sp_val_obj as $value){
+                $sp_name[$value->sp_id] = $value->sp_name;
+                $sp_value_new = array();
+                foreach ($value->sp_value as $sp_value){
+                    $sp_value_new[$sp_value->sp_value_id] = $sp_value->sp_value_name;
+                }
+                $sp_val[$value->sp_id] = $sp_value_new;
+            }
+            foreach ($spec_obj as $value){
+                $spec['i_'.$value->id] = array(
+                    "goods_id" => "",
+                    "color" => "1",
+                    "marketprice" => $value->price,
+                    "price" => $value->price,
+                    "stock" => $value->stock,
+                    "alarm" => 0,
+                    "sku" => "",
+                    "barcode" => ""
+                );
+                foreach ($value->sp_value as $sp_value){
+                    $spec['i_'.$value->id]['sp_value'][$sp_value->sp_value_id] = $sp_value->sp_value_name;
+                }
+            }
+            $_POST['sp_name'] = $sp_name;
+            $_POST['sp_val'] = $sp_val;
+            $_POST['spec'] = $spec;
+        }
         $result =  $logic_goods->saveGoods(
             $_POST,
             $this->store_info['store_id'],
@@ -100,5 +138,50 @@ class store_goods_addControl extends mobileSellerControl
             $list = Language::getUTF8 ( $list );
         }
         output_data($list);
+    }
+
+    public function get_spec_listOp()
+    {
+        // 实例化商品分类模型
+        $model_goodsclass = Model('goods_class');
+        $gc_id = intval($_POST['class_id']);
+
+        // 验证商品分类是否存在且商品分类是否为最后一级
+        $data = Model('goods_class')->getGoodsClassForCacheModel();
+        if (!isset($data[$gc_id]) || isset($data[$gc_id]['child']) || isset($data[$gc_id]['childchild'])) {
+            output_error(L('store_goods_index_again_choose_category1'));
+        }
+        // 获取类型相关数据
+        $goods_class = $model_goodsclass->getGoodsClassLineForTag($gc_id);
+        $typeinfo = Model('type')->getAttr($goods_class['type_id'], $this->store_info['store_id'], $gc_id);
+        list($spec_json, $spec_list, $attr_list, $brand_list) = $typeinfo;
+        if ($spec_list){
+            output_data(array("have_spec" => 1, "spec_list" => $spec_list));
+        }else{
+            output_data(array("have_spec" => 0));
+        }
+    }
+    public function ajax_add_specOp()
+    {
+        $name = trim($_POST['name']);
+        $gc_id = intval($_POST['gc_id']);
+        $sp_id = intval($_POST['sp_id']);
+        if ($name == '' || $gc_id <= 0 || $sp_id <= 0) {
+            output_error("参数错误");
+        }
+        $insert = array(
+            'sp_value_name' => $name,
+            'sp_id' => $sp_id,
+            'gc_id' => $gc_id,
+            'store_id' => $this->store_info['store_id'],
+            'sp_value_color' => null,
+            'sp_value_sort' => 0,
+        );
+        $value_id = Model('spec')->addSpecValue($insert);
+        if ($value_id) {
+            output_data(array());
+        } else {
+            output_error("添加失败");
+        }
     }
 }
