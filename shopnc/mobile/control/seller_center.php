@@ -24,7 +24,7 @@ class seller_centerControl extends mobileSellerControl
 //        if ($store_id <= 0) {
 //            output_error('参数错误');
 //        }
-        $store_online_info = Model('store')->getStoreOnlineInfoByID($store_id);
+        $store_online_info = Model('store_joinin')->getOne($store_id);
 //        if (empty($store_online_info)) {
 //            output_error('店铺不存在或未开启');
 //        }
@@ -32,6 +32,7 @@ class seller_centerControl extends mobileSellerControl
       $store_info = array();
 //        $store_info['store_id'] = $store_online_info['store_id'];
       $store_info['store_name'] = $store_online_info['store_name'];
+      $store_info['remark'] = $store_online_info['remark'];
 //        $store_info['member_id'] = $store_online_info['member_id'];
 //        //33hao v5.2 添加QQ IM
 //        $store_info['store_qq'] = $store_online_info['store_qq'];
