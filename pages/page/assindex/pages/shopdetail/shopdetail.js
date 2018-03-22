@@ -1,3 +1,4 @@
+import shop from '../../../../utils/shop'
 Page({
 
   /**
@@ -24,7 +25,14 @@ Page({
     collect:false,
     collectImg:"/images/collect.png",
     collectText:"收藏",
-    isCollect:false
+    isCollect:false,
+    //
+    goods_commend_list: [],
+    goods_evaluate_info: [],
+    goods_image: '',
+    goods_info: '',
+    store_info: '',
+    detailList: ''
   },
   changeSwiper: function (e) {
     this.setData({
@@ -71,9 +79,67 @@ Page({
     }
   },
   onLoad:function(options){
+    let that = this
+    var goods_id = options.goods_id
+    shop.getGoodsDetail({goods_id: goods_id}).then(res => {
+      if(res.code == 200){
+        that.setData({
+          goods_commend_list: res.datas.goods_commend_list,
+          goods_evaluate_info: res.datas.goods_evaluate_info,
+          goods_image: res.datas.goods_image,
+          goods_info: res.datas.goods_info,
+          store_info: res.datas.store_info
+        })
+      }
+    })
+    shop.getGoodsDetailBody({goods_id: goods_id}).then(res => {
+      var detailList = that.getLinksByImg(res)
+      that.setData({detailList: detailList})
+    })
     this.setData({
       isExchange:options.isExchange
     })
+  },
+  /**
+   * html提取img url
+   * @param body
+   * @returns {Array}
+   */
+  getLinksByImg: function (body) {
+    if (body == ''){
+      return []
+    }
+    var imgReg = /<img.*?(?:>|\/>)/gi;
+    var srcReg = /src=[\'\"]?([^\'\"]*)[\'\"]?/i;
+    var arr = body.match(imgReg);
+    var links = []
+    for(var src of arr){
+      var ret = src.match(srcReg);
+      if (ret[1]) {
+        links.push(ret[1])
+      }
+    }
+    return links
+  },
+  addToCart: function () {
+    var goods_id = this.data.goods_info.goods_id
+    var buy_number = 1
+    shop.addToCart({goods_id: goods_id, quantity: buy_number}).then(res => {
+      if(res.code == 200){
+        wx.showModal({
+          title: '提示',
+          content: '加入购物车成功',
+          cancelText: '好的',
+          confirmText: '去购物车',
+          success: function(res) {
+            if (res.confirm) {
+              wx.switchTab({url: '/page/shopcart/shopcart'})
+            } else if (res.cancel) {
+              //
+            }
+          }
+        })
+      }
+    })
   }
-
 })

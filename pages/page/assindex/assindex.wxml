@@ -24,7 +24,7 @@
                 </view>
                 <view class="bottom">
                   <block wx:for="{{itemName.children}}" wx:key="index2" wx:for-item="items">
-                    <navigator url="/page/assindex/pages/shoplist/shoplist?gc_name={{items.gc_name}}">{{items.gc_name}}</navigator>
+                    <navigator url="/page/assindex/pages/shoplist/shoplist?gc_id={{items.gc_id}}">{{items.gc_name}}</navigator>
                   </block>
                 </view>
               </block>

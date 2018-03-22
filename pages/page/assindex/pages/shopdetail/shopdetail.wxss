@@ -357,7 +357,7 @@
   height: 34rpx; 
   display: block;
   margin:auto;
-  margin-top:40rpx;
+  margin-top:20rpx;
 }
 .foot .left>navigator view{
   font-size: 20rpx;

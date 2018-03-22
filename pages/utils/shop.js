@@ -270,5 +270,42 @@ export default {
     data.key = wx.getStorageSync(TOKEN_NAME)
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=store_goods_add&op=ajax_add_spec', data))
+  },
+  /**
+   * 获取商品详情
+   * @param data
+   * @returns {boolean}
+   */
+  getGoodsDetail: function (data) {
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.get('?act=goods&op=goods_detail', data))
+  },
+  /**
+   * 获取商品详情描述
+   * @param data
+   * @returns {boolean}
+   */
+  getGoodsDetailBody: function (data) {
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.get('?act=goods&op=goods_body', data))
+  },
+  /**
+   * 获取商品列表 by gc_id
+   * @param data
+   * @returns {boolean}
+   */
+  getGoodsListByGcId: function (data) {
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.get('?act=goods&op=goods_list', data))
+  },
+  /**
+   * 加入购物车
+   * @param data
+   * @returns {boolean}
+   */
+  addToCart: function (data) {
+    data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=member_cart&op=cart_add', data))
   }
 }
