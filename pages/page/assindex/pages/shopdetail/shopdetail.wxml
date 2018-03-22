@@ -2,33 +2,33 @@
 <!--商品图片轮播-->
   <view class="swiper">
     <swiper duration="1000" circular="true" bindchange='changeSwiper'>
-      <block wx:for="{{imgs}}" wx:key="*this">
+      <block>
         <swiper-item>
-          <image src="{{item}}" mode='widthFix'></image>
+          <image src="{{goods_image}}" mode='widthFix'></image>
         </swiper-item>
       </block>
     </swiper>
     <view>
-        {{current}}/{{imgs.length}}
+        {{current}}/{{1}}
     </view>
   </view>
   <!--商品信息-->
   <view class="shops">
     <view class="top">
-      <view class="tit">{{info.tit}}</view>
+      <view class="tit">{{goods_info.goods_name}}</view>
       <view class="collect {{collect}}">
         <image src="{{collectImg}}" mode='widthFix' bindtap='changeCollect'></image>
         <text>{{collectText}}</text>      
       </view>
     </view>
     <view class="middle">
-      <view class="price">￥{{info.price}}</view>
+      <view class="price">￥{{goods_info.goods_price}}</view>
     </view>
     <view class="bottom">
       <view class="left">
-        <view class="oldprice">原价：<text>￥{{info.oldprice}}</text></view>
-        <view class="salesvolumn">销量：{{info.salesvolumn}}件</view>
-        <view class="stock">库存{{info.stock}}件</view>
+        <view class="oldprice">原价：<text>￥{{goods_info.goods_marketprice}}</text></view>
+        <view class="salesvolumn">销量：{{goods_info.goods_salenum}}件</view>
+        <view class="stock">库存{{goods_info.goods_storage}}件</view>
       </view>
       <view class="right">
         <navigator url="">我要分销</navigator>
@@ -42,13 +42,14 @@
   <!--订单详情-->
   <view class="orderDetail">
     <view>送至 <text>四川省绵阳市高新区留学人员创业园</text></view>
-    <view>颜色 <text>红色</text></view>
-    <view>尺码 <text>L</text></view>
+    <view wx:for="{{goods_info.goods_spec}}"  wx:key="key">
+      <view><text>{{item}}</text></view>
+    </view>
     <view>数量 <text>1</text></view>
   </view>
   <!--店铺-->
   <view class="shopName">
-    <text>店铺名称</text>
+    <text>{{store_info.store_name}}</text>
     <view class="middle">
       <ul class="left">
         <li>
@@ -112,8 +113,10 @@
     <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">产品参数</view>  
   </view>  
   <swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange">  
-    <swiper-item>  
-      <view>产品详情</view>  
+    <swiper-item>
+      <view wx:for="{{detailList}}">
+        <image src="{{item}}" />
+      </view>
     </swiper-item>  
     <swiper-item>  
       <view>产品参数</view>  
@@ -139,7 +142,7 @@
         </navigator>
       </view>
       <view class="right">
-        <navigator class="second" url="">
+        <navigator class="second" url="" bindtap="addToCart">
           <view class="money">加入购物车</view>
         </navigator>
         <navigator class="thrid" url="../confirmorder/confirmorder">

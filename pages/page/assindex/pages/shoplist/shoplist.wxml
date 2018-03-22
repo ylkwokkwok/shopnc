@@ -29,21 +29,21 @@
     </block>
   </view>
   <view class="shoplist">
-    <block wx:for="{{pros}}" wx:key="*this">
-      <navigator class="elme" url="{{item.link}}">
-        <view class="tit">{{item.title}}</view>
-        <image class="pro_img" src="{{item.img_url}}" mode='widthFix'></image>
-        <view class="jie">{{item.jie}}</view>
+    <block wx:for="{{goodsList}}" wx:for-index="goodsIndex" wx:for-item="goodsItem" wx:key="*this">
+      <navigator class="elme" url="/page/assindex/pages/shopdetail/shopdetail?goods_id={{goodsItem.goods_id}}">
+        <view class="tit"></view>
+        <image class="pro_img" src="{{goodsItem.goods_image_url}}" mode='widthFix'></image>
+        <view class="jie">{{goodsItem.goods_name}}</view>
         <view style="overflow:hidden;margin-top:10rpx;">
-          <view class="price">￥{{item.price}}</view>
+          <view class="price">￥{{goodsItem.goods_price}}</view>
           <view class="tuan">
             <image src="/images/bg.png" mode='widthFix'></image>
-            <view>{{item.tuan}}</view>
+            <view>活动标题</view>
           </view>
         </view>
         <view class="left">
-          <view class="oldprice">原价: <text>￥{{item.oldprice}}</text> </view>
-          <view class="pinglun">评论:{{item.pinglun}}</view>
+          <view class="oldprice">原价: <text>￥{{goodsItem.goods_marketprice}}</text> </view>
+          <view class="pinglun">评论:{{goodsItem.evaluation_count}}</view>
         </view>
       </navigator>
     </block>

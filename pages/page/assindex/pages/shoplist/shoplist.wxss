@@ -95,7 +95,7 @@
   width: 345rpx;
   margin-right: 20rpx;
   background: white;
-  height: 480rpx;
+  height: 400rpx;
   float: left;
   margin-bottom: 20rpx;
 }

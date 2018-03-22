@@ -47,7 +47,7 @@
       <scroll-view class="prolist" scroll-x="true">
         <block wx:for="{{today_new_goods}}" wx:key="*this">
           <view class="pro">
-            <navigator url="/page/assindex/pages/shopdetail/shopdetail">
+            <navigator url="/page/assindex/pages/shopdetail/shopdetail?goods_id={{item.goods_id}}">
               <image class="entry_img" src="{{item.goods_image_url}}" mode='widthFix'></image>
               <view class="newprice">{{item.goods_name}}</view>
               <view class="oldprice">{{item.goods_price}}</view>
@@ -79,13 +79,15 @@
   </view>
   <view class='bigbrand hotshow'>
    <block wx:for="{{goods_commend}}" wx:key="commend"> 
-      <navigator url="/page/assindex/pages/shopdetail/shopdetail">
+      <view>
+        <navigator url="/page/assindex/pages/shopdetail/shopdetail?goods_id={{item.goods_id}}">
         <view class="tit">{{item.goods_name}}</view>
         <view class='jie'>{{item.goods_jingle}}</view>
         <view class="proimgs">
           <image src="{{item.goods_image_url}}" mode='widthFix'></image>
         </view>
-      </navigator>
+        </navigator>
+      </view>
     </block> 
      <!-- <view class='right'>
        <view class="tit">炫彩小推车</view>
@@ -104,14 +106,16 @@
   </view>
   <view class='bigbrand hotshow'>
   <block wx:for="{{goods_list}}" wx:key="bigbrand">
-      <navigator style="padding-top:0rpx;padding-left:0rpx;" url="/page/assindex/pages/shopdetail/shopdetail">
+      <view style="padding-top:0rpx;padding-left:0rpx;">
+        <navigator url="/page/assindex/pages/shopdetail/shopdetail?goods_id={{item.goods_id}}">
           <view class="sign2">大品牌</view>
           <view class="tit">{{item.goods_name}}</view>
           <view class='jie'>{{item.jingle}}</view>
           <view class="proimgs">
             <image src="{{item.goods_image_url}}" mode='widthFix'></image>
           </view>
-      </navigator>
+        </navigator>
+      </view>
     </block>
     </view>
 </view>

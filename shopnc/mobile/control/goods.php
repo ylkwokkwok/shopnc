@@ -515,7 +515,6 @@ class goodsControl extends mobileHomeControl{
             if (!empty($plate_bottom)) $goods_body .= '<div class="bottom-template">'. $plate_bottom['plate_content'] .'</div>';
         }
         $goods_info['goods_body'] = $goods_body;
-
         Tpl::output('goods_info', $goods_info);
         Tpl::showpage('goods_body');
     }
