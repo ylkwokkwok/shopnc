@@ -38,6 +38,6 @@
   <view class="buy-btns">
     <button style="background-color: #1aad19;">微信支付</button>
     <button style="background-color: #568fdc;">余额支付</button>
-    <button style="background-color: #707070;">返回砍价</button>
+    <button style="background-color: #707070;" bindtap='returnBargain'>返回砍价</button>
   </view>
 </view>
