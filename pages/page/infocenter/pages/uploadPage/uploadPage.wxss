@@ -374,7 +374,7 @@ button:last-child{
 }
 .spec-item .spec-values .spec-value{
   display: flex;
-  width: 100rpx;
+  width: 160rpx;
   height: 60rpx;
   margin: 10rpx 20rpx;
 }

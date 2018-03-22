@@ -212,7 +212,7 @@ Page({
           success: function(res) {
             if (res.confirm) {
               wx.navigateTo({
-                url: '../shopUpload/shopUpload?curTab=1',
+                url: '../shopManager1/shopManager1',
               })
             }
           },
