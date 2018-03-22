@@ -172,7 +172,7 @@ Page({
         });
       }
     });
-    that.getStoreGoodsList()
+    that.getStoreGoodsList();
   },
   shaiTab:function(e){
     var cur = e.currentTarget.dataset.current;
