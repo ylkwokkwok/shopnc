@@ -40,10 +40,14 @@ Page({
     shop.getShopInfo().then(res => {
       if (res.code == 200) {
         console.log(res);
-       
+        this.setData({
+          shopName:res.datas.store_info
+        })
+     
       } else {
         console.log(res)
       }
+      
     })
 
   },
