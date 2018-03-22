@@ -6,8 +6,8 @@
     </view>
   </view>
   <view class="tabSwitch">
-    <navigator class="on" url="../shopManager/shopManager" open-type='redirect'>出售中({{shoplist.length}})</navigator>
-    <navigator url="../shopManager1/shopManager1" open-type='redirect'>仓库</navigator>
+    <navigator class="on" url="../shopManager/shopManager">出售中({{shoplist.length}})</navigator>
+    <navigator url="../shopManager1/shopManager1">仓库</navigator>
   </view>
   <view class="tabshow">
     <view class="top">
