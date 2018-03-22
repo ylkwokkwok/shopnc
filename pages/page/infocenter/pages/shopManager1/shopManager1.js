@@ -1,3 +1,4 @@
+import shop from '../../../../utils/shop'
 // page/infocenter/pages/shopManager/shopManager.js
 Page({
 

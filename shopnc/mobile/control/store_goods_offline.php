@@ -13,7 +13,7 @@
 
 
 defined('In33hao') or exit ('Access Invalid!');
-class store_goods_offlineControl extends BaseSellerControl {
+class store_goods_offlineControl extends mobileSellerControl {
     public function __construct() {
         parent::__construct ();
         Language::read ('member_store_goods_index');
@@ -27,7 +27,6 @@ class store_goods_offlineControl extends BaseSellerControl {
      */
     public function goods_storageOp() {
         $model_goods = Model('goods');
-
         $where = array();
         $where['store_id'] = $this->store_info['store_id'];
         if (intval($_GET['stc_id']) > 0) {
