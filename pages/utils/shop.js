@@ -307,5 +307,12 @@ export default {
     data.key = wx.getStorageSync(TOKEN_NAME)
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=member_cart&op=cart_add', data))
+  },
+
+    //获取店铺信息
+  getShopInfo: function () {
+    let data = {};
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=seller_center&op=getShopInfo', { key: wx.getStorageSync(TOKEN_NAME) }))
   }
 }
