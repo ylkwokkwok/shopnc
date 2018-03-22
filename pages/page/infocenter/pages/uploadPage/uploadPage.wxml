@@ -1,5 +1,5 @@
 <view class="container" style="min-height:{{winHeight}}px">
-  <form class="upload" catchsubmit="formSubmit" catchreset="formReset">
+  <form class="upload" catchreset="formReset">
     <view class="uploadImg">
       <block wx:if="{{imageList.length==0}}">
         <image src="/images/infocenter/carmer.png" class="upload1" mode='widthFix' bindtap='chooseImage'></image>
@@ -110,8 +110,8 @@
         <!--</view>-->
       </view>
       <!-- <view class="foot"> -->
-        <button form-type='submit' class="intodepot" data-type="intodepot">放入仓库</button>
-        <button form-type='submit' class="release" data-type="release">立即发布</button>
+        <button bindtap="formSubmit" class="intodepot" data-type="intodepot">放入仓库</button>
+        <button bindtap="formSubmit" class="release" data-type="release">立即发布</button>
       <!-- </view> -->
   </form>
   <!--选择分类-->
