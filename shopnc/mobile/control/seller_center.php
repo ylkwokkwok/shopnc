@@ -19,12 +19,12 @@ class seller_centerControl extends mobileSellerControl
     }
     //获取店铺详细信息
     public function getShopInfoOp(){
-      $store_id=$this->seller_info['member_id'];
+      $member_id=$this->seller_info['member_id'];
 //        //$store_id = (int) $_REQUEST['store_id'];
 //        if ($store_id <= 0) {
 //            output_error('参数错误');
 //        }
-        $store_online_info = Model('store_joinin')->getOne($store_id);
+        $store_online_info = Model('store_joinin')->getOne($member_id);
 //        if (empty($store_online_info)) {
 //            output_error('店铺不存在或未开启');
 //        }
