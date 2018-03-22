@@ -11,7 +11,7 @@
             <text class="shopname">{{shopName.store_name}}</text>
             <navigator class="editshop" url="../entry/entry"><image src="/images/infocenter/shopedit.png" mode='widthFix'></image></navigator>
           </view>
-          <text class="jie">店铺简介：{{item.jie}}</text>
+          <text class="jie">店铺简介：{{shopName.remark}}</text>
         </view>
       </view>
     </block>
