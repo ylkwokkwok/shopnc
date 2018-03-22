@@ -99,7 +99,7 @@ class seller_centerControl extends mobileSellerControl
 //        $goods_list = $model_goods->getGoodsListByColorDistinct($where, $goods_fields, 'goods_id desc', 0, 20);
 //        $goods_list = $this->_goods_list_extend($goods_list);
         output_data(array(
-            'store_info' => $store_info
+            'store_info' => $store_id
         ));
     }
 }
