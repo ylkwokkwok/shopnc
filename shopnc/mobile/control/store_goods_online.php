@@ -29,6 +29,7 @@ class store_goods_onlineControl extends mobileSellerControl {
 
         $where = array();
         $where['store_id'] = $this->store_info['store_id'];
+        $where['goods_state'] = 1;
         if (intval($_GET['stc_id']) > 0) {
             $where['goods_stcids'] = array('like', '%,' . intval($_GET['stc_id']) . ',%');
         }

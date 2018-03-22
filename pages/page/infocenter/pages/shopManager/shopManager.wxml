@@ -6,7 +6,7 @@
     </view>
   </view>
   <view class="tabSwitch">
-    <navigator class="on" url="../shopManager/shopManager">出售中({{shoplist.length}})</navigator>
+    <navigator class="on" url="../shopManager/shopManager">出售中({{goodsList.length}})</navigator>
     <navigator url="../shopManager1/shopManager1">仓库</navigator>
   </view>
   <view class="tabshow">
