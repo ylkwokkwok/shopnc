@@ -24,7 +24,8 @@ class seller_centerControl extends mobileSellerControl
 //        if ($store_id <= 0) {
 //            output_error('参数错误');
 //        }
-        $store_online_info = Model('store_joinin')->getOne($member_id);
+        $condition['member_id']=$member_id;
+        $store_online_info = Model('store_joinin')->getOne($condition);
 //        if (empty($store_online_info)) {
 //            output_error('店铺不存在或未开启');
 //        }
