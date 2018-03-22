@@ -31,7 +31,7 @@ class seller_centerControl extends mobileSellerControl
 //        }
 //
       $store_info = array();
-//        $store_info['store_id'] = $store_online_info['store_id'];
+//       $store_info['store_id'] = $store_online_info['store_id'];
       $store_info['store_name'] = $store_online_info['store_name'];
       $store_info['remark'] = $store_online_info['remark'];
 //        $store_info['member_id'] = $store_online_info['member_id'];
@@ -100,7 +100,7 @@ class seller_centerControl extends mobileSellerControl
 //        $goods_list = $model_goods->getGoodsListByColorDistinct($where, $goods_fields, 'goods_id desc', 0, 20);
 //        $goods_list = $this->_goods_list_extend($goods_list);
         output_data(array(
-            'store_info' => $store_info
+            'store_info' => $store_online_info
         ));
     }
 }
