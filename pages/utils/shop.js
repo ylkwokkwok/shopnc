@@ -314,5 +314,15 @@ export default {
     let data = {};
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=seller_center&op=getShopInfo', { key: wx.getStorageSync(TOKEN_NAME) }))
+  },
+  /**
+ * 获取店铺仓库中商品
+ * @param data
+ * @returns {boolean}
+ */
+  getStoreGoodsListOffline: function (data) {
+    data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.get('?act=store_goods_Offline&op=goods_list', data))
   }
 }
