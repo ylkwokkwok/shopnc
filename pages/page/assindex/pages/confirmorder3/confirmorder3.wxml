@@ -1,0 +1,74 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="address" bindtap='selectAdd'>
+    <view class="left">
+      <image src="/images/pos.png" mode='widthFix' class="pos"></image>
+      <text>{{address}}</text>
+    </view>
+    <image src="/images/jt.png" mode='widthFix' class="jt"></image>
+  </view>
+  <!--订单详情-->
+  <view class="orderDetail">
+    <view class="top">
+      <span></span>
+      <text>{{shopname}}</text>
+    </view>
+    <view class="bottom">
+      <view class="left">
+        <image src="{{shops[0].img}}" mode='widthFix'></image>
+      </view>
+      <view class='right'>
+        <view class="jie">{{shops[0].jie}}</view>
+        <view class="middle">
+          <view class="price">￥{{shops[0].money}}</view>
+          <view class="tuan">
+            <image src="/images/bg.png" mode='widthFix'></image>
+            <view>2人参团</view>
+          </view>
+        </view>
+        <view class="en">
+          <view class="oldprice">原价: <text>￥900</text> </view>
+          <view class="sales">销量: <text>1000件</text></view>
+          <view class="stock">库存：<text>1000件</text></view>
+        </view>
+      </view>
+    </view>
+    <view class="remarks">
+      <textarea placeholder='请输入您要备注的内容' placeholder-style='color:#aeaeae'></textarea>
+    </view>
+  </view>
+  <!--支付详情-->
+  <view class="paydetail">
+    <view class="count">
+      <text class="name">商品总额</text>
+      <text class="money">{{totalMoney}}</text>
+    </view>
+    <view class="freight">
+      <text class="name">运费</text>
+      <text class="money">+ ￥{{shops[0].freight}}</text>
+    </view>
+    <view class="countprice">总价: <text>￥{{payMoney}}</text> </view>
+    <button class="weChat" type="primary" bindtap="requestPayment">微信支付</button>
+    <button class="balance" bindtap="" style="background-color:#568fdc">余额支付</button>
+    <button class="balance" bindtap="returnFightGroup" style="background-color:#707070">返回拼团</button>
+  </view>
+  <!--选择地址-->
+  <view class="bg" style="{{showSel?'display:block':'display:none'}};height:{{winHeight}}px"></view>
+  <view style="{{showSel?'display:block':'display:none'}}" class="addList">
+    <view class="top">
+      <view>选择地址</view>
+      <image src="/images/assortment/del.png" mode='widthFix' bindtap="hideSel"></image>
+    </view>
+    <view class="addList-tab">
+      <block wx:for="{{addList}}" wx:key="index">
+        <view bindtap="swichNav" class="tab-item" data-val="{{item}}" data-current="{{index}}">
+          <image src="{{currentTab==index?'/images/comment_select.png':'/images/comment_normal.png'}}" class="sel" mode='widthFix'></image>
+          <view>{{item}}</view>
+          <navigator url="/page/infocenter/pages/addAddress/addAddress?address={{item}}"><image src="/images/assortment/edit.png" class="edit" mode='widthFix'></image></navigator>
+        </view>
+      </block>
+      <view class="addNew">
+        <navigator url="/page/infocenter/pages/addAddress/addAddress"> <text> 新增收货地址 </text><view><image src="/images/assortment/add.png" mode='widthFix'></image></view></navigator>
+      </view>
+    </view>  
+  </view>
+</view>

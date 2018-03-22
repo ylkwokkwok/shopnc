@@ -415,6 +415,7 @@ Page({
   getStoreGoodsClass: function(gc_id, deep){
     let that = this
     shop.getStoreGoodsClass(gc_id, deep).then(res => {
+      console.log(res);
       var classList = {}
       classList['classList' + deep] = res.datas
       that.setData(classList)

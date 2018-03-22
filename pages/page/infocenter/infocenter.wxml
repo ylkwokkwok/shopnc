@@ -108,10 +108,18 @@
           <text>我的分销店</text>
         </navigator>
       </block>
-      <navigator url="pages/login/login">
-        <image src="/images/infocenter/wddp.png" style="width:41.14rpx;"></image>
-        <text>我的店铺</text>
-      </navigator>
+      <block wx:if="{{status==400}}">
+        <navigator url="pages/login/login">
+          <image src="/images/infocenter/wddp.png" style="width:41.14rpx;"></image>
+          <text>我的店铺</text>
+        </navigator>
+      </block>
+      <block wx:else>
+        <navigator url="pages/mainStoreManager/mainStoreManager?store_id={{userMess.store_id}}&isBoss=false">
+          <image src="/images/infocenter/wddp.png" style="width:41.14rpx;"></image>
+          <text>我的店铺</text>
+        </navigator>
+      </block>
       <navigator>
         <image src="/images/infocenter/tksh.png" style="width:38rpx;"></image>
         <text>退款/售后</text>

@@ -329,7 +329,19 @@ button {
   justify-content: center;
   margin-top: 30rpx;
 }
-
+.no-data>view,.no-data>navigator{
+  text-align: center;
+  display: block;
+  margin-top: 20rpx;
+}
+.no-data>view{
+  font-size: 28rpx;
+  color: #333;
+}
+.no-data>navigator{
+  font-size: 24rpx;
+  color: #568fdc;
+}
 
 
 

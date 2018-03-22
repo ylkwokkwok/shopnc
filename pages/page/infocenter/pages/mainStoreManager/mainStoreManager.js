@@ -32,5 +32,23 @@ Page({
     this.setData({
       isBoss:options.isBoss
     });
+
+
+    /**
+     * 获取店铺信息
+     */
+    shop.getShopInfo().then(res => {
+      if (res.code == 200) {
+        console.log(res);
+        this.setData({
+          shopName:res.datas.store_info
+        })
+     
+      } else {
+        console.log(res)
+      }
+      
+    })
+
   },
 })

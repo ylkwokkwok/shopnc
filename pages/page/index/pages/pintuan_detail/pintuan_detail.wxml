@@ -104,10 +104,10 @@
       <image src="/images/mypintuan.png" mode='widthFix'></image>
       <view>我的拼团</view>
     </navigator>
-    <navigator class="second" url="">
+    <navigator class="second" url="/page/assindex/pages/confirmorder/confirmorder">
       <view class="money">￥{{money}}<text>单独购买</text></view>
     </navigator>
-    <navigator class="thrid" url="pages/pay/pay">
+    <navigator class="thrid" url="/page/assindex/pages/confirmorder3/confirmorder3">
       <view class="money">￥{{money2}}<text>2人团</text></view>
     </navigator>
   </view>

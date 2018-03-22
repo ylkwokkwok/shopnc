@@ -113,7 +113,7 @@
   flex-direction: row;
   overflow: hidden;
 }
-.hotshow view .tit{
+.hotshow navigator .tit{
   font-size: 28rpx;
   padding-left: 20rpx;
   display: -webkit-box;
@@ -122,7 +122,7 @@
   overflow: hidden;
   width:100%;
 }
-.hotshow view .jie{
+.hotshow navigator .jie{
   font-size: 24rpx;
   padding-left: 20rpx;
   color:#999999;
@@ -134,7 +134,7 @@
   padding-top: 5rpx;
   float: left;
 }
-.hotshow view .sign{
+.hotshow navigator .sign{
   width: 35rpx;
   height: 35rpx;
   position:absolute;
@@ -294,7 +294,7 @@
 .bigbrand{
   display: block;
 }
-.bigbrand>view{
+.bigbrand>navigator{
   width: 345rpx;
   position: relative;
   padding:20rpx 10rpx;
@@ -303,7 +303,7 @@
   margin-right: 20rpx;
   margin-bottom: 25rpx;
 }
-.bigbrand>view:nth-child(even){
+.bigbrand>navigator:nth-child(even){
   margin-right: 0;
 }
 .sign2{

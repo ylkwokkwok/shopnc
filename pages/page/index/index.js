@@ -28,7 +28,12 @@ Page({
       { shopname: "手动阀地方", profit: "1000" },
       { shopname: "手动阀地方", profit: "1000" },
       { shopname: "手动阀地方", profit: "1000" }
-    ]
+    ],
+    shareData:{
+      title: '云派易购',
+      desc: '有很多好货哦',
+      path: '/page/index/index'
+    }
   },
   swichNav: function (e) {
     var cur = e.target.dataset.current;
@@ -84,6 +89,9 @@ Page({
       console.log('今日上新获取失败');
       }
     })
+  },
+  onShareAppMessage: function () {
+    return this.data.shareData
   }
  })
 

@@ -10,6 +10,7 @@
     "page/assindex/pages/evaluate/evaluate",
     "page/assindex/pages/confirmorder/confirmorder",
     "page/assindex/pages/confirmorder2/confirmorder2",
+    "page/assindex/pages/confirmorder3/confirmorder3",
     "page/city/city",
     "page/infocenter/pages/addAddress/addAddress",
     "page/infocenter/pages/openvip/openvip",

@@ -21,13 +21,6 @@ Page({
         });
       }
     });
-    shop.getSellerInfo().then(res => {
-      if (res.code == 200) {
-        console.log(res)
-      } else {
-        console.log(res)
-      }
-    })
   },
   formSubmit:function(e){
     var username=e.detail.value.username;

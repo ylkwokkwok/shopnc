@@ -48,5 +48,19 @@ Page({
       userInfo: shop.getUserInfo()
     })
     console.log(that.data.userInfo);
+
+    shop.getSellerInfo().then(res => {
+      that.setData({
+        status: parseInt(res.code)
+      })
+      if (res.code == 200) {
+        console.log(res)
+        that.setData({
+          userMess: res.datas
+        })
+      } else {
+        console.log(res)
+      }
+    })
   },
 })
