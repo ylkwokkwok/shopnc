@@ -324,5 +324,13 @@ export default {
     //data.key = wx.getStorageSync(TOKEN_NAME)
     return wsAPI.taskSequence()
       .then(() => wsAPI.get('?act=store_goods_Offline&op=goods_list', { key: wx.getStorageSync(TOKEN_NAME) }))
+  },
+  /**
+   * 获取单个用户积分
+   */
+  getPoint:function(){
+    //data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.get('?act=member_points&op=getPoint', { key: wx.getStorageSync(TOKEN_NAME) }))
   }
 }

@@ -62,5 +62,17 @@ Page({
         console.log(res)
       }
     })
+
+    //获取积分
+    shop.getPoint().then(res=>{
+      if (res.code == 200) {
+        console.log(res)
+        // that.setData({
+        //   userMess: res.datas
+        // })
+      } else {
+        console.log(res)
+      }
+    })
   },
 })

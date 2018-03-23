@@ -500,6 +500,21 @@ class memberModel extends Model {
         return $this->table('member_common')->where($condition)->field($fields)->find();
     }
 
+
+    /**
+     * 取单条信息
+     * @param unknown $condition
+     * @param string $fields
+     */
+    public function getPoint($condition ) {
+        $fields = '*';
+        return $this->table('member')->where($condition)->field($fields)->find();
+    }
+
+
+
+
+
     /**
      * 插入扩展表信息
      * @param unknown $data
