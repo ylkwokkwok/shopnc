@@ -67,10 +67,10 @@ Page({
     shop.getPoint().then(res=>{
       if (res.code == 200) {
         console.log(res)
-        // that.setData({
-        //   userMess: res.datas
-        // })
-      } else {
+        that.setData({
+          point: res.datas.point
+        })
+      }else{
         console.log(res)
       }
     })

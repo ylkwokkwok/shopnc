@@ -81,8 +81,14 @@ Page({
       if (res.code == 200) {
         //success
         console.log(res.datas);
+        var data = res.datas.today_new_goods_list;
+        for(var i in data){
+          var brr=data[i].goods_name.split(" ");
+          data[i].goods_name=brr[0];
+        }
         that.setData({
-          today_new_goods: res.datas.today_new_goods_list
+          
+          today_new_goods: data
         })
       } else {
         //error

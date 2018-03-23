@@ -49,6 +49,14 @@ Page({
         collectImg:"/images/collect_sel.png",
         collectText:"已收藏"
       })
+      var goods_id = this.data.goods_info.goods_id
+      shop.addCollect(goods_id).then(res => {
+        if (res.code == 200) {
+          console.log('收藏成功')
+        } else {
+          console.log('添加收藏失败')
+        }
+      })
     }else{
       this.setData({
         collectImg: "/images/collect.png",

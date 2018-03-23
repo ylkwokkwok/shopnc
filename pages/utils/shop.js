@@ -332,5 +332,12 @@ export default {
     //data.key = wx.getStorageSync(TOKEN_NAME)
     return wsAPI.taskSequence()
       .then(() => wsAPI.get('?act=member_points&op=getPoint', { key: wx.getStorageSync(TOKEN_NAME) }))
+  },
+  /**
+   * 加入收藏
+   */
+  addCollect:function(goods_id){
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=member_favorites&op=favorites_add', goods_id))
   }
 }
