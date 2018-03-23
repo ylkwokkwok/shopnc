@@ -10,7 +10,7 @@ Page({
     imageList: [],
     winHeight:0,
     showSel: false,
-    xieyi:"的数据库办法的就是看阿斯达克警方把数据库的士大夫饭卡斯达克警方啊十大科技发生大家看法阿三的客服解决啊数据库的沙发上的夫卡是的基本饭卡手动阀安德森会计法科技时代发啊都十分骄傲的设计开发",
+    xieyi:"",
     store_logo: '',
     store_name:'',
     contacts_name:'',
