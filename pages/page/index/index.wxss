@@ -211,7 +211,7 @@
 }
 .todaynew .center .prolist{
   overflow:hidden;
-  height: 190rpx;
+  /* height: 190rpx; */
   width: 100%;
   white-space: nowrap;
 }

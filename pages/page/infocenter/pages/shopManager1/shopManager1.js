@@ -166,10 +166,10 @@ Page({
     });
     shop.getStoreGoodsListOffline().then(res => {
       if (res.code == 200) {
-        console.log(res)
-        // that.setData({
-        //   fast_news: res.datas.fast_news_adv_list
-        // })
+        console.log(res.datas.goods_list)
+         that.setData({
+           shoplist: res.datas.goods_list
+         })
       } else {
         console.log('仓库信息获取失败')
       }

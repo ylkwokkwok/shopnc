@@ -321,8 +321,8 @@ export default {
  * @returns {boolean}
  */
   getStoreGoodsListOffline: function (data) {
-    data.key = wx.getStorageSync(TOKEN_NAME)
+    //data.key = wx.getStorageSync(TOKEN_NAME)
     return wsAPI.taskSequence()
-      .then(() => wsAPI.get('?act=store_goods_Offline&op=goods_list', data))
+      .then(() => wsAPI.get('?act=store_goods_Offline&op=goods_list', { key: wx.getStorageSync(TOKEN_NAME) }))
   }
 }
