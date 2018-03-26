@@ -383,9 +383,9 @@ class storeControl extends mobileHomeControl
      */
     public function store_introOp()
     {
-        $store_id = (int) $_POST['store_id'];
+        $store_id = intval( $_POST['store_id']);
         if ($store_id <= 0) {
-            output_error($_POST['store_id']);
+            output_error($store_id);
         }
         $store_online_info = Model('store')->getStoreOnlineInfoByID($store_id);
         if (empty($store_online_info)) {
