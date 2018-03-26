@@ -347,5 +347,10 @@ export default {
   getCollect:function(){
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=member_favorites&op=favorites_list', { key: wx.getStorageSync(TOKEN_NAME) }))
+  },
+  //获取店铺信息（商家、store_id）
+  getShopDetailByStore_id:function(data){
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=store&op=store_intro', data))
   }
 }

@@ -82,6 +82,13 @@ Page({
     /**
      * 获取店铺信息
      */
+    shop.getShopDetailByStore_id.then(res=>{
+      if(res.code==200){
+        console.log(res)
+      }else{
+        console.log('获取店铺信息失败')
+      }
+    })
   },
   onShareAppMessage: function () {
     return this.data.shareData

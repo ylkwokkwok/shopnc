@@ -23,9 +23,9 @@ Page({
     mainStore:[
       { "id": 1, name: "收费低啊沙发上", img: "/images/shop2.png", detail: "少部分设计大赛", right: 0, startRight: 0, groupname: "mainStore" }, { "id": 2, name: "但发生的", img: "/images/shop2.png", detail: "但是空间发生大幅上课的发生地", right: 0, startRight: 0, groupname: "mainStore" }
     ],
-    shops:[
-      { "id": 1, name: "收费低啊沙发上", img: "/images/shop2.png", detail: "少部分设计大赛", right: 0, startRight: 0, groupname: "shops",isSelectd:false,count:1}, { "id": 2, name: "但发生的", img: "/images/shop2.png", detail: "但是空间发生大幅上课的发生地", right: 0, startRight: 0, groupname: "shops",isSelected:false,count:1}
-    ],
+    // shops:[
+    //   { "id": 1, name: "收费低啊沙发上", img: "/images/shop2.png", detail: "少部分设计大赛", right: 0, startRight: 0, groupname: "shops",isSelectd:false,count:1}, { "id": 2, name: "但发生的", img: "/images/shop2.png", detail: "但是空间发生大幅上课的发生地", right: 0, startRight: 0, groupname: "shops",isSelected:false,count:1}
+    // ],
     isAllSelected:false,
     totalsel:0
   },
@@ -59,8 +59,8 @@ Page({
       }
       key = true;
     }else if(groupname=="shops"){
-      for (var i in bransh) {
-        var data = bransh[i];
+      for (var i in shops) {
+        var data = shops[i];
         data.startRight = data.right;
       }
       key = true;
@@ -158,7 +158,7 @@ Page({
           console.log(groupname);
           for (var k in res3) {
             var data = res3[k];
-            if (res3[k].id == dataId) {
+            if (res3[k].goods_id == dataId) {
               var startRight = res3[k].startRight;
               var change = startX - endX;
               startRight += change;
@@ -198,7 +198,7 @@ Page({
         if(groupname=="shops"){
           for (var k in res3) {
             var data = res3[k];
-            if (res3[k].id == dataId) {
+            if (res3[k].goods_id == dataId) {
               var startRight = res3[k].startRight;
               var change = endX - startX;
               startRight -= change;
@@ -218,7 +218,7 @@ Page({
   },
   //删除item
   delItem: function (e) {
-    var dataId = e.target.dataset.id;
+    var dataId = e.currentTarget.dataset.id;
     var groupname=e.currentTarget.dataset.group;
     var bransh = this.data.bransh;
     var mainStore = this.data.mainStore;
@@ -249,9 +249,11 @@ Page({
       })
     }
     if(groupname=="shops"){
+      //操作数据库写在这里
+      console.log("Sdfas");
       for (var i in shops) {
         var item = shops[i];
-        if (item.id != dataId) {
+        if (item.goods_id != dataId) {
           newShops.push(item);
         }
       }
@@ -265,9 +267,7 @@ Page({
    */
   selBtn:function(e){
     var Allprice = 0, i = 0;
-    let id = e.currentTarget.dataset.id,
-
-    index = parseInt(e.currentTarget.dataset.index);
+    let index = parseInt(e.currentTarget.dataset.index);
     this.data.shops[index].isSelected = !this.data.shops[index].isSelected;
     if (this.data.shops[index].isSelected) {
       this.data.totalsel = this.data.totalsel + this.data.shops[index].count;
@@ -346,9 +346,17 @@ Page({
  */
     shop.getCollect().then(res => {
       if (res.code == 200) {
-        console.log(res.datas.favorites_list)
+        var data=res.datas.favorites_list;
+        for(var i in data){
+          data[i].right=0;
+          data[i].startRight=0;
+          data[i].groupname="shops";
+          data[i].isSelected=false;
+          data[i].count=1;
+        }
+        console.log(res.datas.favorites_list)       
         that.setData({
-          collections: res.datas.favorites_list
+          shops: data
         })
       } else {
         console.log('收藏夹商品信息获取失败')
