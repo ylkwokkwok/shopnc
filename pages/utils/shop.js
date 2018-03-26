@@ -345,6 +345,14 @@ export default {
       .then(() => wsAPI.post('?act=member_favorites&op=favorites_add', data))
   },
   /**
+   * 店铺收藏
+   */
+  addCollectStore:function(data){
+    data.key = wx.getStorageSync(TOKEN_NAME);
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=member_favorites_store&op=favorites_add', data))
+  },
+  /**
    * 获取收藏夹商品信息
    */
   getCollect:function(){

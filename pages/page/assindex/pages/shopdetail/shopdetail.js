@@ -49,7 +49,7 @@ Page({
         collectImg:"/images/collect_sel.png",
         collectText:"已收藏"
       })
-      var goods_id = this.data.goods_info.goods_id
+      var goods_id = this.data.store_info.store_id
       shop.addCollect({goods_id}).then(res => {
         if (res.code == 200) {
           console.log(res)
@@ -79,10 +79,20 @@ Page({
       collect:!(this.data.collect)
     });
   },
-  collectSel:function(){
-    this.setData({
-      isCollect:!this.data.isCollect
-    });
+ 
+ //添加店铺收藏
+  collectSel:function(e){
+    var store_id = this.data.store_info.store_id
+    shop.addCollectStore({store_id}).then(res =>{
+      if(res.code==200){
+        console.log(res)
+      }else{
+        console.log(res)
+      }
+    })
+    // this.setData({
+    //   isCollect:!this.data.isCollect
+    // });
   },
   /** 
    * 点击tab切换 
