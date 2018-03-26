@@ -98,16 +98,32 @@ Page({
       })
     }
   },
+  prev: function () {
+    wx.previewImage({
+      urls: this.data.detailList,
+    })
+  },
+  showImgs: function () {
+    wx.previewImage({
+      urls: this.data.goods_image,
+    })
+  },
   onLoad:function(options){
     let that = this
     var goods_id = options.goods_id
     shop.getGoodsDetail({goods_id: goods_id}).then(res => {
       if(res.code == 200){
         console.log(res);
+        var image = res.datas.goods_image;
+        var imgs = [];
+        var bb = image.split(",");
+        for (var i in bb) {
+          imgs.push(bb[i]);
+        }
         that.setData({
           goods_commend_list: res.datas.goods_commend_list,
           goods_evaluate_info: res.datas.goods_evaluate_info,
-          goods_image: res.datas.goods_image,
+          goods_image: imgs,
           goods_info: res.datas.goods_info,
           store_info: res.datas.store_info
         })

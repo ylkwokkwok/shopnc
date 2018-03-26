@@ -66,13 +66,13 @@
           <text>店家推荐</text>
         </view>
         <view class="bottom">
-          <block wx:for="{{pros}}" wx:key="*this">
+          <block wx:for="{{goods_list}}" wx:key="*this">
             <navigator class="elme" url="{{item.link}}">
-              <view class="tit">{{item.title}}</view>
-              <image class="pro_img" src="{{item.img_url}}" mode='widthFix'></image>
+              <view class="tit">{{item.goods_name}}</view>
+              <image class="pro_img" src="{{item.goods_image_url}}" mode='widthFix'></image>
               <view class="jie">{{item.jie}}</view>
               <view style="overflow:hidden;margin-top:10rpx;">
-                <view class="price">￥{{item.price}}</view>
+                <view class="price">￥{{item.goods_price}}</view>
                 <view class="tuan">
                   <image src="/images/bg.png" mode='widthFix'></image>
                   <view>{{item.tuan}}</view>
@@ -100,13 +100,13 @@
       </view>
       <view class="shoplist">
         <view class="bottom">
-          <block wx:for="{{allpros}}" wx:key="*this">
+          <block wx:for="{{goods_list}}" wx:key="*this">
             <navigator class="elme" url="{{item.link}}">
-              <view class="tit">{{item.title}}</view>
-              <image class="pro_img" src="{{item.img_url}}" mode='widthFix'></image>
+              <view class="tit">{{item.goods_name}}</view>
+              <image class="pro_img" src="{{item.goods_image_url}}" mode='widthFix'></image>
               <view class="jie">{{item.jie}}</view>
               <view style="overflow:hidden;margin-top:10rpx;">
-                <view class="price">￥{{item.price}}</view>
+                <view class="price">￥{{item.goods_price}}</view>
                 <view class="tuan">
                   <image src="/images/bg.png" mode='widthFix'></image>
                   <view>{{item.tuan}}</view>

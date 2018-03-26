@@ -87,6 +87,12 @@ class store_goods_onlineControl extends mobileSellerControl {
 //        $this->profile_menu('goods_list', 'goods_list');
 //        Tpl::showpage('store_goods_list.online');
     }
+    /**
+     * 获取指定店铺上新
+     */
+    
+
+
 
     /**
      * 编辑商品页面

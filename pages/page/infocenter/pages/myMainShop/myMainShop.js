@@ -100,9 +100,15 @@ Page({
     shop.getStoreGoodsListOnline(options.store_id).then(res=>{
       if (res.code == 200) {
         console.log(res);
-        // that.setData({
-        //   shopinfo: res.datas.store_info
-        // });
+        var goods_new=[];
+        for (var i=0;i<=3;i++){
+          goods_new.push(res.datas.goods_list[i]);
+        }
+        //console.log(goods_new);
+         that.setData({
+           goods_list: res.datas.goods_list,
+           goods_new:goods_new
+         });
       } else {
         console.log(res)
       }
