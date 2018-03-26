@@ -350,6 +350,7 @@ export default {
   },
   //获取店铺信息（商家、store_id）
   getShopDetailByStore_id:function(data){
+    console.log(data)
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=store&op=store_intro', data))
   }
