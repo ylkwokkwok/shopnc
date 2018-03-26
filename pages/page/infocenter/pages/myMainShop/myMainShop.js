@@ -68,7 +68,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   // console.log(options.store_id)
+   console.log(options.store_id)
     var that=this;
     /** 
     * 获取系统信息 
@@ -98,6 +98,7 @@ Page({
      * 获取店铺商品
      */
     shop.getStoreGoodsListOnline(options.store_id).then(res=>{
+      console.log(options.store_id)
       if (res.code == 200) {
         console.log(res);
         var goods_new=[];

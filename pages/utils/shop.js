@@ -205,6 +205,7 @@ export default {
     let data={};
     data.key = wx.getStorageSync(TOKEN_NAME)
     data.store_id=store_id
+    console.log(data);
     return wsAPI.taskSequence()
       .then(() => wsAPI.get('?act=store_goods_online&op=goods_list', data))
   },

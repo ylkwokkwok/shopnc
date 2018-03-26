@@ -28,8 +28,8 @@ class store_goods_onlineControl extends mobileSellerControl {
         $model_goods = Model('goods');
 
         $where = array();
-        if(isset($_POST['store_id'])){
-            $where['store_id'] = $_POST['store_id'];
+        if(isset($_GET['store_id'])){
+            $where['store_id'] = $_GET['store_id'];
         } else{
             $where['store_id'] = $this->store_info['store_id'];
         }
@@ -90,7 +90,7 @@ class store_goods_onlineControl extends mobileSellerControl {
     /**
      * 获取指定店铺上新
      */
-    
+
 
 
 

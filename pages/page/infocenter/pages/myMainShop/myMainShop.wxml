@@ -129,16 +129,16 @@
       <view class="shoplist">
         <view class="top">
           <view class="xian"></view>
-          <text style="width:150rpx;">3月2日上新</text>
+          <text style="width:150rpx;">本店新品</text>
         </view>
         <view class="bottom">
-          <block wx:for="{{newpros}}" wx:key="*this">
+          <block wx:for="{{goods_new}}" wx:key="*this">
             <navigator class="elme" url="{{item.link}}">
-              <view class="tit">{{item.title}}</view>
-              <image class="pro_img" src="{{item.img_url}}" mode='widthFix'></image>
+              <view class="tit">{{item.goods_name}}</view>
+              <image class="pro_img" src="{{item.goods_image_url}}" mode='widthFix'></image>
               <view class="jie">{{item.jie}}</view>
               <view style="overflow:hidden;margin-top:10rpx;">
-                <view class="price">￥{{item.price}}</view>
+                <view class="price">￥{{item.goods_price}}</view>
                 <view class="tuan">
                   <image src="/images/bg.png" mode='widthFix'></image>
                   <view>{{item.tuan}}</view>
