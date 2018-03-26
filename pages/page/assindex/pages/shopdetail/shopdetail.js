@@ -50,11 +50,23 @@ Page({
         collectText:"已收藏"
       })
       var goods_id = this.data.goods_info.goods_id
-      shop.addCollect(goods_id).then(res => {
+      shop.addCollect({goods_id}).then(res => {
         if (res.code == 200) {
-          console.log('收藏成功')
+          console.log(res)
+          wx.showToast({
+            title: '收藏成功',
+           icon: '',
+            duration: 1000,
+            mask: true
+          })
         } else {
-          console.log('添加收藏失败')
+          console.log(res)
+          wx.showToast({
+            title: res.datas.error,
+            icon:'none',
+            duration:1000,
+            mask:true
+          })
         }
       })
     }else{
@@ -91,6 +103,7 @@ Page({
     var goods_id = options.goods_id
     shop.getGoodsDetail({goods_id: goods_id}).then(res => {
       if(res.code == 200){
+        console.log(res);
         that.setData({
           goods_commend_list: res.datas.goods_commend_list,
           goods_evaluate_info: res.datas.goods_evaluate_info,

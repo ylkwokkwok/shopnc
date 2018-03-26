@@ -17,4 +17,3 @@ class ali_msgControl extends mobileHomeControl{
        // output_data(123);
     }
 }
-?>

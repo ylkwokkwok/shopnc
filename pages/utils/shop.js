@@ -336,8 +336,16 @@ export default {
   /**
    * 加入收藏
    */
-  addCollect:function(goods_id){
+  addCollect:function(data){
+    data.key = wx.getStorageSync(TOKEN_NAME);
     return wsAPI.taskSequence()
-      .then(() => wsAPI.post('?act=member_favorites&op=favorites_add', goods_id))
+      .then(() => wsAPI.post('?act=member_favorites&op=favorites_add', data))
+  },
+  /**
+   * 获取收藏夹商品信息
+   */
+  getCollect:function(){
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=member_favorites&op=favorites_list', { key: wx.getStorageSync(TOKEN_NAME) }))
   }
 }

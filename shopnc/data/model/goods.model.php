@@ -154,7 +154,7 @@ class goodsModel extends Model{
     /**
      * 查询推荐商品
      */
-    public function getGoodsCommend($condition, $field = '*', $group = '',$order = '', $limit = 4, $page = 0, $count = 0){
+    public function getGoodsCommend($condition, $field = '*', $group = '',$order = '', $limit = 30, $page = 0, $count = 0){
         $condition = $this->_getRecursiveClass($condition);
         return $this->table('goods')->field($field)->where($condition)->group($group)->order($order)->limit($limit)->page($page, $count)->select();
     }

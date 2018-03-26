@@ -1,3 +1,4 @@
+import shop from '../../../../utils/shop'
 var bransh;
 var mainStore;
 var shops;
@@ -339,5 +340,19 @@ Page({
         });
       }
     });
-  },
+    
+/**
+ * 获取我的收藏夹中的商品
+ */
+    shop.getCollect().then(res => {
+      if (res.code == 200) {
+        console.log(res.datas.favorites_list)
+        that.setData({
+          collections: res.datas.favorites_list
+        })
+      } else {
+        console.log('收藏夹商品信息获取失败')
+      }
+    })
+  }
 })
