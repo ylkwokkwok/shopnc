@@ -1,3 +1,4 @@
+import shop from '../../../../utils/shop';
 Page({
 
   /**
@@ -6,9 +7,9 @@ Page({
   data: {
     winHeight: 0,
     shopname:"圣诞节和发动机",
-    shops:[
-      { img: "/images/shop2.png", jie: "刀口恢复卡戴珊阿斯利康发狂似的能否萨拉丁孔繁森", detail: "产品详情", num: 1, money: 300, freight:0}
-    ],
+    // shops:[
+    //   { img: "/images/shop2.png", jie: "刀口恢复卡戴珊阿斯利康发狂似的能否萨拉丁孔繁森", detail: "产品详情", num: 1, money: 300, freight:0}
+    // ],
     showSel:false,
     addList:[
       "四川省绵阳市涪城区","北京市朝阳区","福建省晋江市"
@@ -31,37 +32,37 @@ Page({
     }
   },
   add:function(e){
-    var num = this.data.shops[0].num;
+    var num = this.data.shops.num;
     num++;
     this.setData({
-      'shops[0].num':num,
-      totalMoney:(this.data.shops[0].money * num).toFixed(2),
-      payMoney: (this.data.shops[0].money * num + this.data.shops[0].freight).toFixed(2),
-      integral: (this.data.shops[0].money * num + this.data.shops[0].freight).toFixed(0)
+      'shops.num':num,
+      totalMoney:parseInt(this.data.shops.goods_price * num).toFixed(2),
+      payMoney: (parseInt(this.data.shops.goods_price * num)+ parseInt(this.data.shops.goods_freight)).toFixed(2),
+      integral: (parseInt(this.data.shops.goods_price * num)+ parseInt(this.data.shops.goods_freight)).toFixed(0)
     })
   },
   reduce:function(){
-    var num = this.data.shops[0].num;
+    var num = this.data.shops.num;
     if(num>1){
       num--;
     }else{
       num=1;
     }
     this.setData({
-      'shops[0].num':num,
-      totalMoney: (this.data.shops[0].money * num).toFixed(2),
-      payMoney: (this.data.shops[0].money * num + this.data.shops[0].freight).toFixed(2),
-      integral: (this.data.shops[0].money * num + this.data.shops[0].freight).toFixed(0)
+      'shops.num':num,
+      totalMoney: parseInt(this.data.shops.goods_price * num).toFixed(2),
+      payMoney: (parseInt(this.data.shops.goods_price * num) + parseInt(this.data.shops.goods_freight)).toFixed(2),
+      integral: (parseInt(this.data.shops.goods_price * num) + parseInt(this.data.shops.goods_freight)).toFixed(0)
     });
   },
-  inputChange:function(e){
-    var num=e.detail.value;
-    this.setData({
-      totalMoney: (this.data.shops[0].money * num).toFixed(2),
-      payMoney: (this.data.shops[0].money * num + this.data.shops[0].freight).toFixed(2),
-      integral: (this.data.shops[0].money * num + this.data.shops[0].freight).toFixed(0)
-    });
-  },
+  // inputChange:function(e){
+  //   var num=e.detail.value;
+  //   this.setData({
+  //     totalMoney: (this.data.shops[0].money * num).toFixed(2),
+  //     payMoney: (this.data.shops[0].money * num + this.data.shops[0].freight).toFixed(2),
+  //     integral: (this.data.shops[0].money * num + this.data.shops[0].freight).toFixed(0)
+  //   });
+  // },
   selectAdd:function(){
     this.setData({
       showSel:true
@@ -102,7 +103,8 @@ Page({
       }
     })
   },
-  onLoad: function () {
+  onLoad: function (options) {
+    var goods_id=options.goods_id;
     var that = this;
     /** 
      * 获取系统信息 
@@ -115,11 +117,31 @@ Page({
         });
       }
     });
-    this.setData({
-      totalMoney:this.data.shops[0].money.toFixed(2),
-      payMoney:(this.data.shops[0].money + this.data.shops[0].freight).toFixed(2),
-      integral:(this.data.shops[0].money + this.data.shops[0].freight).toFixed(0),
-      address:this.data.addList[0]
-    });
+    /**
+     * 获取商品信息
+     */
+    shop.getGoodsDetail({ goods_id: goods_id }).then(res => {
+      if (res.code == 200) {
+        var image = res.datas.goods_image;
+        var imgs = [];
+        var bb = image.split(",");
+        for (var i in bb) {
+          imgs.push(bb[i]);
+        }
+        var info = res.datas.goods_info;
+        info.num=1;
+        that.setData({
+          shops:info,
+          goods_image: imgs,
+          store_info: res.datas.store_info
+        }); 
+        that.setData({
+          totalMoney: parseInt(this.data.shops.goods_price).toFixed(2),
+          payMoney: (parseInt(this.data.shops.goods_price) + parseInt(this.data.shops.goods_freight)).toFixed(2),
+          integral: (parseInt(this.data.shops.goods_price) + parseInt(this.data.shops.goods_freight)).toFixed(0),
+          address: this.data.addList[0]
+        });  
+      }
+    })
   } 
 })

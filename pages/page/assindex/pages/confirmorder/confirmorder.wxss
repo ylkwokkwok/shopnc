@@ -75,6 +75,10 @@
 .orderDetail .bottom .right .jie{
   font-size: 28rpx;
   color:#8d8d8d;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  overflow: hidden;
 }
 .orderDetail .bottom .right .center{
   margin-top:20rpx;

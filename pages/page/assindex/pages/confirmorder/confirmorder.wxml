@@ -10,21 +10,23 @@
   <view class="orderDetail">
     <view class="top">
       <span></span>
-      <text>{{shopname}}</text>
+      <text>{{store_info.store_name}}</text>
     </view>
     <view class="bottom">
       <view class="left">
-        <image src="{{shops[0].img}}" mode='widthFix'></image>
+        <image src="{{goods_image[0]}}" mode='widthFix'></image>
       </view>
       <view class='right'>
-        <view class="jie">{{shops[0].jie}}</view>
+        <view class="jie">{{shops.goods_name}}</view>
         <view class="center">
-          <text class="detail">{{shops[0].detail}}</text>
+          <block wx:for="{{shops.goods_spec}}">
+          <text class="detail">{{item}}</text>
+          </block>
           <view class="number">
-            <view bindtap="reduce" style="{{shops[0].num==1?'border:1px solid #dedede':'border:1px solid #999'}}">
-              <image src="{{shops[0].num==1?'/images/assortment/reduce_no.png':'/images/assortment/reduce.png'}}" mode='widthFix'></image>
+            <view bindtap="reduce" style="{{shops.num==1?'border:1px solid #dedede':'border:1px solid #999'}}">
+              <image src="{{shops.num==1?'/images/assortment/reduce_no.png':'/images/assortment/reduce.png'}}" mode='widthFix'></image>
             </view>
-            <input value='{{shops[0].num}}' bindchange="inputChange"/>
+            <input value='{{shops.num}}' disabled='true'/>
             <view bindtap="add">
               <image src="/images/assortment/add.png" mode='widthFix'></image>
             </view>
@@ -45,7 +47,7 @@
     </view>
     <view class="freight">
       <text class="name">运费</text>
-      <text class="money">+ ￥{{shops[0].freight}}</text>
+      <text class="money">+ ￥{{shops.goods_freight}}</text>
     </view>
     <view class="countprice">总价: <text>￥{{payMoney}} ({{integral}}积分) </text> </view>
     <button class="weChat" type="primary" bindtap="requestPayment">微信支付</button>

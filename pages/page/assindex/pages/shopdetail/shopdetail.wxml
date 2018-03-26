@@ -146,7 +146,7 @@
         <navigator class="second" url="" bindtap="addToCart">
           <view class="money">加入购物车</view>
         </navigator>
-        <navigator class="thrid" url="../confirmorder/confirmorder">
+        <navigator class="thrid" url="/page/assindex/pages/confirmorder/confirmorder?goods_id={{goods_info.goods_id}}">
           <view class="money">确认订单</view>
         </navigator> 
       </view>

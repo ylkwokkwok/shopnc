@@ -98,7 +98,7 @@ class member_favorites_storeControl extends mobileMemberControl {
             $store_model->editStore(array('store_collect'=>array('exp', 'store_collect+1')), array('store_id' => $fav_id));
             output_data($result);
         } else {
-            output_error('$result');
+            output_error($result);
         }
     }
 
