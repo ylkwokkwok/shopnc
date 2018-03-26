@@ -96,9 +96,9 @@ class member_favorites_storeControl extends mobileMemberControl {
             //增加收藏数量
             $store_model = Model('store');
             $store_model->editStore(array('store_collect'=>array('exp', 'store_collect+1')), array('store_id' => $fav_id));
-            output_data($result);
+            output_data('1');
         } else {
-            output_error($result);
+            output_error('收藏失败');
         }
     }
 
