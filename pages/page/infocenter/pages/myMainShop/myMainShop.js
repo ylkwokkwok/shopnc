@@ -86,11 +86,27 @@ Page({
     shop.getShopDetailByStore_id(options.store_id).then(res=>{
       //console.log(options.store_id)
       if(res.code==200){
-        console.log(res)
+        that.setData({
+          
+          shopinfo: res.datas.store_info
+        });
       }else{
         console.log(res)
       }
-    })
+    });
+    /**
+     * 获取店铺商品
+     */
+    shop.getStoreGoodsListOnline(options.store_id).then(res=>{
+      if (res.code == 200) {
+        console.log(res);
+        // that.setData({
+        //   shopinfo: res.datas.store_info
+        // });
+      } else {
+        console.log(res)
+      }
+    });
   },
   onShareAppMessage: function () {
     return this.data.shareData

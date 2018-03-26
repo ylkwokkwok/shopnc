@@ -201,8 +201,10 @@ export default {
    * @param data
    * @returns {boolean}
    */
-  getStoreGoodsListOnline: function (data) {
+  getStoreGoodsListOnline: function (store_id) {
+    let data={};
     data.key = wx.getStorageSync(TOKEN_NAME)
+    data.store_id=store_id
     return wsAPI.taskSequence()
       .then(() => wsAPI.get('?act=store_goods_online&op=goods_list', data))
   },
@@ -349,8 +351,9 @@ export default {
       .then(() => wsAPI.post('?act=member_favorites&op=favorites_list', { key: wx.getStorageSync(TOKEN_NAME) }))
   },
   //获取店铺信息（商家、store_id）
-  getShopDetailByStore_id:function(data){
-    console.log(data)
+  getShopDetailByStore_id:function(store_id){
+    let data={};
+    data.store_id=store_id;
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=store&op=store_intro', data))
   }
