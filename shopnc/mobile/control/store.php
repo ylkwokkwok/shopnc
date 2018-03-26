@@ -385,7 +385,7 @@ class storeControl extends mobileHomeControl
     {
         $store_id = (int) $_POST['data'];
         if ($store_id <= 0) {
-            output_error('参数错误');
+            output_error($store_id);
         }
         $store_online_info = Model('store')->getStoreOnlineInfoByID($store_id);
         if (empty($store_online_info)) {
