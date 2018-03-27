@@ -14,6 +14,6 @@ class ali_msgControl extends mobileHomeControl{
     }
     public static function sendCode($tel){
         SmsDemo::sendSms($tel);//发送短信验证码
-       // output_data(123);
+       output_data(array('code'=>123));
     }
 }

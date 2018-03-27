@@ -132,7 +132,7 @@ Page({
     var goods_id = options.goods_id
     shop.getGoodsDetail({goods_id: goods_id}).then(res => {
       if(res.code == 200){
-        console.log(res);
+        console.log(res.datas.goods_evaluate_info);
         var image = res.datas.goods_image;
         var imgs = [];
         var bb = image.split(",");

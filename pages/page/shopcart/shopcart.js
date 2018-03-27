@@ -172,13 +172,11 @@ Page({
       cancelText: '确认删除',
       success: function (res) {
         if(!res.confirm) {
-          // app.fetch("?act=member_cart&op=cart_del", {key: app.data.key, cart_id: cart_id}, 'POST')
-          //   .then(res => {
-          //   if(res.data.code == 200 && res.data.datas == '1'){
-          //   that.getCartList()
-          // }
-          // })
-          // .catch(error => console.error(error))
+          shop.deleteCart({ cart_id }).then(cc => {
+            if (cc.code == 200 && cc.datas == "1") {
+              that.getCartList();
+            }
+          }).catch(error => console.error(error));
         }
       }
     })

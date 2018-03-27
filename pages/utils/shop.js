@@ -118,6 +118,14 @@ export default {
       .then(() => wsAPI.post('?act=member_cart&op=cart_list', { key: wx.getStorageSync(TOKEN_NAME) }))
   },
   /**
+   * 删除购物车中的商品
+   */
+  deleteCart: function (data) {
+    data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=member_cart&op=cart_del', data))
+  },
+  /**
    * 购物车修改数量
    * @param data
    * @returns {boolean}
