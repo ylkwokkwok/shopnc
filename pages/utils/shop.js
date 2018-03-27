@@ -377,7 +377,7 @@ export default {
   //获取短信验证码
   getAliMsg:function(tel){
     let data = {};
-    data.tel = tel;
+    data.tel = tel; 
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=ali_msg&op=send_code', data))
   }
