@@ -2,37 +2,38 @@
   <form class="form">
     <view class="consignee same">
       <label>收货人</label>
-      <input placeholder='姓名' placeholder-style='color:#b6b6b6'></input>
+      <input placeholder='姓名' placeholder-style='color:#b6b6b6' bindinput="bindKeyInput" data-key="true_name" value="{{true_name}}"></input>
     </view> 
     <view class="phone same">
       <label>联系电话</label>
-      <input placeholder='手机号码' placeholder-style='color:#b6b6b6' type='number'></input>
+      <input placeholder='手机号码' placeholder-style='color:#b6b6b6' type='number' bindinput="bindKeyInput" data-key="mob_phone" value="{{mob_phone}}"></input>
     </view> 
     <view class="provice same">
-      <label>所在地区</label>
-      <input value='{{province}}-{{city}}-{{county}}' bindfocus="open"></input>
-    </view> 
+      <label>所在省份</label>
+      <picker bindchange="bindProvinceChange" name="province" value="{{provinceIndex}}" range="{{provinces}}" range-key="area_name">
+        <input style="color: #999;" placeholder-style='color:#b6b6b6' value="{{provinces[provinceIndex].area_name}}" placeholder="省份" disabled='true'/>
+      </picker>
+    </view>
+    <view class="provice same">
+      <label>所在市区</label>
+      <picker bindchange="bindCityChange" name="city" value="{{cityIndex}}" range="{{citys}}" range-key="area_name">
+        <input style="color: #999;" placeholder-style='color:#b6b6b6' value="{{citys[cityIndex].area_name}}" placeholder="城市" disabled='true'/>
+      </picker>
+    </view>
+    <view class="provice same">
+      <label>所在区县</label>
+      <picker bindchange="bindCountyChange" name="province" value="{{countyIndex}}" range="{{countys}}" range-key="area_name">
+        <input style="color: #999;" placeholder-style='color:#b6b6b6' value="{{countys[countyIndex].area_name}}" placeholder="区县" disabled='true'/>
+      </picker>
+    </view>
     <view class="address same">
       <label>详细地址</label>
-      <input placeholder='填写居住地址' placeholder-style='color:#b6b6b6'></input>
-    </view> 
-    <button class="save" type='primary'>保存该地址</button>
+      <input placeholder='填写居住地址' placeholder-style='color:#b6b6b6' bindinput="bindKeyInput" data-key="address" value="{{address}}"></input>
+    </view>
+    <view class="address same">
+      <label>默认地址</label>
+      <radio value="1" color='#568FDC' name="is_default" checked="{{is_default}}" bindtap="bindIsDefaultChange"></radio>
+    </view>
+    <button class="save" bindtap="formSubmit">保存该地址</button>
   </form>
-  <view wx:if="{{condition}}" class="citypicker">
-    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange" class="citybody">
-      <view class="cityheader">
-        <view bindtap="open" class="city-cancel">取消</view>
-        <view bindtap="open" class="city-true">确定</view>
-      </view>
-      <picker-view-column>
-        <view wx:for="{{provinces}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
-      </picker-view-column>
-      <picker-view-column>
-        <view wx:for="{{citys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
-      </picker-view-column>
-      <picker-view-column>
-        <view wx:for="{{countys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
-      </picker-view-column>
-    </picker-view>
-  </view>
 </view>

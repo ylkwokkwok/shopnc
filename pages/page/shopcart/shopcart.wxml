@@ -1,8 +1,4 @@
 <view class="container" style="min-height:{{winHeight}}px; overflow: {{editAddressStatus ? 'hidden' : 'auto'}};">
-  <view class="address" bindtap="selectAddress">
-    <image src="../../images/pos.png" mode='widthFix'></image>
-    <text>{{addressChecked.addressInfo}}</text>
-  </view>
   <!--产品列表-->
   <view wx:if="{{!cartListIsEmpty}}">
     <view class="store-cart" wx:for="{{cartList}}" wx:for-index="StoreIndex" wx:for-item="cartStore" wx:key="key">
@@ -59,7 +55,7 @@
     <view class="right">
       <view class="collect">加入收藏</view>
       <view class="pay">
-        <navigator url=''>前往支付</navigator>
+        <navigator url='' bindtap="checkout">前往支付</navigator>
       </view>
     </view>
   </view>

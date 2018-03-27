@@ -1,6 +1,7 @@
 .container{
   background: #f6f6f6;
   position: relative;
+  padding-bottom: 0;
 }
 .center{
   width: 750rpx;

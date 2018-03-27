@@ -1,51 +1,114 @@
-// page/infocenter/pages/addressManage/addressManage.js
+import shop from '../../../../utils/shop'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    winHeight:0,
-    addressList:[
-     {name:"张三",phone:"13852945510",address:"四层楼回复的时刻四大力开发上看到你发撒了点开饭时可",id:1},
-     { name: "李四", phone: "15245817741", address: "但是看了法术抵抗是独立开发的奶粉是对抗激烈反抗的撒",id:2}
-    ],
-    currentTab:0,
-    defaultAdd:"默认地址",
+    addressList: null
   },
-  swichNav: function (e) {
-    var cur = e.currentTarget.dataset.current;
-    if (this.data.currentTab == cur) {
-      return false;
-    } else {
-      this.setData({
-        currentTab: cur,
-      })
-    }
-  },
-  //删除地址
-  deleteAddress:function(e){
-    var adId=e.currentTarget.dataset.id;
-    var addressList=this.data.addressList;
-    var newAddList=[];
-    for(var i in addressList){
-      var item=addressList[i];
-      if(item.id!=adId){
-        newAddList.push(item);
-      }
-    }
-    this.setData({
-      addressList:newAddList
-    });
-  },
-  onLoad: function () {
-    var that = this;
-    wx.getSystemInfo({
+  /**
+   *
+   * @param e
+   */
+  bindRemoveTap: function (e) {
+    var id = e.currentTarget.dataset.addressId
+    let that = this
+    wx.showModal({
+      title: '提示',
+      content: '是否确认删除？',
+      confirmText: '取消',
+      cancelText: '确认删除',
       success: function (res) {
-        that.setData({
-          winHeight: res.windowHeight
-        });
+        if(!res.confirm) {
+          shop.removeAddress({address_id: id}).then(res => {
+            if(res.code == 200){
+              wx.showToast({
+                title: "删除成功",
+                icon: 'none',
+                duration: 2000
+              })
+              that.getAddressList()
+            }else{
+              wx.showToast({
+                title: res.datas.error,
+                icon: 'error',
+                duration: 2000
+              })
+            }
+          })
+        }
       }
-    });
+    })
+  },
+  bindEditTap: function (e) {
+    var id = e.target.dataset.addressId
+    wx.navigateTo({url: '/page/infocenter/pages/addAddress/addAddress?address_id=' + id})
+  },
+  getAddressList: function () {
+    shop.getAddressList().then(res => {
+      this.setData({addressList: res.datas.address_list})
+    })
+  },
+  toAddressForm: function () {
+    wx.redirectTo({url: '/page/infocenter/pages/addAddress/addAddress'})
+  },
+  editAddress: function (e) {
+    wx.redirectTo({url: '/page/infocenter/pages/addAddress/addAddress?address_id=' + e.currentTarget.dataset.addressId})
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.getAddressList()
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 })

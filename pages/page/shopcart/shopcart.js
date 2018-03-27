@@ -11,58 +11,7 @@ Page({
     apiRootPath: null,
     selectedAll: true,
     sumGoodsTotal: 0,
-    cartListIsEmpty: false,
-    addressChecked: {
-      addressId: 3,
-      consignee: '张三',
-      mobile: '13912312345',
-      addressInfo: '四川省成都市武侯区xxxx道xx号',
-      checked: true
-    },
-    editAddressStatus: false,
-    addressList: [
-      {
-        addressId: 1,
-        consignee: '张三',
-        mobile: '13912312345',
-        addressInfo: '重庆市渝北区xxxx道xx号',
-        checked: false
-      },
-      {
-        addressId: 2,
-        consignee: '李四',
-        mobile: '13912312345',
-        addressInfo: '四川省成都市武侯区xxxx道xx号',
-        checked: false
-      },
-      {
-        addressId: 3,
-        consignee: '王五',
-        mobile: '13912312345',
-        addressInfo: '北京市东城区xxxx道xx号',
-        checked: true
-      },
-    ]
-  },
-  switchAddress: function (e) {
-    let switchId = e.currentTarget.dataset.addressId
-    console.log(e)
-    let addressList = this.data.addressList
-    for (var i in addressList){
-      if (addressList[i].addressId == switchId) {
-        addressList[i].checked = true
-        this.setData({addressChecked: addressList[i]})
-      }else {
-        addressList[i].checked = false
-      }
-    }
-    this.setData({addressList: addressList})
-  },
-  selectAddress: function () {
-    this.setData({editAddressStatus: true})
-  },
-  cancelEditAddress: function () {
-    this.setData({editAddressStatus: false})
+    cartListIsEmpty: false
   },
   bindBuyNumberReduce: function (e) {
     console.log(e)
@@ -161,6 +110,7 @@ Page({
     }
     if(cart_id_array.length < 1) return false
     // todo 去下单
+    wx.navigateTo({url: '/page/index/pages/buy/buy?cart_id=' + cart_id_array.join(',') + '&ifcart=1'})
   },
   bindDelCart: function (e) {
     let that = this
@@ -172,17 +122,14 @@ Page({
       cancelText: '确认删除',
       success: function (res) {
         if(!res.confirm) {
-          // app.fetch("?act=member_cart&op=cart_del", {key: app.data.key, cart_id: cart_id}, 'POST')
-          //   .then(res => {
-          //   if(res.data.code == 200 && res.data.datas == '1'){
-          //   that.getCartList()
-          // }
-          // })
-          // .catch(error => console.error(error))
+          shop.cartDel({cart_id: cart_id}).then(res => {
+            if(res.code == 200){
+              that.getCartList()
+            }
+          })
         }
       }
     })
-
   },
   getCartList: function () {
     shop.getCartList()

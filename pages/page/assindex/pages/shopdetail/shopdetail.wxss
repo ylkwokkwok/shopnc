@@ -391,3 +391,50 @@
   font-size: 20rpx;
   padding-left: 10rpx;
 }
+/* 商品规格 */
+.goods-spec{
+  background-color: #ffffff;
+  padding: 20rpx;
+}
+.spec-name{
+  color: #888;
+  font-size: 14px;
+}
+.spec-list{
+}
+.spec-item{
+  display: inline-block;
+  margin-top: 16rpx;
+  padding: 5rpx 20rpx 5rpx 20rpx;
+  margin-right: 10rpx;
+  border-radius: 5rpx;
+  border: 1px solid #bbbbbb;
+  color: #888;
+  font-size:14px;
+}
+.selected{
+  color: #ffffff;
+  background-color: #ED5564;
+  border: none;
+}
+
+/* 购买数量 */
+.buy_number{
+  background-color: #ffffff;
+  margin-top: 10px;
+}
+.buy_number_label{
+  display: inline-block;
+  padding: 0 20rpx;
+  font-size: 16px;
+  color: #666666;
+  vertical-align:middle;
+}
+.buy_number_btn{
+  display: inline-block;
+  float: right;
+  padding-right: 20rpx;
+  vertical-align:middle;
+}
+
+

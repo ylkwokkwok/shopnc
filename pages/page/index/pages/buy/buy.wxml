@@ -1,19 +1,42 @@
 <view class="container" style='min-height:{{winHeight}}px'>
-  <view class="goods-list">
-    <view class="goods-item" wx:for="{{3}}" wx:key="key">
-      <view class="goods-img">
-        <image src="/images/shop3.png"/>
+  <view class='address-info'>
+    <image src='/images/pos.png' class='location-icon'/>
+    <view class='location-info'>
+      <view wx:if="{{!addressInfoIsEmpty}}" bindtap="selectAddress">
+        <view>
+          收货人：
+          <text class='address-name'>{{addressChecked.true_name}}</text>
+          <text class='address-tel'>{{addressChecked.mob_phone}}</text>
+        </view>
+        <view class='address-detail'>{{addressChecked.area_info}} {{addressChecked.address}}</view>
       </view>
-      <view class="goods-info">
-        <view class="goods-name">
-          <text>phpStorm is ready to update.</text>
+      <view wx:else style="width:100%;">
+        <view>
+          <button class="address-btn" style="background-color: #707070;" bindtap='toAddressForm'>添加新地址</button>
         </view>
-        <view class="goods_price red">
-          <text>砍价后: ￥2000</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='store-cart' wx:for="{{storeCartList}}" wx:for-index="storeIndex" wx:for-item="storeCart" wx:key="key">
+    <view class='store-info'>
+      <image src='/images/house.png' class='store-icon'/>
+      <view class='store-name' style='vertical-align: middle; ' data-store-id="{{storeIndex}}">{{storeCart.store_name}}</view>
+    </view>
+    <view class='goods-list'>
+      <view class='goods' wx:for="{{storeCart.goods_list}}" wx:for-index="goodsIndex" wx:for-item="goodsItem" wx:key="key2">
+        <view class='goods-image-wrapper'>
+          <navigator class='goods-image'>
+            <image src="{{goodsItem.goods_image_url}}"/>
+          </navigator>
         </view>
-        <view class="goods-notice">
-          <text>原价: <text style="text-decoration: line-through">￥2000</text></text>
-          <text>已有100人0元拿</text>
+        <view class='goods-infos-wrapper'>
+          <view class='goods-name-wrapper'>
+            <view class='goods-name'>{{goodsItem.goods_name}}</view>
+          </view>
+          <view class='goods-jingle'>{{goodsItem.goods_spec}}</view>
+          <view class='goods-price'>￥ {{goodsItem.goods_price}}</view>
+          <view class='goods-amount'>{{goodsItem.goods_num}} 件</view>
         </view>
       </view>
     </view>
@@ -24,11 +47,11 @@
   <view class="buy-price">
     <view>
       <text>商品金额</text>
-      <text>￥300.00</text>
+      <text>{{orderAmount}}</text>
     </view>
     <view>
       <text>运费</text>
-      <text>+ ￥30.00</text>
+      <text>{{addressFee}}</text>
     </view>
     <view>
       <text style="font-size: 30rpx;font-weight: bold;">总价:</text>
@@ -36,8 +59,49 @@
     </view>
   </view>
   <view class="buy-btns">
-    <button style="background-color: #1aad19;">微信支付</button>
+    <button style="background-color: #1aad19;" bindtap="checkout">微信支付</button>
     <button style="background-color: #568fdc;">余额支付</button>
     <button style="background-color: #707070;" bindtap='returnBargain'>返回砍价</button>
   </view>
+</view>
+  <!--弹出层-->
+<view wx:if="{{editAddressStatus}}" style="transition-duration: .45s">
+<view class="bg" bindtap="cancelEditAddress"></view>
+<view class="alert-box">
+  <view class="alter-header">
+    <text>选择地址</text>
+    <image src="/images/infocenter/cancel.png" bindtap="cancelEditAddress"/>
+  </view>
+  <view class="address-list">
+    <view wx:if="{{addressList.length > 0}}">
+      <view class="address-item" wx:for="{{addressList}}" wx:for-index="addressIndex" wx:for-item="addressItem" wx:key="key">
+        <radio value="1" color='#568FDC' bindtap='switchAddress' checked='{{addressItem.checked}}' data-index="{{addressIndex}}"/>
+        <view class="address-item-info">
+          <view style="display: flex;flex-direction: row;justify-content: start">
+            <view class="address-consignee">
+              {{addressItem.true_name}}
+            </view>
+            <view class="address-mobile" style="margin-left: 20rpx;">
+              {{addressItem.mob_phone}}
+            </view>
+          </view>
+          <view class="">
+            {{addressItem.area_info}} {{addressItem.address}}
+          </view>
+        </view>
+        <view class="address-item-icon">
+          <image src="/images/infocenter/edit.png" data-address-id="{{addressItem.address_id}}" bindtap="toEditAddress"/>
+        </view>
+      </view>
+    </view>
+    <view wx:else>
+      <view style="display: flex;flex-direction: row;justify-content: center;margin-top: 30rpx;">
+        <text>您还没有设置收货地址</text>
+      </view>
+    </view>
+  </view>
+  <view class="add-address">
+    <view bindtap="addAddress"><navigator url="/page/infocenter/pages/addAddress/addAddress?cartId={{cartId}}"><text>新增收货地址</text><image src="/images/infocenter/upload.png" /></navigator></view>
+  </view>
+</view>
 </view>

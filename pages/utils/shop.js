@@ -308,11 +308,140 @@ export default {
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=member_cart&op=cart_add', data))
   },
-
-    //获取店铺信息
+  /**
+   * 获取店铺信息
+   * @returns {boolean}
+   */
   getShopInfo: function () {
     let data = {};
+    data.key = wx.getStorageSync(TOKEN_NAME)
     return wsAPI.taskSequence()
-      .then(() => wsAPI.post('?act=seller_center&op=getShopInfo', { key: wx.getStorageSync(TOKEN_NAME) }))
+      .then(() => wsAPI.post('?act=seller_center&op=getShopInfo', data))
+  },
+  /**
+   * 获取商品详情
+   * @param data
+   * @returns {boolean}
+   */
+  getGoodsBody: function (data) {
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.get('?act=goods&op=goods_body', data))
+  },
+  /**
+   * 删除购物车
+   * @param data
+   * @returns {boolean}
+   */
+  cartDel: function (data) {
+    data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=member_cart&op=cart_del', data))
+  },
+  /**
+   * 下单
+   * @param data
+   * @returns {boolean}
+   */
+  buyStep1: function (data) {
+    data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=member_buy&op=buy_step1', data))
+  },
+  /**
+   * 虚拟商品下单
+   * @param data
+   * @returns {boolean}
+   */
+  buyStep2: function (data) {
+    data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=member_vr_buy&op=buy_step2', data))
+  },
+  /**
+   * 获取收货地址列表
+   * @returns {boolean}
+   */
+  getAddressList: function () {
+    let data = {}
+    data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=member_address&op=address_list', data))
+  },
+  /**
+   * 删除收货地址
+   * @param data
+   * @returns {boolean}
+   */
+  removeAddress: function (data) {
+    data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=member_address&op=address_del', data))
+  },
+  /**
+   * 获取收货地址详情
+   * @param data
+   * @returns {boolean}
+   */
+  getAddressInfo: function (data) {
+    data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=member_address&op=address_info', data))
+  },
+  /**
+   * 获取地区列表 by area_id
+   * @param data
+   * @returns {boolean}
+   */
+  getAreaById: function (data) {
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.get('?act=area&op=area_list', data))
+  },
+  /**
+   * 添加收货地址
+   * @param data
+   * @returns {boolean}
+   */
+  addAddress: function (data) {
+    data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=member_address&op=address_add', data))
+  },
+  buyStep2: function (data) {
+    data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=member_buy&op=buy_step2', data))
+  },
+  buyStep3: function (data) {
+    data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=member_vr_buy&op=buy_step3', data))
+  },
+  pay: function (op, pay_sn) {
+    var data = {}
+    data.pay_sn = pay_sn
+    data.key = wx.getStorageSync(TOKEN_NAME)
+    data.payment_code = 'wxpay_xcx'
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.get('?act=member_payment&op=' + op, data)).then(res => {
+        if(res.code == 200){
+          wx.requestPayment({
+            'timeStamp': res.datas.timeStamp,
+            'nonceStr': res.datas.nonceStr,
+            'package': res.datas.package,
+            'signType': 'MD5',
+            'paySign': res.datas.paySign,
+            'success':function(res){
+              resolve('success')
+            },
+            'fail':function(res){
+              resolve('fail')
+            },
+            'complete':function(res){
+              resolve('complete')
+            }
+          })
+        }
+      })
+      .catch(error => reject(error))
   }
 }

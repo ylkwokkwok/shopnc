@@ -3,8 +3,8 @@
   <view class="swiper">
     <swiper duration="1000" circular="true" bindchange='changeSwiper'>
       <block>
-        <swiper-item>
-          <image src="{{goods_image}}" mode='widthFix'></image>
+        <swiper-item wx:for="{{goodsImage}}" wx:key="id">
+          <image src="{{item}}" mode='widthFix'></image>
         </swiper-item>
       </block>
     </swiper>
@@ -15,20 +15,20 @@
   <!--商品信息-->
   <view class="shops">
     <view class="top">
-      <view class="tit">{{goods_info.goods_name}}</view>
+      <view class="tit">{{goodsInfo.goods_name}}</view>
       <view class="collect {{collect}}">
         <image src="{{collectImg}}" mode='widthFix' bindtap='changeCollect'></image>
         <text>{{collectText}}</text>      
       </view>
     </view>
     <view class="middle">
-      <view class="price">￥{{goods_info.goods_price}}</view>
+      <view class="price">￥{{goodsInfo.goods_price}}</view>
     </view>
     <view class="bottom">
       <view class="left">
-        <view class="oldprice">原价：<text>￥{{goods_info.goods_marketprice}}</text></view>
-        <view class="salesvolumn">销量：{{goods_info.goods_salenum}}件</view>
-        <view class="stock">库存{{goods_info.goods_storage}}件</view>
+        <view class="oldprice">原价：<text>￥{{goodsInfo.goods_marketprice}}</text></view>
+        <view class="salesvolumn">销量：{{goodsInfo.goods_salenum}}件</view>
+        <view class="stock">库存{{goodsInfo.goods_storage}}件</view>
       </view>
       <view class="right">
         <navigator url="">我要分销</navigator>
@@ -39,13 +39,30 @@
       <text>7天无理由退货</text>
     </view>
   </view>
-  <!--订单详情-->
-  <view class="orderDetail">
-    <view>送至 <text>四川省绵阳市高新区留学人员创业园</text></view>
-    <view wx:for="{{goods_info.goods_spec}}"  wx:key="key">
-      <view><text>{{item}}</text></view>
+  <!-- 购买数量 -->
+  <view class="buy_number">
+    <view class="buy_number_label">购买数量</view>
+    <view class="buy_number_btn">
+      <view class='inc-num-dec-group'>
+        <view class='dec' bindtap="bindBuyNumberReduce">-</view>
+        <view class='num'>{{buyNumber}}</view>
+        <view class='inc' bindtap="bindBuyNumberAdd">+</view>
+      </view>
     </view>
-    <view>数量 <text>1</text></view>
+  </view>
+  <!-- 商品规格 -->
+  <view class='goods-spec' wx:for="{{goodsSpecs}}" wx:key="{{specNameIndex}}" wx:for-index="specNameIndex" wx:key="key" wx:for-item="specNameItem">
+    <view class='spec-name' style='width: 200rpx;'>{{specNameItem.spec_name}}</view>
+    <view class='spec-list'>
+      <view wx:for="{{specNameItem.spec_values}}" wx:key="{{specValueIndex}}" wx:for-index="specValueIndex" wx:for-item="specValueItem"
+            class='spec-item {{specValueItem.checked ? "selected" : "" }}'
+            data-spec-name-id="{{specNameIndex}}"
+            data-spec-value-id="{{specValueIndex}}"
+            bindtap="selectSpec"
+      >
+        {{specValueItem.spec_value_name}}
+      </view>
+    </view>
   </view>
   <!--店铺-->
   <view class="shopName">

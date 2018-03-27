@@ -5,34 +5,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    money: "2000",
-    money2: "1500",
     current: 1,
-    imgs: ["/images/shop3.png", "/images/shop3.png", "/images/shop3.png", "/images/shop3.png"],
-    info: { tit: "收到卡里的解放啦可是那是大幅拉升泛滥是对方", price: "2000", oldprice: "2500", salesvolumn: "1500", stock: "1000" },
-    collage_list: [
-      { tx: "/images/tx.jpg", username: "深刻的" },
-      { tx: "/images/tx.jpg", username: "都可能" }
-    ],
-    countDownHour: "24",
-    countDownMinute: "00",
-    countDownSecond: "00",
-    evalutes: [
-      { username: "是的那份", date: "2018-01-22", content: "思考的风流快活是开发商的法律开始独立开发哈斯收到客户flak速度上单你发烧了的那份士大夫哈拉省的", star: [0, 1, 2, 3, 4], starimg: "/images/star.png", shopimgs: ["/images/shop1.png", "/images/shop2.png", "/images/shop3.png"] },
-      { username: "是的那份", date: "2018-01-22", content: "思考的风流快活是开发商的法律开始独立开发哈斯收到客户flak速度上单你发烧了的那份士大夫哈拉省的", star: [0, 1, 2, 3, 4], starimg: "/images/star.png", shopimgs: [] }
-    ],
     currentTab: 0,  
     collect:false,
     collectImg:"/images/collect.png",
     collectText:"收藏",
     isCollect:false,
     //
-    goods_commend_list: [],
-    goods_evaluate_info: [],
-    goods_image: '',
-    goods_info: '',
-    store_info: '',
-    detailList: ''
+    goodsInfo: null,
+    detailList: [], // 商品详情页
+    specImage: [],
+    imageList: null,
+    goodsCommendList: null,
+    storeInfo: null,
+    specList: null,
+    goodsImage: null,
+    goodsHairInfo: null,
+    goodsSpecs: null,
+    buyNumber: 1,
+    cartNumber: 0,
   },
   changeSwiper: function (e) {
     this.setData({
@@ -78,25 +69,132 @@ Page({
       })
     }
   },
+  /**
+   * 选择商品规格
+   * @param e
+   */
+  selectSpec: function (e) {
+    var spec_name_id = e.target.dataset.specNameId
+    var spec_value_id = e.target.dataset.specValueId
+    var key = 'default_spec.' + spec_name_id
+    this.setData({[key]: spec_value_id})
+    var spec_list_key = []
+    for (var item in this.data.default_spec) {
+      spec_list_key.push(this.data.default_spec[item])
+    }
+    spec_list_key.sort(function (a, b) {
+      return a - b
+    })
+    spec_list_key = spec_list_key.join('|')
+    var new_goods_id = this.data.specList[spec_list_key]
+    var goods_specs = this.data.goodsSpecs
+    for (var spec_name_index in goods_specs) {
+      if(spec_name_index == spec_name_id) {
+        for (var spec_value_index in goods_specs[spec_name_index].spec_values) {
+          goods_specs[spec_name_index].spec_values[spec_value_index].checked = spec_value_index == spec_value_id
+        }
+      }
+    }
+    this.setData({goodsSpecs: goods_specs})
+    this.getGoods(new_goods_id, 1)
+  },
+  getGoods: function (goods_id, type) {
+    var that = this
+    shop.getGoodsDetail({goods_id: goods_id}).then(res => {
+      if(res.code == 200){
+      var goodsInfo = res.datas.goods_info
+      var detailList = this.getLinksByImg(goodsInfo.mobile_body)
+      // 第一次加载时转换规格
+      if(type == 0) {
+        var goods_specs = {}
+        var default_spec = {}
+        /* goods specs */
+        for (var spec_name_index in goodsInfo.spec_name) {
+          var spec_values = {}
+          var index = 0
+          for (var spec_value_index in goodsInfo.spec_value[spec_name_index]) {
+            // default spec
+            if (index == 0) {
+              // 默认选择第一个
+              default_spec[spec_name_index] = spec_value_index
+              spec_values[spec_value_index] = {
+                spec_value_name: goodsInfo.spec_value[spec_name_index][spec_value_index],
+                checked: true
+              }
+            } else {
+              spec_values[spec_value_index] = {
+                spec_value_name: goodsInfo.spec_value[spec_name_index][spec_value_index],
+                checked: false
+              }
+            }
+            index++
+          }
+          goods_specs[spec_name_index] = {
+            spec_name: goodsInfo.spec_name[spec_name_index],
+            spec_values: spec_values
+          }
+        }
+        that.setData({
+          goodsSpecs: goods_specs,
+          default_spec: default_spec,
+        })
+      }
+      // goods_price
+      goodsInfo.goods_shop_price = goodsInfo.goods_price
+      /* */
+      that.setData({
+        goodsInfo: goodsInfo,
+        specImage: res.datas.spec_image,
+        imageList: res.datas.image_list,
+        goodsCommendList: res.datas.goods_commend_list,
+        storeInfo: res.datas.store_info,
+        specList: res.datas.spec_list,
+        goodsImage: res.datas.goods_image.split(','),
+        goodsHairInfo: res.datas.goods_hair_info,
+        detailList: detailList,
+        buyNumber: 1, //商品购买数量重置
+        })
+        if (detailList.length == 0) {
+          shop.getGoodsBody({ goods_id: goods_id}).then(res => {
+            detailList = that.getLinksByImg(res);
+            that.setData({
+              detailList: detailList,
+            });
+          })
+        }
+      }
+    })
+  },
+  bindBuyNumberReduce: function () {
+    var inputValue = this.data.buyNumber - 1
+    this.changeNewBuyNumber(inputValue)
+  },
+  bindBuyNumberEvent: function (e) {
+    var inputValue = isNaN(parseInt(e.detail.value)) ? 1 : parseInt(e.detail.value)
+    this.changeNewBuyNumber(inputValue)
+  },
+  bindBuyNumberAdd: function () {
+    var inputValue = this.data.buyNumber + 1
+    this.changeNewBuyNumber(inputValue)
+  },
+  changeNewBuyNumber: function (inputValue) {
+    inputValue = inputValue < 1 ? 1 : (inputValue > this.data.goodsInfo.goods_storage ? this.data.goodsInfo.goods_storage : inputValue)
+    if(this.data.goodsInfo.is_virtual == 1 && inputValue > this.data.goodsInfo.virtual_limit){
+      wx.showToast({
+        title: "最多限购" + this.data.goodsInfo.virtual_limit + "件",
+        icon: '',
+        image: '/images/icon/error_prompt.png',
+        duration: 2000
+      })
+      return
+    }
+    this.setData({ buyNumber: inputValue })
+  },
   onLoad:function(options){
     let that = this
     var goods_id = options.goods_id
-    shop.getGoodsDetail({goods_id: goods_id}).then(res => {
-      if(res.code == 200){
-        that.setData({
-          goods_commend_list: res.datas.goods_commend_list,
-          goods_evaluate_info: res.datas.goods_evaluate_info,
-          goods_image: res.datas.goods_image,
-          goods_info: res.datas.goods_info,
-          store_info: res.datas.store_info
-        })
-      }
-    })
-    shop.getGoodsDetailBody({goods_id: goods_id}).then(res => {
-      var detailList = that.getLinksByImg(res)
-      that.setData({detailList: detailList})
-    })
-    this.setData({
+    that.getGoods(goods_id, 0)
+    that.setData({
       isExchange:options.isExchange
     })
   },
@@ -113,6 +211,9 @@ Page({
     var srcReg = /src=[\'\"]?([^\'\"]*)[\'\"]?/i;
     var arr = body.match(imgReg);
     var links = []
+    if (arr.length < 1){
+      return []
+    }
     for(var src of arr){
       var ret = src.match(srcReg);
       if (ret[1]) {
@@ -122,8 +223,8 @@ Page({
     return links
   },
   addToCart: function () {
-    var goods_id = this.data.goods_info.goods_id
-    var buy_number = 1
+    var goods_id = this.data.goodsInfo.goods_id
+    var buy_number = this.data.buyNumber
     shop.addToCart({goods_id: goods_id, quantity: buy_number}).then(res => {
       if(res.code == 200){
         wx.showModal({

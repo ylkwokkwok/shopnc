@@ -21,3 +21,44 @@ view,navigator{
 .red{
   color: red;
 }
+/* 自增+数字+自减组 */
+/*
+<view class='inc-num-dec-group'>
+  <view class='dec'>-</view>
+  <view class='num'>20</view>
+  <view class='inc'>+</view>
+</view>
+*/
+.inc-num-dec-group{
+  line-height: 30px;
+  font-size: 14px;
+}
+
+.inc-num-dec-group .dec{
+  display: inline-block;
+  padding: 0 12px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: 1px solid #cccccc;
+  border-right: none;
+  color: #666666;
+}
+
+.inc-num-dec-group .num{
+  display: inline-block;
+  padding: 0px 12px;
+  border: 1px solid #cccccc;
+  color: #333333;
+  min-width: 20px;
+  text-align: center;
+}
+
+.inc-num-dec-group .inc{
+  display: inline-block;
+  padding: 0px 12px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 1px solid #cccccc;
+  border-left: none;
+  color: #666666;
+}

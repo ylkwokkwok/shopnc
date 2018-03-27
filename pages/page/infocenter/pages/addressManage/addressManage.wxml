@@ -8,32 +8,26 @@
   </block>
   <block wx:else>
     <block wx:for="{{addressList}}" wx:key="index">
-      <view class="blockEle" id="{{item.id}}">
+      <view class="blockEle" data-id="{{item.address_id}}">
         <view class="top">
-          <view class="name">{{item.name}}</view>
-          <view class='phone'>{{item.phone}}</view>
+          <view class="name">{{item.true_name}}</view>
+          <view class='phone'>{{item.mob_phone}}</view>
         </view>
         <view class="content">
-          <text>{{item.address}}</text>
+          <text>{{item.area_info}} {{item.address}}</text>
         </view>
         <view class="bottom">
           <view class="left">
-             <image src="{{currentTab==index?'/images/comment_select.png':'/images/comment_normal.png'}}" data-current='{{index}}' bindtap="swichNav" mode='widthFix'></image> 
-             <block wx:if="{{currentTab==index}}">
-              <text>默认地址</text>
-             </block>
-             <block wx:else>
-              <text>设为默认</text>
-             </block>
+            <text wx:if="{{item.is_default == 1}}">默认地址</text>
           </view>
           <view class="right">
-            <view>
+            <view bindtap="editAddress" data-address-id="{{item.address_id}}">
               <image src="/images/assortment/edit.png" mode='widthFix'></image>
               <text>编辑</text>
             </view>
-            <view>
+            <view bindtap="bindRemoveTap" data-address-id="{{item.address_id}}">
               <image src="/images/infocenter/delete.png" mode='widthFix'></image>
-              <text data-id="{{item.id}}" bindtap="deleteAddress">删除</text>
+              <text>删除</text>
             </view>
           </view>
         </view>
