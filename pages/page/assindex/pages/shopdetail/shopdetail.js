@@ -87,7 +87,16 @@ Page({
       if(res.code==200){
         console.log(res)
       }else{
-        console.log(res)
+        var errormsg=res.datas.error
+        this.setData({
+          isCollect:true
+        })
+        wx.showToast({
+          title: errormsg,
+          icon: 'none',
+          duration: 1000,
+          mask: true
+        })
       }
     })
     // this.setData({

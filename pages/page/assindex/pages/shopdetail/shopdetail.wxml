@@ -72,12 +72,12 @@
       </view>
     </view>
     <view class="bottom">
-      <block wx:if="{{isCollect}}">
+      <!-- <block wx:if="{{isCollect}}"> -->
         <view bindtap='collectSel'>收藏店铺</view>
-      </block>
-      <block wx:else>
+      <!-- </block> -->
+      <!-- <block wx:else>
         <view bindtap='collectSel'>已收藏该店铺</view>
-      </block>
+      </block> -->
       <navigator class="joinstore" url="../../../infocenter/pages/myMainShop/myMainShop?store_id={{store_info.store_id}}">进入店铺</navigator>
     </view>
   </view> 
