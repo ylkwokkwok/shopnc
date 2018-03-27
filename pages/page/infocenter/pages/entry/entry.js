@@ -315,9 +315,9 @@ Page({
     //获取短信验证码
     shop.getAliMsg(13088209127).then(res=>{
       if(res.code){
-        console.log(res)
+        console.log(1)
       }else{
-        console.log(res)
+        console.log(2)
       }
     })
   },

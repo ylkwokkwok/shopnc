@@ -13,6 +13,7 @@ class ali_msgControl extends mobileHomeControl{
         parent::__construct();
     }
     public function send_codeOp(){
+        file_put_contents('./1.log',123);
         $tel=$_POST['tel'];
         SmsDemo::sendSms($tel);//发送短信验证码
        output_data(array('code'=>123));
