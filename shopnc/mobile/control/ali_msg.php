@@ -12,7 +12,8 @@ class ali_msgControl extends mobileHomeControl{
     public function __construct() {
         parent::__construct();
     }
-    public function sendCodeOp($tel){
+    public function send_codeOp(){
+        $tel=$_POST['tel'];
         SmsDemo::sendSms($tel);//发送短信验证码
        output_data(array('code'=>123));
     }

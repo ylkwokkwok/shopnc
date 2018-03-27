@@ -300,16 +300,24 @@ Page({
     that.setData({
       disabled: true
     })
-    wx.request({
-      url: 'http://demo.it9g.com/mobile/index.php?act=ali_msg&op=sendCode',
-      method: "POST",
-      header: {
-        "content-type": "application/x-www-form-urlencoded"
-      },
-      data: '',
-      success: function () {
-        console.log(1)
+    // wx.request({
+    //   url: 'http://demo.it9g.com/mobile/index.php?act=ali_msg&op=sendCode',
+    //   method: "POST",
+    //   header: {
+    //     "content-type": "application/x-www-form-urlencoded"
+    //   },
+    //   data: '',
+    //   success: function () {
+    //     console.log(1)
 
+    //   }
+    // })
+    //获取短信验证码
+    shop.getAliMsg(13088209127).then(res=>{
+      if(res.code){
+        console.log(res)
+      }else{
+        console.log(res)
       }
     })
   },
