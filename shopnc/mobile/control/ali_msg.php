@@ -6,7 +6,7 @@
  * Time: 9:07
  */
 //defined('In33hao') or exit('Access Invalid!');
-//require_once ('../api/aliyun-dysms-php-sdk/api_demo/SmsDemo.php');
+require_once ('./aliyun-dysms-php-sdk/api_demo/SmsDemo.php');
 
 class ali_msgControl extends mobileHomeControl{
     public function __construct() {

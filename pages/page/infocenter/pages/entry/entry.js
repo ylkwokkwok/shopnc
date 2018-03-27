@@ -317,7 +317,7 @@ Page({
       if(res.code){
         console.log(1)
       }else{
-        console.log(2)
+        console.log(res)
       }
     })
   },
