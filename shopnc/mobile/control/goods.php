@@ -235,7 +235,7 @@ class goodsControl extends mobileHomeControl{
         //$sole_array = Model('p_sole')->getSoleGoodsList(array('goods_id' => array('in', $goodsid_array)));
         //$sole_array = array_under_reset($sole_array, 'goods_id');
 
-//        foreach ($goods_list as $key => $value) {
+        foreach ($goods_list as $key => $value) {
 //            $goods_list[$key]['sole_flag']      = false;
 //            $goods_list[$key]['group_flag']     = false;
 //            $goods_list[$key]['xianshi_flag']   = false;
