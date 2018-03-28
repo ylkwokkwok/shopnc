@@ -1,3 +1,4 @@
+import shop from '../../../../utils/shop'
 // page/infocenter/pages/shopManager/shopManager.js
 Page({
 
@@ -163,6 +164,16 @@ Page({
         });
       }
     });
+    shop.getStoreGoodsListOffline().then(res => {
+      if (res.code == 200) {
+        console.log(res.datas.goods_list)
+         that.setData({
+           shoplist: res.datas.goods_list
+         })
+      } else {
+        console.log('仓库信息获取失败')
+      }
+    })
   },
   shaiTab: function (e) {
     var cur = e.currentTarget.dataset.current;

@@ -6,8 +6,8 @@
     </view>
   </view>
   <view class="tabSwitch">
-    <navigator url="../shopManager/shopManager" open-type='redirect'>出售中({{shoplist.length}})</navigator>
-    <navigator class="on" url="../shopManager1/shopManager1" open-type='redirect'>仓库</navigator>
+    <navigator url="../shopManager/shopManager" open-type='redirect'>出售中</navigator>
+    <navigator class="on" url="../shopManager1/shopManager1" open-type='redirect'>仓库({{shoplist.length}})</navigator>
   </view>
   <view class="tabshow">
     <view class="top">
@@ -22,13 +22,13 @@
             <view class="shopone">
               <image class="sel" bindtap="selBtn" src="{{item.isSelected?'/images/comment_select.png':'/images/comment_normal.png'}}" mode="widthFix" data-index="{{index}}" data-id="{{index}}" data-group="{{item.shopgroup}}"></image>
               <view class="left">
-                <image src="{{item.img}}" mode='widthFix'></image>
-                <text>{{item.tit}}</text>
+                <image src="{{item.goods_image_url}}" mode='widthFix'></image>
+                <!-- <text>{{item.goods_name}}</text> -->
               </view>
               <view class="right">
-                <view class="jie">{{item.jie}}</view>
+                <view class="jie">{{item.goods_name}}</view>
                 <view style="overflow:hidden;margin-top:10rpx;">
-                  <view class="price">￥{{item.price}}</view>
+                  <view class="price">￥{{item.goods_price}}</view>
                   <view class="tuan">
                     <image src="/images/bg.png" mode='widthFix'></image>
                     <view>{{item.tuan}}</view>
@@ -36,7 +36,7 @@
                 </view>
                 <view class="bottom">
                   <view class="ppleft">
-                    <view class="oldprice">库存: <text>￥{{item.surplus}}</text> </view>
+                    <view class="oldprice">库存: <text>{{item.surplus}}</text> </view>
                     <view class="pinglun">总销量: <text>{{item.totalsales}}</text></view>
                   </view>
                 </view>

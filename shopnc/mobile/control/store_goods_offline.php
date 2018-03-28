@@ -13,7 +13,7 @@
 
 
 defined('In33hao') or exit ('Access Invalid!');
-class store_goods_offlineControl extends BaseSellerControl {
+class store_goods_offlineControl extends mobileSellerControl {
     public function __construct() {
         parent::__construct ();
         Language::read ('member_store_goods_index');
@@ -27,9 +27,8 @@ class store_goods_offlineControl extends BaseSellerControl {
      */
     public function goods_storageOp() {
         $model_goods = Model('goods');
-
         $where = array();
-        $where['store_id'] = $_SESSION['store_id'];
+        $where['store_id'] = $this->store_info['store_id'];
         if (intval($_GET['stc_id']) > 0) {
             $where['goods_stcids'] = array('like', '%,' . intval($_GET['stc_id']) . ',%');
         }
@@ -56,43 +55,50 @@ class store_goods_offlineControl extends BaseSellerControl {
             $where['gc_id'] = array('in',array_keys($gc_list));
         }
 
-        switch ($_GET['type']) {
-            // 违规的商品
-            case 'lock_up':
-                $this->profile_menu('goods_lockup');
-                $goods_list = $model_goods->getGoodsCommonLockUpList($where);
-                break;
-            // 等待审核或审核失败的商品
-            case 'wait_verify':
-                $this->profile_menu('goods_verify');
-                if (isset($_GET['verify']) && in_array($_GET['verify'], array('0', '10'))) {
-                    $where['goods_verify']  = $_GET['verify'];
-                }
-                $goods_list = $model_goods->getGoodsCommonWaitVerifyList($where);
-                break;
-            // 仓库中的商品
-            default:
-                $this->profile_menu('goods_storage');
+//        switch ($_GET['type']) {
+//            // 违规的商品
+//            case 'lock_up':
+//                $this->profile_menu('goods_lockup');
+//                $goods_list = $model_goods->getGoodsCommonLockUpList($where);
+//                break;
+//            // 等待审核或审核失败的商品
+//            case 'wait_verify':
+//                $this->profile_menu('goods_verify');
+//                if (isset($_GET['verify']) && in_array($_GET['verify'], array('0', '10'))) {
+//                    $where['goods_verify']  = $_GET['verify'];
+//                }
+//                $goods_list = $model_goods->getGoodsCommonWaitVerifyList($where);
+//                break;
+//            // 仓库中的商品
+//            default:
+//                $this->profile_menu('goods_storage');
                 $goods_list = $model_goods->getGoodsCommonOfflineList($where);
-                break;
+        foreach ($goods_list as &$goods){
+            //商品图片url
+            $goods['goods_image_url'] = cthumb($goods['goods_image'], 360, $goods['store_id']);
+            $goods['isSelected'] = false;
         }
+        $page_count = $model_goods->gettotalpage();
+        output_data(array("goods_list" => $goods_list), mobile_page($page_count));
+//                break;
+//        }
+//
+//        Tpl::output('show_page', $model_goods->showpage());
+//        Tpl::output('goods_list', $goods_list);
 
-        Tpl::output('show_page', $model_goods->showpage());
-        Tpl::output('goods_list', $goods_list);
+//        // 计算库存
+//        $storage_array = $model_goods->calculateStorage($goods_list);
+//        Tpl::output('storage_array', $storage_array);
+//
+//        // 商品分类
+//        $store_goods_class = Model('store_goods_class')->getClassTree(array('store_id' => $_SESSION['store_id'], 'stc_state' => '1'));
+//        Tpl::output('store_goods_class', $store_goods_class);
+//
+//        // 供货商
+//        $supplier_list = Model('store_supplier')->getStoreSupplierList(array('sup_store_id' => $_SESSION['store_id']));
+//        Tpl::output('supplier_list', $supplier_list);
 
-        // 计算库存
-        $storage_array = $model_goods->calculateStorage($goods_list);
-        Tpl::output('storage_array', $storage_array);
-
-        // 商品分类
-        $store_goods_class = Model('store_goods_class')->getClassTree(array('store_id' => $_SESSION['store_id'], 'stc_state' => '1'));
-        Tpl::output('store_goods_class', $store_goods_class);
-
-        // 供货商
-        $supplier_list = Model('store_supplier')->getStoreSupplierList(array('sup_store_id' => $_SESSION['store_id']));
-        Tpl::output('supplier_list', $supplier_list);
-
-        switch ($_GET['type']) {
+        /*switch ($_GET['type']) {
             // 违规的商品
             case 'lock_up':
                 Tpl::showpage('store_goods_list.offline_lockup');
@@ -106,7 +112,7 @@ class store_goods_offlineControl extends BaseSellerControl {
             default:
                 Tpl::showpage('store_goods_list.offline');
                 break;
-        }
+        }*/
     }
 
     /**

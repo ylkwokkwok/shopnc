@@ -10,7 +10,7 @@ Page({
     imageList: [],
     winHeight:0,
     showSel: false,
-    xieyi:"的数据库办法的就是看阿斯达克警方把数据库的士大夫饭卡斯达克警方啊十大科技发生大家看法阿三的客服解决啊数据库的沙发上的夫卡是的基本饭卡手动阀安德森会计法科技时代发啊都十分骄傲的设计开发",
+    xieyi:"",
     store_logo: '',
     store_name:'',
     contacts_name:'',
@@ -300,16 +300,24 @@ Page({
     that.setData({
       disabled: true
     })
-    wx.request({
-      url: 'http://demo.it9g.com/mobile/index.php?act=ali_msg&op=sendCode',
-      method: "POST",
-      header: {
-        "content-type": "application/x-www-form-urlencoded"
-      },
-      data: '',
-      success: function () {
-        console.log(1)
+    // wx.request({
+    //   url: 'http://demo.it9g.com/mobile/index.php?act=ali_msg&op=sendCode',
+    //   method: "POST",
+    //   header: {
+    //     "content-type": "application/x-www-form-urlencoded"
+    //   },
+    //   data: '',
+    //   success: function () {
+    //     console.log(1)
 
+    //   }
+    // })
+    //获取短信验证码
+    shop.getAliMsg(13088209127).then(res=>{
+      if(res.code){
+        console.log(1)
+      }else{
+        console.log(res)
       }
     })
   },

@@ -8,8 +8,8 @@
   </view>
   <view class="shopdetail">
     <view class="left">
-      <image src="/images/tx.jpg" mode='widthFix'></image>
-      <text>双卡双待尽快把圣诞节</text>
+      <image src="{{shopinfo.store_avatar}}" mode='widthFix'></image>
+      <text>{{shopinfo.store_name}}</text>
     </view>
     <view class="right">
       <view class="wel">
@@ -66,13 +66,13 @@
           <text>店家推荐</text>
         </view>
         <view class="bottom">
-          <block wx:for="{{pros}}" wx:key="*this">
+          <block wx:for="{{goods_list}}" wx:key="*this">
             <navigator class="elme" url="{{item.link}}">
-              <view class="tit">{{item.title}}</view>
-              <image class="pro_img" src="{{item.img_url}}" mode='widthFix'></image>
+              <view class="tit">{{item.goods_name}}</view>
+              <image class="pro_img" src="{{item.goods_image_url}}" mode='widthFix'></image>
               <view class="jie">{{item.jie}}</view>
               <view style="overflow:hidden;margin-top:10rpx;">
-                <view class="price">￥{{item.price}}</view>
+                <view class="price">￥{{item.goods_price}}</view>
                 <view class="tuan">
                   <image src="/images/bg.png" mode='widthFix'></image>
                   <view>{{item.tuan}}</view>
@@ -100,13 +100,13 @@
       </view>
       <view class="shoplist">
         <view class="bottom">
-          <block wx:for="{{allpros}}" wx:key="*this">
+          <block wx:for="{{goods_list}}" wx:key="*this">
             <navigator class="elme" url="{{item.link}}">
-              <view class="tit">{{item.title}}</view>
-              <image class="pro_img" src="{{item.img_url}}" mode='widthFix'></image>
+              <view class="tit">{{item.goods_name}}</view>
+              <image class="pro_img" src="{{item.goods_image_url}}" mode='widthFix'></image>
               <view class="jie">{{item.jie}}</view>
               <view style="overflow:hidden;margin-top:10rpx;">
-                <view class="price">￥{{item.price}}</view>
+                <view class="price">￥{{item.goods_price}}</view>
                 <view class="tuan">
                   <image src="/images/bg.png" mode='widthFix'></image>
                   <view>{{item.tuan}}</view>
@@ -129,16 +129,16 @@
       <view class="shoplist">
         <view class="top">
           <view class="xian"></view>
-          <text style="width:150rpx;">3月2日上新</text>
+          <text style="width:150rpx;">本店新品</text>
         </view>
         <view class="bottom">
-          <block wx:for="{{newpros}}" wx:key="*this">
+          <block wx:for="{{goods_new}}" wx:key="*this">
             <navigator class="elme" url="{{item.link}}">
-              <view class="tit">{{item.title}}</view>
-              <image class="pro_img" src="{{item.img_url}}" mode='widthFix'></image>
+              <view class="tit">{{item.goods_name}}</view>
+              <image class="pro_img" src="{{item.goods_image_url}}" mode='widthFix'></image>
               <view class="jie">{{item.jie}}</view>
               <view style="overflow:hidden;margin-top:10rpx;">
-                <view class="price">￥{{item.price}}</view>
+                <view class="price">￥{{item.goods_price}}</view>
                 <view class="tuan">
                   <image src="/images/bg.png" mode='widthFix'></image>
                   <view>{{item.tuan}}</view>

@@ -211,7 +211,7 @@
 }
 .todaynew .center .prolist{
   overflow:hidden;
-  height: 190rpx;
+  /* height: 190rpx; */
   width: 100%;
   white-space: nowrap;
 }
@@ -295,6 +295,7 @@
   display: block;
 }
 .bigbrand>view{
+  min-height:300rpx;
   width: 345rpx;
   position: relative;
   padding:20rpx 10rpx;

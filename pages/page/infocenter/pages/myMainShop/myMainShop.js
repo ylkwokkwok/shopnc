@@ -1,3 +1,4 @@
+import shop from '../../../../utils/shop'
 Page({
 
   /**
@@ -67,6 +68,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+   console.log(options.store_id)
     var that=this;
     /** 
     * 获取系统信息 
@@ -76,6 +78,40 @@ Page({
         that.setData({
           winHeight: res.windowHeight
         });
+      }
+    });
+    /**
+     * 获取店铺信息
+     */
+    shop.getShopDetailByStore_id(options.store_id).then(res=>{
+      //console.log(options.store_id)
+      if(res.code==200){
+        that.setData({
+          
+          shopinfo: res.datas.store_info
+        });
+      }else{
+        console.log(res)
+      }
+    });
+    /**
+     * 获取店铺商品
+     */
+    shop.getStoreGoodsListOnline(options.store_id).then(res=>{
+      console.log(options.store_id)
+      if (res.code == 200) {
+        console.log(res);
+        var goods_new=[];
+        for (var i=0;i<=3;i++){
+          goods_new.push(res.datas.goods_list[i]);
+        }
+        //console.log(goods_new);
+         that.setData({
+           goods_list: res.datas.goods_list,
+           goods_new:goods_new
+         });
+      } else {
+        console.log(res)
       }
     });
   },

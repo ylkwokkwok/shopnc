@@ -30,4 +30,13 @@ class member_pointsControl extends mobileMemberControl {
         $page_count = $points_model->gettotalpage();
         output_data(array('log_list' => $log_list), mobile_page($page_count));
     }
+
+    //获取单个用户积分
+    public function getPointOp(){
+        $where = array();
+        $where['member_id'] = $this->member_info['member_id'];
+        $point_model=Model('member');
+        $point=$point_model->getPoint($where);
+        output_data(array('point' => $point));
+    }
 }

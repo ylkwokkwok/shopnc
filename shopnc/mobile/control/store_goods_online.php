@@ -28,7 +28,11 @@ class store_goods_onlineControl extends mobileSellerControl {
         $model_goods = Model('goods');
 
         $where = array();
-        $where['store_id'] = $this->store_info['store_id'];
+        if(isset($_GET['store_id'])){
+            $where['store_id'] = $_GET['store_id'];
+        } else{
+            $where['store_id'] = $this->store_info['store_id'];
+        }
         if (intval($_GET['stc_id']) > 0) {
             $where['goods_stcids'] = array('like', '%,' . intval($_GET['stc_id']) . ',%');
         }
@@ -83,6 +87,12 @@ class store_goods_onlineControl extends mobileSellerControl {
 //        $this->profile_menu('goods_list', 'goods_list');
 //        Tpl::showpage('store_goods_list.online');
     }
+    /**
+     * 获取指定店铺上新
+     */
+
+
+
 
     /**
      * 编辑商品页面

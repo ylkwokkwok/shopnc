@@ -54,16 +54,33 @@
         </view>
       </block>
       <block wx:else>
-        <view class="prompt">共{{bransh.length}}条收藏记录 <text>【最多收藏30条】</text></view>
-        <view wx:for="{{shops}}" wx:key="index" wx:for-item="bransh" id="{{bransh.id}}" class="item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{bransh.right}}px" data-group="{{bransh.groupname}}">
-          <image class="sel" bindtap="selBtn" src="{{bransh.isSelected?'/images/comment_select.png':'/images/comment_normal.png'}}" mode="widthFix" data-index="{{index}}" data-id="{{index}}"></image>
-          <image class="img" src="{{bransh.img}}" mode="widthFix"></image>
+        <view class="prompt">共{{shops.length}}条收藏记录 <text>【最多收藏30条】</text></view>
+          <view wx:for="{{shops}}" wx:key="index" wx:for-item="collections" id="{{collections.goods_id}}" class="item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{collections.right}}px" data-group="{{collections.groupname}}">
+            <image class="sel" bindtap="selBtn" src="{{collections.isSelected?'/images/comment_select.png':'/images/comment_normal.png'}}" mode="widthFix" data-index="{{index}}" data-id="{{index}}"></image>
+            <image class="img" src="{{collections.goods_image_url}}" mode="widthFix"></image>
+            <view class="number-wrapper">
+              <text class="name">{{collections.goods_name}}</text>
+              <text class="detail">{{collections.detail}}</text>
+            </view> 
+            <view class="remove" data-index="{{collections.id}}" bindtap="delItem" data-group="{{collections.groupname}}" data-id="{{collections.goods_id}}"><view>删除</view></view>
+          </view> 
+          <view class="prompt">共{{collections.length}}条收藏记录 <text>【最多收藏30条】</text></view>
+        <!-- <view wx:for="{{collections}}" wx:key="*this"> -->
+          <!-- <image class="sel" bindtap="selBtn" src="{{collections.isSelected?'/images/comment_select.png':'/images/comment_normal.png'}}" mode="widthFix" data-index="{{index}}" data-id="{{index}}"></image> -->
+          <!-- <image class="img" src="{{item.goods_image_url}}" mode="widthFix"></image>
           <view class="number-wrapper">
-            <text class="name">{{bransh.name}}</text>
-            <text class="detail">{{bransh.detail}}</text>
+            <text class="name">{{item.goods_name}}</text>
+            <text class="detail">{{item.detail}}</text>
           </view> 
           <view class="remove" data-id="{{bransh.id}}" bindtap="delItem" data-group="{{bransh.groupname}}"><view>删除</view></view>
-        </view>
+        </view> -->
+
+
+
+
+
+
+
         <view class="foot">
           <image class="sel" src="{{isAllSelected?'/images/comment_select.png':'/images/comment_normal.png'}}" mode='widthFix' bindtap='allSelect'></image>
           <text>全选</text>

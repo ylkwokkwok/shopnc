@@ -383,7 +383,7 @@ class storeControl extends mobileHomeControl
      */
     public function store_introOp()
     {
-        $store_id = (int) $_REQUEST['store_id'];
+        $store_id = (int) $_POST['store_id'];
         if ($store_id <= 0) {
             output_error('参数错误');
         }

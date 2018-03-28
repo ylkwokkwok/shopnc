@@ -40,6 +40,26 @@ Page({
         collectImg:"/images/collect_sel.png",
         collectText:"已收藏"
       })
+      var goods_id = this.data.goodsInfo.store_id
+      shop.addCollect({goods_id}).then(res => {
+        if (res.code == 200) {
+          console.log(res)
+          wx.showToast({
+            title: '收藏成功',
+            icon: '',
+            duration: 1000,
+            mask: true
+          })
+        } else {
+          console.log(res)
+          wx.showToast({
+            title: res.datas.error,
+            icon:'none',
+            duration:1000,
+            mask:true
+          })
+        }
+      })
     }else{
       this.setData({
         collectImg: "/images/collect.png",
@@ -50,10 +70,25 @@ Page({
       collect:!(this.data.collect)
     });
   },
-  collectSel:function(){
-    this.setData({
-      isCollect:!this.data.isCollect
-    });
+ //添加店铺收藏
+  collectSel:function(e){
+    var store_id = this.data.storeInfo.store_id
+    shop.addCollectStore({store_id}).then(res =>{
+      if(res.code==200){
+        console.log(res)
+      }else{
+        var errormsg=res.datas.error
+        this.setData({
+          isCollect:true
+        })
+        wx.showToast({
+          title: errormsg,
+          icon: 'none',
+          duration: 1000,
+          mask: true
+        })
+      }
+    })
   },
   /** 
    * 点击tab切换 
@@ -69,6 +104,18 @@ Page({
       })
     }
   },
+  // todo start 待修改
+  prev: function () {
+    wx.previewImage({
+      urls: this.data.detailList,
+    })
+  },
+  showImgs: function () {
+    wx.previewImage({
+      urls: this.data.goods_image,
+    })
+  },
+  // todo end
   /**
    * 选择商品规格
    * @param e

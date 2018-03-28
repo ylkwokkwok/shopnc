@@ -308,6 +308,7 @@ export default {
     return wsAPI.taskSequence()
       .then(() => wsAPI.post('?act=member_cart&op=cart_add', data))
   },
+
   /**
    * 获取店铺信息
    * @returns {boolean}
@@ -423,25 +424,81 @@ export default {
     data.payment_code = 'wxpay_xcx'
     return wsAPI.taskSequence()
       .then(() => wsAPI.get('?act=member_payment&op=' + op, data)).then(res => {
-        if(res.code == 200){
-          wx.requestPayment({
-            'timeStamp': res.datas.timeStamp,
-            'nonceStr': res.datas.nonceStr,
-            'package': res.datas.package,
-            'signType': 'MD5',
-            'paySign': res.datas.paySign,
-            'success':function(res){
-              resolve('success')
-            },
-            'fail':function(res){
-              resolve('fail')
-            },
-            'complete':function(res){
-              resolve('complete')
-            }
-          })
+      if(res.code == 200){
+      wx.requestPayment({
+        'timeStamp': res.datas.timeStamp,
+        'nonceStr': res.datas.nonceStr,
+        'package': res.datas.package,
+        'signType': 'MD5',
+        'paySign': res.datas.paySign,
+        'success':function(res){
+          resolve('success')
+        },
+        'fail':function(res){
+          resolve('fail')
+        },
+        'complete':function(res){
+          resolve('complete')
         }
       })
-      .catch(error => reject(error))
+    }
+  })
+  .catch(error => reject(error))
+  },
+
+  /**
+   * 获取店铺仓库中商品
+   * @param data
+   * @returns {boolean}
+   */
+  getStoreGoodsListOffline: function (data) {
+    //data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.get('?act=store_goods_Offline&op=goods_list', { key: wx.getStorageSync(TOKEN_NAME) }))
+  },
+  /**
+   * 获取单个用户积分
+   */
+  getPoint:function(){
+    //data.key = wx.getStorageSync(TOKEN_NAME)
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.get('?act=member_points&op=getPoint', { key: wx.getStorageSync(TOKEN_NAME) }))
+  },
+  /**
+   * 加入收藏
+   */
+  addCollect:function(data){
+    data.key = wx.getStorageSync(TOKEN_NAME);
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=member_favorites&op=favorites_add', data))
+  },
+  /**
+   * 店铺收藏
+   */
+  addCollectStore:function(data){
+    data.key = wx.getStorageSync(TOKEN_NAME);
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=member_favorites_store&op=favorites_add', data))
+  },
+  /**
+   * 获取收藏夹商品信息
+   */
+  getCollect:function(){
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=member_favorites&op=favorites_list', { key: wx.getStorageSync(TOKEN_NAME) }))
+  },
+  //获取店铺信息（商家、store_id）
+  getShopDetailByStore_id:function(store_id){
+    let data={};
+    data.store_id=store_id;
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=store&op=store_intro', data))
+  },
+  //获取短信验证码
+  getAliMsg:function(tel){
+    let data = {};
+    data.tel = tel;
+    return wsAPI.taskSequence()
+      .then(() => wsAPI.post('?act=ali_msg&op=send_code', data))
   }
 }
