@@ -235,25 +235,25 @@ class goodsControl extends mobileHomeControl{
         //$sole_array = Model('p_sole')->getSoleGoodsList(array('goods_id' => array('in', $goodsid_array)));
         //$sole_array = array_under_reset($sole_array, 'goods_id');
 
-        foreach ($goods_list as $key => $value) {
-            $goods_list[$key]['sole_flag']      = false;
-            $goods_list[$key]['group_flag']     = false;
-            $goods_list[$key]['xianshi_flag']   = false;
-            if (!empty($sole_array[$value['goods_id']])) {
-                $goods_list[$key]['goods_price'] = $sole_array[$value['goods_id']]['sole_price'];
-                $goods_list[$key]['sole_flag'] = true;
-            } else {
-               //$goods_list[$key]['goods_price'] = $value['goods_promotion_price'];
-                switch ($value['goods_promotion_type']) {
-                    case 1:
-                        $goods_list[$key]['group_flag'] = true;
-                        break;
-                    case 2:
-                        $goods_list[$key]['xianshi_flag'] = true;
-                        break;
-                }
-                
-            }
+//        foreach ($goods_list as $key => $value) {
+//            $goods_list[$key]['sole_flag']      = false;
+//            $goods_list[$key]['group_flag']     = false;
+//            $goods_list[$key]['xianshi_flag']   = false;
+//            if (!empty($sole_array[$value['goods_id']])) {
+//                $goods_list[$key]['goods_price'] = $sole_array[$value['goods_id']]['sole_price'];
+//                $goods_list[$key]['sole_flag'] = true;
+//            } else {
+//               //$goods_list[$key]['goods_price'] = $value['goods_promotion_price'];
+//                switch ($value['goods_promotion_type']) {
+//                    case 1:
+//                        $goods_list[$key]['group_flag'] = true;
+//                        break;
+//                    case 2:
+//                        $goods_list[$key]['xianshi_flag'] = true;
+//                        break;
+//                }
+//
+//            }
 
             //商品图片url
             $goods_list[$key]['goods_image_url'] = cthumb($value['goods_image'], 360, $value['store_id']);
