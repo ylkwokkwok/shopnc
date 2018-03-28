@@ -162,15 +162,15 @@ class goodsModel extends Model{
     /**
      * 今日上新产品
      */
-    public function today_new_goods($field = '*', $group = '',$order = 'goods_commonid desc', $limit = 50, $page = 0, $count = 0){
-        return $this->table('goods')->field($field)->where()->group($group)->order($order)->limit($limit)->page($page, $count)->select();
+    public function today_new_goods($field = '*', $group = '',$order = 'goods_commonid desc', $limit = 6, $page = 0, $count = 0){
+        return $this->table('goods_common')->field($field)->where()->group($group)->order($order)->limit($limit)->page($page, $count)->select();
     }
     ///手机验证
     public function sendCaptcha($phone){
         require_once('../../data/api/alimsg/aliyun-dysms-php-sdk/api_demo/SmsDemo.php');
         $b=new SmsDemo();
         $b::sendSms($phone);
-       // return 123;
+        // return 123;
     }
 
     /**
@@ -346,14 +346,14 @@ class goodsModel extends Model{
      *
      */
     public function getGoodsCommendList($store_id, $limit = 5) {
-            $goods_commend_list = $this->getGoodsOnlineList(array('store_id' => $store_id, 'goods_commend' => 1), 'goods_id,goods_name,goods_jingle,goods_image,store_id,goods_promotion_price', 0, 'rand()', $limit, 'goods_commonid');
-            if (!empty($goods_id_list)) {
-                $tmp = array();
-                foreach ($goods_id_list as $v) {
-                    $tmp[] = $v['goods_id'];
-                }
-                $goods_commend_list = $this->getGoodsOnlineList(array('goods_id' => array('in',$tmp)), 'goods_id,goods_name,goods_jingle,goods_image,store_id,goods_promotion_price', 0, 'rand()', $limit);
+        $goods_commend_list = $this->getGoodsOnlineList(array('store_id' => $store_id, 'goods_commend' => 1), 'goods_id,goods_name,goods_jingle,goods_image,store_id,goods_promotion_price', 0, 'rand()', $limit, 'goods_commonid');
+        if (!empty($goods_id_list)) {
+            $tmp = array();
+            foreach ($goods_id_list as $v) {
+                $tmp[] = $v['goods_id'];
             }
+            $goods_commend_list = $this->getGoodsOnlineList(array('goods_id' => array('in',$tmp)), 'goods_id,goods_name,goods_jingle,goods_image,store_id,goods_promotion_price', 0, 'rand()', $limit);
+        }
         return $goods_commend_list;
     }
 
@@ -529,7 +529,7 @@ class goodsModel extends Model{
         return $this->editGoodsCommon($update, $condition);
     }
 
-     /**
+    /**
      * 解锁商品
      * @param unknown $condition
      * @return boolean
@@ -657,7 +657,7 @@ class goodsModel extends Model{
      * @return array
      */
     public function getGoodsInfo($condition, $field = '*') {
-        return $this->table('goods')->field($field)->where($condition)->limit(1)->find();
+        return $this->table('goods')->field($field)->where($condition)->find();
     }
 
     /**
@@ -703,8 +703,8 @@ class goodsModel extends Model{
      * @param int $goods_id
      * @return array
      */
-    public function getGoodsInfoAndPromotionById($goods_commonid) {
-        $goods_info = $this->getGoodsInfoByID($goods_commonid);
+    public function getGoodsInfoAndPromotionById($goods_id) {
+        $goods_info = $this->getGoodsInfoByID($goods_id);
         if (empty($goods_info)) {
             return array();
         }
@@ -712,22 +712,22 @@ class goodsModel extends Model{
         if (C('promotion_allow') && APP_ID == 'mobile') {
             $goods_info['sole_info'] = Model('p_sole')->getSoleGoodsInfoOpenByGoodsID($goods_info['goods_id']);
         }
-        
+
         //抢购
         if (C('groupbuy_allow') && empty($goods_info['sole_info'])) {
             $goods_info['groupbuy_info'] = Model('groupbuy')->getGroupbuyInfoByGoodsCommonID($goods_info['goods_commonid']);
         }
-        
+
         //限时折扣
         if (C('promotion_allow') && empty($goods_info['sole_info']) && empty($goods_info['groupbuy_info'])) {
             $goods_info['xianshi_info'] = Model('p_xianshi_goods')->getXianshiGoodsInfoByGoodsID($goods_info['goods_id']);
         }
-        
+
         // 加价购
         if (C('promotion_allow')) {
             $goods_info['jjg_info'] = Model('p_cou')->getCachedRelationalCouDetailBySingleSku($goods_info['goods_id']);
         }
-        
+
         return $goods_info;
     }
 
@@ -766,11 +766,11 @@ class goodsModel extends Model{
      * @param string $fields 需要取得的缓存键值, 例如：'*','goods_name,store_name'
      * @return array
      */
-    public function getGoodsCommonInfoByID($goods_id, $fields = '*') {
-        $common_info = $this->_rGoodsCommonCache($goods_id, $fields);
+    public function getGoodsCommonInfoByID($goods_commonid, $fields = '*') {
+        $common_info = $this->_rGoodsCommonCache($goods_commonid, $fields);
         if (empty($common_info)) {
-            $common_info = $this->getGoodsCommonInfo(array('goods_commonid'=>$goods_id));
-            $this->_wGoodsCommonCache($goods_id, $common_info);
+            $common_info = $this->getGoodsCommonInfo(array('goods_commonid'=>$goods_commonid));
+            $this->_wGoodsCommonCache($goods_commonid, $common_info);
         }
         return $common_info;
     }
@@ -1012,11 +1012,11 @@ class goodsModel extends Model{
         QueueClient::push('sendStoreMsg', array('code' => $code, 'store_id' => $store_id, 'param' => $param));
     }
 
-     /**
-      * 获得商品子分类的ID
-      * @param array $condition
-      * @return array
-      */
+    /**
+     * 获得商品子分类的ID
+     * @param array $condition
+     * @return array
+     */
     private function _getRecursiveClass($condition){
         if (isset($condition['gc_id']) && !is_array($condition['gc_id'])) {
             $gc_list = Model('goods_class')->getGoodsClassForCacheModel();
@@ -1067,11 +1067,11 @@ class goodsModel extends Model{
      * @param string $fields 需要取得的缓存键值, 例如：'*','goods_name,store_name'
      * @return array
      */
-    public function getGoodsInfoByID($goods_commonid, $fields = '*') {
-        $goods_info = $this->_rGoodsCache($goods_commonid, $fields);
+    public function getGoodsInfoByID($goods_id, $fields = '*') {
+        $goods_info = $this->_rGoodsCache($goods_id, $fields);
         if (empty($goods_info)) {
-            $goods_info = $this->getGoodsInfo(array('goods_commonid'=>$goods_commonid));
-            $this->_wGoodsCache($goods_commonid, $goods_info);
+            $goods_info = $this->getGoodsInfo(array('goods_id'=>$goods_id));
+            $this->_wGoodsCache($goods_id, $goods_info);
         }
         return $goods_info;
     }
@@ -1087,7 +1087,7 @@ class goodsModel extends Model{
         }
         return true;
     }
-    
+
     public function checkOnline($goods) {
         if ($goods['goods_state'] == 1 && $goods['goods_verify'] == 1) {
             return true;
@@ -1185,8 +1185,8 @@ class goodsModel extends Model{
      * @param array $common_info
      * @return boolean
      */
-    private function _wGoodsCommonCache($goods_id, $common_info) {
-        return wcache($goods_id, $common_info, 'goods_common');
+    private function _wGoodsCommonCache($goods_commonid, $common_info) {
+        return wcache($goods_commonid, $common_info, 'goods_common');
     }
 
     /**
@@ -1267,13 +1267,13 @@ class goodsModel extends Model{
             return null;
         }
         $result1 = $this->getGoodsInfoAndPromotionById($goods_id);
-        //$result1=$result1;
+
         if (empty($result1)) {
             return null;
         }
         if ($result1['goods_body'] == '') unset($result1['goods_body']);
-        if ($result1['mobile_body'] == '') unset($result1['mobile_body']); 
-        $result2 = $this->getGoodsCommonInfoByID($result1['goods_id']);
+        if ($result1['mobile_body'] == '') unset($result1['mobile_body']);
+        $result2 = $this->getGoodsCommonInfoByID($result1['goods_commonid']);
         $goods_info = array_merge($result2, $result1);
 
         $goods_info['spec_value'] = unserialize($goods_info['spec_value']);
@@ -1330,19 +1330,19 @@ class goodsModel extends Model{
         $goods_image = array();
         $goods_image_mobile = array();
         if (!empty($image_more)) {
-	array_splice($image_more, 5);
+            array_splice($image_more, 5);
             foreach ($image_more as $val) {
-	    
-	//好商城V5 专用放大镜
+
+                //好商城V5 专用放大镜
                 $goods_image[] = array(cthumb($val['goods_image'], 60, $goods_info['store_id']),cthumb($val['goods_image'], 360, $goods_info['store_id']),cthumb($val['goods_image'], 1280, $goods_info['store_id']));
                 $goods_image_mobile[] = cthumb($val['goods_image'], 360, $goods_info['store_id']);
             }
         } else {
-				// 33 ha o.co m V5. 1 修复编辑产品保存后，无法显示图片
-			  $goods_image[] = array(thumb($goods_info, 60),thumb($goods_info, 360),thumb($goods_info, 1280));
-                $goods_image_mobile[] = thumb($goods_info, 360);
+            // 33 ha o.co m V5. 1 修复编辑产品保存后，无法显示图片
+            $goods_image[] = array(thumb($goods_info, 60),thumb($goods_info, 360),thumb($goods_info, 1280));
+            $goods_image_mobile[] = thumb($goods_info, 360);
         }
-       
+
 
         if ($goods_info['is_book'] != '1') {
             //限时折扣
@@ -1354,7 +1354,7 @@ class goodsModel extends Model{
                 $goods_info['down_price'] = ncPriceFormat($goods_info['goods_price'] - $goods_info['xianshi_info']['xianshi_price']);
                 $goods_info['lower_limit'] = $goods_info['xianshi_info']['lower_limit'];
                 $goods_info['explain'] = $goods_info['xianshi_info']['xianshi_explain'];
-				$goods_info['xs_time'] = $goods_info['xianshi_info']['end_time'];
+                $goods_info['xs_time'] = $goods_info['xianshi_info']['end_time'];
                 unset($goods_info['xianshi_info']);
             }
             //抢购
@@ -1385,7 +1385,7 @@ class goodsModel extends Model{
                     );
                 }
             }
-    
+
             // 验证是否允许送赠品
             if ($this->checkGoodsIfAllowGift($goods_info)) {
                 $gift_array = Model('goods_gift')->getGoodsGiftListByGoodsId($goods_id);
@@ -1405,7 +1405,7 @@ class goodsModel extends Model{
             $goods_info['is_chain'] = 0;
             $goods_info['cart'] = 0;
         }
-        
+
         // 立即购买按钮
         $goods_info['buynow'] = 1;
         // 加价购不显示立即购买按钮
@@ -1422,7 +1422,7 @@ class goodsModel extends Model{
         } elseif ($goods_info['is_fcode'] == 1) {
             $goods_info['buynow_text'] = 'F码购买';
         }
-        
+
 
         $model_plate = Model('store_plate');
         // 顶部关联版式
