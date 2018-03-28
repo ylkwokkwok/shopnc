@@ -1262,11 +1262,11 @@ class goodsModel extends Model{
      * @param int $goods_id
      * @return array
      */
-    public function getGoodsDetail($goods_commonid) {
-        if($goods_commonid <= 0) {
+    public function getGoodsDetail($goods_id) {
+        if($goods_id <= 0) {
             return null;
         }
-        $result1 = $this->getGoodsInfoAndPromotionById($goods_commonid);
+        $result1 = $this->getGoodsInfoAndPromotionById($goods_id);
         //$result1=$result1;
         if (empty($result1)) {
             return null;
