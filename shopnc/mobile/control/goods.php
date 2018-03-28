@@ -243,7 +243,7 @@ class goodsControl extends mobileHomeControl{
                 $goods_list[$key]['goods_price'] = $sole_array[$value['goods_id']]['sole_price'];
                 $goods_list[$key]['sole_flag'] = true;
             } else {
-               // $goods_list[$key]['goods_price'] = $value['goods_promotion_price'];
+               $goods_list[$key]['goods_price'] = $value['goods_promotion_price'];
                 switch ($value['goods_promotion_type']) {
                     case 1:
                         $goods_list[$key]['group_flag'] = true;

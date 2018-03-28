@@ -106,7 +106,7 @@ class store_joinincControl extends mobileMemberControl {
         $obj_validate->validateparam = array(
             array("input"=>$param['store_name'], "require"=>"true","validator"=>"Length","min"=>"1","max"=>"50","message"=>"店铺名称不能为空且必须小于50个字"),
             array("input"=>$param['contacts_name'], "require"=>"true","validator"=>"Length","min"=>"1","max"=>"20","message"=>"联系人姓名不能为空且必须小于20个字"),
-            array("input"=>$param['contacts_phone'], "require"=>"true","validator"=>"phone","message"=>"请正确填写联系电话"),
+            array("input"=>$param['contacts_phone'], "require"=>"true","validator"=>"Length","min"=>"11","max"=>"11","message"=>"请正确填写联系电话"),
             array("input"=>$param['contacts_email'], "require"=>"true","validator"=>"email","message"=>"请正确填写电子邮箱"),
             array("input"=>$param['business_licence_number'], "require"=>"true","validator"=>"Length","min"=>"1","max"=>"20","message"=>"身份证号不能为空且必须小于20个字"),
         );
