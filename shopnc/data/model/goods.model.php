@@ -162,7 +162,7 @@ class goodsModel extends Model{
     /**
      * 今日上新产品
      */
-    public function today_new_goods($field = '*', $group = '',$order = 'goods_commonid desc', $limit = 6, $page = 0, $count = 0){
+    public function today_new_goods($field = '*', $group = '',$order = 'goods_commonid desc', $limit = 50, $page = 0, $count = 0){
         return $this->table('goods')->field($field)->where()->group($group)->order($order)->limit($limit)->page($page, $count)->select();
     }
     ///手机验证

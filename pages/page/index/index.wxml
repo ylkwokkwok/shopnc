@@ -53,14 +53,14 @@
       <scroll-view class="prolist" scroll-x="true">
         <block wx:for="{{today_new_goods}}" wx:key="index">
           <view class="pro">
-            <navigator url="/page/assindex/pages/shopdetail/shopdetail?goods_commonid={{item.goods_commonid}}">
+            <navigator url="/page/assindex/pages/shopdetail/shopdetail?goods_id={{item.goods_id}}">
               <view class="left">
                 <view class="name">{{item.goods_name}}</view>
                 <block wx:if="{{item.goods_jingle!=null}}">
                   <view class="jingle">{{item.goods_jingle}}</view>
                 </block>
                 <view class="newprice">￥{{item.goods_price}}</view>
-                <view class="oldprice">￥{{item.goods_costprice}}</view>
+                <view class="oldprice">￥{{item.goods_marketprice}}</view>
               </view>
               <image class="entry_img" src="{{item.goods_image_url}}" mode='widthFix'></image>
             </navigator>
