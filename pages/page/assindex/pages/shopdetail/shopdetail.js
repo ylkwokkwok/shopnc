@@ -145,9 +145,10 @@ Page({
     this.setData({goodsSpecs: goods_specs})
     this.getGoods(new_goods_id, 1)
   },
-  getGoods: function (goods_id, type) {
+  getGoods: function (goods_commonid, type) {
     var that = this
-    shop.getGoodsDetail({goods_id: goods_id}).then(res => {
+    shop.getGoodsDetail({ goods_commonid: goods_commonid}).then(res => {
+      console.log(res)
       if(res.code == 200){
       var goodsInfo = res.datas.goods_info
       var detailList = this.getLinksByImg(goodsInfo.mobile_body)
@@ -239,8 +240,8 @@ Page({
   },
   onLoad:function(options){
     let that = this
-    var goods_id = options.goods_id
-    that.getGoods(goods_id, 0)
+    var goods_commonid = options.goods_commonid
+    that.getGoods(goods_commonid, 0)
     that.setData({
       isExchange:options.isExchange
     })

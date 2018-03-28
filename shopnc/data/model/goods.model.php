@@ -657,7 +657,7 @@ class goodsModel extends Model{
      * @return array
      */
     public function getGoodsInfo($condition, $field = '*') {
-        return $this->table('goods')->field($field)->where($condition)->find();
+        return $this->table('goods')->field($field)->where($condition)->find()->limit(1);
     }
 
     /**
@@ -1267,7 +1267,7 @@ class goodsModel extends Model{
             return null;
         }
         $result1 = $this->getGoodsInfoAndPromotionById($goods_commonid);
-        $result1=$result1[0];
+        //$result1=$result1;
         if (empty($result1)) {
             return null;
         }

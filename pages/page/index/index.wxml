@@ -53,7 +53,7 @@
       <scroll-view class="prolist" scroll-x="true">
         <block wx:for="{{today_new_goods}}" wx:key="index">
           <view class="pro">
-            <navigator url="/page/assindex/pages/shopdetail/shopdetail?goods_id={{item.goods_id}}">
+            <navigator url="/page/assindex/pages/shopdetail/shopdetail?goods_commonid={{item.goods_commonid}}">
               <view class="left">
                 <view class="name">{{item.goods_name}}</view>
                 <block wx:if="{{item.goods_jingle!=null}}">
