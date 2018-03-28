@@ -657,7 +657,7 @@ class goodsModel extends Model{
      * @return array
      */
     public function getGoodsInfo($condition, $field = '*') {
-        return $this->table('goods')->field($field)->where($condition)->find()->limit(1);
+        return $this->table('goods')->field($field)->where($condition)->limit(1)->find();
     }
 
     /**
