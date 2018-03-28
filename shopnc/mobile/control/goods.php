@@ -232,8 +232,8 @@ class goodsControl extends mobileHomeControl{
             $goodsid_array[] = $value['goods_id'];
         }
         
-        $sole_array = Model('p_sole')->getSoleGoodsList(array('goods_id' => array('in', $goodsid_array)));
-        $sole_array = array_under_reset($sole_array, 'goods_id');
+        //$sole_array = Model('p_sole')->getSoleGoodsList(array('goods_id' => array('in', $goodsid_array)));
+        //$sole_array = array_under_reset($sole_array, 'goods_id');
 
         foreach ($goods_list as $key => $value) {
             $goods_list[$key]['sole_flag']      = false;
