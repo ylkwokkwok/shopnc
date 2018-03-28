@@ -766,11 +766,11 @@ class goodsModel extends Model{
      * @param string $fields 需要取得的缓存键值, 例如：'*','goods_name,store_name'
      * @return array
      */
-    public function getGoodsCommonInfoByID($goods_commonid, $fields = '*') {
-        $common_info = $this->_rGoodsCommonCache($goods_commonid, $fields);
+    public function getGoodsCommonInfoByID($goods_id, $fields = '*') {
+        $common_info = $this->_rGoodsCommonCache($goods_id, $fields);
         if (empty($common_info)) {
-            $common_info = $this->getGoodsCommonInfo(array('goods_commonid'=>$goods_commonid));
-            $this->_wGoodsCommonCache($goods_commonid, $common_info);
+            $common_info = $this->getGoodsCommonInfo(array('goods_commonid'=>$goods_id));
+            $this->_wGoodsCommonCache($goods_id, $common_info);
         }
         return $common_info;
     }
@@ -1185,8 +1185,8 @@ class goodsModel extends Model{
      * @param array $common_info
      * @return boolean
      */
-    private function _wGoodsCommonCache($goods_commonid, $common_info) {
-        return wcache($goods_commonid, $common_info, 'goods_common');
+    private function _wGoodsCommonCache($goods_id, $common_info) {
+        return wcache($goods_id, $common_info, 'goods_common');
     }
 
     /**
@@ -1273,7 +1273,7 @@ class goodsModel extends Model{
         }
         if ($result1['goods_body'] == '') unset($result1['goods_body']);
         if ($result1['mobile_body'] == '') unset($result1['mobile_body']); 
-        $result2 = $this->getGoodsCommonInfoByID($result1['goods_commonid']);
+        $result2 = $this->getGoodsCommonInfoByID($result1['goods_id']);
         $goods_info = array_merge($result2, $result1);
 
         $goods_info['spec_value'] = unserialize($goods_info['spec_value']);
