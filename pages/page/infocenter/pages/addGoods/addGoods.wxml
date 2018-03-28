@@ -1,0 +1,45 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <scroll-view scroll-x="true" class="tab-h">
+    <view class="tab-item {{currentTab==0?'active':''}}"  data-current="0" bindtap="swichNav">首页</view>
+    <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">休闲零食</view>
+    <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">特色生鲜</view>
+    <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">地方特产</view>
+    <view class="tab-item {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">粮油米面</view>
+    <view class="tab-item {{currentTab==5?'active':''}}" data-current="5" bindtap="swichNav">生活用品</view>
+    <view class="tab-item {{currentTab==6?'active':''}}" data-current="6" bindtap="swichNav">其他</view>
+  </scroll-view>
+  <view class="shoplist">
+    <block wx:for="{{goods_list}}" wx:for-index="goodsIndex" wx:for-item="goodsItem" wx:key="key">
+      <view class="shopone">
+        <view class="left">
+          <radio value="1" color='#568FDC' bindtap='selone' checked='{{check}}'/>
+          <image src="{{goodsItem.img}}" mode='widthFix'></image>
+        </view>
+        <view class="right">
+          <view class="jie">{{goodsItem.jie}}</view>
+          <view style="overflow:hidden;margin-top:10rpx;">
+            <view class="price">￥{{goodsItem.price}}</view>
+            <view class="tuan">
+              <image src="/images/bg.png" mode='widthFix'></image>
+              <view>{{goodsItem.tuan}}</view>
+            </view>
+          </view>
+          <view class="bottom">
+            <view class="ppleft">
+              <view class="oldprice">原价: <text>￥3000</text> </view>
+              <view class="pinglun">3万条评论</view>
+            </view>
+          </view>
+        </view>
+      </view> 
+    </block>
+  </view>
+  <view class="foot">
+    <view class="left">
+      <radio class="allsel" color='#568fdc' bindtap='allSel' checked='{{check}}'></radio>
+      <text>全选</text>
+      <view>共10件商品</view>
+    </view>
+    <view class="confirm" bindtap='confirm'>确定添加</view>
+  </view>
+</view>

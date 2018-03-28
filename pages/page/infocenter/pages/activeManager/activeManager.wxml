@@ -1,0 +1,191 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <form class="form">
+    <navigator class="same" url="../activeDetail/activeDetail?curTab={{curTab}}">
+      <label class="black">商品管理</label>
+      <view style="color:red;">请完善所有信息</view>
+      <view class="right">
+        <text>商品管理</text>
+        <image src="/images/jt.png" mode="widthFix"></image>
+      </view>
+    </navigator>
+    <view class="same" style="margin-bottom:0rpx;">
+      <label>活动标题</label>
+      <input name="title" placeholder='请填写您的活动标题' placeholder-style='color:#5d5d5d'></input>
+    </view>
+    <text class="prompt">活动标题填写规则说明</text>
+    <block wx:if="{{curTab==0}}">
+      <view class="same">
+        <label>拼团人数</label>
+        <view class="right" style="width:400rpx;">
+          <input value='2'></input>
+          <text style="float:left;display: block;padding-top: 10rpx;">人</text>
+        </view>
+      </view>
+      <view class="pricegroup">
+        <text>价格设置</text>
+        <view class="same_one">
+          <label>商品原价</label>
+          <view class="right">
+            <input type='digit'></input>
+          </view>
+        </view>
+        <view class="same_one">
+          <label>拼团价</label>
+          <view class="right">
+            <input type='digit'></input>
+          </view>
+        </view>
+      </view>
+      <view class="same">
+        <text>规则说明</text>
+        <textarea placeholder='请填写您的活动规则说明' placeholder-style='color:#333'></textarea>
+      </view>
+      <view class="regular">
+        <text>1、时刻记得发当年罚款十多年开发说的可能立法</text>
+        <text>2、时刻记得发当年罚款十多年开发说的可能立法</text>
+        <text>3、时刻记得发当年罚款十多年开发说的可能立法</text>
+      </view>
+    </block>
+    <block wx:if="{{curTab==1}}">
+      <view class="same">
+        <label>活动时间</label>
+        <view class="right" bindtap='selectDate'>
+          <text>{{date}}</text>
+          <image src="/images/jt.png" mode="widthFix"></image>
+        </view>
+      </view>
+      <view class="same">
+        <label>商品数量</label>
+        <view class="right" style='width:400rpx;'>
+          <input value='10'></input>
+          <text style="float:left;display: block;padding-top: 10rpx;">件</text>
+        </view>
+      </view>
+      <view class="same">
+        <label>商品原价</label>
+        <view class="right">
+          <input type="digit"></input>
+        </view>
+      </view>
+      <view class="same">
+        <text>规则说明</text>
+        <textarea placeholder='请填写您的活动规则说明' placeholder-style='color:#333'></textarea>
+      </view>
+      <view class="regular">
+        <text>1、时刻记得发当年罚款十多年开发说的可能立法</text>
+        <text>2、时刻记得发当年罚款十多年开发说的可能立法</text>
+        <text>3、时刻记得发当年罚款十多年开发说的可能立法</text>
+      </view>
+    </block>
+    <block wx:if="{{curTab==2}}">
+      <view class="same">
+        <label>活动时间</label>
+        <view class="right" bindtap='selectDate2'>
+          <text>{{date2}}</text>
+          <image src="/images/jt.png" mode="widthFix"></image>
+        </view>
+      </view>
+      <view class="pricegroup">
+        <text>设置</text>
+        <view class="same_one">
+          <label>发起人</label>
+          <view class="right" bindtap='showcodition2'>
+            <text>{{precent}}</text>
+            <image src="/images/jt.png" mode='widthFix'></image>
+          </view>
+        </view>
+        <view class="same_one">
+          <label>被邀请人</label>
+          <view class="right" bindtap='showcodition3'>
+            <text>{{precent2}}</text>
+            <image src="/images/jt.png" mode='widthFix'></image>
+          </view>
+        </view>
+      </view>
+      <view class="same">
+        <text>规则说明</text>
+        <textarea placeholder='请填写您的活动规则说明' placeholder-style='color:#333'></textarea>
+      </view>
+      <view class="regular">
+        <text>1、时刻记得发当年罚款十多年开发说的可能立法</text>
+        <text>2、时刻记得发当年罚款十多年开发说的可能立法</text>
+        <text>3、时刻记得发当年罚款十多年开发说的可能立法</text>
+      </view>
+    </block>
+    <button form-type='submit' data-cur="{{curTab}}">确定参加(审核通过后直接上架)</button>
+  </form>
+  <view class="foot">
+    <view data-current="0" bindtap='switchNav'>
+      <image src="{{curTab==0?'/images/pingtuan.png':'/images/pingtuan_gray.png'}}" style="width:40rpx;"></image>
+      <text>拼团</text>
+    </view>
+    <view data-current="1" bindtap='switchNav'>
+      <image src="{{curTab==1?'/images/shiyong.png':'/images/shiyong_gray.png'}}" style="width:37.8rpx;"></image>
+      <text>试吃/试用</text>
+    </view>
+    <view data-current="2" bindtap='switchNav'>
+      <image src="{{curTab==2?'/images/kanjia.png':'/images/kanjia_gray.png'}}" style="width:39.11rpx;"></image>
+      <text>砍价</text>
+    </view>
+  </view>
+  <!--活动时间-->
+  <block wx:if="{{condition1}}">
+    <view class="bg"></view>
+    <view class="selTime">
+      <view class="top">
+        <text>选择活动时间</text>
+        <image src="/images/infocenter/cancel.png" bindtap='hideDate'></image>
+      </view>
+      <view class="bottom">
+        <block wx:for="{{timeSel}}">
+          <view data-value="{{item}}" bindtap='selTime'>{{item}}</view>
+        </block>
+      </view>
+    </view>
+  </block>
+  <!--活动时间-->
+  <block wx:if="{{condition4}}">
+    <view class="bg"></view>
+    <view class="selTime">
+      <view class="top">
+        <text>选择活动时间</text>
+        <image src="/images/infocenter/cancel.png" bindtap='hideDate2'></image>
+      </view>
+      <view class="bottom">
+        <block wx:for="{{timeSel}}">
+          <view data-value="{{item}}" bindtap='selTime2'>{{item}}</view>
+        </block>
+      </view>
+    </view>
+  </block>
+  <!--发起人-->
+  <block wx:if="{{condition2}}">
+    <view class="bg"></view>
+    <view class="selTime">
+      <view class="top">
+        <text>选择活动时间</text>
+        <image src="/images/infocenter/cancel.png" bindtap='hidecondition2'></image>
+      </view>
+      <view class="bottom">
+        <block wx:for="{{precentSel}}">
+          <view data-value="{{item}}" bindtap='selcondition2'>{{item}}</view>
+        </block>
+      </view>
+    </view>
+  </block>
+  <!--被邀请人-->
+  <block wx:if="{{condition3}}">
+    <view class="bg"></view>
+    <view class="selTime">
+      <view class="top">
+        <text>选择活动时间</text>
+        <image src="/images/infocenter/cancel.png" bindtap='hidecondition3'></image>
+      </view>
+      <view class="bottom">
+        <block wx:for="{{precentSel}}">
+          <view data-value="{{item}}" bindtap='selcondition3'>{{item}}</view>
+        </block>
+      </view>
+    </view>
+  </block>
+</view>

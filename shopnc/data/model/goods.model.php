@@ -703,8 +703,8 @@ class goodsModel extends Model{
      * @param int $goods_id
      * @return array
      */
-    public function getGoodsInfoAndPromotionById($goods_id) {
-        $goods_info = $this->getGoodsInfoByID($goods_id);
+    public function getGoodsInfoAndPromotionById($goods_commonid) {
+        $goods_info = $this->getGoodsInfoByID($goods_commonid);
         if (empty($goods_info)) {
             return array();
         }
@@ -1067,11 +1067,11 @@ class goodsModel extends Model{
      * @param string $fields 需要取得的缓存键值, 例如：'*','goods_name,store_name'
      * @return array
      */
-    public function getGoodsInfoByID($goods_id, $fields = '*') {
-        $goods_info = $this->_rGoodsCache($goods_id, $fields);
+    public function getGoodsInfoByID($goods_commonid, $fields = '*') {
+        $goods_info = $this->_rGoodsCache($goods_commonid, $fields);
         if (empty($goods_info)) {
-            $goods_info = $this->getGoodsInfo(array('goods_id'=>$goods_id));
-            $this->_wGoodsCache($goods_id, $goods_info);
+            $goods_info = $this->getGoodsInfo(array('goods_commonid'=>$goods_commonid));
+            $this->_wGoodsCache($goods_commonid, $goods_info);
         }
         return $goods_info;
     }
@@ -1262,12 +1262,12 @@ class goodsModel extends Model{
      * @param int $goods_id
      * @return array
      */
-    public function getGoodsDetail($goods_id) {
-        if($goods_id <= 0) {
+    public function getGoodsDetail($goods_commonid) {
+        if($goods_commonid <= 0) {
             return null;
         }
-        $result1 = $this->getGoodsInfoAndPromotionById($goods_id);
-
+        $result1 = $this->getGoodsInfoAndPromotionById($goods_commonid);
+        $result1=$result1[0];
         if (empty($result1)) {
             return null;
         }

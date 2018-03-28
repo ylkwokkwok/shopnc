@@ -1,0 +1,43 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <block wx:if="{{goods_list.length==0}}">
+    <view class="noGoods">
+      <image src='/images/infocenter/box.png' mode='widthFix'></image>
+      <text>这里空空如也</text>
+      <navigator url="../addGoods/addGoods?curTab={{curTab}}">添加商品</navigator>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="shoplist">
+      <view class="top">
+        正在活动中({{goods_list.length}})
+      </view>
+      <block wx:for="{{goods_list}}" wx:for-index="goodsIndex" wx:for-item="goodsItem" wx:key="key">
+        <view class="shopone">
+          <view class="left">
+            <image src="{{goodsItem.img}}" mode='widthFix'></image>
+            <text>{{goodsItem.tit}}</text>
+          </view>
+          <view class="right">
+            <view class="jie">{{goodsItem.jie}}</view>
+            <view style="overflow:hidden;margin-top:10rpx;">
+              <view class="price">￥{{goodsItem.price}}</view>
+              <view class="tuan">
+                <image src="/images/bg.png" mode='widthFix'></image>
+                <view>{{goodsItem.tuan}}</view>
+              </view>
+            </view>
+            <view class="bottom">
+              <view class="ppleft">
+                <view class="oldprice">原价: <text>￥3000</text> </view>
+                <view class="pinglun">3万条评论</view>
+              </view>
+            </view>
+            <image src="/images/delete.png" mode='widthFix' class="del"></image>
+          </view>
+        </view> 
+      </block>
+    </view>
+    <navigator url="../addGoods/addGoods?curTab={{curTab}}" class="addGoods">添加商品</navigator>
+    <button bindtap='confirm'>确定参加</button>
+  </block>
+</view>

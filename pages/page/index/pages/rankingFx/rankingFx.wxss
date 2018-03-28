@@ -1,0 +1,62 @@
+page{
+  background: #f6f6f6;
+}
+.shoplist{
+  width: 100%;
+}
+.shoplist .shopone{
+  width: 100%;
+  background: white;
+  overflow: hidden;
+}
+.shoplist .shopone .left{
+  float: left;
+  width: 100rpx;
+  margin-top: 35rpx;
+}
+.shoplist .shopone .left image{
+  width: 65rpx;
+  margin:auto;
+  display: block;
+}
+.shoplist .shopone .left view{
+  width: 65rpx;
+  height: 65rpx;
+  border-radius: 50%;
+  border:6rpx solid #ccc;
+  text-align: center;
+  line-height: 53rpx;
+  font-size: 36rpx;
+  font-weight: bolc;
+  margin:auto;
+}
+.shoplist .shopone .right{
+  float: left;
+  width: 630rpx;
+  border-bottom: 1px solid #f7f7f7;
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+  margin-left: 20rpx;
+}
+.shoplist .shopone:last-child .right{
+  border-bottom: none;
+}
+.shoplist .shopone .right image{
+  width: 65rpx;
+  float: left;
+  border-radius: 20rpx;
+  margin-top: 10rpx;
+}
+.shoplist .shopone .right>view{
+  margin-left: 30rpx;
+  float: left;
+  padding-top: 10rpx;
+}
+.shoplist .shopone .right .tit{
+  font-size: 30rpx;
+  color: black;
+}
+.shoplist .shopone .right .jingle{
+  font-size: 24rpx;
+  color: #999;
+}

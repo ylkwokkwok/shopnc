@@ -1,0 +1,23 @@
+<view class="container" style="min-height:{{winHeight}}px">
+  <view class="shoplist">
+    <block wx:for="{{shoplist}}" wx:key="index">
+      <view class="shopone">
+        <view class="left">
+          <block wx:if="{{index>4}}">
+            <image src="/images/up.png" mode='widthFix'></image>
+          </block>
+          <block wx:else>
+            <view style="border-color:{{item.color}};color:{{item.color}}">{{index+1}}</view>
+          </block>
+        </view>
+        <view class='right'>
+          <image class="" src="/images/tx.jpg" mode='widthFix'></image>
+          <view>
+            <view class="tit">{{item.tit}}</view>
+            <view class="jingle">{{item.jingle}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

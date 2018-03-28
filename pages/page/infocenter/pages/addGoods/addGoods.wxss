@@ -1,0 +1,173 @@
+page{
+  background: #f6f6f6;
+}
+.tab-h{
+  height: 100rpx;
+  width: 100%; 
+  overflow: hidden;
+  line-height: 100rpx;
+  font-size: 16px; 
+  white-space: nowrap;
+  z-index: 99;
+  background: white;
+}
+.tab-item{margin:0 36rpx;display: inline-block;height: 98rpx;}
+.tab-item.active{color: #568fdc;border-bottom: 2px solid #568fdc;}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+
+  background: white;
+}
+.tab-item{margin:0 36rpx;display: inline-block;height: 98rpx;}
+.tab-item.active{color: #568fdc;border-bottom: 2px solid #568fdc;}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.shoplist{
+  width: 750rpx;
+  background: white;
+  margin-top: 20rpx;
+}
+.shoplist .shopone{
+  width:710rpx;
+  margin:auto;
+  position: relative;
+  overflow: hidden;
+}
+.shoplist .shopone .sel{
+  width: 40rpx;
+  float: left;
+  margin-top:50rpx;
+}
+.shoplist .shopone .left{
+  float: left;
+  width: 220rpx;
+  position: relative;
+}
+.shoplist .shopone .left radio{
+  float:left;
+  margin-top:80rpx;
+}
+.shoplist .shopone .left>image{
+  width: 160rpx;
+  float: left;
+  margin-top:20rpx;
+}
+.shoplist .shopone .left>text{
+  position: absolute;
+  right: 0;
+  top: 10rpx;
+  color: red;
+  font-size: 20rpx;
+}
+.shoplist .shopone .right{
+  float: left;
+  width: 470rpx;
+  margin-left: 20rpx;
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
+  padding-bottom: 40rpx;
+  position: relative;
+}
+.shoplist .shopone:last-child .right{
+  border-bottom: none;
+}
+.shoplist .shopone .right .jie{
+  width: 95%;
+  font-size: 28rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  padding:0rpx 12rpx;
+  margin-top:20rpx;
+}
+.shoplist .shopone .right .price{
+  font-size: 30rpx;
+  color: red;
+  float: left;
+  padding-left: 12rpx;
+}
+.shoplist .shopone .right .tuan{
+  width: 110rpx;
+  float: left;
+  position: relative;
+  margin-left: 20rpx;
+  margin-top:-5rpx;
+}
+.shoplist .shopone .right .tuan image{
+  width: 100%;
+}
+.shoplist .shopone .right .bottom{
+  display: flex;
+  flex-direction: row;
+  padding-top: 20rpx;
+}
+.shoplist .shopone .right .bottom .ppleft{
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+}
+.shoplist .shopone .right .oldprice,.shoplist .shopone .right .pinglun{
+  font-size: 24rpx;
+  color: #afafaf;
+  padding-left: 12rpx;
+  width:50%;
+}
+.shoplist .shopone .right .oldprice>text{
+  text-decoration: line-through;
+}
+.shoplist .shopone .right .tuan view{
+  position: absolute;
+  width:100%;
+  text-align: center;
+  color: white;
+  top:15rpx;
+  left: 0;
+  right: 0;
+  font-size: 20rpx;
+}
+.foot{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.foot .left{
+  float: left;
+  display: flex;
+  flex-direction: row;
+  margin-left: 20rpx;
+}
+.foot .left radio{
+  margin-top: -5rpx;
+}
+.foot .left text{
+  padding-left: 20rpx;
+  color: #333;
+  font-size: 30rpx;
+}
+.foot .left view{
+  color: #999;
+  font-size: 24rpx;
+  padding-left: 20rpx;
+}
+.foot .confirm{
+  float: right;
+  width: 130rpx;
+  background: #568fdc;
+  color: white;
+  font-size: 26rpx;
+  border-radius: 30rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-top: 25rpx;
+  margin-right: 20rpx;
+  text-align: center;
+}
