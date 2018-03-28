@@ -112,7 +112,7 @@ Page({
   },
   showImgs: function () {
     wx.previewImage({
-      urls: this.data.goods_image,
+      urls: this.data.goodsImage,
     })
   },
   // todo end

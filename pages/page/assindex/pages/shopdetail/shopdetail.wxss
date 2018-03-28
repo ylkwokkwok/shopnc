@@ -391,6 +391,12 @@
   font-size: 20rpx;
   padding-left: 10rpx;
 }
+.swiper-box image {
+width:80%;
+display:block;
+margin:auto;
+
+}
 /* 商品规格 */
 .goods-spec{
   background-color: #ffffff;
