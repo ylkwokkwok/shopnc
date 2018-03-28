@@ -70,7 +70,12 @@
     "page/index/pages/distribute/distribute",
     "page/index/pages/confirmProbation/confirmProbation",
     "page/index/pages/writeReport/writeReport",
-    "page/index/pages/report/report"
+    "page/index/pages/report/report",
+    "page/infocenter/pages/activeManager/activeManager",
+    "page/infocenter/pages/activeDetail/activeDetail",
+    "page/infocenter/pages/addGoods/addGoods",
+    "page/index/pages/categoryPage/categoryPage",
+    "page/index/pages/rankingFx/rankingFx"
   ],
   "window": {
     "backgroundTextStyle": "light",

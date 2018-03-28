@@ -11,10 +11,10 @@ Page({
       { img_url: '/images/banner1.jpg', link: "" }
     ],
     entrys: [
-      { img_url: '/images/pingtuan.png', text: '拼团', link: "/page/index/pages/pingtuan/pingtuan" },
-      { img_url: '/images/shichi.png', text: '试吃', link: "/page/index/pages/probation_list/probation_list" },
-      { img_url: '/images/shiyong.png', text: '试用', link: "/page/index/pages/probation_list/probation_list" },
-      { img_url: '/images/kanjia.png', text: '砍价', link: "/page/index/pages/bargain_list/bargain_list" },
+      { img_url: '/images/item1.png', text: '拼团', link: "/page/index/pages/pingtuan/pingtuan", width: "38rpx" },
+      { img_url: '/images/item2.png', text: '试吃/试用', link: "/page/index/pages/probation_list/probation_list", width: "41.62rpx" },
+      { img_url: '/images/item3.png', text: '砍价', link: "/page/index/pages/bargain_list/bargain_list", width: "55.2rpx" },
+      { img_url: '/images/item4.png', text: '分销排名', link: "/page/index/pages/rankingFx/rankingFx", width: "52.57rpx" },
     ],
     pros: [
       { img_url: "/images/shop1.png", newprice: "300", oldprice: "500", link: "" },
@@ -33,7 +33,8 @@ Page({
       title: '云派易购',
       desc: '有很多好货哦',
       path: '/page/index/index'
-    }
+    },
+    news: ["记得发就开始的", "历史开放后挨饿受冻回复", "拉开圣诞节哦覅速度"]
   },
   swichNav: function (e) {
     var cur = e.target.dataset.current;
@@ -98,7 +99,12 @@ Page({
   },
   onShareAppMessage: function () {
     return this.data.shareData
-  }
+  },
+  onReachBottom: function () {
+    this.setData({
+      nodata: true,
+    });
+  },
  })
 
 

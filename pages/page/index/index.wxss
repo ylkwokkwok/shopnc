@@ -46,10 +46,14 @@
   white-space: nowrap;
   z-index: 99;
   background: white;
-  border-bottom: 1px solid #ccc;  
 }
-.tab-item{margin:0 36rpx;display: inline-block;height: 98rpx;}
+.tab-item{margin:0 36rpx;display: inline-block;height: 98rpx;overflow: visible}
 .tab-item.active{color: #568fdc;border-bottom: 2px solid #568fdc;}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
 .entry{
   flex-direction:row;
   display: flex;
@@ -72,11 +76,10 @@
   display: inline;
 }
 .entry view image{
-  width: 43rpx;
-  height: 43rpx;
+  height: 46rpx;
   display: block;
   margin:auto;
-  margin-top: 27rpx;
+  margin-top: 20rpx;
 }
 .entry view .entry_text{
   text-align: center;
@@ -199,6 +202,21 @@
 .todaynew .center .top{
   overflow: hidden;
   margin-bottom:20rpx;
+  display: flex;
+  flex-direction: row;
+}
+.todaynew .center .top image{
+  width: 20rpx;
+  margin-left: 250rpx;
+  margin-top: 10rpx;
+}
+.todaynew .center .top swiper{
+  height: 40rpx;
+  width: 440rpx;
+  margin-left: 20rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  color: #999;
 }
 .todaynew .center .tit{
   font-size: 34rpx;
@@ -211,18 +229,85 @@
 }
 .todaynew .center .prolist{
   overflow:hidden;
-  /* height: 190rpx; */
   width: 100%;
   white-space: nowrap;
 }
 .todaynew .center .prolist .pro{
-  width: 177rpx;
   display: inline-block;
+  background: #fbfbfb;
+  width: 270rpx;
+  margin-right: 20rpx;
+  height: 220rpx;
+  padding:20rpx;
+  position: relative;
+}
+.todaynew .center .prolist .pro navigator{
+  overflow: visible;
+}
+.todaynew .center .prolist .pro:last-child{
+  margin-right: 0;
+}
+.todaynew .center .prolist .pro .left{
+  width: 170rpx;
+  float: left;
 }
 .todaynew .center .prolist .pro image{
-  width: 100rpx;
+  width: 60rpx;
   display: block;
   margin:auto;
+  float: left;
+  margin-top: 20rpx;
+}
+.todaynew .center .prolist .pro .name{
+  font-size: 24rpx;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.todaynew .center .prolist .pro .jingle{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+  overflow:hidden;
+  color:#999;
+  font-size: 20rpx;
+  padding-top: 10rpx;
+}
+.todaynew .center .prolist .pro .newprice{
+  color: red;
+  font-size: 28rpx;
+  padding-top: 20rpx;
+  text-align: left;
+}
+.todaynew .center .prolist .pro .oldprice{
+  color: #999;
+  font-size: 20rpx;
+  padding-top: 20rpx;
+  text-align: left;
+  position: absolute;
+  bottom: 20rpx;
+  left: 20rpx;
+  text-decoration: line-through;
+}
+.todaynew .center .newsnav{
+  position: absolute;
+  width: 170rpx;
+  height: 55rpx;
+  line-height: 55rpx;
+  left: 85rpx;
+  bottom: 10rpx;
+  display: flex;
+  flex-direction: row;
+}
+.todaynew .center .newsnav text{
+  font-size: 32rpx;
+}
+.todaynew .center .prolist .pro .newsnav image{
+  width: 27rpx;
+  margin-top: 18rpx;
+  margin-left: 10rpx;
+  float: none;
 }
 /*
   精彩快报
@@ -303,6 +388,7 @@
   float: left;
   margin-right: 20rpx;
   margin-bottom: 25rpx;
+  min-height:300rpx;
 }
 .bigbrand>view:nth-child(even){
   margin-right: 0;
@@ -315,4 +401,17 @@
   background: red;
   text-align: center;
   font-size: 24rpx;
+}
+.nodata{
+  display: block;
+  margin:20rpx auto;
+  text-align: center;
+}
+.nodata image{
+  width: 60rpx;
+  margin-right: 20rpx;
+}
+.nodata text{
+  color: #333;
+  font-size: 30rpx;
 }

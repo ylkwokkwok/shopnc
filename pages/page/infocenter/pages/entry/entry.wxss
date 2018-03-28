@@ -7,6 +7,49 @@
   padding:20rpx 0;
   overflow: hidden;
   display: block;
+  padding-top: 0;
+}
+.entry .sameone{
+  width: 100%;
+  position: relative;
+  background: white;
+  overflow: hidden;
+  padding-bottom: 10rpx;
+}
+.entry .sameone .bgimg{
+  width: 100%;
+}
+.entry .sameone .center{
+  position: absolute;
+  width: 460rpx;
+  margin:auto;
+  top: 10rpx;
+  left: 0;
+  right: 0;
+}
+.entry .sameone .idcard{
+  width: 100%;
+  max-height: 328rpx;
+}
+.entry .sameone .watermark{
+  position: absolute;
+  top: 100rpx;
+  left: 0;
+  right: 0;
+  width: 130rpx;
+  margin:auto;
+  z-index: 100;
+}
+.entry .sameone .uploadbtn{
+  width: 710rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #568fdc;
+  text-align: center;
+  color: white;
+  font-size: 28rpx;
+  border-radius: 20rpx;
+  margin:auto;
 }
 .entry .same{
   width: 100%;

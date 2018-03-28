@@ -1,10 +1,10 @@
 <view class="container" style="height:{{winHeight}}px;">
-  <image src="/images/infocenter/bg.jpg" class="bg"></image>
   <view class="login">
+    <image src="/images/logo.jpg" mode='widthFix'></image>
     <text>管理员登录</text>
     <form catchsubmit="formSubmit">
-      <input name="username" placeholder='用户名' class="same" placeholder-style='color:white'></input>
-      <input name="password" placeholder='密码' password="true" class="same" placeholder-style='color:white'></input>
+      <input name="username" placeholder='用户名' class="same" placeholder-style='color:#333'></input>
+      <input name="password" placeholder='密码' password="true" class="same" placeholder-style='color:#333'></input>
       <button class="loginBtn" type='primary' formType="submit">登录</button>
     </form>
   </view>

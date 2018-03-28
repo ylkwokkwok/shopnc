@@ -32,7 +32,43 @@ Page({
     objectStoreClassArray: [],
     storeClassIndex: [0,0,0],
     storeClassId: [0,0,0],
-    storeClassSelects: []
+    storeClassSelects: [],
+    id1:"/images/id1.jpg",
+    id2:"/images/id2.jpg",
+    id3:"/images/id3.jpg"
+  },
+  uploadIdcard1:function(){
+    var that=this;
+    wx.chooseImage({
+      count:1,
+      success: function(res) {
+        that.setData({
+          id1:res.tempFilePaths
+        });
+      },
+    })
+  },
+  uploadIdcard2: function () {
+    var that = this;
+    wx.chooseImage({
+      count: 1,
+      success: function (res) {
+        that.setData({
+          id2: res.tempFilePaths
+        });
+      },
+    })
+  },
+  uploadIdcard3: function () {
+    var that = this;
+    wx.chooseImage({
+      count: 1,
+      success: function (res) {
+        that.setData({
+          id3: res.tempFilePaths
+        });
+      },
+    })
   },
   bindPickerChange: function (e) {
     let selectedClass = this.data.classList[e.detail.value]
@@ -300,24 +336,16 @@ Page({
     that.setData({
       disabled: true
     })
-    // wx.request({
-    //   url: 'http://demo.it9g.com/mobile/index.php?act=ali_msg&op=sendCode',
-    //   method: "POST",
-    //   header: {
-    //     "content-type": "application/x-www-form-urlencoded"
-    //   },
-    //   data: '',
-    //   success: function () {
-    //     console.log(1)
-
-    //   }
-    // })
-    //获取短信验证码
-    shop.getAliMsg(13088209127).then(res=>{
-      if(res.code){
+    wx.request({
+      url: 'http://demo.it9g.com/mobile/index.php?act=ali_msg&op=sendCode',
+      method: "POST",
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      data: '',
+      success: function () {
         console.log(1)
-      }else{
-        console.log(res)
+
       }
     })
   },

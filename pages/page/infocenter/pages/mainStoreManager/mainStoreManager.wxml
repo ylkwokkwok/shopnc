@@ -86,7 +86,7 @@
         <image src="/images/infocenter/jjicon.png" style="width:42rpx;"></image>
         <text>竞价管理</text>
       </navigator>
-      <navigator>
+      <navigator url="../activeManager/activeManager">
         <image src="/images/infocenter/hdglicon.png" style="width:43rpx;"></image>
         <text>活动管理</text>
       </navigator>

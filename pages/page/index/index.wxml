@@ -3,17 +3,17 @@
   <!--搜索-->
   <view class="top_search">
     <input confirm-type="search" type="text" placeholder='请输入您要搜索的内容' placeholder-style="color:#fff"/>
-    <image src='../../images/search.png' mode='widthFix'></image>
+    <image src='/images/search.png' mode='widthFix'></image>
   </view>
   <!--筛选-->
   <scroll-view scroll-x="true" class="tab-h">
-    <view class="tab-item {{currentTab==0?'active':''}}"  data-current="0" bindtap="swichNav">首页</view>
-    <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">休闲零食</view>
-    <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">特色生鲜</view>
-    <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">地方特产</view>
-    <view class="tab-item {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">粮油米面</view>
-    <view class="tab-item {{currentTab==5?'active':''}}" data-current="5" bindtap="swichNav">生活用品</view>
-    <view class="tab-item {{currentTab==6?'active':''}}" data-current="6" bindtap="swichNav">其他</view>
+    <view class="tab-item active">首页</view>
+    <navigator class="tab-item" url="/page/index/pages/categoryPage/categoryPage?currentTab=1">休闲零食</navigator>
+    <navigator class="tab-item" url="/page/index/pages/categoryPage/categoryPage?currentTab=2">特色生鲜</navigator>
+    <navigator class="tab-item" url="/page/index/pages/categoryPage/categoryPage?currentTab=3">地方特产</navigator>
+    <navigator class="tab-item" url="/page/index/pages/categoryPage/categoryPage?currentTab=4">粮油米面</navigator>
+    <navigator class="tab-item" url="/page/index/pages/categoryPage/categoryPage?currentTab=5">生活用品</navigator>
+    <navigator class="tab-item" url="/page/index/pages/categoryPage/categoryPage?currentTab=6">其他</navigator>
   </scroll-view>
   <!--轮播-->
   <view class="swiper">
@@ -30,7 +30,7 @@
       <block wx:for="{{entrys}}" wx:key="*this">
         <view>
           <navigator url="{{item.link}}" open-type='navigate'>
-            <image class="entry_img" src="{{item.img_url}}"></image>
+            <image class="entry_img" src="{{item.img_url}}" style="width:{{item.width}}"></image>
             <view class="entry_text">{{item.text}}</view>
           </navigator>
         </view>
@@ -41,17 +41,32 @@
   <view class="todaynew">
     <view class="center">
       <view class="top">
-        <view class="tit">今日上新</view>
-        <navigator url="">更多新品 ></navigator>
+        <image src="/images/bell.png" mode='widthFix'></image>
+        <swiper vertical='true' autoplay='true' interval='4000' circular='true'>
+          <block wx:for="{{news}}">
+            <swiper-item>
+              <view>{{item}}</view>
+            </swiper-item>
+          </block>
+        </swiper>
       </view>
       <scroll-view class="prolist" scroll-x="true">
-        <block wx:for="{{today_new_goods}}" wx:key="*this">
+        <block wx:for="{{today_new_goods}}" wx:key="index">
           <view class="pro">
             <navigator url="/page/assindex/pages/shopdetail/shopdetail?goods_id={{item.goods_id}}">
+              <view class="left">
+                <view class="name">{{item.goods_name}}</view>
+                <block wx:if="{{item.goods_jingle!=null}}">
+                  <view class="jingle">{{item.goods_jingle}}</view>
+                </block>
+                <view class="newprice">￥{{item.goods_price}}</view>
+                <view class="oldprice">￥{{item.goods_costprice}}</view>
+              </view>
               <image class="entry_img" src="{{item.goods_image_url}}" mode='widthFix'></image>
-              <view class="newprice">{{item.goods_name}}</view>
-              <view class="oldprice">{{item.goods_price}}</view>
             </navigator>
+            <block wx:if="{{index==0}}">
+              <navigator class="newsnav"><text>今日上新</text><image src="/images/circlereturn.png" mode='widthFix'></image></navigator>
+            </block>
           </view>
         </block>
       </scroll-view>
@@ -60,7 +75,7 @@
   <!--精彩快报-->
   <view class="advert">
     <image src="../../images/kuaibao.png" mode='widthFix'></image>
-    <swiper autoplay="true" interval="3000" duration="500">
+    <swiper autoplay="true" interval="3000" duration="500" vertical='true' circular="true">
       <block wx:for="{{fast_news}}" wx:key='*this'>
         <swiper-item>
            <navigator>
@@ -105,17 +120,23 @@
     </view>
   </view>
   <view class='bigbrand hotshow'>
-  <block wx:for="{{goods_list}}" wx:key="bigbrand">
-      <view style="padding-top:0rpx;padding-left:0rpx;">
-        <navigator url="/page/assindex/pages/shopdetail/shopdetail?goods_id={{item.goods_id}}">
-          <view class="sign2">大品牌</view>
-          <view class="tit">{{item.goods_name}}</view>
-          <view class='jie'>{{item.jingle}}</view>
-          <view class="proimgs">
-            <image src="{{item.goods_image_url}}" mode='widthFix'></image>
-          </view>
-        </navigator>
+    <block wx:for="{{goods_list}}" wx:key="bigbrand">
+        <view style="padding-top:0rpx;padding-left:0rpx;">
+          <navigator url="/page/assindex/pages/shopdetail/shopdetail?goods_id={{item.goods_id}}">
+            <view class="sign2">大品牌</view>
+            <view class="tit">{{item.goods_name}}</view>
+            <view class='jie'>{{item.jingle}}</view>
+            <view class="proimgs">
+              <image src="{{item.goods_image_url}}" mode='widthFix'></image>
+            </view>
+          </navigator>
+        </view>
+      </block>
+    </view>
+    <block wx:if="{{nodata}}">
+      <view class="nodata">
+        <image src="/images/logo2.png" mode='widthFix'></image>
+        <text>云派也是有底线的</text>
       </view>
     </block>
-    </view>
 </view>
