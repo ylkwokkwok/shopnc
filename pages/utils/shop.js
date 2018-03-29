@@ -201,7 +201,9 @@ export default {
    * @param data
    * @returns {boolean}
    */
-  getStoreGoodsListOnline: function (data) {
+  getStoreGoodsListOnline: function (store_id) {
+    let data={};
+    data.store_id=store_id;
     data.key = wx.getStorageSync(TOKEN_NAME)
     return wsAPI.taskSequence()
       .then(() => wsAPI.get('?act=store_goods_online&op=goods_list', data))

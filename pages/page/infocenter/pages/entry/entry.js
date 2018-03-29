@@ -70,6 +70,48 @@ Page({
       },
     })
   },
+  //ajax上传身份证照片
+  chooseImg: function (e) {
+    var that = this;
+    wx.chooseImage({
+      success: function (res) {
+        console.log(res)
+        for (var i in res.tempFilePaths) {
+          wx.uploadFile({
+            url: apiBaseUrl + '?act=store_joinin&op=image_upload&upload_type=uploadfile',
+            filePath: res.tempFilePaths[i],
+            name: 'goods_image',
+            formData: {
+              'name': 'goods_image',
+              'key': wx.getStorageSync('TOKEN-NAME')
+            },
+            success: function (res) {
+              console.log('upload success：', res)
+              var data = res.data
+              data = JSON.parse(data)
+              if (data.code == 200) {
+                var imgItem = {}
+                imgItem.name = data.datas.name
+                imgItem.thumb_name = data.datas.thumb_name
+                that.data.imgList.push(imgItem)
+                that.setData({
+                  imgList: that.data.imgList
+                })
+              }
+            },
+            fail: function (res) {
+              console.log('upload fail：', res)
+            }
+          })
+        }
+      },
+    })
+  },
+
+
+
+
+
   bindPickerChange: function (e) {
     let selectedClass = this.data.classList[e.detail.value]
     this.setData({

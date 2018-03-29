@@ -7,7 +7,7 @@
           <image src="{{id1}}" mode='widthFix' class="idcard"></image>
           <image src="/images/logo3.png" mode='widthFix' class="watermark"></image>
         </view>
-        <view class="uploadbtn" bindtap='uploadIdcard1'>点击上传</view>
+        <view class="uploadbtn" bindtap='chooseImg'>点击上传</view>
       </view>
       <view class="sameone">
         <image src="/images/bgimg.jpg" mode='widthFix' class="bgimg"></image>

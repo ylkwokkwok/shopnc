@@ -83,17 +83,17 @@ Page({
         //success
         console.log(res.datas);
         var data = res.datas.today_new_goods_list;
-        for(var i in data){
-          var brr=data[i].goods_name.split(" ");
-          data[i].goods_name=brr[0];
+        for (var i in data) {
+          var brr = data[i].goods_name.split(" ");
+          data[i].goods_name = brr[0];
         }
         that.setData({
-          
+
           today_new_goods: data
         })
       } else {
         //error
-      console.log('今日上新获取失败');
+        console.log('今日上新获取失败');
       }
     })
   },

@@ -95,7 +95,7 @@
       <block wx:else>
         <view bindtap='collectSel'>已收藏该店铺</view>
       </block>
-      <navigator class="joinstore" url="../../../infocenter/pages/myMainShop/myMainShop">进入店铺</navigator>
+      <navigator class="joinstore" url="../../../infocenter/pages/myMainShop/myMainShop?store_id={{storeInfo.store_id}}">进入店铺</navigator>
     </view>
   </view> 
   <!--评价-->
